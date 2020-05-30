@@ -1,0 +1,47 @@
+.FeaturesAlt__item {
+  margin: 12px 0;
+}
+
+.FeaturesAlt__item-link {
+  display: flex;
+  align-items: center;
+  border: 2px solid transparent;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 16px 48px rgba(32, 41, 50, 0.12);
+
+  &:hover {
+    background-color: #fefefe;
+  }
+
+  &.is-active {
+    border-color: #00c7fa;
+  }
+}
+
+.FeaturesAlt__column {
+  display: flex;
+  align-items: center;
+}
+
+.FeaturesAlt__content {
+  display: none;
+
+  &.is-active {
+    display: block;
+    animation: panelIn 0.4s ease both;
+  }
+
+  // TODO: Figure out how we handle keyframes
+  @keyframes panelIn {
+    0% {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

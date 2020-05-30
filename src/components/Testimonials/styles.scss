@@ -1,0 +1,38 @@
+.Testimonials__column {
+  display: flex;
+  align-items: stretch;
+}
+
+.Testimonials__card {
+  display: flex;
+  align-items: stretch;
+}
+
+.Testimonials__card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem;
+}
+
+.Testimonials__avatar {
+  position: relative;
+  margin: 0 auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.Testimonials__image {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.Testimonials__quote {
+  margin-top: 40px;
+  font-style: italic;
+}
+
+.Testimonials__info {
+  margin-top: auto;
+  padding-top: 40px;
+}

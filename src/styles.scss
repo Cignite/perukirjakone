@@ -1,0 +1,41 @@
+// Global style and Bulma overrides
+
+// Don't increase container width at fullHD
+// breakpoint. Too wide for this theme.
+@media screen and (min-width: 1472px) {
+  .container {
+    max-width: 1152px;
+  }
+}
+
+// Increase padding on medium section.
+.section.is-medium {
+  @media screen and (min-width: 769px) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+// Wrapper around section title/subtitle with
+// extra bottom margin.
+.section-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+// Override card style
+.card {
+  box-shadow: 0 16px 48px #e3e7eb;
+}
+
+.card-content {
+  padding: 2rem;
+}
+
+.paddingLeft{
+  /* padding-left:400px; */
+  text-align: center;
+}
+.paddingInner{
+  margin:0px 10px 0px 10px;
+}

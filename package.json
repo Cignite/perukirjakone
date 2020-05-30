@@ -1,0 +1,28 @@
+{
+  "version": "0.0.91",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "name": "landing-page-work-in-progress",
+  "main": "src/index.js",
+  "keywords": [],
+  "devDependencies": {
+    "react-scripts": "1.0.0"
+  },
+  "description": "perukone (Thaman)",
+  "dependencies": {
+    "react-scripts": "2.0.3",
+    "react-dom": "16.8.0",
+    "react": "16.8.0",
+    "bulma": "0.7.2"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

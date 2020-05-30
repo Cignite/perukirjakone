@@ -1,0 +1,75 @@
+.FooterComponent {
+  padding: 1.5rem 1.5rem;
+  background-color: #1c2a4c;
+  color: #FFF;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    > div {
+      display: flex;
+      flex: none;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+  }
+
+  a {
+    color: inherit;
+    &:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  }
+
+  .brand {
+    img {
+      display: block;
+      height: 32px;
+    }
+  }
+
+  .social {
+    align-items: flex-end;
+    a:not(:first-of-type) {
+      margin-left: 30px;
+    }
+  }
+
+  .links {
+    a:not(:first-of-type) {
+      margin-left: 15px;
+    }
+  }
+
+  .copyright {
+  }
+
+  .footer__nav {
+    flex: 100%;
+  }
+  .footer__nav_item {
+    list-style: none;
+    padding: 13px;
+  }
+  // Tablet and up
+  @media screen and (min-width: 769px) {
+    .container {
+
+      .left {
+
+      }
+
+      .right {
+
+      }
+    }
+
+    // Move links to end (bottom right)
+    // Swaps position with social
+    .links {
+      order: 1;
+    }
+  }
+}
