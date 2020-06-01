@@ -39,3 +39,17 @@
 .paddingInner{
   margin:0px 10px 0px 10px;
 }
+.navbar-item img {
+  max-height: 3rem;
+}
+.navbar-item:hover img {
+  max-height: 3rem;
+}
+
+.navbar {
+    background-color: #fff;
+    min-height: 3.25rem;
+    position: relative;
+    z-index: 30;
+    padding: 6px 0px;
+}
