@@ -4,20 +4,24 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "css-build": "node-sass --omit-source-map-url public/styles/main.scss public/styles/main.css",
+    "css-watch": "npm run css-build -- --watch"
   },
   "name": "landing-page-work-in-progress",
   "main": "src/index.js",
   "keywords": [],
   "devDependencies": {
+    "node-sass": "^4.14.1",
     "react-scripts": "1.0.0"
   },
   "description": "perukone (Thaman)",
   "dependencies": {
-    "react-scripts": "2.0.3",
-    "react-dom": "16.8.0",
     "react": "16.8.0",
-    "bulma": "0.7.2"
+    "react-dom": "16.8.0",
+    "react-hooks-helper": "^1.6.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "2.0.3"
   },
   "browserslist": [
     ">0.2%",
