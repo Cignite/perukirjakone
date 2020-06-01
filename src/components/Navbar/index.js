@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "../images/logo.png";
+import Img from "../images/couple.jpg";
 
 import "./styles.scss";
 
@@ -9,7 +9,7 @@ function Navbar(props) {
       <div className="container">
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
-            <img src={Img} width={100} height={100} />
+            <h2 class="title is-spaced is-1 has-text-weight-bold">Perukirjakone</h2>
           </a>
         </div>
       </div>
