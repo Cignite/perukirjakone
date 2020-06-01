@@ -1,29 +1,33 @@
-import React from "react";
-import Footer from "./../Footer";
-import FeaturesSection from "./../FeaturesSection";
-import FeaturesSectionAlt from "./../FeaturesSectionAlt";
-import TestimonialsSection from "./../TestimonialsSection";
-import ClientsSection from "./../ClientsSection";
-import PricingSection from "./../PricingSection";
-import Navbar from "./../Navbar";
-import Divider from "./../Divider";
-import MainSection from "./../MainSection";
-import "./styles.scss";
+/**
+ *
+ * App.js
+ *
+ * This component is the skeleton around the actual pages, and should only
+ * contain code that should be seen on all pages. (e.g. navigation bar)
+ */
 
-function App(props) {
+import React from 'react';
+import PropTypes from 'prop-types';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import HomePage from '../Homepage';
+import RegisterPage from '../Registerpage';
+import NotFoundPage from '../NotFound';
+
+import MainWrapper from '../Wrapper';
+
+export default function App() {
   return (
-    <>
-      <Navbar />
-      <MainSection />
-      <ClientsSection />
-      <Divider />
-      <FeaturesSection />
-      <TestimonialsSection />
-      <FeaturesSectionAlt />
-      <PricingSection />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <MainWrapper>
+        <main>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/register" component={RegisterPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </main>
+      </MainWrapper>
+    </BrowserRouter>
   );
 }
-
-export default App;
