@@ -1,0 +1,172 @@
+input,
+select {
+  text-align: left;
+  padding: 0.6rem 0.6rem;
+  margin: 0.5rem 0 0.5rem 0.1rem;
+  border: 1px solid #a4a4a4;
+  color: #a2a2a2;
+  width: 100%;
+}
+
+select {
+  background-color: transparent;
+  padding: 0.3rem 0.8rem;
+  margin: 0.5rem 0 0.5rem 0.8rem;
+  border: 1px solid #a4a4a4;
+  color: #a2a2a2;
+  height: 2rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  margin: 0.5rem 0;
+}
+
+.imageCover {
+  max-width: 400px;
+  height: auto;
+  margin-bottom: -40px;
+}
+
+ul.step-wizard {
+  list-style: none;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  position: relative;
+  padding-top: 5px;
+}
+
+.step-wizard li {
+  display: table-cell;
+  text-align: center;
+  vertical-align: top;
+  overflow: visible;
+  position: relative;
+  font-size: 14px;
+  color: #ccc;
+  z-index: 1;
+}
+.step-wizard li span,
+.step-wizard li i {
+  width: 40px;
+  height: 40px;
+  margin-top: 0;
+  color: #eee;
+  background: #ccc;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 100%;
+}
+.step-wizard li .step-text {
+  padding-top: 10px;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #14FFEC;
+}
+.step-wizard li:not(:last-child):before {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 50%;
+  bottom: 68%;
+  background-color: #14FFEC;
+  height: 7px;
+  width: 100%;
+  z-index: -1;
+}
+.step-wizard li.complete {
+  color: #000;
+}
+.step-wizard li.complete span,
+.step-wizard li.complete i {
+  background: #323232;
+  color: #fff;
+}
+.step-wizard li.complete .step-text {
+  border-bottom: 2px solid #323232;
+}
+.step-wizard li.complete:not(:last-child):before {
+  background: #323232;
+}
+.step-wizard li.active span,
+.step-wizard li.active i {
+  background: #323232;
+  color: #fff;
+}
+.step-wizard li.active .step-text {
+  color: #000;
+  font-weight: bold;
+
+  border-bottom: 7px solid #323232;
+}
+
+.step-content {
+  display: none;
+  background: transparent;
+}
+
+.step-content.active {
+  display: block;
+}
+
+/*@media only screen and (min-width:766px){
+      #headerRight {
+        float:none !important;
+        text-align: left !important;
+        margin-right:0;
+        width: auto;
+    }
+    }*/
+.disabled-button {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
+.form__col {
+  margin: 17px auto;
+}
+
+.input__label {
+  display: inherit;
+  font-family: inherit;
+  font-weight: bold;
+}
+
+
+.card.is-height {
+  height: 300px;
+}
+
+.card.has-text-centered {
+  .card-header,
+  .card-content,
+  .card-footer {
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: bold;
+  }
+}
+
+.card-header {
+  padding: 1.75rem 0;
+}
+
+.card-content {
+  padding: 3.5rem 0;
+}
+
+.preview-header {
+  padding-top: 22px;
+  color: #323232;
+}
+
+.form__footer {
+  padding: 12px;
+}
