@@ -7,28 +7,28 @@ import "./styles.scss";
 
 function MainSection(props) {
   return (
-    <div class="hero is-fullheight is-primary has-background">
-      <img alt="Fill Murray" class="hero-background" src={Img} />
-        <div class="hero-head">
-          <nav class="navbar">
-            <div class="container">
-              <div class="navbar-brand">
-                <Link to="/" class="navbar-item">
+    <div className="hero is-fullheight is-primary has-background">
+      <img alt="Fill Murray" className="hero-background" src={Img} />
+        <div className="hero-head">
+          <nav className="navbar">
+            <div className="container">
+              <div className="navbar-brand">
+                <Link to="/">
                   <img src={logo} alt="Perukirjakone" />
                 </Link>
               </div>
             </div>
           </nav>
         </div>
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
+      <div className="hero-body">
+        <div className="container">
+          <h1 className="title">
             We digitalise your last will
           </h1>
-          <h3 class="subtitle">
+          <h3 className="subtitle">
             More description here
           </h3>
-          <Link to="/register">
+          <Link to="/user-validation">
             <button
               className="button is-medium is-primary"
             >

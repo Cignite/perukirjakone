@@ -2,13 +2,12 @@ import React from "react";
 
 import "./styles.scss";
 
-//C plus pricing mais mtn FAQ ici.
 
 function Pricing(props) {
   return (
     <div className="is-multiline is-centered">
-      {props.items.map(item => (
-        <div className="Pricing__column column">
+      {props.items.map((item, index) => (
+        <div className="Pricing__column column" key={index}>
           <div
             className={
               "Pricing__card card" +

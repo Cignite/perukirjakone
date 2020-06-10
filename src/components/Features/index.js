@@ -6,7 +6,7 @@ function Features(props) {
   return (
     <div className="Features">
       {props.items.map((item, index) => (
-        <div className="Features__columns columns is-variable is-8 is-vcentered has-text-centered-mobile">
+        <div className="Features__columns columns is-variable is-8 is-vcentered has-text-centered-mobile" key={index}>
           <div className="column is-half" data-v-490538c8="">
             <h3 className="Features__title title has-text-weight-bold is-spaced is-3">
               {item.title}
