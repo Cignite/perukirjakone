@@ -6,7 +6,7 @@ function Footer(props) {
   return (
     <footer className="FooterComponent">
       <div className="container">
-        <div class="footer_nav">
+        <div className="footer_nav">
           <li className="footer__nav_item">
             <p>About us</p>
           </li>
