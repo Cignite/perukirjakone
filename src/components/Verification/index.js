@@ -1,71 +1,188 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { Field, Form } from "react-final-form";
+import * as EmailValidator from "email-validator";
 
+import InputWrapper from '../Shared/Input';
+import Error from '../Shared/Error';
 import logo from '../images/logo.svg'
 
-const UserVerification = () => {
+import {  uniqueDocumentCodeId } from '../utils';
+
+import './styles.scss';
+
+const API_BASE_URL = "https://perukirjakone.herokuapp.com/";
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+const onSubmit = async values => {
+  await sleep(300);
+  console.log("value")
+};
+
+
+const UserVerfication = (props) => {
+  console.log("UserRegistration", props);
+  const [showLoader, setShowLoader] = React.useState(false);
+  const [doesEmailExist, setDoesEmailExist] = React.useState(false);
+  const [docData, setDocData] = React.useState(null);
+  const [isEmailValid, setIsEmailValid] = React.useState(true);
+  const [isTermsServiceAgreed, setIsTermsServiceAgreed] = React.useState(true);
+  const [emailVerificationNotify, setEmailVerificationNotify] = React.useState(false);
+  const [isCodeExist, setIsCodeExist] = React.useState(false);
+
+  const verifyEmailCode = async (formData) => {
+    setDoesEmailExist(false);
+    if (!formData.email) {
+      setIsEmailValid(false);
+    }
+    if (!formData.isTermsAgreed) {
+      setIsTermsServiceAgreed(false);
+    }
+    if (!formData.isTermsAgreed) {
+      setIsCodeExist(false);
+    } else {
+      try {
+        setShowLoader(true);
+          await axios.get(`${API_BASE_URL}${'documents?email='}${formData.email}${'&code='}${formData.code}`)
+          .then(res => {
+            console.log("verifyEmailCode respose", res)
+            setShowLoader(false);
+            if (!res.data.length > 0) {
+              setDoesEmailExist(true);
+            } else {
+              setDoesEmailExist(false);
+              setEmailVerificationNotify(true);
+              setTimeout(()=>{
+                props.history.push('/wizard-form');
+              }, 5000);
+            }
+          })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
   return(
     <section className="hero is-fullheight is-primary is-bold">
       <div className="hero-body">
         <div className="container">
           <div className="columns is-centered">
-            <div className="column is-5-tablet is-4-desktop is-4-widescreen">
-              <form action="" className="box ">
+            <div className="column is-4-tablet is-4-desktop is-4-widescreen">
+              <div action="" className="box ">
                 <div className="section has-text-centered">
                   <Link to="/" className="logo">
-                    <img src={logo} alt="Perukirjakone" classNameName="has-text-centered" />
+                    <img src={logo} alt="Perukirjakone" className="has-text-centered" />
                   </Link>
                 </div>
                 <div className="field has-text-centered">
                   <label className="label is-size-4">Verify code</label>
-                  <p className="is-small">With
+                  <p className="is-small grey-light">With
                   the help of verification code we can make sure that right person
                   is accessing Perukirjakone service.</p>
                 </div>
                 <br/>
-                <div className="field">
 
-                  <div className="control has-icons-left">
-                    <input type="text" placeholder="Email" className="input" required />
-                    <span className="icon is-small is-left">
-                      <i className="fa fa-user"></i>
-                    </span>
-                  </div>
-                </div>
-                <div className="field">
+                  <Form
+                    initialValues={{isTermsAgreed: false}}
+                    validate={values => {
+                      const errors = {};
+                      if (!values.email) {
+                        errors.email = 'Email is required!';
+                      } if (!EmailValidator.validate(values.email)) {
+                        errors.email = "Invalid email address.";
+                      }
+                      if (!values.isTermsAgreed) {
+                        errors.isTermsAgreed = "Accept terms of service!";
+                      }
+                      if (!values.code) {
+                        errors.code = "Code is required!";
+                      }
+                      return errors
+                    }}
+                    onSubmit={onSubmit}
+                    render={({ handleSubmit, pristine, values, submitting, invalid}) => (
+                      <form onSubmit={handleSubmit} className="user-validation">
+                        <div className="columns">
+                          <div className="column control is-8">
+                            <Field
+                              name="email"
+                              component={InputWrapper}
+                              type="email"
+                              placeholder="hello@abc.fi"
+                              label="Email"
+                            />
+                            <Error name="email" />
+                            <Error name="code" />
+                          </div>
+                          <div className="column control">
+                            <Field
+                              name="code"
+                              component={InputWrapper}
+                              type="password"
+                              placeholder="30X30F"
+                              label="Code"
+                            />
 
-                  <div className="control has-icons-left">
-                    <input type="password" placeholder="code" className="input" required />
-                    <span className="icon is-small is-left">
-                      <i className="fa fa-lock"></i>
-                    </span>
-                  </div>
-                </div>
-                <div className="field">
-                  <label className="checkbox">
-                    <input type="checkbox" />
-                    &nbsp;I agree to the terms and services and privacy policy
-                  </label>
-                </div>
+                        </div>
+                        </div>
+                        <div className="field">
+                          <Field
+                            name="isTermsAgreed"
+                            component="input"
+                            type="checkbox"
+                            id="isTermsAgreed"
+                          />
+
+                          <label className="checkbox" htmlFor="isTermsAgreed">
+                            &nbsp;I agree to the terms and services and privacy policy
+                          </label>
+                          <Error name="isTermsAgreed" />
+                        </div>
+
+                        <div className="field level-right">
+                          <button
+                            className="button is-success is-fullwidth"
+                            onClick={() => verifyEmailCode(values)}
+                            disabled={showLoader || submitting || pristine}
+                          >
+                            Verify code
+                          </button>
+                        </div>
+                        {emailVerificationNotify && (
+                          <div class="notification is-info">
+                            <p>Email and code has been verified!</p>
+                            <p>Redirecting....</p>
+                          </div>
+                        )}
+                        {doesEmailExist && (
+                          <div className="notification is-danger form__notification">
+                            <button
+                              className="delete"
+                              onClick={() => setDoesEmailExist(false)}
+                            />
+                            Email or verification code didn't matched!
+                          </div>
+                        )}
+                      </form>
+                    )}
+                  />
 
 
-                <div className="field level-right">
-                  <a className="button is-success is-fullwidth">
-                    Verify code
-                  </a>
-                </div>
                 <br/>
                 <p className="has-text-centered">
-                <a className="label has-text-weight-light">
-                    Email not validated?
-                  </a>
+                <a className="label has-text-weight-bold">
+                  Email not validated?
+                </a>
                 </p>
                 <h4 className="has-text-centered">
                   <Link to="/user-validation" className="has-text-weight-light">
                     Validate email
                   </Link>
                 </h4>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -73,4 +190,4 @@ const UserVerification = () => {
 </section>
   )
 }
-export default UserVerification;
+export default UserVerfication;
