@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
 import { Field, Form } from "react-final-form";
 import * as EmailValidator from "email-validator";
 
@@ -8,21 +8,73 @@ import InputWrapper from '../Shared/Input';
 import Error from '../Shared/Error';
 import logo from '../images/logo.svg'
 
+import {  uniqueDocumentCodeId } from '../utils';
+
 import './styles.scss';
+
+const API_BASE_URL = "https://perukirjakone.herokuapp.com/";
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const onSubmit = async values => {
   await sleep(300);
-  window.alert(JSON.stringify(values, 0, 2));
+  console.log("value")
 };
 
 
-const UserRegistration = () => {
+const UserRegistration = (props) => {
+  console.log("UserRegistration", props);
+  const [showLoader, setShowLoader] = React.useState(false);
+  const [doesEmailExist, setDoesEmailExist] = React.useState(false);
+  const [docData, setDocData] = React.useState(null);
+  const [isEmailValid, setIsEmailValid] = React.useState(true);
+  const [isTermsServiceAgreed, setIsTermsServiceAgreed] = React.useState(true);
+  const [emailVerificationNotify, setEmailVerificationNotify] = React.useState(false);
 
-  const submitEmail = (payload) => {
-    console.log("submitEmail", payload);
+  const postEmail = async (payload) => {
+    console.log("postEmail payload", payload)
+    try {
+      setShowLoader(true);
+       await axios.post(`${API_BASE_URL}${'documents/'}`, payload)
+        .then(res => {
+          setShowLoader(false);
+          setEmailVerificationNotify(true);
+          setTimeout(()=>{
+            props.history.push('/user-verification');
+          }, 5000);
+
+        })
+    } catch (error) {
+      console.log(error);
+    }
   }
+
+  const submitEmail = async (formData) => {
+    const payload = { email: formData.email, code:  uniqueDocumentCodeId() };
+    if (!formData.email) {
+      setIsEmailValid(false);
+    }
+    if (!formData.isTermsAgreed) {
+      setIsTermsServiceAgreed(false);
+    } else {
+      try {
+        setShowLoader(true);
+         await axios.get(`${API_BASE_URL}${'documents?email='}${payload.email}`)
+          .then(res => {
+            console.log("checkIfEmailExist respose", res)
+            if (res.data.length > 0) {
+              setShowLoader(false);
+              setDoesEmailExist(true);
+            } else {
+              postEmail(payload);
+            }
+          })
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
   return(
     <section className="hero is-fullheight is-primary is-bold">
       <div className="hero-body">
@@ -43,12 +95,16 @@ const UserRegistration = () => {
                 <br/>
 
                   <Form
-                    validate={values => { // validate both passowrds are same
+                    initialValues={{isTermsAgreed: false}}
+                    validate={values => {
                       const errors = {};
                       if (!values.email) {
                         errors.email = 'Email can not be empty';
                       } if (!EmailValidator.validate(values.email)) {
                         errors.email = "Invalid email address.";
+                      }
+                      if (!values.isTermsAgreed) {
+                        errors.isTermsAgreed = "Accept terms of service!";
                       }
                       return errors
                     }}
@@ -68,18 +124,46 @@ const UserRegistration = () => {
                           </div>
                         </div>
                         <div className="field">
-                          <label className="checkbox">
-                            <input type="checkbox" />
+                          <Field
+                            name="isTermsAgreed"
+                            component="input"
+                            type="checkbox"
+                            id="isTermsAgreed"
+                          />
+
+                          <label className="checkbox" htmlFor="isTermsAgreed">
                             &nbsp;I agree to the terms and services and privacy policy
                           </label>
+                          <Error name="isTermsAgreed" />
                         </div>
 
-
                         <div className="field level-right">
-                          <button className="button is-success is-fullwidth" onClick={() => submitEmail(values)}>
+                          <button
+                            className="button is-success is-fullwidth"
+                            onClick={() => submitEmail(values)}
+                            disabled={showLoader || submitting || pristine}
+                          >
                             Validate email
                           </button>
                         </div>
+                        {emailVerificationNotify && (
+                          <div class="notification is-info">
+                            <p>We have send verification code in your email address!</p>
+                            <p>Redirecting....</p>
+                          </div>
+                        )}
+                        {doesEmailExist && (
+                          <div className="notification is-danger form__notification">
+                            <button
+                              className="delete"
+                              onClick={() => setDoesEmailExist(false)}
+                            />
+                            <span>Email address already exist! </span>
+                            <Link to="/user-verification" className="has-text-weight-light">
+                              Verify code
+                            </Link>
+                          </div>
+                        )}
                       </form>
                     )}
                   />
