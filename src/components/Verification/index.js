@@ -32,6 +32,24 @@ const UserVerfication = (props) => {
   const [emailVerificationNotify, setEmailVerificationNotify] = React.useState(false);
   const [isCodeExist, setIsCodeExist] = React.useState(false);
 
+  const getDocumentData = async (id) => {
+    console.log("getdocumetn id", id)
+    try {
+      setShowLoader(true);
+       await axios.get(`${API_BASE_URL}${'documents/'}${id}`)
+        .then(res => {
+          console.log("get data", res)
+          // setState({
+          //   values: res.data
+          // });
+          //codeValueHandler(res.data.code);
+          setShowLoader(false);
+        })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const verifyEmailCode = async (formData) => {
     setDoesEmailExist(false);
     if (!formData.email) {
