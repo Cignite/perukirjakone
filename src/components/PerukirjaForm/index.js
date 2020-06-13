@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-//import MasterForm from '../MasterForm';
+import MasterForm from '../WizardForm';
 import WizardForm from '../WizardForm';
 
 
@@ -25,7 +25,7 @@ function DocumentPage(props) {
           <h3 className="title is-3">Fill form</h3>
           <p>Description</p>
           <hr />
-          <WizardForm />
+          <MasterForm />
         </div>
       </div>
     </div>
