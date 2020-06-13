@@ -7,8 +7,7 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import HomePage from '../Homepage';
 import PerukirjaForm from '../PerukirjaForm';
