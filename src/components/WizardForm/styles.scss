@@ -9,7 +9,8 @@ form {
 
 .del__btn {
   float: right;
-  margin: -2.5rem;
+  margin: -2.8rem;
+  padding-right: 19px;
 }
 .form__notification {
   padding: 15px 30px;
@@ -21,4 +22,11 @@ form {
 
 input.form__checkbox {
   margin-right: 6px;
+}
+
+.add__btn.margin {
+  margin: -25px 0px 20px 0px;
+}
+.columns.step2__content {
+  margin-left: 5px;
 }
