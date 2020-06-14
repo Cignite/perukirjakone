@@ -14,6 +14,8 @@ import Step5 from './components/Step5';
 
 import './styles.scss';
 
+import initialValuesData from './initialValues';
+
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const onSubmit = async values => {
@@ -42,33 +44,52 @@ const StepWizard = () => {
   const [showWidowBankInfo, setShowWidowBankInfo] = React.useState(false);
   const [codeValue, setCodeValue] = React.useState("");
 
-  const codeValueHandler = (code) => {
-    console.log("---codeValue---", code);
-    setCodeValue(code);
-  }
-
   return(
     <Wizard
       initialValues={{
         deceasedPerson: [
           { relationType: "" },
         ],
-        property: [
-          { name: "" , value: ""},
+        propertyInfo: [
+          {
+            name: "",
+            value: ""
+          },
         ],
-        bankaccount: [
-          { number: "" , value: ""},
+        bankAccountInfo: [
+          {
+            number: "" ,
+            value: ""
+          },
         ],
         shareInfo: [
-          { number: "" , value: ""},
+          {
+            number: "",
+            value: ""
+          },
         ],
         debtInfo: [
-          { name: "" , value: ""},
+          {
+            name: "",
+            value: ""
+          },
         ],
-
+        propertyLikeSofaWatchInfo: [
+          {
+            name: "",
+            value: ""
+          }
+        ],
+        personalBelongingsInfo: [
+          {
+            name: "",
+            value: ""
+          }
+        ],
         widowStockInfo: [
           {
-            name: "" , amount: "",
+            name: "",
+            amount: "",
           }
         ],
         FESukuselvitykset: [
@@ -117,33 +138,43 @@ const StepWizard = () => {
       <Wizard.Step
         validate={values => {
           const errors = {};
-          if (!values.firstname) {
-            errors.firstname = "This is required field";
+          if (!values.customerFirstName) {
+            errors.customerFirstName = "This is required field";
           }
-          if (!values.lastname) {
-            errors.lastname = "This is required field";
+          if (!values.customerlastName) {
+            errors.customerlastName = "This is required field";
           }
           if (!values.address) {
             errors.address = "This is required field";
           }
-          if (!values.sotu) {
-            errors.sotu = "This is required field";
+          if (!values.customerSSN) {
+            errors.customerSSN = "This is required field";
           }
-          if (!values.kuolinaika) {
-            errors.kuolinaika = "This is required field";
+          if (!values.customerTimeOfDeath) {
+            errors.customerTimeOfDeath = "This is required field";
           }
-          if (!values.paika) {
-            errors.paika = "This is required field";
+          if (!values.agreeementPlace) {
+            errors.agreeementPlace = "This is required field";
           }
-          if (values.timeofdeath && !values.timeofdeath) {
-            errors.timeofdeath = "This is required field";
+          if (!values.shareholderName) {
+            errors.shareholderName ="This is required field";
           }
-          if (values.isTestamentDeceased && !values.deceasedPersonName) {
-            errors.deceasedPersonName = "Need to assign some value";
+          if (!values.shareholderSSN) {
+            errors.shareholderSSN ="This is required field";
           }
-          if (values.isHKIrtaminen && !values.debtInfo.name) {
-            errors.debtInfo = "This is required field";
+          if (values.isTestamenttiChecked && !values.testamenttiTimeOfDeath) {
+            errors.testamenttiTimeOfDeath = "This is required field";
           }
+          if (values.isMarriedSettlementContractChecked && !values.marriageSettlementDate) {
+            errors.marriageSettlementDate = "This is required field";
+          }
+          if (values.isOtherDocumentChecked && !values.otherDocumentInfo) {
+            errors.otherDocumentInfo = "This is required field";
+          }
+          if (values.isTestamentDeceasedPropertyAssignedChecked && !values.testamentPropertyAssignInfo) {
+            errors.testamentPropertyAssignInfo = "This is required field";
+          }
+
 
           return errors;
         }}
