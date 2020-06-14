@@ -75,6 +75,16 @@ const UserVerfication = (props) => {
               setTimeout(()=>{
                 props.history.push('/wizard-form');
               }, 5000);
+
+              const getUserInfo = {
+                email: res.data[0].email,
+                code: res.data[0].code,
+              }
+              // check if local storage is available in browser
+              // store email and code in local storage
+              if (window.localStorage) {
+                window.localStorage.setItem('userInfo', JSON.stringify(getUserInfo));
+              }
             }
           })
       } catch (error) {
