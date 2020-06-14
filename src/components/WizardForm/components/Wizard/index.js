@@ -9,7 +9,7 @@ import axios from 'axios';
 
 import {  uniqueDocumentCodeId } from '../../../utils';
 
-const BASE_URL = "https://perukirjakone.herokuapp.com/";
+const API_BASE_URL = "https://perukirjakone.herokuapp.com/";
 
 const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler }) => {
   const [state, setState] = useState({
@@ -20,6 +20,24 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
   const [code, setCode] = useState(null);
   const [docData, setDocData] = useState(null);
   const [showLoader, setShowLoader] = useState(false);
+  const [updateJsonSchemaError, setUpdateJsonSchemaError] = useState(false);
+
+  const postJSONSchema = async (payload) => {
+    const getUserInfoFromStorage = JSON.parse(window.localStorage.getItem('userInfo'));
+    const jsonSchemaPayload = {
+      jsonSchema: payload
+    }
+    try {
+      setShowLoader(true);
+      await axios.put(`${API_BASE_URL}${'documents/'}${getUserInfoFromStorage.id}`, { ...jsonSchemaPayload })
+        .then(res => {
+          setShowLoader(false);
+        })
+
+    } catch (error) {
+      setUpdateJsonSchemaError(error.response.payload.message[0].messages[0].message);
+    }
+  }
 
   const activePage = useMemo(
     () => React.Children.toArray(children)[state.page],
@@ -33,6 +51,7 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
 
   const onNextStep = useCallback(
     values => {
+      postJSONSchema(values);
       setState({
         page: Math.min(state.page + 1, children.length - 1),
         values
@@ -85,7 +104,7 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
               )}
               {!isLastPage && (
                 <button className="button is-dark next__btn" type="submit" disabled={showLoader}>
-                  {showLoader ? <span>Loading</span> : <span>Next »</span>}
+                  {showLoader ? <span>Loading</span> : <span>Save and continue »</span>}
                 </button>
               )}
               {isLastPage && (
