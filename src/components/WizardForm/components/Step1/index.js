@@ -48,33 +48,33 @@ const Step1 = () => {
       <div className="columns">
         <div className="column">
           <Field
-            name="firstname"
+            name="customerFirstName"
             component={InputWrapper}
             type="text"
             placeholder="Heikki"
             label="Firstname"
             />
-          <Error name="firstname" />
+          <Error name="customerFirstName" />
         </div>
         <div className="column">
           <Field
-            name="lastname"
+            name="customerlastName"
             component={InputWrapper}
             type="text"
             placeholder="Halonen"
             label="Lastname"
             />
-          <Error name="lastname" />
+          <Error name="customerlastName" />
         </div>
         <div className="column">
           <Field
-            name="sotu"
+            name="customerSSN"
             component={InputWrapper}
             type="text"
             placeholder="24444-39F"
             label="SSN"
             />
-          <Error name="sotu" />
+          <Error name="customerSSN" />
         </div>
         <div className="column">
           <Field
@@ -91,22 +91,22 @@ const Step1 = () => {
       <div className="columns">
         <div className="column is-3">
           <Field
-            name="kuolinaika"
+            name="customerTimeOfDeath"
             component={renderDatePickerField}
             label="Time of death"
             placeholder="01.08.2020"
             />
-          <Error name="kuolinaika" />
+          <Error name="customerTimeOfDeath" />
         </div>
         <div className="column is-3">
           <Field
-            name="paika"
+            name="agreeementPlace"
             component={InputWrapper}
             type="text"
             placeholder="Hammenkatu 1, 02500 Turku"
             label="Place of death"
             />
-          <Error name="paika" />
+          <Error name="agreeementPlace" />
         </div>
       </div>
       <h3 className="title is-4">1.2 Shareholders</h3>
@@ -115,23 +115,23 @@ const Step1 = () => {
       <div className="columns">
         <div className="column is-3">
           <Field
-            name="osakkaatnimi"
+            name="shareholderName"
             component={InputWrapper}
             type="text"
             placeholder="Hannu Hakala"
             label="Osakkaat nimi"
             />
-          <Error name="osakkaatnimi" />
+          <Error name="shareholderName" />
         </div>
         <div className="column is-3">
           <Field
-            name="osakkaatssn"
+            name="shareholderSSN"
             component={InputWrapper}
             type="text"
             placeholder="010879-482B"
             label="SSN"
             />
-          <Error name="osakkaatssn" />
+          <Error name="shareholderSSN" />
         </div>
       </div>
 
@@ -201,29 +201,29 @@ const Step1 = () => {
         <div className="column is-6">
           <div>
             <Field
-              name="isTestamentDeceased"
+              name="isTestamentDeceasedPropertyAssignedChecked"
               component="input"
               type="checkbox"
               className="form__checkbox"
-              id="isTestamentDeceased"
+              id="isTestamentDeceasedPropertyAssignedChecked"
               />
-            <label htmlFor="isTestamentDeceased">
+            <label htmlFor="isTestamentDeceasedPropertyAssignedChecked">
               Has the property of the deceased or it’s part been assigned to someone
             </label>
           </div>
         </div>
       </div>
       <div className="columns">
-        <Condition when="isTestamentDeceased" is={true}>
+        <Condition when="isTestamentDeceasedPropertyAssignedChecked" is={true}>
           <div className="column is-3">
             <Field
-              name="deceasedPersonName"
+              name="testamentPropertyAssignInfo"
               component={InputWrapper}
               type="text"
               placeholder="Hannu Harala"
               label="Person name"
               />
-            <Error name="deceasedPersonName" />
+            <Error name="testamentPropertyAssignInfo" />
           </div>
         </Condition>
       </div>
@@ -249,26 +249,26 @@ const Step1 = () => {
         <div className="column is-6">
           <div>
             <Field
-              name="isTestamentti"
+              name="isTestamenttiChecked"
               component="input"
               type="checkbox"
               className="form__checkbox"
-              id="isTestamentti"
+              id="isTestamenttiChecked"
               />
-            <label htmlFor="isTestamentti">Testamentti</label>
+            <label htmlFor="isTestamenttiChecked">Testamentti</label>
           </div>
         </div>
       </div>
       <div className="columns">
-        <Condition when="isTestamentti" is={true}>
+        <Condition when="isTestamenttiChecked" is={true}>
           <div className="column is-3">
             <Field
-              name="timeofdeath"
+              name="testamenttiTimeOfDeath"
               component={renderDatePickerField}
               label="Time of death"
               placeholder="01.08.2020"
               />
-            <Error name="timeofdeath" />
+            <Error name="testamenttiTimeOfDeath" />
           </div>
         </Condition>
       </div>
@@ -277,113 +277,26 @@ const Step1 = () => {
         <div className="column is-6">
           <div>
             <Field
-              name="isHKIrtaminen"
+              name="isMarriedSettlementContractChecked"
               component="input"
               type="checkbox"
               className="form__checkbox"
-              id="isHKIrtaminen"
+              id="isMarriedSettlementContractChecked"
               />
-            <label htmlFor="isHKIrtaminen">HK Irtaminen omaisuus (including previous one)</label>
-          </div>
-        </div>
-      </div>
-
-      <Condition when="isHKIrtaminen" is={true}>
-        <FieldArray name="debtInfo">
-          {({ fields }) => {
-            return (
-              <div>
-                {fields.map((name, index) => (
-                  <div key={name} className="columns">
-                    <div className="column is-5">
-                      <Field
-                        name={`${name}.name`}
-                        component={InputWrapper}
-                        type="text"
-                        placeholder="Omaisuus"
-                        label="Debt Info"
-                        />
-                      <Error name={`${name}.name`} />
-                    </div>
-                    <div className="column is-2">
-                      <Field
-                        name={`${name}.value`}
-                        component={InputWrapper}
-                        type="text"
-                        placeholder="€4000"
-                        label="Amount (€)"
-                        />
-                      <Error name={`${name}.value`} />
-                      <span
-                        className="del__btn"
-                        onClick={() => {
-                          if (fields.length === 1) {
-                            setShowDebtNotifcation(true);
-                            console.log("min one")
-                          } else {
-                            fields.remove(index)}
-                          }
-                        }
-                        style={{ cursor: "pointer" }}
-                        >
-                        ❌
-                      </span>
-                    </div>
-
-
-                    <Error name={`${name}.bankaccount`} />
-                    {showDebtNotifcation && (
-                      <div className="notification is-danger form__notification">
-                        <button
-                          className="delete"
-                          onClick={() => setShowDebtNotifcation(false)}
-                          />
-                        Atleast one share info definition should exist!
-                      </div>
-                    )}
-                  </div>
-                ))}
-                <span className="add__btn">
-                  <button
-                    className="button is-small is-primary"
-                    onClick={() =>
-                      fields.push({ name: "", value: ""})
-                    }
-                    type="button"
-                    >
-                    Add more
-                  </button>
-                </span>
-              </div>
-            );
-          }}
-        </FieldArray>
-      </Condition>
-
-      <div className="columns">
-        <div className="column is-6">
-          <div>
-            <Field
-              name="isAvioehtosopimukset"
-              component="input"
-              type="checkbox"
-              className="form__checkbox"
-              id="isAvioehtosopimukset"
-              />
-            <label htmlFor="isAvioehtosopimukset">Avioehtosopimukset</label>
+            <label htmlFor="isMarriedSettlementContractChecked">Avioehtosopimukset</label>
           </div>
         </div>
       </div>
       <div className="columns">
-        <Condition when="isAvioehtosopimukset" is={true}>
+        <Condition when="isMarriedSettlementContractChecked" is={true}>
           <div className="column is-3">
             <Field
-              name="isAvioehtosopimukset"
+              name="marriageSettlementDate"
               component={renderDatePickerField}
               label="Date of prenub"
               placeholder="01.08.2020"
               />
-            <Error name="isAvioehtosopimukset" />
+            <Error name="marriageSettlementDate" />
           </div>
         </Condition>
       </div>
@@ -392,18 +305,18 @@ const Step1 = () => {
         <div className="column is-6">
           <div>
             <Field
-              name="isOtherDocument"
+              name="isOtherDocumentChecked"
               component="input"
               type="checkbox"
               className="form__checkbox"
-              id="isOtherDocument"
+              id="isOtherDocumentChecked"
               />
-            <label htmlFor="isOtherDocument">Other documents and info</label>
+            <label htmlFor="isOtherDocumentChecked">Other documents and info</label>
           </div>
         </div>
       </div>
       <div className="columns">
-        <Condition when="isOtherDocument" is={true}>
+        <Condition when="isOtherDocumentChecked" is={true}>
           <div className="column is-6">
             <Field
               name="otherDocumentInfo"
@@ -423,7 +336,7 @@ const Step1 = () => {
       <p>What property/apartments did the deseaced person have?</p>
       <br />
 
-      <FieldArray name="bankaccount">
+      <FieldArray name="propertyInfo">
         {({ fields }) => {
           return (
             <div>
@@ -498,7 +411,7 @@ const Step1 = () => {
 
     <br />
 
-    <FieldArray name="bankaccount">
+    <FieldArray name="bankAccountInfo">
       {({ fields }) => {
         return (
           <div>
@@ -555,7 +468,7 @@ const Step1 = () => {
               <button
                 className="button is-small is-primary"
                 onClick={() =>
-                  fields.push({ name: "", value: ""})
+                  fields.push({ number: "", value: ""})
                 }
                 type="button"
                 >
@@ -645,62 +558,62 @@ const Step1 = () => {
       <div className="column is-6">
         <div>
           <Field
-            name="isDeceasedCar"
+            name="didDeceasedHadCarBoat"
             component="input"
             type="checkbox"
             className="form__checkbox"
-            id="isDeceasedCar"
+            id="didDeceasedHadCarBoat"
             />
-          <label htmlFor="isDeceasedCar">
+          <label htmlFor="didDeceasedHadCarBoat">
             Did the deceased have a car / motorbike / boat / trailer etc?
           </label>
         </div>
       </div>
     </div>
 
-    <Condition when="isDeceasedCar" is={true}>
+    <Condition when="didDeceasedHadCarBoat" is={true}>
       <div className="columns">
         <div className="column is-5">
           <Field
-            name="isDeceasedCarInfo"
+            name="deceasedCarBrandTypeInfo"
             component={InputWrapper}
             type="text"
             placeholder="Audi"
             label="Car brand/type/year/registration number"
             />
-          <Error name="isDeceasedCarInfo" />
+          <Error name="deceasedCarBrandTypeInfo" />
         </div>
         <div className="column is-2">
           <Field
-            name="isDeceasedCarValue"
+            name="deceasedCarBrandTypeValue"
             component={InputWrapper}
             type="text"
             placeholder="5K"
             label="Value (€)"
             />
-          <Error name="isDeceasedCarValue" />
+          <Error name="deceasedCarBrandTypeValue" />
         </div>
       </div>
       <div className="columns">
         <div className="column is-5">
           <Field
-            name="isDeceasedBikeInfo"
+            name="deceasedMotorBikeBrandTypeInfo"
             component={InputWrapper}
             type="text"
             placeholder="BMW AZ"
             label="Motorbike brand/year/registration number"
             />
-          <Error name="isDeceasedBikeInfo" />
+          <Error name="deceasedMotorBikeBrandTypeInfo" />
         </div>
         <div className="column is-2">
           <Field
-            name="isDeceasedBikeValue"
+            name="deceasedMotorBikeBrandTypeValue"
             component={InputWrapper}
             type="text"
             placeholder="5K"
             label="Value (€)"
             />
-          <Error name="isDeceasedBikeValue" />
+          <Error name="deceasedMotorBikeBrandTypeValue" />
         </div>
       </div>
     </Condition>
@@ -723,7 +636,7 @@ const Step1 = () => {
     </div>
 
     <Condition when="isPropertyLikeSofa" is={true}>
-      <FieldArray name="shareInfo">
+      <FieldArray name="propertyLikeSofaWatchInfo">
         {({ fields }) => {
           return (
             <div>
@@ -731,7 +644,7 @@ const Step1 = () => {
                 <div key={name} className="columns">
                   <div className="column is-5">
                     <Field
-                      name={`${name}.number`}
+                      name={`${name}.name`}
                       component={InputWrapper}
                       type="text"
                       placeholder="Omaisuuden arvo"
@@ -793,6 +706,92 @@ const Step1 = () => {
       </FieldArray>
     </Condition>
 
+    <div className="columns">
+      <div className="column is-6">
+        <div>
+          <Field
+            name="isHKIrtaminen"
+            component="input"
+            type="checkbox"
+            className="form__checkbox"
+            id="isHKIrtaminen"
+            />
+          <label htmlFor="isHKIrtaminen">HK Irtaminen omaisuus (including previous one)</label>
+        </div>
+      </div>
+    </div>
+
+    <Condition when="isHKIrtaminen" is={true}>
+      <FieldArray name="personalBelongingsInfo">
+        {({ fields }) => {
+          return (
+            <div>
+              {fields.map((name, index) => (
+                <div key={name} className="columns">
+                  <div className="column is-5">
+                    <Field
+                      name={`${name}.name`}
+                      component={InputWrapper}
+                      type="text"
+                      placeholder="Omaisuus"
+                      label="Omaisuus"
+                      />
+                    <Error name={`${name}.name`} />
+                  </div>
+                  <div className="column is-2">
+                    <Field
+                      name={`${name}.value`}
+                      component={InputWrapper}
+                      type="text"
+                      placeholder="€4000"
+                      label="Amount (€)"
+                      />
+                    <Error name={`${name}.value`} />
+                    <span
+                      className="del__btn"
+                      onClick={() => {
+                        if (fields.length === 1) {
+                          setShowDebtNotifcation(true);
+                          console.log("min one")
+                        } else {
+                          fields.remove(index)}
+                        }
+                      }
+                      style={{ cursor: "pointer" }}
+                      >
+                      ❌
+                    </span>
+                  </div>
+
+
+                  <Error name={`${name}.bankaccount`} />
+                  {showDebtNotifcation && (
+                    <div className="notification is-danger form__notification">
+                      <button
+                        className="delete"
+                        onClick={() => setShowDebtNotifcation(false)}
+                        />
+                      Atleast one share info definition should exist!
+                    </div>
+                  )}
+                </div>
+              ))}
+              <span className="add__btn">
+                <button
+                  className="button is-small is-primary"
+                  onClick={() =>
+                    fields.push({ name: "", value: ""})
+                  }
+                  type="button"
+                  >
+                  Add more
+                </button>
+              </span>
+            </div>
+          );
+        }}
+      </FieldArray>
+    </Condition>
 
     <div className="columns">
       <div className="column is-6">
@@ -820,7 +819,7 @@ const Step1 = () => {
                 <div key={name} className="columns">
                   <div className="column is-5">
                     <Field
-                      name={`${name}.number`}
+                      name={`${name}.name`}
                       component={InputWrapper}
                       type="text"
                       placeholder="Debt Info"
@@ -1082,7 +1081,7 @@ const Step1 = () => {
     <div className="columns">
       <div className="column">
         <Field
-          name="inviteeNimi"
+          name="inviteeName"
           component={InputWrapper}
           type="text"
           placeholder="Heikki"
