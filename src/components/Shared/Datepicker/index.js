@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import moment from 'moment';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -33,7 +34,7 @@ const DatePickerWrapper = props => {
           todayButton="Today"
           onBlur={props.input.onBlur}
           onFocus={props.input.onFocus}
-          value={props.input.value}
+          value={moment(props.input.value).format('DD.MM.YYYY')}
           placeholderText="01.02.2020"
         />
       </div>
