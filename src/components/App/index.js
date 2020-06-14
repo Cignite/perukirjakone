@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import HomePage from '../Homepage';
 import PerukirjaForm from '../PerukirjaForm';
@@ -23,7 +23,22 @@ export default function App() {
         <main>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/user-validation" component={UserRegistration} />
+              <Route
+                exact
+                path="/user-validation"
+                render={props => {
+                  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                  if (userInfo) {
+                    if(userInfo.email && userInfo.code) {
+                      return (
+                        <PerukirjaForm {...props} />
+                      )
+                    }
+                  }
+
+                  return <UserVerification {...props} />
+                }}
+              />
             <Route exact path="/user-verification" component={UserVerification} />
             <Route exact path="/wizard-form" component={PerukirjaForm} />
             <Route component={NotFoundPage} />
