@@ -46,7 +46,7 @@ const Step1 = () => {
       <h3 className="title is-4">1.1 Asiakaan tiedot</h3>
       <hr />
       <div className="columns">
-        <div class="column">
+        <div className="column">
           <Field
             name="firstname"
             component={InputWrapper}
@@ -56,7 +56,7 @@ const Step1 = () => {
             />
           <Error name="firstname" />
         </div>
-        <div class="column">
+        <div className="column">
           <Field
             name="lastname"
             component={InputWrapper}
@@ -66,7 +66,7 @@ const Step1 = () => {
             />
           <Error name="lastname" />
         </div>
-        <div class="column">
+        <div className="column">
           <Field
             name="sotu"
             component={InputWrapper}
@@ -76,7 +76,7 @@ const Step1 = () => {
             />
           <Error name="sotu" />
         </div>
-        <div class="column">
+        <div className="column">
           <Field
             name="address"
             component={InputWrapper}
@@ -89,7 +89,7 @@ const Step1 = () => {
       </div>
 
       <div className="columns">
-        <div class="column is-3">
+        <div className="column is-3">
           <Field
             name="kuolinaika"
             component={renderDatePickerField}
@@ -98,7 +98,7 @@ const Step1 = () => {
             />
           <Error name="kuolinaika" />
         </div>
-        <div class="column is-3">
+        <div className="column is-3">
           <Field
             name="paika"
             component={InputWrapper}
@@ -113,7 +113,7 @@ const Step1 = () => {
       <hr />
       <p>Who are the partners in the estate?</p>
       <div className="columns">
-        <div class="column is-3">
+        <div className="column is-3">
           <Field
             name="osakkaatnimi"
             component={InputWrapper}
@@ -123,7 +123,7 @@ const Step1 = () => {
             />
           <Error name="osakkaatnimi" />
         </div>
-        <div class="column is-3">
+        <div className="column is-3">
           <Field
             name="osakkaatssn"
             component={InputWrapper}
@@ -168,9 +168,9 @@ const Step1 = () => {
                       </span>
                       <Error name={`${name}.relationType`} />
                       {showDeceasedNotification && (
-                        <div class="notification is-danger form__notification">
+                        <div className="notification is-danger form__notification">
                           <button
-                            class="delete"
+                            className="delete"
                             onClick={() => setShowDeceasedNotification(false)}
                             />
                           Atleast one relationship to deceased person should exist!
@@ -198,7 +198,7 @@ const Step1 = () => {
       <h3 className="title is-4">1.3 Testament</h3>
       <hr />
       <div className="columns">
-        <div class="column is-6">
+        <div className="column is-6">
           <div>
             <Field
               name="isTestamentDeceased"
@@ -215,7 +215,7 @@ const Step1 = () => {
       </div>
       <div className="columns">
         <Condition when="isTestamentDeceased" is={true}>
-          <div class="column is-3">
+          <div className="column is-3">
             <Field
               name="deceasedPersonName"
               component={InputWrapper}
@@ -231,7 +231,7 @@ const Step1 = () => {
       <h3 className="title is-4">1.4 TOIMITUKSEN PERUSTEENA OLEVAT ASIAKIRJAT JA TIEDOT</h3>
       <hr />
       <div className="columns">
-        <div class="column is-6">
+        <div className="column is-6">
           <div>
             <Field
               name="isSukuselvitykset"
@@ -246,7 +246,7 @@ const Step1 = () => {
       </div>
 
       <div className="columns">
-        <div class="column is-6">
+        <div className="column is-6">
           <div>
             <Field
               name="isTestamentti"
@@ -261,7 +261,7 @@ const Step1 = () => {
       </div>
       <div className="columns">
         <Condition when="isTestamentti" is={true}>
-          <div class="column is-3">
+          <div className="column is-3">
             <Field
               name="timeofdeath"
               component={renderDatePickerField}
@@ -274,7 +274,7 @@ const Step1 = () => {
       </div>
 
       <div className="columns">
-        <div class="column is-6">
+        <div className="column is-6">
           <div>
             <Field
               name="isHKIrtaminen"
@@ -295,7 +295,7 @@ const Step1 = () => {
               <div>
                 {fields.map((name, index) => (
                   <div key={name} className="columns">
-                    <div class="column is-5">
+                    <div className="column is-5">
                       <Field
                         name={`${name}.name`}
                         component={InputWrapper}
@@ -333,9 +333,9 @@ const Step1 = () => {
 
                     <Error name={`${name}.bankaccount`} />
                     {showDebtNotifcation && (
-                      <div class="notification is-danger form__notification">
+                      <div className="notification is-danger form__notification">
                         <button
-                          class="delete"
+                          className="delete"
                           onClick={() => setShowDebtNotifcation(false)}
                           />
                         Atleast one share info definition should exist!
@@ -361,7 +361,7 @@ const Step1 = () => {
       </Condition>
 
       <div className="columns">
-        <div class="column is-6">
+        <div className="column is-6">
           <div>
             <Field
               name="isAvioehtosopimukset"
@@ -376,7 +376,7 @@ const Step1 = () => {
       </div>
       <div className="columns">
         <Condition when="isAvioehtosopimukset" is={true}>
-          <div class="column is-3">
+          <div className="column is-3">
             <Field
               name="isAvioehtosopimukset"
               component={renderDatePickerField}
@@ -389,7 +389,7 @@ const Step1 = () => {
       </div>
 
       <div className="columns">
-        <div class="column is-6">
+        <div className="column is-6">
           <div>
             <Field
               name="isOtherDocument"
@@ -404,7 +404,7 @@ const Step1 = () => {
       </div>
       <div className="columns">
         <Condition when="isOtherDocument" is={true}>
-          <div class="column is-6">
+          <div className="column is-6">
             <Field
               name="otherDocumentInfo"
               component={InputWrapper}
@@ -429,7 +429,7 @@ const Step1 = () => {
             <div>
               {fields.map((name, index) => (
                 <div key={name} className="columns">
-                  <div class="column is-5">
+                  <div className="column is-5">
                     <Field
                       name={`${name}.name`}
                       component={InputWrapper}
@@ -438,7 +438,7 @@ const Step1 = () => {
                       label="Property"
                       />
                   </div>
-                  <div class="column is-2">
+                  <div className="column is-2">
                     <Field
                       name={`${name}.value`}
                       component={InputWrapper}
@@ -466,9 +466,9 @@ const Step1 = () => {
 
                   <Error name={`${name}.name`} />
                   {showPropertyNotification && (
-                    <div class="notification is-danger form__notification">
+                    <div className="notification is-danger form__notification">
                       <button
-                        class="delete"
+                        className="delete"
                         onClick={() => setShowPropertyNotification(false)}
                         />
                       Atleast one property definition should exist!
@@ -504,7 +504,7 @@ const Step1 = () => {
           <div>
             {fields.map((name, index) => (
               <div key={name} className="columns">
-                <div class="column is-5">
+                <div className="column is-5">
                   <Field
                     name={`${name}.number`}
                     component={InputWrapper}
@@ -541,9 +541,9 @@ const Step1 = () => {
 
                 <Error name={`${name}.name`} />
                 {showWidowBankInfo && (
-                  <div class="notification is-danger form__notification">
+                  <div className="notification is-danger form__notification">
                     <button
-                      class="delete"
+                      className="delete"
                       onClick={() => setShowWidowBankInfo(false)}
                       />
                     Atleast one Bank account definition should exist!
@@ -578,7 +578,7 @@ const Step1 = () => {
           <div>
             {fields.map((name, index) => (
               <div key={name} className="columns">
-                <div class="column is-5">
+                <div className="column is-5">
                   <Field
                     name={`${name}.number`}
                     component={InputWrapper}
@@ -615,9 +615,9 @@ const Step1 = () => {
 
                 <Error name={`${name}.name`} />
                 {showPaintingInfo && (
-                  <div class="notification is-danger form__notification">
+                  <div className="notification is-danger form__notification">
                     <button
-                      class="delete"
+                      className="delete"
                       onClick={() => setShowPaintingInfo(false)}
                       />
                     Atleast one share info definition should exist!
@@ -642,7 +642,7 @@ const Step1 = () => {
     </FieldArray>
 
     <div className="columns">
-      <div class="column is-6">
+      <div className="column is-6">
         <div>
           <Field
             name="isDeceasedCar"
@@ -660,7 +660,7 @@ const Step1 = () => {
 
     <Condition when="isDeceasedCar" is={true}>
       <div className="columns">
-        <div class="column is-5">
+        <div className="column is-5">
           <Field
             name="isDeceasedCarInfo"
             component={InputWrapper}
@@ -670,7 +670,7 @@ const Step1 = () => {
             />
           <Error name="isDeceasedCarInfo" />
         </div>
-        <div class="column is-2">
+        <div className="column is-2">
           <Field
             name="isDeceasedCarValue"
             component={InputWrapper}
@@ -682,7 +682,7 @@ const Step1 = () => {
         </div>
       </div>
       <div className="columns">
-        <div class="column is-5">
+        <div className="column is-5">
           <Field
             name="isDeceasedBikeInfo"
             component={InputWrapper}
@@ -692,7 +692,7 @@ const Step1 = () => {
             />
           <Error name="isDeceasedBikeInfo" />
         </div>
-        <div class="column is-2">
+        <div className="column is-2">
           <Field
             name="isDeceasedBikeValue"
             component={InputWrapper}
@@ -706,7 +706,7 @@ const Step1 = () => {
     </Condition>
 
     <div className="columns">
-      <div class="column is-6">
+      <div className="column is-6">
         <div>
           <Field
             name="isPropertyLikeSofa"
@@ -729,7 +729,7 @@ const Step1 = () => {
             <div>
               {fields.map((name, index) => (
                 <div key={name} className="columns">
-                  <div class="column is-5">
+                  <div className="column is-5">
                     <Field
                       name={`${name}.number`}
                       component={InputWrapper}
@@ -766,9 +766,9 @@ const Step1 = () => {
 
                   <Error name={`${name}.bankaccount`} />
                   {showPaintingInfo && (
-                    <div class="notification is-danger form__notification">
+                    <div className="notification is-danger form__notification">
                       <button
-                        class="delete"
+                        className="delete"
                         onClick={() => setShowPaintingInfo(false)}
                         />
                       Atleast one share info definition should exist!
@@ -795,7 +795,7 @@ const Step1 = () => {
 
 
     <div className="columns">
-      <div class="column is-6">
+      <div className="column is-6">
         <div>
           <Field
             name="didDeceasedHaveDebt"
@@ -818,7 +818,7 @@ const Step1 = () => {
             <div>
               {fields.map((name, index) => (
                 <div key={name} className="columns">
-                  <div class="column is-5">
+                  <div className="column is-5">
                     <Field
                       name={`${name}.number`}
                       component={InputWrapper}
@@ -855,9 +855,9 @@ const Step1 = () => {
 
                   <Error name={`${name}.name`} />
                   {showPaintingInfo && (
-                    <div class="notification is-danger form__notification">
+                    <div className="notification is-danger form__notification">
                       <button
-                        class="delete"
+                        className="delete"
                         onClick={() => setShowPaintingInfo(false)}
                         />
                       Atleast one share info definition should exist!
@@ -894,7 +894,7 @@ const Step1 = () => {
             <div>
               {fields.map((name, index) => (
                 <div key={name} className="columns">
-                  <div class="column is-5">
+                  <div className="column is-5">
                     <Field
                       name={`${name}.number`}
                       component={InputWrapper}
@@ -931,9 +931,9 @@ const Step1 = () => {
 
                   <Error name={`${name}.name`} />
                   {showPaintingInfo && (
-                    <div class="notification is-danger form__notification">
+                    <div className="notification is-danger form__notification">
                       <button
-                        class="delete"
+                        className="delete"
                         onClick={() => setShowPaintingInfo(false)}
                         />
                       Atleast one share info definition should exist!
@@ -959,7 +959,7 @@ const Step1 = () => {
     </div>
 
     <div className="columns">
-      <div class="column is-6">
+      <div className="column is-6">
         <div>
           <Field
             name="verifyInfoProvidedIsCorrect"
@@ -976,7 +976,7 @@ const Step1 = () => {
     </div>
 
     <div className="columns">
-      <div class="column is-6">
+      <div className="column is-6">
         <div>
           <Field
             name="haveAllPartiesInvited"
@@ -994,7 +994,7 @@ const Step1 = () => {
 
     <h3 className="title is-6">The announcement of the widow (1). </h3>
     <div className="columns">
-      <div class="column is-6">
+      <div className="column is-6">
         <div>
           <Field
             name="doesWidowWantsToLiveInSameApartment"
@@ -1012,7 +1012,7 @@ const Step1 = () => {
 
     <h3 className="title is-6">Other announcements  (2)  </h3>
     <div className="columns">
-      <div class="column is-6">
+      <div className="column is-6">
         <div>
           <Field
             name="isOtherAnnouncement"
@@ -1030,7 +1030,7 @@ const Step1 = () => {
 
     <h3 className="title is-6">Was there life insurance </h3>
     <div className="columns">
-      <div class="column is-6">
+      <div className="column is-6">
         <div>
           <Field
             name="isThereLifeInsurance"
@@ -1080,7 +1080,7 @@ const Step1 = () => {
     <h3 className="title is-4">Kuka on kutsunut kuolinpesän osakkaat tähän perunkirjoitus tilaisuuteen</h3>
     <hr />
     <div className="columns">
-      <div class="column">
+      <div className="column">
         <Field
           name="inviteeNimi"
           component={InputWrapper}
@@ -1090,7 +1090,7 @@ const Step1 = () => {
           />
         <Error name="inviteeNimi" />
       </div>
-      <div class="column">
+      <div className="column">
         <Field
           name="inviteePlace"
           component={InputWrapper}
@@ -1100,7 +1100,7 @@ const Step1 = () => {
           />
         <Error name="inviteePlace" />
       </div>
-      <div class="column">
+      <div className="column">
         <Field
           name="inviteeDate"
           component={renderDatePickerField}
@@ -1117,7 +1117,7 @@ const Step1 = () => {
     <h3 className="title is-4">Henkilo 1</h3>
     <div className="columns">
 
-      <div class="column is-3">
+      <div className="column is-3">
         <Field
           name="trustedMenNameFirst"
           component={InputWrapper}
@@ -1127,7 +1127,7 @@ const Step1 = () => {
           />
         <Error name="trustedMenNameFirst" />
       </div>
-      <div class="column is-3">
+      <div className="column is-3">
         <Field
           name="trustedMenPlaceFirst"
           component={InputWrapper}
@@ -1141,7 +1141,7 @@ const Step1 = () => {
     <h3 className="title is-4">Henkilo 2</h3>
     <div className="columns">
 
-      <div class="column is-3">
+      <div className="column is-3">
         <Field
           name="trustedMenNameSecond"
           component={InputWrapper}
@@ -1151,7 +1151,7 @@ const Step1 = () => {
           />
         <Error name="trustedMenNameSecond" />
       </div>
-      <div class="column is-3">
+      <div className="column is-3">
         <Field
           name="trustedMenPlaceSecond"
           component={InputWrapper}
@@ -1171,7 +1171,7 @@ const Step1 = () => {
           <div>
             {fields.map((name, index) => (
               <div key={name} className="columns">
-                <div class="column is-3">
+                <div className="column is-3">
                   <Field
                     name={`${name}.name`}
                     component={InputWrapper}
@@ -1208,9 +1208,9 @@ const Step1 = () => {
 
                 <Error name={`${name}.bankaccount`} />
                 {showDebtNotifcation && (
-                  <div class="notification is-danger form__notification">
+                  <div className="notification is-danger form__notification">
                     <button
-                      class="delete"
+                      className="delete"
                       onClick={() => setShowDebtNotifcation(false)}
                       />
                     Atleast one share info definition should exist!
@@ -1279,9 +1279,9 @@ const Step1 = () => {
                       </span>
                       <Error name={`${name}.property`} />
                       {showPropertyNotification && (
-                        <div class="notification is-danger form__notification">
+                        <div className="notification is-danger form__notification">
                           <button
-                            class="delete"
+                            className="delete"
                             onClick={() => setShowPropertyNotification(false)}
                             />
                           Atleast one property definition should exist!
@@ -1350,9 +1350,9 @@ const Step1 = () => {
                       </span>
                       <Error name={`${name}.bankaccount`} />
                       {showWidowBankInfo && (
-                        <div class="notification is-danger form__notification">
+                        <div className="notification is-danger form__notification">
                           <button
-                            class="delete"
+                            className="delete"
                             onClick={() => setShowWidowBankInfo(false)}
                             />
                           Atleast one Bank account definition should exist!

@@ -11,10 +11,10 @@ function DocumentPage(props) {
   return (
     <div className="hero is-fullheight has-background-white	">
       <div>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
-            <div class="navbar-brand">
-              <Link to="/" class="navbar-item">
+        <nav className="navbar" role="navigation" aria-label="main navigation">
+          <div className="navbar-brand">
+            <div className="navbar-brand">
+              <Link to="/" className="navbar-item">
                 <img src={logo} alt="Perukirjakone" />
               </Link>
             </div>
