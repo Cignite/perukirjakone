@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import { Field, Form } from "react-final-form";
 import * as EmailValidator from "email-validator";
@@ -24,12 +24,21 @@ const onSubmit = async values => {
 
 const UserRegistration = (props) => {
   console.log("UserRegistration", props);
-  const [showLoader, setShowLoader] = React.useState(false);
-  const [doesEmailExist, setDoesEmailExist] = React.useState(false);
-  const [docData, setDocData] = React.useState(null);
-  const [isEmailValid, setIsEmailValid] = React.useState(true);
-  const [isTermsServiceAgreed, setIsTermsServiceAgreed] = React.useState(true);
-  const [emailVerificationNotify, setEmailVerificationNotify] = React.useState(false);
+  const [showLoader, setShowLoader] = useState(false);
+  const [doesEmailExist, setDoesEmailExist] = useState(false);
+  const [docData, setDocData] = useState(null);
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isTermsServiceAgreed, setIsTermsServiceAgreed] = useState(true);
+  const [emailVerificationNotify, setEmailVerificationNotify] = useState(false);
+
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    if (userInfo) {
+      if(userInfo.email && userInfo.code) {
+        props.history.push('/wizard-form')
+      }
+    }
+  }, [])
 
   const postEmail = async (payload) => {
     console.log("postEmail payload", payload)
