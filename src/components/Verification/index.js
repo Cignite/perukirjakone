@@ -79,6 +79,7 @@ const UserVerfication = (props) => {
               const getUserInfo = {
                 email: res.data[0].email,
                 code: res.data[0].code,
+                id: res.data[0].id,
               }
               // check if local storage is available in browser
               // store email and code in local storage
