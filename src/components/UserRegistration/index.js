@@ -9,6 +9,7 @@ import Error from '../Shared/Error';
 import logo from '../images/logo.svg'
 
 import {  uniqueDocumentCodeId } from '../utils';
+import initialJSONSchemaValues from './initialJSONSchemaValues';
 
 import './styles.scss';
 
@@ -31,20 +32,24 @@ const UserRegistration = (props) => {
   const [isTermsServiceAgreed, setIsTermsServiceAgreed] = useState(true);
   const [emailVerificationNotify, setEmailVerificationNotify] = useState(false);
 
-  useEffect(() => {
-    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-    if (userInfo) {
-      if(userInfo.email && userInfo.code) {
-        props.history.push('/wizard-form')
-      }
-    }
-  }, [])
+  // useEffect(() => {
+  //   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  //   if (userInfo) {
+  //     if(userInfo.email && userInfo.code) {
+  //       props.history.push('/wizard-form')
+  //     }
+  //   }
+  // }, [])
 
   const postEmail = async (payload) => {
+    const postPayload = {
+      ...payload,
+      jsonSchema: initialJSONSchemaValues
+    }
     console.log("postEmail payload", payload)
     try {
       setShowLoader(true);
-       await axios.post(`${API_BASE_URL}${'documents/'}`, payload)
+       await axios.post(`${API_BASE_URL}${'documents/'}`, postPayload)
         .then(res => {
           setShowLoader(false);
           setEmailVerificationNotify(true);
