@@ -41,7 +41,7 @@ const Step2 = () => {
       <hr />
       <br />
       <div className="columns step2__content">
-        <FieldArray name="FESukuselvitykset">
+        <FieldArray name="funeralExpensesInfo">
           {({ fields }) => {
             return (
               <div className="sukuselvitykset">
@@ -49,7 +49,7 @@ const Step2 = () => {
                   <div>
                     <div key={name}>
                       <Field
-                        name={`${name}.sukuselvitykset`}
+                        name={`${name}.familyReport`}
                         component={InputWrapper}
                         type="text"
                         placeholder="esim. leski / tytär / poika / isä / äiti / muu"
@@ -70,7 +70,7 @@ const Step2 = () => {
                         >
                         ❌
                       </span>
-                      <Error name={`${name}.relationType`} />
+                      <Error name={`${name}.familyReport`} />
                       {showDeceasedNotification && (
                         <div class="notification is-danger form__notification">
                           <button
@@ -87,7 +87,7 @@ const Step2 = () => {
                   <button
                     className="button is-small is-primary"
                     onClick={() =>
-                      fields.push({ relationType: ""})
+                      fields.push({ familyReport: ""})
                     }
                     type="button"
                     >
@@ -102,7 +102,7 @@ const Step2 = () => {
 
         <div className="column is-3">
           <Field
-            name="saldotodistukset"
+            name="funeralExpensesInfoDeathCertificate"
             component={InputWrapper}
             type="text"
             placeholder="Saldotodistukset"
@@ -111,7 +111,7 @@ const Step2 = () => {
         </div>
         <div className="column is-3">
           <Field
-            name="kukkat"
+            name="flowers"
             component={InputWrapper}
             type="text"
             placeholder="Kukat"
@@ -120,7 +120,7 @@ const Step2 = () => {
         </div>
         <div className="column is-2">
           <Field
-            name="hautakivet"
+            name="funeralExpensesInfoTombstone"
             component={InputWrapper}
             type="text"
             placeholder="Hautakivet"
@@ -131,7 +131,7 @@ const Step2 = () => {
       </div>
 
       <div className="columns step2__content">
-        <FieldArray name="otherExpenses">
+        <FieldArray name="otherFuneralExpenses">
           {({ fields }) => {
             return (
               <div className="sukuselvitykset">
@@ -177,7 +177,7 @@ const Step2 = () => {
                   <button
                     className="button is-small is-primary"
                     onClick={() =>
-                      fields.push({ relationType: ""})
+                      fields.push({ info: ""})
                     }
                     type="button"
                     >
@@ -192,7 +192,7 @@ const Step2 = () => {
 
         <div className="column is-3">
           <Field
-            name="perukirjareward"
+            name="perukirjakoneReward"
             component={InputWrapper}
             type="text"
             placeholder="Perukirja reward"
@@ -201,7 +201,7 @@ const Step2 = () => {
         </div>
         <div className="column is-3">
           <Field
-            name="kukkat"
+            name="perukirjakoneFee"
             component={InputWrapper}
             type="text"
             placeholder="€29"
