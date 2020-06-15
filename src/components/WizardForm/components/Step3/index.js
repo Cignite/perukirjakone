@@ -223,7 +223,7 @@ const Step3 = () => {
                       <div key={name} className="columns">
                         <div class="column is-5">
                           <Field
-                            name={`${name}.number`}
+                            name={`${name}.name`}
                             component={InputWrapper}
                             type="text"
                             placeholder="Stock name"
@@ -417,7 +417,7 @@ const Step3 = () => {
           </Condition>
           <br />
           <br />
-          
+
         </Condition>
       </div>
     </div>
