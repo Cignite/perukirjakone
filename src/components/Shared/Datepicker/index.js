@@ -15,6 +15,7 @@ const DatePickerWrapper = props => {
   } = props;
   const [startDate, setStartDate] = useState();
 
+
   return (
     <div className="field">
       <label className="label">{label}</label>
@@ -34,7 +35,7 @@ const DatePickerWrapper = props => {
           todayButton="Today"
           onBlur={props.input.onBlur}
           onFocus={props.input.onFocus}
-          value={moment(props.input.value).format('DD.MM.YYYY')}
+          value={props.input.value ? moment(props.input.value).format('DD.MM.YYYY') : null }
           placeholderText="01.02.2020"
         />
       </div>
