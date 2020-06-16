@@ -84,7 +84,7 @@ const StepWizard = () => {
       />
       {jsonSchemaData ?
         <Wizard
-          initialValues={{ ...jsonSchemaData}}
+          initialValues={jsonSchemaData}
           onSubmit={onSubmit}
         >
           <Wizard.Step
