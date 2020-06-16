@@ -1205,7 +1205,7 @@ const Step1 = () => {
                 </div>
 
 
-                <Error name={`${name}.bankaccount`} />
+                <Error name={`${name}.name`} />
                 {showDebtNotifcation && (
                   <div className="notification is-danger form__notification">
                     <button
@@ -1221,7 +1221,7 @@ const Step1 = () => {
               <button
                 className="button is-small is-primary"
                 onClick={() =>
-                  fields.push({ name: "", value: ""})
+                  fields.push({ name: "", city: ""})
                 }
                 type="button"
                 >
@@ -1233,150 +1233,6 @@ const Step1 = () => {
       }}
     </FieldArray>
 
-    <div className="columns">
-      <Condition when="wasDeceasedPersonMarried" is={true}>
-        <h3 className="title is-4">2.5 KIINTEISTÖT / HUONEISTOT</h3>
-        <hr />
-        <p>What property/apartments did the deseaced person have?</p>
-
-        <div className="columns">
-          <br />
-          <FieldArray name="property">
-            {({ fields }) => {
-              return (
-                <div className="column is-3">
-                  {fields.map((name, index) => (
-                    <div key={name}>
-                      <Field
-                        name={`${name}.name`}
-                        component={InputWrapper}
-                        type="text"
-                        placeholder="esim. Huoneisto / Talo (kiinteistönumero)"
-                        />
-
-                      <Field
-                        name={`${name}.value`}
-                        component={InputWrapper}
-                        type="text"
-                        placeholder="esim: 40000"
-                        label="Amount (€)"
-                        />
-
-                      <span
-                        className="del__btn"
-                        onClick={() => {
-                          if (fields.length === 1) {
-                            setShowPropertyNotification(true);
-                            console.log("min one")
-                          } else {
-                            fields.remove(index)}
-                          }
-                        }
-                        style={{ cursor: "pointer" }}
-                        >
-                        ❌
-                      </span>
-                      <Error name={`${name}.property`} />
-                      {showPropertyNotification && (
-                        <div className="notification is-danger form__notification">
-                          <button
-                            className="delete"
-                            onClick={() => setShowPropertyNotification(false)}
-                            />
-                          Atleast one property definition should exist!
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                  <span className="add__btn">
-                    <button
-                      className="button is-small is-primary"
-                      onClick={() =>
-                        fields.push({ name: "", value: ""})
-                      }
-                      type="button"
-                      >
-                      Add more
-                    </button>
-                  </span>
-                </div>
-              );
-            }}
-          </FieldArray>
-        </div>
-
-        <h3 className="title is-4">2.6 RAHAVARAT KORKOINEEN</h3>
-        <hr />
-        <p>Pankin / pankkitilin tiedot ja saldo</p>
-
-        <div className="columns">
-          <br />
-          <FieldArray name="bankaccount">
-            {({ fields }) => {
-              return (
-                <div className="column is-3">
-                  {fields.map((name, index) => (
-                    <div key={name}>
-                      <Field
-                        name={`${name}.number`}
-                        component={InputWrapper}
-                        type="text"
-                        placeholder="Bank account number"
-                        label="Enter Bank account number"
-                        />
-
-                      <Field
-                        name={`${name}.value`}
-                        component={InputWrapper}
-                        type="text"
-                        placeholder="esim: €40k"
-                        label="Amount (€)"
-                        />
-
-                      <span
-                        className="del__btn"
-                        onClick={() => {
-                          if (fields.length === 1) {
-                            setShowWidowBankInfo(true);
-                            console.log("min one")
-                          } else {
-                            fields.remove(index)}
-                          }
-                        }
-                        style={{ cursor: "pointer" }}
-                        >
-                        ❌
-                      </span>
-                      <Error name={`${name}.bankaccount`} />
-                      {showWidowBankInfo && (
-                        <div className="notification is-danger form__notification">
-                          <button
-                            className="delete"
-                            onClick={() => setShowWidowBankInfo(false)}
-                            />
-                          Atleast one Bank account definition should exist!
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                  <span className="add__btn">
-                    <button
-                      className="button is-small is-primary"
-                      onClick={() =>
-                        fields.push({ number: "", value: ""})
-                      }
-                      type="button"
-                      >
-                      Add more
-                    </button>
-                  </span>
-                </div>
-              );
-            }}
-          </FieldArray>
-        </div>
-      </Condition>
-    </div>
     <hr />
   </div>
 )
