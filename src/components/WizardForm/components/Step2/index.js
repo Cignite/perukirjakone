@@ -56,6 +56,8 @@ const Step2 = () => {
                         />
 
                       <span
+                        role="img"
+                        aria-label="Close"
                         className="del__btn"
                         onClick={() => {
                           if (fields.length === 1) {
@@ -146,6 +148,8 @@ const Step2 = () => {
                         />
 
                       <span
+                        role="img"
+                        aria-label="Close"
                         className="del__btn"
                         onClick={() => {
                           if (fields.length === 1) {

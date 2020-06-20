@@ -1,24 +1,19 @@
 import React from 'react';
 import { Field } from "react-final-form";
 import { FieldArray } from 'react-final-form-arrays';
-import moment from 'moment';
-import { ARRAY_ERROR } from 'final-form'
-import arrayMutators from 'final-form-arrays'
-import * as EmailValidator from "email-validator";
 
 import InputWrapper from '../../../Shared/Input';
-import renderDatePickerField from '../../../Shared/Datepicker';
-import renderFileInputField from '../../../Shared/FileInput';
+
 import Error from '../../../Shared/Error';
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+// const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+//
+// const onSubmit = async values => {
+//   await sleep(300);
+//   window.alert(JSON.stringify(values, 0, 2));
+// };
 
-const onSubmit = async values => {
-  await sleep(300);
-  window.alert(JSON.stringify(values, 0, 2));
-};
-
-const required = value => (value ? undefined : "Required");
+// const required = value => (value ? undefined : "Required");
 
 const Condition = ({ when, is, children }) => {
   return (
@@ -29,15 +24,15 @@ const Condition = ({ when, is, children }) => {
 }
 
 const Step3 = () => {
-  const [showDeceasedNotification, setShowDeceasedNotification] = React.useState(false);
-  const [showPropertyNotification, setShowPropertyNotification] = React.useState(false);
-  const [showBankAccountNotification, setShowBankAccountNotification] = React.useState(false);
-  const [showShareInfoNotification, setShowShareInfoNotification] = React.useState(false);
+  //const [showDeceasedNotification, setShowDeceasedNotification] = React.useState(false);
+  // const [showPropertyNotification, setShowPropertyNotification] = React.useState(false);
+  // const [showBankAccountNotification, setShowBankAccountNotification] = React.useState(false);
+  // const [showShareInfoNotification, setShowShareInfoNotification] = React.useState(false);
   const [showPaintingInfo, setShowPaintingInfo] = React.useState(false);
-  const [showDebtNotifcation, setShowDebtNotifcation] = React.useState(false);
-  const [showFuneralExpensesInfo, setShowFuneralExpensesInfo] = React.useState(false);
-  const [showWidowBankInfo, setShowWidowBankInfo] = React.useState(false);
-  const [codeValue, setCodeValue] = React.useState("");
+  //const [showDebtNotifcation, setShowDebtNotifcation] = React.useState(false);
+  // const [showFuneralExpensesInfo, setShowFuneralExpensesInfo] = React.useState(false);
+  // const [showWidowBankInfo, setShowWidowBankInfo] = React.useState(false);
+  // const [codeValue, setCodeValue] = React.useState("");
 
   return (
     <div>
@@ -90,6 +85,8 @@ const Step3 = () => {
                           />
 
                         <span
+                          role="img"
+                          aria-label="Close"
                           className="del__btn"
                           onClick={() => {
                             if (fields.length === 1) {
@@ -164,6 +161,8 @@ const Step3 = () => {
                           />
 
                         <span
+                          role="img"
+                          aria-label="Close"
                           className="del__btn"
                           onClick={() => {
                             if (fields.length === 1) {
@@ -240,6 +239,8 @@ const Step3 = () => {
                             />
 
                           <span
+                            role="img"
+                            aria-label="Close"
                             className="del__btn"
                             onClick={() => {
                               if (fields.length === 1) {
@@ -329,6 +330,8 @@ const Step3 = () => {
                             />
 
                           <span
+                            role="img"
+                            aria-label="Close"
                             className="del__btn"
                             onClick={() => {
                               if (fields.length === 1) {
@@ -418,6 +421,8 @@ const Step3 = () => {
                             />
 
                           <span
+                            role="img"
+                            aria-label="Close"
                             className="del__btn"
                             onClick={() => {
                               if (fields.length === 1) {
