@@ -73,9 +73,9 @@ const Step2 = () => {
                       </span>
                       <Error name={`${name}.familyReport`} />
                       {showDeceasedNotification && (
-                        <div class="notification is-danger form__notification">
+                        <div className="notification is-danger form__notification">
                           <button
-                            class="delete"
+                            className="delete"
                             onClick={() => setShowDeceasedNotification(false)}
                             />
                           Atleast one relationship to deceased person should exist!
@@ -165,9 +165,9 @@ const Step2 = () => {
                       </span>
                       <Error name={`${name}.relationType`} />
                       {showDeceasedNotification && (
-                        <div class="notification is-danger form__notification">
+                        <div className="notification is-danger form__notification">
                           <button
-                            class="delete"
+                            className="delete"
                             onClick={() => setShowDeceasedNotification(false)}
                             />
                           Atleast one relationship to deceased person should exist!

@@ -39,7 +39,7 @@ const Step3 = () => {
       <h3 className="title is-4">Marriage</h3>
       <hr />
       <div className="columns">
-        <div class="column is-6">
+        <div className="column is-6">
           <div>
             <Field
               name="wasDeceasedPersonMarried"
@@ -66,7 +66,7 @@ const Step3 = () => {
                 <div>
                   {fields.map((name, index) => (
                     <div key={name} className="columns">
-                      <div class="column is-5">
+                      <div className="column is-5">
                         <Field
                           name={`${name}.name`}
                           component={InputWrapper}
@@ -105,7 +105,7 @@ const Step3 = () => {
 
                       <Error name={`${name}.name`} />
                       {showPaintingInfo && (
-                        <div class="notification is-danger form__notification">
+                        <div classNa,e="notification is-danger form__notification">
                           <button
                             class="delete"
                             onClick={() => setShowPaintingInfo(false)}
@@ -181,9 +181,9 @@ const Step3 = () => {
 
                       <Error name={`${name}.name`} />
                       {showPaintingInfo && (
-                        <div class="notification is-danger form__notification">
+                        <div className="notification is-danger form__notification">
                           <button
-                            class="delete"
+                            className="delete"
                             onClick={() => setShowPaintingInfo(false)}
                             />
                           Atleast one share info definition should exist!
@@ -220,7 +220,7 @@ const Step3 = () => {
                   <div>
                     {fields.map((name, index) => (
                       <div key={name} className="columns">
-                        <div class="column is-5">
+                        <div className="column is-5">
                           <Field
                             name={`${name}.name`}
                             component={InputWrapper}
@@ -259,9 +259,9 @@ const Step3 = () => {
 
                         <Error name={`${name}.name`} />
                         {showPaintingInfo && (
-                          <div class="notification is-danger form__notification">
+                          <div className="notification is-danger form__notification">
                             <button
-                              class="delete"
+                              className="delete"
                               onClick={() => setShowPaintingInfo(false)}
                               />
                             Atleast one share info definition should exist!
@@ -288,7 +288,7 @@ const Step3 = () => {
 
 
           <div className="columns">
-            <div class="column is-6">
+            <div className="column is-6">
               <div>
                 <Field
                   name="isPersonalWorth"
@@ -402,7 +402,7 @@ const Step3 = () => {
                   <div>
                     {fields.map((name, index) => (
                       <div key={name} className="columns">
-                        <div class="column is-5">
+                        <div className="column is-5">
                           <Field
                             name={`${name}.name`}
                             component={InputWrapper}
@@ -441,9 +441,9 @@ const Step3 = () => {
 
                         <Error name={`${name}.bankaccount`} />
                         {showPaintingInfo && (
-                          <div class="notification is-danger form__notification">
+                          <div className="notification is-danger form__notification">
                             <button
-                              class="delete"
+                              className="delete"
                               onClick={() => setShowPaintingInfo(false)}
                               />
                             Atleast one share info definition should exist!
