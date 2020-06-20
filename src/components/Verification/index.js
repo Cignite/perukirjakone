@@ -8,8 +8,6 @@ import InputWrapper from '../Shared/Input';
 import Error from '../Shared/Error';
 import logo from '../images/logo.svg'
 
-import {  uniqueDocumentCodeId } from '../utils';
-
 import './styles.scss';
 
 const API_BASE_URL = "https://perukirjakone.herokuapp.com/";
@@ -26,9 +24,8 @@ const UserVerfication = (props) => {
   console.log("UserRegistration", props);
   const [showLoader, setShowLoader] = React.useState(false);
   const [doesEmailExist, setDoesEmailExist] = React.useState(false);
-  const [docData, setDocData] = React.useState(null);
   const [isEmailValid, setIsEmailValid] = React.useState(true);
-  const [isTermsServiceAgreed, setIsTermsServiceAgreed] = React.useState(true);
+  const [isTermsServiceAgreed, setIsTermsServiceAgreed] = React.useState(false);
   const [emailVerificationNotify, setEmailVerificationNotify] = React.useState(false);
   const [isCodeExist, setIsCodeExist] = React.useState(false);
 
@@ -195,6 +192,19 @@ const UserVerfication = (props) => {
                             Email or verification code didn't matched!
                           </div>
                         )}
+                        {isEmailValid && (
+                          <div className="notification is-danger form__notification">
+
+                            Invalid email
+                          </div>
+                        )}
+                        {!isTermsServiceAgreed && (
+                          <div className="notification is-danger form__notification">
+
+                            Agree terms
+                          </div>
+                        )}
+
                       </form>
                     )}
                   />
@@ -202,9 +212,9 @@ const UserVerfication = (props) => {
 
                 <br/>
                 <p className="has-text-centered">
-                <a className="label has-text-weight-bold">
-                  Email not validated?
-                </a>
+                  <span className="label has-text-weight-bold">
+                    Email not validated?
+                  </span>
                 </p>
                 <h4 className="has-text-centered">
                   <Link to="/user-validation" className="has-text-weight-light">

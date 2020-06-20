@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, Redirect } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Field, Form } from "react-final-form";
 import * as EmailValidator from "email-validator";
@@ -27,7 +27,6 @@ const UserRegistration = (props) => {
   console.log("UserRegistration", props);
   const [showLoader, setShowLoader] = useState(false);
   const [doesEmailExist, setDoesEmailExist] = useState(false);
-  const [docData, setDocData] = useState(null);
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isTermsServiceAgreed, setIsTermsServiceAgreed] = useState(true);
   const [emailVerificationNotify, setEmailVerificationNotify] = useState(false);
@@ -178,6 +177,17 @@ const UserRegistration = (props) => {
                             </Link>
                           </div>
                         )}
+                        {isEmailValid && (
+                          <div className="notification is-danger form__notification">
+                            <span>Invalid </span>
+                          </div>
+                        )}
+                        {!isTermsServiceAgreed && (
+                          <div className="notification is-danger form__notification">
+                            <span>Agreee terms </span>
+                          </div>
+                        )}
+
                       </form>
                     )}
                   />
@@ -185,9 +195,9 @@ const UserRegistration = (props) => {
 
                 <br/>
                 <p className="has-text-centered">
-                <a className="label has-text-weight-bold">
-                    Already validated email?
-                  </a>
+                  <span className="label has-text-weight-bold">
+                  Already validated email?
+                  </span>
                 </p>
 
                 <h4 className="has-text-centered">
