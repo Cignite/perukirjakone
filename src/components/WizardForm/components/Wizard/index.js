@@ -109,7 +109,6 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
                 </button>
               )}
             </div>
-            <pre>{JSON.stringify(values, 0, 2)}</pre>
           </form>
         )}
       </Form>
@@ -131,9 +130,9 @@ WizardForm.Stepper = ({ activeStep, totalSteps }) => (
       <Step key={idx}>
         {idx === 0 && (<StepLabel>Customer Info</StepLabel>)}
         {idx === 1 && (<StepLabel>Funeral expenses</StepLabel>)}
-        {idx === 2 && (<StepLabel>Marriage</StepLabel>)}
-        {idx === 3 && (<StepLabel>Review</StepLabel>)}
-        {idx === 4 && (<StepLabel>Submit</StepLabel>)}
+        {idx === 2 && (<StepLabel>Widow marriage</StepLabel>)}
+        {idx === 3 && (<StepLabel>Preview</StepLabel>)}
+        {idx === 4 && (<StepLabel>Agreement & Submit</StepLabel>)}
       </Step>
     ))}
   </Stepper>
