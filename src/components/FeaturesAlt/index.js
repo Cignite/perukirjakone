@@ -10,7 +10,7 @@ function FeaturesAlt(props) {
         <ul>
           {props.items.map((item, index) => (
             <li className="FeaturesAlt__item" key={index}>
-              <a
+              <span
                 className={
                   "FeaturesAlt__item-link" +
                   (activeId === index ? " is-active" : "")
@@ -18,7 +18,7 @@ function FeaturesAlt(props) {
                 onClick={() => setActiveId(index)}
               >
                 <h1 className="title">{item.title}</h1>
-              </a>
+              </span>
             </li>
           ))}
         </ul>

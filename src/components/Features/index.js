@@ -14,7 +14,7 @@ function Features(props) {
             <p className="subtitle">{item.description}</p>
           </div>
           <div className="column">
-            <img className="Features__no-classname" src={item.image} />
+            <img className="Features__no-classname" src={item.image} alt="feature" />
           </div>
         </div>
       ))}
