@@ -1,13 +1,11 @@
 import React from 'react';
-import ReactPDF, {
+import {
   Text,
   StyleSheet,
   View
 } from '@react-pdf/renderer';
-import moment from 'moment';
 
 import jsonSchema from './jsonSchema';
-import LineBreak from './LineBreak';
 
 const styles = StyleSheet.create({
   row: {

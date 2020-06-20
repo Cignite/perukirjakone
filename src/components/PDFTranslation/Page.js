@@ -1,12 +1,9 @@
 import React from 'react';
-import moment from 'moment';
-import ReactPDF, {
+import  {
   Text,
-  Document,
   Font,
   Page,
   StyleSheet,
-  Image,
   View,
 } from '@react-pdf/renderer';
 
@@ -27,8 +24,6 @@ import WidowInfo from './WidowInfo';
 import OpenSans from './fonts/Open_Sans/OpenSans-Regular.ttf';
 import LatoRegular from './fonts/Lato/Lato-Regular.ttf';
 import LatoBold from './fonts/Lato/Lato-Bold.ttf';
-
-import jsonSchema from './jsonSchema';
 
 const styles = StyleSheet.create({
   page: {

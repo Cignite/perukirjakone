@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactPDF, {
+import {
   Text,
   StyleSheet,
   View,
@@ -8,7 +8,6 @@ import ReactPDF, {
 import moment from 'moment';
 
 import jsonSchema from './jsonSchema';
-import LineBreak from './LineBreak';
 import CheckBox from './checkbox.png';
 import Unchecked from './unchecked.png';
 

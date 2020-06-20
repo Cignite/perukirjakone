@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactPDF, {
+import {
   Text,
   StyleSheet,
   View
@@ -70,10 +70,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Lato Bold',
     marginBottom: 10,
     flexDirection: "row"
-  },
-  tableRow: {
-    flexDirection: "row",
-    marginTop: -10
   },
   table: {
     marginLeft: 30,
