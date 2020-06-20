@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Prompt } from 'react-router-dom';
-import { render } from "react-dom";
-import { Field } from "react-final-form";
+// import { Prompt } from 'react-router-dom';
 import axios from 'axios';
 
 import Wizard from "./components/Wizard";
-import Error from '../Shared/Error';
 import Step1 from './components/Step1';
 import Step2 from './components/Step2';
 import Step3 from './components/Step3';
@@ -14,8 +11,6 @@ import Step5 from './components/Step5';
 
 
 import './styles.scss';
-
-import initialValuesData from './initialValues';
 
 const API_BASE_URL = "https://perukirjakone.herokuapp.com/";
 
@@ -26,27 +21,27 @@ const onSubmit = async values => {
   window.alert(JSON.stringify(values, 0, 2));
 };
 
-const required = value => (value ? undefined : "Required");
-
-const Condition = ({ when, is, children }) => {
-  return (
-    <Field name={when} subscription={{ value: true }}>
-      {({ input: { value } }) => (value === is ? children : null)}
-    </Field>
-  )
-}
+// const required = value => (value ? undefined : "Required");
+//
+// const Condition = ({ when, is, children }) => {
+//   return (
+//     <Field name={when} subscription={{ value: true }}>
+//       {({ input: { value } }) => (value === is ? children : null)}
+//     </Field>
+//   )
+// }
 
 const StepWizard = () => {
-  const [showDeceasedNotification, setShowDeceasedNotification] = useState(false);
-  const [showPropertyNotification, setShowPropertyNotification] = useState(false);
-  const [showBankAccountNotification, setShowBankAccountNotification] = useState(false);
-  const [showShareInfoNotification, setShowShareInfoNotification] = useState(false);
-  const [showPaintingInfo, setShowPaintingInfo] = useState(false);
-  const [showDebtNotifcation, setShowDebtNotifcation] = useState(false);
-  const [showFuneralExpensesInfo, setShowFuneralExpensesInfo] = useState(false);
-  const [showWidowBankInfo, setShowWidowBankInfo] = useState(false);
-  const [codeValue, setCodeValue] = useState("");
-  const [shouldRoute, setShouldRoute] = useState(false);
+  // const [showDeceasedNotification, setShowDeceasedNotification] = useState(false);
+  // const [showPropertyNotification, setShowPropertyNotification] = useState(false);
+  // const [showBankAccountNotification, setShowBankAccountNotification] = useState(false);
+  // const [showShareInfoNotification, setShowShareInfoNotification] = useState(false);
+  // const [showPaintingInfo, setShowPaintingInfo] = useState(false);
+  // const [showDebtNotifcation, setShowDebtNotifcation] = useState(false);
+  // const [showFuneralExpensesInfo, setShowFuneralExpensesInfo] = useState(false);
+  // const [showWidowBankInfo, setShowWidowBankInfo] = useState(false);
+  // const [codeValue, setCodeValue] = useState("");
+  //const [shouldRoute, setShouldRoute] = useState(false);
   const [jsonSchemaData, setJsonSchemaData] = useState(null);
 
   // useEffect(() => {
@@ -78,10 +73,6 @@ const StepWizard = () => {
 
   return(
     <div>
-      <Prompt
-        when={shouldRoute}
-        message={location => `Are you sure you want to go to ${location.pathname}`}
-      />
       {jsonSchemaData ?
         <Wizard
           initialValues={jsonSchemaData}
