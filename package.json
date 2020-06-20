@@ -2,7 +2,7 @@
   "version": "0.0.91",
   "scripts": {
     "start": "react-scripts start",
-    "build": "set \"CI=false\" && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "css-build": "node-sass --omit-source-map-url public/styles/main.scss public/styles/main.css",
