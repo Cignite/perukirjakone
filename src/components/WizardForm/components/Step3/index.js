@@ -6,15 +6,6 @@ import InputWrapper from '../../../Shared/Input';
 
 import Error from '../../../Shared/Error';
 
-// const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-//
-// const onSubmit = async values => {
-//   await sleep(300);
-//   window.alert(JSON.stringify(values, 0, 2));
-// };
-
-// const required = value => (value ? undefined : "Required");
-
 const Condition = ({ when, is, children }) => {
   return (
     <Field name={when} subscription={{ value: true }}>
@@ -98,7 +89,7 @@ const Step3 = () => {
                           }
                           style={{ cursor: "pointer" }}
                           >
-                          ❌
+                          <i className="fa fa-trash" />
                         </span>
                       </div>
 
@@ -174,7 +165,7 @@ const Step3 = () => {
                           }
                           style={{ cursor: "pointer" }}
                           >
-                          ❌
+                          <i className="fa fa-trash" />
                         </span>
                       </div>
 
@@ -252,7 +243,7 @@ const Step3 = () => {
                             }
                             style={{ cursor: "pointer" }}
                             >
-                            ❌
+                            <i className="fa fa-trash" />
                           </span>
                         </div>
 
@@ -343,7 +334,7 @@ const Step3 = () => {
                             }
                             style={{ cursor: "pointer" }}
                             >
-                            ❌
+                            <i className="fa fa-trash" />
                           </span>
                         </div>
 
@@ -362,7 +353,7 @@ const Step3 = () => {
                     ))}
                     <span className="add__btn">
                       <button
-                        className="button is-small is-primary"
+                        className="button is-small is-primary add"
                         onClick={() =>
                           fields.push({ name: "", value: ""})
                         }
@@ -434,7 +425,7 @@ const Step3 = () => {
                             }
                             style={{ cursor: "pointer" }}
                             >
-                            ❌
+                            <i className="fa fa-trash" />
                           </span>
                         </div>
 

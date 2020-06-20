@@ -7,15 +7,6 @@ import InputWrapper from '../../../Shared/Input';
 import renderDatePickerField from '../../../Shared/Datepicker';
 import Error from '../../../Shared/Error';
 
-// const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-//
-// const onSubmit = async values => {
-//   await sleep(300);
-//   window.alert(JSON.stringify(values, 0, 2));
-// };
-
-// const required = value => (value ? undefined : "Required");
-
 const Condition = ({ when, is, children }) => {
   return (
     <Field name={when} subscription={{ value: true }}>
@@ -160,7 +151,7 @@ const Step1 = () => {
                         }
                         style={{ cursor: "pointer" }}
                         >
-                        ❌
+                        <i className="fa fa-trash" />
                       </span>
                       <Error name={`${name}.relationType`} />
                       {showDeceasedNotification && (
@@ -370,7 +361,7 @@ const Step1 = () => {
                       }
                       style={{ cursor: "pointer" }}
                     >
-                      ❌
+                      <i className="fa fa-trash" />
                     </span>
                   </div>
 
@@ -447,7 +438,7 @@ const Step1 = () => {
                     }
                     style={{ cursor: "pointer" }}
                     >
-                    ❌
+                    <i className="fa fa-trash" />
                   </span>
                 </div>
 
@@ -523,7 +514,7 @@ const Step1 = () => {
                     }
                     style={{ cursor: "pointer" }}
                     >
-                    ❌
+                    <i className="fa fa-trash" />
                   </span>
                 </div>
 
@@ -676,7 +667,7 @@ const Step1 = () => {
                       }
                       style={{ cursor: "pointer" }}
                       >
-                      ❌
+                      <i className="fa fa-trash" />
                     </span>
                   </div>
 
@@ -693,9 +684,9 @@ const Step1 = () => {
                   )}
                 </div>
               ))}
-              <span className="add__btn">
+              <span className="add__btn margin">
                 <button
-                  className="button is-small is-primary"
+                  className="button is-small is-primary add"
                   onClick={() =>
                     fields.push({ name: "", value: ""})
                   }
@@ -765,7 +756,7 @@ const Step1 = () => {
                       }
                       style={{ cursor: "pointer" }}
                       >
-                      ❌
+                      <i className="fa fa-trash" />
                     </span>
                   </div>
 
@@ -782,9 +773,9 @@ const Step1 = () => {
                   )}
                 </div>
               ))}
-              <span className="add__btn">
+              <span className="add__btn margin">
                 <button
-                  className="button is-small is-primary"
+                  className="button is-small is-primary add"
                   onClick={() =>
                     fields.push({ name: "", value: ""})
                   }
@@ -855,7 +846,7 @@ const Step1 = () => {
                       }
                       style={{ cursor: "pointer" }}
                       >
-                      ❌
+                      <i className="fa fa-trash" />
                     </span>
                   </div>
 
@@ -874,7 +865,7 @@ const Step1 = () => {
               ))}
               <div className="add__btn margin">
                 <button
-                  className="button is-small is-primary"
+                  className="button is-small is-primary "
                   onClick={() =>
                     fields.push({ name: "", value: ""})
                   }
@@ -933,7 +924,7 @@ const Step1 = () => {
                       }
                       style={{ cursor: "pointer" }}
                       >
-                      ❌
+                      <i className="fa fa-trash" />
                     </span>
                   </div>
 
@@ -1212,7 +1203,7 @@ const Step1 = () => {
                     }
                     style={{ cursor: "pointer" }}
                     >
-                    ❌
+                    <i className="fa fa-trash" />
                   </span>
                 </div>
 

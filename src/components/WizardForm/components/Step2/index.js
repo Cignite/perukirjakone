@@ -7,23 +7,6 @@ import Error from '../../../Shared/Error';
 
 import './styles.scss';
 
-//const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-// const onSubmit = async values => {
-//   await sleep(300);
-//   window.alert(JSON.stringify(values, 0, 2));
-// };
-
-// const required = value => (value ? undefined : "Required");
-
-// const Condition = ({ when, is, children }) => {
-//   return (
-//     <Field name={when} subscription={{ value: true }}>
-//       {({ input: { value } }) => (value === is ? children : null)}
-//     </Field>
-//   )
-// }
-
 const Step2 = () => {
   const [showDeceasedNotification, setShowDeceasedNotification] = React.useState(false);
   //const [showPropertyNotification, setShowPropertyNotification] = React.useState(false);
@@ -69,7 +52,7 @@ const Step2 = () => {
                         }
                         style={{ cursor: "pointer" }}
                         >
-                        ❌
+                        <i className="fa fa-trash" />
                       </span>
                       <Error name={`${name}.familyReport`} />
                       {showDeceasedNotification && (
@@ -161,7 +144,7 @@ const Step2 = () => {
                         }
                         style={{ cursor: "pointer" }}
                         >
-                        ❌
+                        <i className="fa fa-trash" />
                       </span>
                       <Error name={`${name}.relationType`} />
                       {showDeceasedNotification && (
