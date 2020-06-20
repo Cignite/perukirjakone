@@ -32,13 +32,13 @@
 
   .social {
     align-items: flex-end;
-    a:not(:first-of-type) {
+    span:not(:first-of-type) {
       margin-left: 30px;
     }
   }
 
   .links {
-    a:not(:first-of-type) {
+    span:not(:first-of-type) {
       margin-left: 15px;
     }
   }
