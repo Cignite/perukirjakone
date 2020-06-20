@@ -103,11 +103,11 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
                   {showLoader ? <span>Loading</span> : <span>Save and continue »</span>}
                 </button>
               )}
-              {isLastPage && (
+              {/*isLastPage && (
                 <button className="button is-dark next__btn" type="submit" disabled={submitting}>
                   Submit
                 </button>
-              )}
+              )*/}
             </div>
           </form>
         )}
@@ -132,7 +132,7 @@ WizardForm.Stepper = ({ activeStep, totalSteps }) => (
         {idx === 1 && (<StepLabel>Funeral expenses</StepLabel>)}
         {idx === 2 && (<StepLabel>Widow marriage</StepLabel>)}
         {idx === 3 && (<StepLabel>Preview</StepLabel>)}
-        {idx === 4 && (<StepLabel>Agreement & Submit</StepLabel>)}
+        {idx === 4 && (<StepLabel>Download</StepLabel>)}
       </Step>
     ))}
   </Stepper>
