@@ -192,26 +192,7 @@ const UserVerfication = (props) => {
                             Email or verification code didn't matched!
                           </div>
                         )}
-                        {isEmailValid && (
-                          <div className="notification is-danger form__notification">
-
-                            Invalid email
-                          </div>
-                        )}
-                        {!isTermsServiceAgreed && (
-                          <div className="notification is-danger form__notification">
-
-                            Agree terms
-                          </div>
-                        )}
-                        {!isCodeExist && (
-                          <div className="notification is-danger form__notification">
-
-                            Code should exist!
-                          </div>
-                        )}
-
-
+                        {isEmailValid &&  isTermsServiceAgreed && isCodeExist && ( null )}
                       </form>
                     )}
                   />

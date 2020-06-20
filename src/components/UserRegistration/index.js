@@ -27,8 +27,8 @@ const UserRegistration = (props) => {
   console.log("UserRegistration", props);
   const [showLoader, setShowLoader] = useState(false);
   const [doesEmailExist, setDoesEmailExist] = useState(false);
-  const [isEmailValid, setIsEmailValid] = useState(true);
-  const [isTermsServiceAgreed, setIsTermsServiceAgreed] = useState(true);
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isTermsServiceAgreed, setIsTermsServiceAgreed] = useState(false);
   const [emailVerificationNotify, setEmailVerificationNotify] = useState(false);
 
   // useEffect(() => {
@@ -65,7 +65,7 @@ const UserRegistration = (props) => {
   const submitEmail = async (formData) => {
     const payload = { email: formData.email, code:  uniqueDocumentCodeId() };
     if (!formData.email) {
-      setIsEmailValid(false);
+      setIsEmailValid(true);
     }
     if (!formData.isTermsAgreed) {
       setIsTermsServiceAgreed(false);
@@ -177,16 +177,7 @@ const UserRegistration = (props) => {
                             </Link>
                           </div>
                         )}
-                        {isEmailValid && (
-                          <div className="notification is-danger form__notification">
-                            <span>Invalid </span>
-                          </div>
-                        )}
-                        {!isTermsServiceAgreed && (
-                          <div className="notification is-danger form__notification">
-                            <span>Agreee terms </span>
-                          </div>
-                        )}
+                        {isEmailValid && isTermsServiceAgreed && ( null )}
 
                       </form>
                     )}
