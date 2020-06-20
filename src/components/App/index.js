@@ -15,6 +15,9 @@ import UserRegistration from '../UserRegistration';
 import UserVerification from '../Verification';
 import NotFoundPage from '../NotFound';
 import MainWrapper from '../Wrapper';
+import PDFViewer from '../PDFViewer';
+import PDFTranslation from '../PDFTranslation';
+
 
 export default function App() {
   return (
@@ -26,6 +29,8 @@ export default function App() {
             <Route exact path="/user-validation" component={UserRegistration}  />
             <Route exact path="/user-verification" component={UserVerification} />
             <Route exact path="/wizard-form" component={PerukirjaForm} />
+            <Route exact path="/pdf" component={PDFViewer} />
+            <Route exact path="/translation" component={PDFTranslation} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>
