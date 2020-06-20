@@ -7,10 +7,8 @@ import './styles.scss';
 
 const DatePickerWrapper = props => {
   const {
-    input: { value },
+    input,
     label,
-    minDate,
-    maxDate,
     meta,
   } = props;
   const [startDate, setStartDate] = useState();
@@ -29,7 +27,7 @@ const DatePickerWrapper = props => {
           selected={startDate}
           onChange={value => {
             setStartDate(value);
-            props.input.onChange(value);
+            input.onChange(value);
           }}
           minDate={new Date()}
           todayButton="Today"
