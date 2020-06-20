@@ -105,7 +105,7 @@ const Step3 = () => {
 
                       <Error name={`${name}.name`} />
                       {showPaintingInfo && (
-                        <div classNa,e="notification is-danger form__notification">
+                        <div className="notification is-danger form__notification">
                           <button
                             class="delete"
                             onClick={() => setShowPaintingInfo(false)}
