@@ -29,23 +29,23 @@ const UserVerfication = (props) => {
   const [emailVerificationNotify, setEmailVerificationNotify] = React.useState(false);
   const [isCodeExist, setIsCodeExist] = React.useState(false);
 
-  const getDocumentData = async (id) => {
-    console.log("getdocumetn id", id)
-    try {
-      setShowLoader(true);
-       await axios.get(`${API_BASE_URL}${'documents/'}${id}`)
-        .then(res => {
-          console.log("get data", res)
-          // setState({
-          //   values: res.data
-          // });
-          //codeValueHandler(res.data.code);
-          setShowLoader(false);
-        })
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // const getDocumentData = async (id) => {
+  //   console.log("getdocumetn id", id)
+  //   try {
+  //     setShowLoader(true);
+  //      await axios.get(`${API_BASE_URL}${'documents/'}${id}`)
+  //       .then(res => {
+  //         console.log("get data", res)
+  //         // setState({
+  //         //   values: res.data
+  //         // });
+  //         //codeValueHandler(res.data.code);
+  //         setShowLoader(false);
+  //       })
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   const verifyEmailCode = async (formData) => {
     setDoesEmailExist(false);
@@ -55,7 +55,7 @@ const UserVerfication = (props) => {
     if (!formData.isTermsAgreed) {
       setIsTermsServiceAgreed(false);
     }
-    if (!formData.isTermsAgreed) {
+    if (!formData.code) {
       setIsCodeExist(false);
     } else {
       try {
@@ -204,6 +204,13 @@ const UserVerfication = (props) => {
                             Agree terms
                           </div>
                         )}
+                        {!isCodeExist && (
+                          <div className="notification is-danger form__notification">
+
+                            Code should exist!
+                          </div>
+                        )}
+
 
                       </form>
                     )}
