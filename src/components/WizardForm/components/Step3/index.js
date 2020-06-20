@@ -304,29 +304,76 @@ const Step3 = () => {
           </div>
 
           <Condition when="isPersonalWorth" is={true}>
-            <div className="columns">
-              <div class="column is-5">
-                <Field
-                  name="isPersonalWorthInfo"
-                  component={InputWrapper}
-                  type="text"
-                  placeholder=""
-                  label="Omaisuuden arvo"
-                  />
-                <Error name="isPersonalWorthInfo" />
-              </div>
-              <div class="column is-2">
-                <Field
-                  name="isPersonalWorthValue"
-                  component={InputWrapper}
-                  type="text"
-                  placeholder="5K"
-                  label="Value (€)"
-                  />
-                <Error name="isPersonalWorthInfo" />
-              </div>
-            </div>
+            <FieldArray name="personalWorthInfo">
+              {({ fields }) => {
+                return (
+                  <div>
+                    {fields.map((name, index) => (
+                      <div key={name} className="columns">
+                        <div className="column is-5">
+                          <Field
+                            name={`${name}.name`}
+                            component={InputWrapper}
+                            type="text"
+                            placeholder="Omaisuuden arvo"
+                            label="Omaisuuden arvo"
+                            />
+                        </div>
+                        <div className="column is-2">
+                          <Field
+                            name={`${name}.value`}
+                            component={InputWrapper}
+                            type="text"
+                            placeholder="€4000"
+                            label="Amount (€)"
+                            />
+
+                          <span
+                            className="del__btn"
+                            onClick={() => {
+                              if (fields.length === 1) {
+                                setShowPaintingInfo(true);
+                                console.log("min one")
+                              } else {
+                                fields.remove(index)}
+                              }
+                            }
+                            style={{ cursor: "pointer" }}
+                            >
+                            ❌
+                          </span>
+                        </div>
+
+
+                        <Error name={`${name}.bankaccount`} />
+                        {showPaintingInfo && (
+                          <div className="notification is-danger form__notification">
+                            <button
+                              className="delete"
+                              onClick={() => setShowPaintingInfo(false)}
+                              />
+                            Atleast one share info definition should exist!
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                    <span className="add__btn">
+                      <button
+                        className="button is-small is-primary"
+                        onClick={() =>
+                          fields.push({ name: "", value: ""})
+                        }
+                        type="button"
+                        >
+                        Add more
+                      </button>
+                    </span>
+                  </div>
+                );
+              }}
+            </FieldArray>
           </Condition>
+
 
           <div className="columns">
             <div class="column is-6">
