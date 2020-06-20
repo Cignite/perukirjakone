@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactPDF, {
+import {
   Text,
   StyleSheet,
   View
 } from '@react-pdf/renderer';
-import moment from 'moment';
 
 import jsonSchema from './jsonSchema';
 import List, { Item } from './List';

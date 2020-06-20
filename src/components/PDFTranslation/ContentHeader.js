@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactPDF, {
+import {
   Text,
   StyleSheet
 } from '@react-pdf/renderer';
