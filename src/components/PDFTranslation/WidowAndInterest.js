@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactPDF, {
+import {
   Text,
   StyleSheet,
   View
 } from '@react-pdf/renderer';
-import moment from 'moment';
 
 import jsonSchema from './jsonSchema';
 import List, { Item } from './List';
@@ -148,20 +147,6 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
 });
-
-const RelationInfo = ({ deceasedPersonItem }) => {
-  return (
-    <View style={styles.entryContainer}>
-      <List>
-        {deceasedPersonItem.map((detail, i) => (
-          <Item key={i} style={styles.detailContainer}>
-            {detail}
-          </Item>
-        ))}
-      </List>
-    </View>
-  );
-};
 
 const WidowAndInterest = () => (
   <>

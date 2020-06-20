@@ -1,9 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
+import { PDFViewer } from '@react-pdf/renderer';
 import { Link } from 'react-router-dom';
 
-import MasterForm from '../WizardForm';
 import PDFDocument from '../PDFTranslation';
 import logo from '../images/logo.svg';
 
