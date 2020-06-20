@@ -5,7 +5,6 @@ import { Text, View, StyleSheet } from '@react-pdf/renderer';
 const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
-    marginBottom: 5,
     marginLeft: 30,
     marginTop: -5,
     marginBottom: 15
