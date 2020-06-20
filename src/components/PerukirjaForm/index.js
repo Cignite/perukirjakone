@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 import MasterForm from '../WizardForm';
-import WizardForm from '../WizardForm';
-
 
 import logo from '../images/logo.svg';
 

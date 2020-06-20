@@ -5,7 +5,6 @@ import FeaturesSectionAlt from "../FeaturesSectionAlt";
 import TestimonialsSection from "../TestimonialsSection";
 import ClientsSection from "../ClientsSection";
 import PricingSection from "../PricingSection";
-import Navbar from "../Navbar";
 import Divider from "../Divider";
 import MainSection from "../MainSection";
 
