@@ -6,7 +6,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "css-build": "node-sass --omit-source-map-url public/styles/main.scss public/styles/main.css",
-    "css-watch": "npm run css-build -- --watch",
+    "css-watch": "npm run css-build -- --watch"
   },
   "name": "PERUKIRJAKONE",
   "main": "src/index.js",
