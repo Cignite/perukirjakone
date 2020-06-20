@@ -1,5 +1,4 @@
 import React from "react";
-import Img from "../images/couple.jpg";
 
 import "./styles.scss";
 
