@@ -3,11 +3,9 @@ import StepLabel from "@material-ui/core/StepLabel";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import { Form } from "react-final-form";
-import { Typography, Button } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import arrayMutators from "final-form-arrays";
 import axios from 'axios';
-
-import {  uniqueDocumentCodeId } from '../../../utils';
 
 const API_BASE_URL = "https://perukirjakone.herokuapp.com/";
 
@@ -16,11 +14,8 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
     values: initialValues || {},
     page: page || 0
   });
-  const [isEmailSent, setIsEmailSent] = useState(false);
-  const [code, setCode] = useState(null);
-  const [docData, setDocData] = useState(null);
   const [showLoader, setShowLoader] = useState(false);
-  const [updateJsonSchemaError, setUpdateJsonSchemaError] = useState(false);
+  // const [updateJsonSchemaError, setUpdateJsonSchemaError] = useState(false);
 
   const postJSONSchema = async (payload) => {
     const getUserInfoFromStorage = JSON.parse(window.localStorage.getItem('userInfo'));
@@ -35,7 +30,8 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
         })
 
     } catch (error) {
-      setUpdateJsonSchemaError(error.response.payload.message[0].messages[0].message);
+      console.log("error", error)
+      // setUpdateJsonSchemaError(error.response.payload.message[0].messages[0].message);
     }
   }
 
