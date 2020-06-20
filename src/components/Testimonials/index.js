@@ -11,7 +11,7 @@ function Testimonials(props) {
             <div className="Testimonials__card-content card-content has-text-centered">
               <div className="Testimonials__avatar">
                 <div className="Testimonials__image image">
-                  <img src={item.avatarImage} />
+                  <img src={item.avatarImage} alt="Perukirjakone" />
                 </div>
               </div>
               <p className="Testimonials__quote">"{item.bio}"</p>
