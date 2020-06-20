@@ -20,8 +20,8 @@ function DocumentPage(props) {
         </nav>
 
         <div className="notification">
-          <h3 className="title is-3">Fill form</h3>
-          <p>Description</p>
+          <h3 className="title is-3">Fill all the necessary info</h3>
+          <p>Make sure information is ledgit </p>
           <hr />
           <MasterForm />
         </div>
