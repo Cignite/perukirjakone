@@ -7,7 +7,7 @@ import PDFDocument from '../../../PDFTranslation';
 const Step4 = () => {
   return (
     <>
-      <PDFViewer height="600px" width="100%" >
+      <PDFViewer height="700px" width="100%" >
         <PDFDocument />
       </PDFViewer>
       <br />
