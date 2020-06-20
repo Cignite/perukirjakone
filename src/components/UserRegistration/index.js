@@ -31,15 +31,6 @@ const UserRegistration = (props) => {
   const [isTermsServiceAgreed, setIsTermsServiceAgreed] = useState(false);
   const [emailVerificationNotify, setEmailVerificationNotify] = useState(false);
 
-  // useEffect(() => {
-  //   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-  //   if (userInfo) {
-  //     if(userInfo.email && userInfo.code) {
-  //       props.history.push('/wizard-form')
-  //     }
-  //   }
-  // }, [])
-
   const postEmail = async (payload) => {
     const postPayload = {
       ...payload,
