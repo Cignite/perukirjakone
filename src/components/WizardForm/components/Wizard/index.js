@@ -7,6 +7,8 @@ import { Typography } from "@material-ui/core";
 import arrayMutators from "final-form-arrays";
 import axios from 'axios';
 
+import './styles.scss';
+
 const API_BASE_URL = "https://perukirjakone.herokuapp.com/";
 
 const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler }) => {
@@ -125,9 +127,9 @@ WizardForm.Title = ({ text }) => (
 );
 
 WizardForm.Stepper = ({ activeStep, totalSteps }) => (
-  <Stepper alternativeLabel activeStep={activeStep}>
+  <Stepper alternativeLabel activeStep={activeStep} className="perukirjakone__stepper">
     {new Array(totalSteps).fill(totalSteps).map((_, idx) => (
-      <Step key={idx}>
+      <Step key={idx}>st
         {idx === 0 && (<StepLabel>Customer Info</StepLabel>)}
         {idx === 1 && (<StepLabel>Funeral expenses</StepLabel>)}
         {idx === 2 && (<StepLabel>Widow marriage</StepLabel>)}
