@@ -34,7 +34,7 @@ function FeaturesAlt(props) {
             }
           >
             <h1 className="title">{item.title}</h1>
-            <div className="is-size-5">
+            <div className="is-size-6">
               <p>{item.description}</p>
             </div>
           </div>
