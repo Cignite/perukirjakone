@@ -15,7 +15,7 @@
   }
 
   &.is-active {
-    border-color: #00c7fa;
+    border-color: #00d1b2;
   }
 }
 
@@ -30,6 +30,7 @@
   &.is-active {
     display: block;
     animation: panelIn 0.4s ease both;
+    color: #9e9e9e;
   }
 
   // TODO: Figure out how we handle keyframes
