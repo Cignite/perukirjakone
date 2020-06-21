@@ -6,16 +6,12 @@ function Footer(props) {
   return (
     <footer className="FooterComponent">
       <div className="container">
-        <div className="footer_nav">
-          <li className="footer__nav_item">
-            <p>About us</p>
-          </li>
-          <li className="footer__nav_item">
-            <p>Privacy policy</p>
-          </li>
-          <li className="footer__nav_item">
-            <p>Terms and services</p>
-          </li>
+        <div class="is-centered">
+          <ul>
+            <li className="footer__item">Maariankatu 2B, Turku, 200500</li>
+            <li className="footer__item">Terms and services</li>
+            <li className="footer__item"><i class="fa fa-envelope" aria-hidden="true" /> &nbsp;perux.turku@perux.fi</li>
+          </ul>
         </div>
         <div className="social right">
           <span>
