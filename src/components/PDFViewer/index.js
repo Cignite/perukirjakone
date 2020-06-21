@@ -23,23 +23,6 @@ const PDFViewDocument = () => (
           <PDFDocument />
         </PDFViewer>
       </>
-      {/*<>
-        <PDFDownloadLink
-          document={<PDFDocument />}
-          fileName="IVDReport.pdf"
-          style={{
-            textDecoration: "none",
-            padding: "10px",
-            color: "#4a4a4a",
-            backgroundColor: "#f2f2f2",
-            border: "1px solid #4a4a4a"
-          }}
-        >
-          {({ blob, url, loading, error }) =>
-            loading ? "Loading document..." : "Download Pdf"
-          }
-        </PDFDownloadLink>
-      </>*/}
     </div>
   </div>
 );
