@@ -28,8 +28,8 @@ const Step2 = () => {
             return (
               <div className="sukuselvitykset">
                 {fields.map((name, index) => (
-                  <div>
-                    <div key={name}>
+                  <div key={index}>
+                    <div>
                       <Field
                         name={`${name}.familyReport`}
                         component={InputWrapper}
@@ -120,8 +120,8 @@ const Step2 = () => {
             return (
               <div className="sukuselvitykset">
                 {fields.map((name, index) => (
-                  <div>
-                    <div key={name}>
+                  <div key={index}>
+                    <div>
                       <Field
                         name={`${name}.info`}
                         component={InputWrapper}

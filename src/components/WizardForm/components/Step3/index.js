@@ -98,7 +98,7 @@ const Step3 = () => {
                       {showPaintingInfo && (
                         <div className="notification is-danger form__notification">
                           <button
-                            class="delete"
+                            className="delete"
                             onClick={() => setShowPaintingInfo(false)}
                             />
                           Atleast one share info definition should exist!
@@ -133,7 +133,7 @@ const Step3 = () => {
                 <div>
                   {fields.map((name, index) => (
                     <div key={name} className="columns">
-                      <div class="column is-5">
+                      <div className="column is-5">
                         <Field
                           name={`${name}.name`}
                           component={InputWrapper}
@@ -370,7 +370,7 @@ const Step3 = () => {
 
 
           <div className="columns">
-            <div class="column is-6">
+            <div className="column is-6">
               <div>
                 <Field
                   name="isPersonalBelonings"
