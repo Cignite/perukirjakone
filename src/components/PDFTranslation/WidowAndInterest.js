@@ -166,7 +166,7 @@ const WidowAndInterest = ({ jsonSchema }) => (
       </View>
       {jsonSchema && jsonSchema.widowBankAccountInfo && jsonSchema.widowBankAccountInfo.map((item, index) => {
         return (
-          <View style={styles.tableRow}>
+          <View style={styles.tableRow} key={index}>
             <View style={styles.tableCol1}>
               <Text style={styles.tableCell}>{item.number}</Text>
             </View>

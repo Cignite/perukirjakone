@@ -157,7 +157,7 @@ const DeceasedBankStocks = ({ jsonSchema }) => (
       </View>
       {jsonSchema && jsonSchema && jsonSchema.bankAccountInfo && jsonSchema.bankAccountInfo.map((item, index) => {
         return (
-          <View style={styles.tableRow}>
+          <View style={styles.tableRow} key={index}>
             <View style={styles.tableCol1}>
               <Text style={styles.tableCell}>{item.number}</Text>
             </View>
@@ -184,7 +184,7 @@ const DeceasedBankStocks = ({ jsonSchema }) => (
       </View>
       {jsonSchema && jsonSchema && jsonSchema.shareInfo && jsonSchema.shareInfo.map((item, index) => {
         return (
-          <View style={styles.tableRow}>
+          <View style={styles.tableRow} key={index}>
             <View style={styles.tableCol1}>
               <Text style={styles.tableCell}>{item.number}</Text>
             </View>
@@ -268,7 +268,7 @@ const DeceasedBankStocks = ({ jsonSchema }) => (
 
           {jsonSchema && jsonSchema.propertyLikeSofaWatchInfo && jsonSchema.propertyLikeSofaWatchInfo.map((item, index) => {
             return (
-              <View style={styles.tableRow}>
+              <View style={styles.tableRow} key={index}>
                 <View style={styles.tableCol1}>
                   <Text style={styles.tableCell}>{item.name}</Text>
                 </View>
@@ -305,7 +305,7 @@ const DeceasedBankStocks = ({ jsonSchema }) => (
 
           {jsonSchema && jsonSchema.personalBelongingsInfo && jsonSchema.personalBelongingsInfo.map((item, index) => {
             return (
-              <View style={styles.tableRow}>
+              <View style={styles.tableRow} key={index}>
                 <View style={styles.tableCol1}>
                   <Text style={styles.tableCell}>{item.name}</Text>
                 </View>
@@ -342,7 +342,7 @@ const DeceasedBankStocks = ({ jsonSchema }) => (
 
           {jsonSchema && jsonSchema.debtInfo && jsonSchema.debtInfo.map((item, index) => {
             return (
-              <View style={styles.tableRow}>
+              <View style={styles.tableRow} key={index}>
                 <View style={styles.tableCol1}>
                   <Text style={styles.tableCell}>{item.name}</Text>
                 </View>

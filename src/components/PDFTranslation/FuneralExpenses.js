@@ -158,7 +158,7 @@ const FuneralExpenses = ({ jsonSchema }) => (
       </View>
       {jsonSchema && jsonSchema.funeralExpensesInfo && jsonSchema.funeralExpensesInfo.map((item, index) => {
         return (
-          <View style={styles.tableRow}>
+          <View style={styles.tableRow} key={index}>
             <View style={styles.tableCol1}>
               <Text style={styles.tableCell}>Sukuselvitykset ({index+1})</Text>
             </View>
@@ -197,7 +197,7 @@ const FuneralExpenses = ({ jsonSchema }) => (
 
       {jsonSchema && jsonSchema.otherFuneralExpenses && jsonSchema.otherFuneralExpenses.map((item, index) => {
         return (
-          <View style={styles.tableRow}>
+          <View style={styles.tableRow} key={index}>
             <View style={styles.tableCol1}>
               <Text style={styles.tableCell}>Other expenses ({index+1})</Text>
             </View>

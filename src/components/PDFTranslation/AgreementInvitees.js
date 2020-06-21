@@ -210,7 +210,7 @@ const AgreementInvitees = ({ jsonSchema }) => (
       </View>
       {jsonSchema && jsonSchema.whoWasPresent && jsonSchema.whoWasPresent.map((item, index) => {
         return (
-          <View style={styles.tableRow}>
+          <View style={styles.tableRow} key={index}>
             <View style={styles.tableCol1}>
               <Text style={styles.tableCell}>{item.name}</Text>
             </View>
