@@ -5,7 +5,7 @@ import {
   View
 } from '@react-pdf/renderer';
 
-import jsonSchema from './jsonSchema';
+// import jsonSchema from './jsonSchema';
 import LineBreak from './LineBreak';
 
 const BORDER_COLOR = '#bfbfbf';
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const WidowInfo = () => (
+const WidowInfo = ({ jsonSchema }) => (
   <>
     <View style={styles.detailContainer}>
       <Text style={styles.detailText}>Was the deceased person married?</Text>
@@ -156,7 +156,7 @@ const WidowInfo = () => (
     <View style={styles.detailContainer}>
       <Text style={styles.detailTextHeader}>8.1 KIINTEISTÖT / HUONEISTOT</Text>
     </View>
-    {jsonSchema.wasDeceasedPersonMarried ? (
+    {jsonSchema && jsonSchema.wasDeceasedPersonMarried ? (
       <>
         <View style={styles.table}>
           <View style={styles.tableRow}>
@@ -168,7 +168,7 @@ const WidowInfo = () => (
             </View>
           </View>
 
-          {jsonSchema.widowProperty && jsonSchema.widowProperty.map((item, index) => {
+          {jsonSchema && jsonSchema.widowProperty && jsonSchema.widowProperty.map((item, index) => {
             return (
               <View style={styles.tableRow}>
                 <View style={styles.tableCol1}>
@@ -228,7 +228,7 @@ const WidowInfo = () => (
             </View>
           </View>
 
-          {jsonSchema.widowStockInfo && jsonSchema.widowStockInfo.map((item, index) => {
+          {jsonSchema && jsonSchema.widowStockInfo && jsonSchema.widowStockInfo.map((item, index) => {
             return (
               <View style={styles.tableRow}>
                 <View style={styles.tableCol1}>
@@ -258,7 +258,7 @@ const WidowInfo = () => (
             </View>
           </View>
 
-          {jsonSchema.personalWorthInfo && jsonSchema.personalWorthInfo.map((item, index) => {
+          {jsonSchema && jsonSchema.personalWorthInfo && jsonSchema.personalWorthInfo.map((item, index) => {
             return (
               <View style={styles.tableRow}>
                 <View style={styles.tableCol1}>
@@ -288,7 +288,7 @@ const WidowInfo = () => (
             </View>
           </View>
 
-          {jsonSchema.widowPersonalBelonings && jsonSchema.widowPersonalBelonings.map((item, index) => {
+          {jsonSchema && jsonSchema.widowPersonalBelonings && jsonSchema.widowPersonalBelonings.map((item, index) => {
             return (
               <View style={styles.tableRow}>
                 <View style={styles.tableCol1}>

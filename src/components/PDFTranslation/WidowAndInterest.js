@@ -5,7 +5,7 @@ import {
   View
 } from '@react-pdf/renderer';
 
-import jsonSchema from './jsonSchema';
+// import jsonSchema from './jsonSchema';
 import LineBreak from './LineBreak';
 
 const BORDER_COLOR = '#bfbfbf';
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const WidowAndInterest = () => (
+const WidowAndInterest = ({ jsonSchema }) => (
   <>
     <View style={styles.detailContainer}>
       <Text style={styles.detailText}>LESKEN RAHAVARAT KORKOINEEN</Text>
@@ -164,7 +164,7 @@ const WidowAndInterest = () => (
           <Text style={styles.tableCellHeader}>Amount</Text>
         </View>
       </View>
-      {jsonSchema.widowBankAccountInfo && jsonSchema.widowBankAccountInfo.map((item, index) => {
+      {jsonSchema && jsonSchema.widowBankAccountInfo && jsonSchema.widowBankAccountInfo.map((item, index) => {
         return (
           <View style={styles.tableRow}>
             <View style={styles.tableCol1}>

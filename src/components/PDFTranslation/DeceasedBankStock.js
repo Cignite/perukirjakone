@@ -5,7 +5,7 @@ import {
   View
 } from '@react-pdf/renderer';
 
-import jsonSchema from './jsonSchema';
+// import jsonSchema from './jsonSchema';
 import LineBreak from './LineBreak';
 
 const BORDER_COLOR = '#bfbfbf';
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const DeceasedBankStocks = () => (
+const DeceasedBankStocks = ({ jsonSchema }) => (
   <>
     <View style={styles.detailContainer}>
       <Text style={styles.detailText}>Pankin / pankkitilin tiedot ja saldo</Text>
@@ -155,7 +155,7 @@ const DeceasedBankStocks = () => (
           <Text style={styles.tableCellHeader}>Amount</Text>
         </View>
       </View>
-      {jsonSchema.bankAccountInfo && jsonSchema.bankAccountInfo.map((item, index) => {
+      {jsonSchema && jsonSchema && jsonSchema.bankAccountInfo && jsonSchema.bankAccountInfo.map((item, index) => {
         return (
           <View style={styles.tableRow}>
             <View style={styles.tableCol1}>
@@ -182,7 +182,7 @@ const DeceasedBankStocks = () => (
           <Text style={styles.tableCellHeader}>Amount</Text>
         </View>
       </View>
-      {jsonSchema.shareInfo && jsonSchema.shareInfo.map((item, index) => {
+      {jsonSchema && jsonSchema && jsonSchema.shareInfo && jsonSchema.shareInfo.map((item, index) => {
         return (
           <View style={styles.tableRow}>
             <View style={styles.tableCol1}>
@@ -200,7 +200,7 @@ const DeceasedBankStocks = () => (
     <View style={styles.detailContainer}>
       <Text style={styles.detailText}>Did the deceased have a car / motorbike / boat / trailer etc?</Text>
     </View>
-    {jsonSchema.didDeceasedHadCarBoat ? (
+    {jsonSchema && jsonSchema && jsonSchema.didDeceasedHadCarBoat ? (
       <>
         <View style={styles.table}>
           <View style={styles.tableRow}>
@@ -214,11 +214,11 @@ const DeceasedBankStocks = () => (
 
           <View style={styles.tableRow}>
             <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{jsonSchema.deceasedCarBrandTypeInfo}</Text>
+              <Text style={styles.tableCell}>{jsonSchema && jsonSchema.deceasedCarBrandTypeInfo}</Text>
             </View>
 
             <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{jsonSchema.deceasedCarBrandTypeValue}</Text>
+              <Text style={styles.tableCell}>{jsonSchema && jsonSchema.deceasedCarBrandTypeValue}</Text>
             </View>
           </View>
         </View>
@@ -235,11 +235,11 @@ const DeceasedBankStocks = () => (
 
           <View style={styles.tableRow}>
             <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{jsonSchema.deceasedMotorBikeBrandTypeInfo}</Text>
+              <Text style={styles.tableCell}>{jsonSchema && jsonSchema.deceasedMotorBikeBrandTypeInfo}</Text>
             </View>
 
             <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{jsonSchema.deceasedMotorBikeBrandTypeValue}</Text>
+              <Text style={styles.tableCell}>{jsonSchema && jsonSchema.deceasedMotorBikeBrandTypeValue}</Text>
             </View>
           </View>
         </View>
@@ -253,7 +253,7 @@ const DeceasedBankStocks = () => (
     <View style={styles.detailContainer}>
       <Text style={styles.detailText}>Onko irtaimen omaisuuden arvo yli 4000 euroa?</Text>
     </View>
-    {jsonSchema.isPropertyLikeSofa ? (
+    {jsonSchema && jsonSchema.isPropertyLikeSofa ? (
       <>
         <View style={styles.table}>
           <View style={styles.tableRow}>
@@ -266,7 +266,7 @@ const DeceasedBankStocks = () => (
           </View>
 
 
-          {jsonSchema.propertyLikeSofaWatchInfo && jsonSchema.propertyLikeSofaWatchInfo.map((item, index) => {
+          {jsonSchema && jsonSchema.propertyLikeSofaWatchInfo && jsonSchema.propertyLikeSofaWatchInfo.map((item, index) => {
             return (
               <View style={styles.tableRow}>
                 <View style={styles.tableCol1}>
@@ -290,7 +290,7 @@ const DeceasedBankStocks = () => (
     <View style={styles.detailContainer}>
       <Text style={styles.detailText}>HK Irtaminen omaisuus (including previous one)</Text>
     </View>
-    {jsonSchema.isHKIrtaminen ? (
+    {jsonSchema && jsonSchema.isHKIrtaminen ? (
       <>
         <View style={styles.table}>
           <View style={styles.tableRow}>
@@ -303,7 +303,7 @@ const DeceasedBankStocks = () => (
           </View>
 
 
-          {jsonSchema.personalBelongingsInfo && jsonSchema.personalBelongingsInfo.map((item, index) => {
+          {jsonSchema && jsonSchema.personalBelongingsInfo && jsonSchema.personalBelongingsInfo.map((item, index) => {
             return (
               <View style={styles.tableRow}>
                 <View style={styles.tableCol1}>
@@ -327,7 +327,7 @@ const DeceasedBankStocks = () => (
     <View style={styles.detailContainer}>
       <Text style={styles.detailText}>Did the deceaced have any remaining debts?</Text>
     </View>
-    {jsonSchema.didDeceasedHaveDebt ? (
+    {jsonSchema && jsonSchema.didDeceasedHaveDebt ? (
       <>
         <View style={styles.table}>
           <View style={styles.tableRow}>
@@ -340,7 +340,7 @@ const DeceasedBankStocks = () => (
           </View>
 
 
-          {jsonSchema.debtInfo && jsonSchema.debtInfo.map((item, index) => {
+          {jsonSchema && jsonSchema.debtInfo && jsonSchema.debtInfo.map((item, index) => {
             return (
               <View style={styles.tableRow}>
                 <View style={styles.tableCol1}>

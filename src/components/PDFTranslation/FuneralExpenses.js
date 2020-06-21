@@ -5,7 +5,7 @@ import {
   View
 } from '@react-pdf/renderer';
 
-import jsonSchema from './jsonSchema';
+// import jsonSchema from './jsonSchema';
 import LineBreak from './LineBreak';
 
 const BORDER_COLOR = '#bfbfbf';
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const FuneralExpenses = () => (
+const FuneralExpenses = ({ jsonSchema }) => (
   <>
     <View style={styles.detailContainer}>
       <Text style={styles.detailText}>Ilmoita hautajasiin liityvät kullut/ Expenses related to funeral</Text>
@@ -156,7 +156,7 @@ const FuneralExpenses = () => (
           <Text style={styles.tableCellHeader}>Amount (€)</Text>
         </View>
       </View>
-      {jsonSchema.funeralExpensesInfo && jsonSchema.funeralExpensesInfo.map((item, index) => {
+      {jsonSchema && jsonSchema.funeralExpensesInfo && jsonSchema.funeralExpensesInfo.map((item, index) => {
         return (
           <View style={styles.tableRow}>
             <View style={styles.tableCol1}>
@@ -173,7 +173,7 @@ const FuneralExpenses = () => (
           <Text style={styles.tableCell}>Saldotodistukset</Text>
         </View>
         <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>{jsonSchema.funeralExpensesInfoDeathCertificate}</Text>
+          <Text style={styles.tableCell}>{jsonSchema && jsonSchema.funeralExpensesInfoDeathCertificate}</Text>
         </View>
       </View>
 
@@ -182,7 +182,7 @@ const FuneralExpenses = () => (
           <Text style={styles.tableCell}>Kukkat</Text>
         </View>
         <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>{jsonSchema.flowers}</Text>
+          <Text style={styles.tableCell}>{jsonSchema && jsonSchema.flowers}</Text>
         </View>
       </View>
 
@@ -191,11 +191,11 @@ const FuneralExpenses = () => (
           <Text style={styles.tableCell}>Hautakivet</Text>
         </View>
         <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>{jsonSchema.funeralExpensesInfoTombstone}</Text>
+          <Text style={styles.tableCell}>{jsonSchema && jsonSchema.funeralExpensesInfoTombstone}</Text>
         </View>
       </View>
 
-      {jsonSchema.otherFuneralExpenses && jsonSchema.otherFuneralExpenses.map((item, index) => {
+      {jsonSchema && jsonSchema.otherFuneralExpenses && jsonSchema.otherFuneralExpenses.map((item, index) => {
         return (
           <View style={styles.tableRow}>
             <View style={styles.tableCol1}>
@@ -213,7 +213,7 @@ const FuneralExpenses = () => (
           <Text style={styles.tableCell}>Perukirjakone reward</Text>
         </View>
         <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>{jsonSchema.perukirjakoneReward}</Text>
+          <Text style={styles.tableCell}>{jsonSchema && jsonSchema.perukirjakoneReward}</Text>
         </View>
       </View>
 
@@ -222,7 +222,7 @@ const FuneralExpenses = () => (
           <Text style={styles.tableCell}>Perukirjakone fee</Text>
         </View>
         <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>{jsonSchema.perukirjakoneFee}</Text>
+          <Text style={styles.tableCell}>{jsonSchema && jsonSchema.perukirjakoneFee}</Text>
         </View>
       </View>
 

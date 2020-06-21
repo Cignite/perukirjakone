@@ -5,7 +5,7 @@ import {
   View
 } from '@react-pdf/renderer';
 
-import jsonSchema from './jsonSchema';
+// import jsonSchema from './jsonSchema';
 import LineBreak from './LineBreak';
 
 const BORDER_COLOR = '#bfbfbf';
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const DeceasedProperties = () => (
+const DeceasedProperties = ({ jsonSchema }) => (
   <>
     <View style={styles.detailContainer}>
       <Text style={styles.detailText}>What property/apartments did the deseaced person have?</Text>
@@ -149,7 +149,7 @@ const DeceasedProperties = () => (
           <Text style={styles.tableCellHeader}>Price</Text>
         </View>
       </View>
-      {jsonSchema.propertyInfo && jsonSchema.propertyInfo.map((item, index) => {
+      {jsonSchema && jsonSchema.propertyInfo && jsonSchema.propertyInfo.map((item, index) => {
         return (
           <View style={styles.tableRow}>
             <View style={styles.tableCol1}>

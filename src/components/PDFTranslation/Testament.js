@@ -5,7 +5,7 @@ import {
   View
 } from '@react-pdf/renderer';
 
-import jsonSchema from './jsonSchema';
+// import jsonSchema from './jsonSchema';
 
 const styles = StyleSheet.create({
   row: {
@@ -57,12 +57,12 @@ const styles = StyleSheet.create({
   }
 });
 
-const Testament = () => (
+const Testament = ({ jsonSchema }) => (
   <>
     <View style={styles.detailContainer}>
       <Text style={styles.detailText}>Has the property of the deceased or it’s part been assigned to someone?</Text>
     </View>
-    {jsonSchema.isTestamentDeceasedPropertyAssignedChecked ? (
+    {jsonSchema && jsonSchema.isTestamentDeceasedPropertyAssignedChecked ? (
       <View style={[styles.row, styles.border]}>
         <View style={[styles.col]}>
           <View>
@@ -71,7 +71,7 @@ const Testament = () => (
         </View>
         <View style={[styles.col]}>
           <View>
-            <Text style={styles.colText}>{jsonSchema.testamentPropertyAssignInfo}</Text>
+            <Text style={styles.colText}>{jsonSchema && jsonSchema.testamentPropertyAssignInfo}</Text>
           </View>
         </View>
       </View>

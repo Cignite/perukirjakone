@@ -7,7 +7,7 @@ import {
 } from '@react-pdf/renderer';
 import moment from 'moment';
 
-import jsonSchema from './jsonSchema';
+// import jsonSchema from './jsonSchema';
 import LineBreak from './LineBreak';
 import CheckBox from './checkbox.png';
 import Unchecked from './unchecked.png';
@@ -167,11 +167,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const AgreeementAndAnnouncement = () => (
+const AgreeementAndAnnouncement = ({ jsonSchema }) => (
   <>
     <View style={styles.row}>
       <View >
-        {jsonSchema.verifyInfoProvidedIsCorrect ? (
+        {jsonSchema && jsonSchema.verifyInfoProvidedIsCorrect ? (
           <View style={styles.col}>
             <View style={styles.checkboxDetail}>
               <Image
@@ -198,7 +198,7 @@ const AgreeementAndAnnouncement = () => (
     <View style={styles.row}>
 
       <View>
-        {jsonSchema.haveAllPartiesInvited ? (
+        {jsonSchema && jsonSchema.haveAllPartiesInvited ? (
           <View style={styles.col}>
             <View style={styles.checkboxDetail}>
               <Image
@@ -231,7 +231,7 @@ const AgreeementAndAnnouncement = () => (
 
     <View style={styles.row}>
       <View>
-        {jsonSchema.doesWidowWantsToLiveInSameApartment ? (
+        {jsonSchema && jsonSchema.doesWidowWantsToLiveInSameApartment ? (
           <View style={styles.col}>
             <View style={styles.checkboxDetail}>
               <Image
@@ -264,7 +264,7 @@ const AgreeementAndAnnouncement = () => (
 
     <View style={styles.row}>
       <View>
-        {jsonSchema.doesWidowWantsToLiveInSameApartment ? (
+        {jsonSchema && jsonSchema.doesWidowWantsToLiveInSameApartment ? (
           <View style={styles.col}>
             <View style={styles.checkboxDetail}>
               <Image
@@ -295,7 +295,7 @@ const AgreeementAndAnnouncement = () => (
     <View style={styles.detailContainer}>
       <Text style={styles.detailTextLevelSecond}>Was there life insurance?</Text>
     </View>
-    {jsonSchema.isThereLifeInsurance ? (
+    {jsonSchema && jsonSchema.isThereLifeInsurance ? (
       <>
         <View style={[styles.table, styles.border]}>
           <View style={styles.tableRow}>
@@ -312,14 +312,14 @@ const AgreeementAndAnnouncement = () => (
 
           <View style={styles.tableRow}>
             <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{jsonSchema.insuranceName}</Text>
+              <Text style={styles.tableCell}>{jsonSchema && jsonSchema.insuranceName}</Text>
             </View>
 
             <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{jsonSchema.insuranceAmount}</Text>
+              <Text style={styles.tableCell}>{jsonSchema && jsonSchema.insuranceAmount}</Text>
             </View>
             <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{moment(jsonSchema.insuranceDate).format('DD.MM.YYYY')}</Text>
+              <Text style={styles.tableCell}>{moment(jsonSchema && jsonSchema.insuranceDate).format('DD.MM.YYYY')}</Text>
             </View>
           </View>
         </View>

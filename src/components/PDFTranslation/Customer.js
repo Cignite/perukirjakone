@@ -6,7 +6,7 @@ import {
 } from '@react-pdf/renderer';
 import moment from 'moment';
 
-import jsonSchema from './jsonSchema';
+// import jsonSchema from './jsonSchema';
 
 const styles = StyleSheet.create({
   row: {
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const CustomerInfo = () => (
+const CustomerInfo = ({ jsonSchema }) => (
   <>
     <View style={[styles.row, styles.border]}>
       <View style={[styles.col]}>
@@ -62,12 +62,12 @@ const CustomerInfo = () => (
       </View>
       <View style={[styles.col]}>
         <View>
-          <Text style={styles.colText}>{jsonSchema.customerFirstName}</Text>
-          <Text style={styles.colText}>{jsonSchema.customerlastName}</Text>
-          <Text style={styles.colText}>{jsonSchema.customerSSN}</Text>
-          <Text style={styles.colText}>{jsonSchema.address}</Text>
-          <Text style={styles.colText}>{moment(jsonSchema.customerTimeOfDeath).format('DD.MM.YYYY')}</Text>
-          <Text style={styles.colText}>{jsonSchema.agreeementPlace}</Text>
+          <Text style={styles.colText}>{jsonSchema && jsonSchema.customerFirstName}</Text>
+          <Text style={styles.colText}>{jsonSchema && jsonSchema.customerlastName}</Text>
+          <Text style={styles.colText}>{jsonSchema && jsonSchema.customerSSN}</Text>
+          <Text style={styles.colText}>{jsonSchema && jsonSchema.address}</Text>
+          <Text style={styles.colText}>{moment(jsonSchema && jsonSchema.customerTimeOfDeath).format('DD.MM.YYYY')}</Text>
+          <Text style={styles.colText}>{jsonSchema && jsonSchema.agreeementPlace}</Text>
         </View>
       </View>
     </View>

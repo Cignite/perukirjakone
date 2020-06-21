@@ -7,7 +7,7 @@ import {
 } from '@react-pdf/renderer';
 import moment from 'moment';
 
-import jsonSchema from './jsonSchema';
+// import jsonSchema from './jsonSchema';
 import CheckBox from './checkbox.png';
 import Unchecked from './unchecked.png';
 
@@ -86,10 +86,10 @@ const styles = StyleSheet.create({
   }
 });
 
-const DocumentsAndInfo = () => (
+const DocumentsAndInfo = ({ jsonSchema }) => (
   <>
     <View style={styles.row}>
-      {jsonSchema.isSukuselvitykset && (
+      {jsonSchema && jsonSchema.isSukuselvitykset && (
         <View style={styles.col}>
           <View style={styles.checkboxDetail}>
             <Image
@@ -102,7 +102,7 @@ const DocumentsAndInfo = () => (
       )}
     </View>
     <View style={styles.childRow}>
-      {jsonSchema.isTestamenttiChecked ? (
+      {jsonSchema &&  jsonSchema.isTestamenttiChecked ? (
         <View style={styles.col}>
           <View style={styles.checkboxDetail}>
             <Image
@@ -120,7 +120,7 @@ const DocumentsAndInfo = () => (
             </View>
             <View style={styles.col}>
               <View>
-                <Text style={styles.colText}>{moment(jsonSchema.testamenttiTimeOfDeath).format('DD.MM.YYYY')}</Text>
+                <Text style={styles.colText}>{moment(jsonSchema && jsonSchema.testamenttiTimeOfDeath).format('DD.MM.YYYY')}</Text>
               </View>
             </View>
           </View>
@@ -140,7 +140,7 @@ const DocumentsAndInfo = () => (
     </View>
 
     <View style={styles.childRow}>
-      {jsonSchema.isMarriedSettlementContractChecked ? (
+      {jsonSchema && jsonSchema.isMarriedSettlementContractChecked ? (
         <View style={styles.col}>
           <View style={styles.checkboxDetail}>
             <Image
@@ -158,7 +158,7 @@ const DocumentsAndInfo = () => (
             </View>
             <View style={styles.col}>
               <View>
-                <Text style={styles.colText}>{moment(jsonSchema.marriageSettlementDate).format('DD.MM.YYYY')}</Text>
+                <Text style={styles.colText}>{moment(jsonSchema && jsonSchema.marriageSettlementDate).format('DD.MM.YYYY')}</Text>
               </View>
             </View>
           </View>
@@ -178,7 +178,7 @@ const DocumentsAndInfo = () => (
     </View>
 
     <View style={[styles.childRow, styles.border]}>
-      {jsonSchema.isOtherDocumentChecked ? (
+      {jsonSchema && jsonSchema.isOtherDocumentChecked ? (
         <View style={styles.col}>
           <View style={styles.checkboxDetail}>
             <Image
@@ -196,7 +196,7 @@ const DocumentsAndInfo = () => (
             </View>
             <View style={styles.col}>
               <View>
-                <Text style={styles.colText}>{jsonSchema.otherDocumentInfo}</Text>
+                <Text style={styles.colText}>{jsonSchema && jsonSchema.otherDocumentInfo}</Text>
               </View>
             </View>
           </View>

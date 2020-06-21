@@ -6,7 +6,7 @@ import {
 } from '@react-pdf/renderer';
 import moment from 'moment';
 
-import jsonSchema from './jsonSchema';
+// import jsonSchema from './jsonSchema';
 import LineBreak from './LineBreak';
 
 const BORDER_COLOR = '#bfbfbf';
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const AgreementInvitees = () => (
+const AgreementInvitees = ({ jsonSchema }) => (
   <>
     <View style={styles.row}>
       <Text style={styles.detailTextFirstLevel}>
@@ -153,9 +153,9 @@ const AgreementInvitees = () => (
       </View>
       <View style={[styles.col]}>
         <View>
-          <Text style={styles.colText}>{jsonSchema.inviteeName}</Text>
-          <Text style={styles.colText}>{jsonSchema.inviteePlace}</Text>
-          <Text style={styles.colText}>{moment(jsonSchema.inviteeDate).format('DD.MM.YYYY')}</Text>
+          <Text style={styles.colText}>{jsonSchema && jsonSchema.inviteeName}</Text>
+          <Text style={styles.colText}>{jsonSchema && jsonSchema.inviteePlace}</Text>
+          <Text style={styles.colText}>{moment(jsonSchema && jsonSchema.inviteeDate).format('DD.MM.YYYY')}</Text>
         </View>
       </View>
     </View>
@@ -175,21 +175,21 @@ const AgreementInvitees = () => (
 
         <View style={styles.tableRow}>
           <View style={styles.tableCol1}>
-            <Text style={styles.tableCell}>{jsonSchema.trustedMenNameFirst}</Text>
+            <Text style={styles.tableCell}>{jsonSchema && jsonSchema.trustedMenNameFirst}</Text>
           </View>
 
           <View style={styles.tableCol1}>
-            <Text style={styles.tableCell}>{jsonSchema.trustedMenPlaceFirst}</Text>
+            <Text style={styles.tableCell}>{jsonSchema && jsonSchema.trustedMenPlaceFirst}</Text>
           </View>
         </View>
 
         <View style={styles.tableRow}>
           <View style={styles.tableCol1}>
-            <Text style={styles.tableCell}>{jsonSchema.trustedMenNameSecond}</Text>
+            <Text style={styles.tableCell}>{jsonSchema && jsonSchema.trustedMenNameSecond}</Text>
           </View>
 
           <View style={styles.tableCol1}>
-            <Text style={styles.tableCell}>{jsonSchema.trustedMenPlaceSecond}</Text>
+            <Text style={styles.tableCell}>{jsonSchema && jsonSchema.trustedMenPlaceSecond}</Text>
           </View>
         </View>
 
@@ -208,7 +208,7 @@ const AgreementInvitees = () => (
           <Text style={styles.tableCellHeader}>City</Text>
         </View>
       </View>
-      {jsonSchema.whoWasPresent && jsonSchema.whoWasPresent.map((item, index) => {
+      {jsonSchema && jsonSchema.whoWasPresent && jsonSchema.whoWasPresent.map((item, index) => {
         return (
           <View style={styles.tableRow}>
             <View style={styles.tableCol1}>

@@ -5,11 +5,9 @@ import {
   View
 } from '@react-pdf/renderer';
 
-import jsonSchema from './jsonSchema';
+// import jsonSchema from './jsonSchema';
 import List, { Item } from './List';
 import LineBreak from './LineBreak';
-
-const deceasedPerson = jsonSchema && jsonSchema.deceasedPerson.map(item => item.relationType);
 
 const styles = StyleSheet.create({
   row: {
@@ -81,7 +79,7 @@ const RelationInfo = ({ deceasedPersonItem }) => {
   return (
     <View style={styles.entryContainer}>
       <List>
-        {deceasedPersonItem.map((detail, i) => (
+        {deceasedPersonItem && deceasedPersonItem.map((detail, i) => (
           <Item key={i} style={[styles.detailContainer, styles.item]}>
             {detail}
           </Item>
@@ -91,32 +89,36 @@ const RelationInfo = ({ deceasedPersonItem }) => {
   );
 };
 
-const ShareholderInfo = () => (
-  <>
-    <View style={styles.row}>
-      <View style={[styles.col]}>
-        <View>
-          <Text style={styles.colHeader}>Shareholder name: </Text>
-          <Text style={styles.colHeader}>SSN:</Text>
+const ShareholderInfo = ({ jsonSchema }) => {
+  const deceasedPerson = jsonSchema && jsonSchema.deceasedPerson.map(item => item.relationType);
+
+  return (
+    <>
+      <View style={styles.row}>
+        <View style={[styles.col]}>
+          <View>
+            <Text style={styles.colHeader}>Shareholder name: </Text>
+            <Text style={styles.colHeader}>SSN:</Text>
+          </View>
+        </View>
+        <View style={[styles.col]}>
+          <View>
+            <Text style={styles.colText}>{jsonSchema && jsonSchema.shareholderName}</Text>
+            <Text style={styles.colText}>{jsonSchema && jsonSchema.shareholderSSN}</Text>
+          </View>
         </View>
       </View>
-      <View style={[styles.col]}>
-        <View>
-          <Text style={styles.colText}>{jsonSchema.shareholderName}</Text>
-          <Text style={styles.colText}>{jsonSchema.shareholderSSN}</Text>
-        </View>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailText}>Who are the partners in the estate?</Text>
       </View>
-    </View>
-    <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>Who are the partners in the estate?</Text>
-    </View>
-    <View style={[styles.row, styles.border]}>
-      <RelationInfo
-        deceasedPersonItem={deceasedPerson}
-      />
-    </View>
-    <LineBreak />
-  </>
-);
+      <View style={[styles.row, styles.border]}>
+        <RelationInfo
+          deceasedPersonItem={deceasedPerson}
+        />
+      </View>
+      <LineBreak />
+    </>
+  )
+}
 
 export default ShareholderInfo;
