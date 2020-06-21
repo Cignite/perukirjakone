@@ -25,7 +25,7 @@ function Pricing(props) {
                 (
                   <p className="Pricing__description">{item.description}</p>
               ) : (
-                  <p className="Pricing__description primary">{item.description}</p>
+                  <p className="Pricing__description primaryPricing">{item.description}</p>
               )}
               {/* <button
                 className={
