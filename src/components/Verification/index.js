@@ -87,7 +87,7 @@ const UserVerfication = (props) => {
                 </div>
                 <div className="field has-text-centered">
                   <label className="label is-size-4">Verify code</label>
-                  <p className="is-small grey-light">With
+                  <p className="is-small primary">With
                   the help of verification code we can make sure that right person
                   is accessing Perukirjakone service.</p>
                 </div>
@@ -144,7 +144,7 @@ const UserVerfication = (props) => {
                             id="isTermsAgreed"
                           />
 
-                          <label className="checkbox" htmlFor="isTermsAgreed">
+                        <label className="checkbox primary" htmlFor="isTermsAgreed">
                             &nbsp;I agree to the terms and services and privacy policy
                           </label>
                           <Error name="isTermsAgreed" />
@@ -174,7 +174,7 @@ const UserVerfication = (props) => {
                             Email or verification code didn't matched!
                           </div>
                         )}
-                        
+
                         {isEmailValid &&  isTermsServiceAgreed && isCodeExist && ( null )}
                       </form>
                     )}
