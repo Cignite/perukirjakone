@@ -21,7 +21,12 @@ function Pricing(props) {
               <div className="Pricing__price has-text-weight-bold">
                 <span>{item.ListeJob}</span>
               </div>
-              <p className="Pricing__description">{item.description}</p>
+              {index % 2 === 0 ?
+                (
+                  <p className="Pricing__description">{item.description}</p>
+              ) : (
+                  <p className="Pricing__description primary">{item.description}</p>
+              )}
               {/* <button
                 className={
                   "Pricing__button button is-medium" +
