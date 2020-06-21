@@ -7,14 +7,14 @@ import "./styles.scss";
 
 function MainSection(props) {
   return (
-    <div className="hero is-fullheight is-primary has-background">
-      <img alt="Fill Murray" className="hero-background" src={Img} />
+    <div className="hero is-fullheight is-dark has-background">
+      <img alt="Fill Murray" className="hero-background is-transparent" src={Img} />
         <div className="hero-head">
           <nav className="navbar">
             <div className="container">
               <div className="navbar-brand">
                 <Link to="/">
-                  <img src={logo} alt="Perukirjakone" />
+                  <img src={logo} alt="Perukirjakone" className="perulogo" />
                 </Link>
               </div>
             </div>
