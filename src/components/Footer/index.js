@@ -6,7 +6,7 @@ function Footer(props) {
   return (
     <footer className="FooterComponent">
       <div className="container">
-        <div class="is-centered">
+        <div className="is-centered">
           <ul>
             <li className="footer__item">Maariankatu 2B, Turku, 200500</li>
             <li className="footer__item">Terms and services</li>
