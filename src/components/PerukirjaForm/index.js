@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import MasterForm from '../WizardForm';
 
 import logo from '../images/logo.svg';
+import './styles.scss';
 
 function DocumentPage(props) {
   return (
@@ -19,7 +20,7 @@ function DocumentPage(props) {
           </div>
         </nav>
 
-        <div className="notification">
+        <div className="schemaForm">
           <h3 className="title is-3">Fill all the necessary info</h3>
           <p>Make sure information is ledgit </p>
           <hr />
