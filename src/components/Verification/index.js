@@ -78,7 +78,7 @@ const UserVerfication = (props) => {
       <div className="hero-body">
         <div className="container">
           <div className="columns is-centered">
-            <div className="column is-8-tablet is-8-desktop is-6-widescreen">
+            <div className="column is-8-tablet is-6-desktop is-4-widescreen">
               <div action="" className="box ">
                 <div className="section has-text-centered">
                   <Link to="/" className="logo">
