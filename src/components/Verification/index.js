@@ -78,7 +78,7 @@ const UserVerfication = (props) => {
       <div className="hero-body">
         <div className="container">
           <div className="columns is-centered">
-            <div className="column is-4-tablet is-4-desktop is-4-widescreen">
+            <div className="column is-8-tablet is-8-desktop is-6-widescreen">
               <div action="" className="box ">
                 <div className="section has-text-centered">
                   <Link to="/" className="logo">
@@ -113,8 +113,8 @@ const UserVerfication = (props) => {
                     onSubmit={onSubmit}
                     render={({ handleSubmit, pristine, values, submitting, invalid}) => (
                       <form onSubmit={handleSubmit} className="user-validation">
-                        <div className="columns">
-                          <div className="column control is-8">
+                        <div className="row">
+                          <div className="control">
                             <Field
                               name="email"
                               component={InputWrapper}
@@ -125,7 +125,10 @@ const UserVerfication = (props) => {
                             <Error name="email" />
                             <Error name="code" />
                           </div>
-                          <div className="column control">
+                          <br />
+                        </div>
+                        <div className="row">
+                          <div className=" control">
                             <Field
                               name="code"
                               component={InputWrapper}
@@ -134,25 +137,31 @@ const UserVerfication = (props) => {
                               label="Code"
                             />
 
-                        </div>
+                          </div>
+                          <br />
                         </div>
                         <div className="field">
-                          <Field
-                            name="isTermsAgreed"
-                            component="input"
-                            type="checkbox"
-                            id="isTermsAgreed"
-                          />
+                          <span>
+                            <Field
+                              name="isTermsAgreed"
+                              component="input"
+                              type="checkbox"
+                              id="isTermsAgreed"
+                              className="agreeCheckbox"
+                            />
+                          </span>
+                          <span>
 
-                        <label className="checkbox primaryLabel" htmlFor="isTermsAgreed">
+                            <label className="checkbox primaryLabel" htmlFor="isTermsAgreed">
                             &nbsp;I agree to the terms and services and privacy policy
-                          </label>
+                            </label>
+                          </span>
                           <Error name="isTermsAgreed" />
                         </div>
 
                         <div className="field level-right">
                           <button
-                            className="button is-success is-fullwidth"
+                            className="button is-primary is-fullwidth"
                             onClick={() => verifyEmailCode(values)}
                             disabled={showLoader || submitting || pristine}
                           >

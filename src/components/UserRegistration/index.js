@@ -84,7 +84,7 @@ const UserRegistration = (props) => {
       <div className="hero-body">
         <div className="container">
           <div className="columns is-centered">
-            <div className="column is-4-tablet is-4-desktop is-4-widescreen">
+            <div className="column is-8-tablet is-8-desktop is-6-widescreen">
               <div action="" className="box ">
                 <div className="section has-text-centered">
                   <Link to="/" className="logo">
@@ -133,6 +133,7 @@ const UserRegistration = (props) => {
                             component="input"
                             type="checkbox"
                             id="isTermsAgreed"
+                            className="agreeCheckbox"
                           />
 
                         <label className="checkbox checkbox-primary primaryLabel" htmlFor="isTermsAgreed">
@@ -143,7 +144,7 @@ const UserRegistration = (props) => {
 
                         <div className="field level-right">
                           <button
-                            className="button is-success is-fullwidth"
+                            className="button is-primary is-fullwidth"
                             onClick={() => submitEmail(values)}
                             disabled={showLoader || submitting || pristine}
                           >
