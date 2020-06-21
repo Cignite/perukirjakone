@@ -5,7 +5,6 @@ import {
   View
 } from '@react-pdf/renderer';
 
-// import jsonSchema from './jsonSchema';
 import List, { Item } from './List';
 import LineBreak from './LineBreak';
 

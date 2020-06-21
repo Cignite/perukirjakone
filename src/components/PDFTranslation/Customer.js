@@ -6,8 +6,6 @@ import {
 } from '@react-pdf/renderer';
 import moment from 'moment';
 
-// import jsonSchema from './jsonSchema';
-
 const styles = StyleSheet.create({
   row: {
     margin: 10,

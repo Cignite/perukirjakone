@@ -5,14 +5,12 @@ import {
   View
 } from '@react-pdf/renderer';
 
-// import jsonSchema from './jsonSchema';
 import LineBreak from './LineBreak';
 
 const BORDER_COLOR = '#bfbfbf';
 const BORDER_STYLE = 'solid';
 const COL1_WIDTH = 200
 const COLN_WIDTH = (100 - COL1_WIDTH) / 3;
-console.log("COLN_WIDTH", COLN_WIDTH)
 
 const styles = StyleSheet.create({
   row: {

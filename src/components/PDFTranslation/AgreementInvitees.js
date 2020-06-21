@@ -6,7 +6,6 @@ import {
 } from '@react-pdf/renderer';
 import moment from 'moment';
 
-// import jsonSchema from './jsonSchema';
 import LineBreak from './LineBreak';
 
 const BORDER_COLOR = '#bfbfbf';

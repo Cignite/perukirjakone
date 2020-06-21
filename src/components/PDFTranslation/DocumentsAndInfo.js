@@ -7,7 +7,6 @@ import {
 } from '@react-pdf/renderer';
 import moment from 'moment';
 
-// import jsonSchema from './jsonSchema';
 import CheckBox from './checkbox.png';
 import Unchecked from './unchecked.png';
 

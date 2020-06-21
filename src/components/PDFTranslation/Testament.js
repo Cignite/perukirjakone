@@ -5,8 +5,6 @@ import {
   View
 } from '@react-pdf/renderer';
 
-// import jsonSchema from './jsonSchema';
-
 const styles = StyleSheet.create({
   row: {
     margin: 10,
