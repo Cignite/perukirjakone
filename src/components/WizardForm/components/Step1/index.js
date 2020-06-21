@@ -7,6 +7,8 @@ import InputWrapper from '../../../Shared/Input';
 import renderDatePickerField from '../../../Shared/Datepicker';
 import Error from '../../../Shared/Error';
 
+import '../../styles.scss';
+
 const Condition = ({ when, is, children }) => {
   return (
     <Field name={when} subscription={{ value: true }}>
@@ -96,7 +98,7 @@ const Step1 = () => {
       </div>
       <h3 className="title is-4">1.2 Shareholders</h3>
       <hr />
-      <p>Who are the partners in the estate?</p>
+      <p className="primary">Who are the partners in the estate?</p>
       <div className="columns">
         <div className="column is-3">
           <Field
@@ -122,7 +124,7 @@ const Step1 = () => {
 
       <div className="columns">
         <div className="column is-4">
-          <p>Relationship to the deceased person?</p>
+          <p className="primary">Relationship to the deceased person?</p>
           <br />
           <FieldArray name="deceasedPerson">
             {({ fields }) => {
@@ -194,7 +196,7 @@ const Step1 = () => {
               className="form__checkbox"
               id="isTestamentDeceasedPropertyAssignedChecked"
               />
-            <label htmlFor="isTestamentDeceasedPropertyAssignedChecked">
+            <label htmlFor="isTestamentDeceasedPropertyAssignedChecked" className="primary">
               Has the property of the deceased or it’s part been assigned to someone
             </label>
           </div>
@@ -227,7 +229,7 @@ const Step1 = () => {
               className="form__checkbox"
               id="isSukuselvitykset"
               />
-            <label htmlFor="isSukuselvitykset">Sukuselvitykset</label>
+            <label htmlFor="isSukuselvitykset" className="primary">Sukuselvitykset</label>
           </div>
         </div>
       </div>
@@ -242,7 +244,7 @@ const Step1 = () => {
               className="form__checkbox"
               id="isTestamenttiChecked"
               />
-            <label htmlFor="isTestamenttiChecked">Testamentti</label>
+            <label htmlFor="isTestamenttiChecked" className="primary">Testamentti</label>
           </div>
         </div>
       </div>
@@ -270,7 +272,7 @@ const Step1 = () => {
               className="form__checkbox"
               id="isMarriedSettlementContractChecked"
               />
-            <label htmlFor="isMarriedSettlementContractChecked">Avioehtosopimukset</label>
+            <label htmlFor="isMarriedSettlementContractChecked" className="primary">Avioehtosopimukset</label>
           </div>
         </div>
       </div>
@@ -298,7 +300,7 @@ const Step1 = () => {
               className="form__checkbox"
               id="isOtherDocumentChecked"
               />
-            <label htmlFor="isOtherDocumentChecked">Other documents and info</label>
+            <label htmlFor="isOtherDocumentChecked" className="primary">Other documents and info</label>
           </div>
         </div>
       </div>
@@ -320,7 +322,7 @@ const Step1 = () => {
 
       <h3 className="title is-4">1.5 KIINTEISTÖT / HUONEISTOT</h3>
       <hr />
-      <p>What property/apartments did the deseaced person have?</p>
+      <p className="primary">What property/apartments did the deseaced person have?</p>
       <br />
 
       <FieldArray name="propertyInfo">
@@ -396,7 +398,7 @@ const Step1 = () => {
 
     <h3 className="title is-4">1.6 RAHAVARAT KORKOINEEN</h3>
     <hr />
-    <p>Pankin / pankkitilin tiedot ja saldo</p>
+    <p className="primary">Pankin / pankkitilin tiedot ja saldo</p>
 
     <br />
 
@@ -473,7 +475,7 @@ const Step1 = () => {
 
 
     <hr />
-    <p>Osakkeen tiedot/määrä  Hinta</p>
+    <p className="primary">Osakkeen tiedot/määrä  Hinta</p>
 
     <br />
     <FieldArray name="shareInfo">
@@ -557,7 +559,7 @@ const Step1 = () => {
             className="form__checkbox"
             id="didDeceasedHadCarBoat"
             />
-          <label htmlFor="didDeceasedHadCarBoat">
+          <label htmlFor="didDeceasedHadCarBoat" className="primary">
             Did the deceased have a car / motorbike / boat / trailer etc?
           </label>
         </div>
@@ -621,7 +623,7 @@ const Step1 = () => {
             className="form__checkbox"
             id="isPropertyLikeSofa"
             />
-          <label htmlFor="isPropertyLikeSofa">
+          <label htmlFor="isPropertyLikeSofa" className="primary">
             Onko irtaimen omaisuuden arvo yli 4000 euroa?
           </label>
         </div>
@@ -711,7 +713,7 @@ const Step1 = () => {
             className="form__checkbox"
             id="isHKIrtaminen"
             />
-          <label htmlFor="isHKIrtaminen">HK Irtaminen omaisuus (including previous one)</label>
+          <label htmlFor="isHKIrtaminen" className="primary">HK Irtaminen omaisuus (including previous one)</label>
         </div>
       </div>
     </div>
@@ -800,7 +802,7 @@ const Step1 = () => {
             className="form__checkbox"
             id="didDeceasedHaveDebt"
             />
-          <label htmlFor="didDeceasedHaveDebt">
+          <label htmlFor="didDeceasedHaveDebt" className="primary">
             Did the deceaced have any remaining debts?
           </label>
         </div>
@@ -884,7 +886,7 @@ const Step1 = () => {
     <h3 className="title is-4">1.7 THE MONEY OF THE WIDOW WITH INTEREST (ALSO STOCKS & FUNDS)</h3>
     <hr />
     <h6 className="title is-6">LESKEN RAHAVARAT KORKOINEEN</h6>
-    <p>Pankin / pankkitilin tiedot ja saldo</p>
+    <p className="primary">Pankin / pankkitilin tiedot ja saldo</p>
     <div>
       <FieldArray name="widowBankAccountInfo">
         {({ fields }) => {
@@ -968,7 +970,7 @@ const Step1 = () => {
             className="form__checkbox"
             id="verifyInfoProvidedIsCorrect"
             />
-          <label htmlFor="verifyInfoProvidedIsCorrect">
+          <label htmlFor="verifyInfoProvidedIsCorrect" className="primary">
             I certify that I have entered all the necessary documents into the perukirjakone and that I have received all the other supporting documents to finalize this process.?
           </label>
         </div>
@@ -985,7 +987,7 @@ const Step1 = () => {
             className="form__checkbox"
             id="haveAllPartiesInvited"
             />
-          <label htmlFor="haveAllPartiesInvited">
+          <label htmlFor="haveAllPartiesInvited" className="primary">
             Have all the parties been invited to this estate inventory?
           </label>
         </div>
@@ -1003,7 +1005,7 @@ const Step1 = () => {
             className="form__checkbox"
             id="doesWidowWantsToLiveInSameApartment"
             />
-          <label htmlFor="doesWidowWantsToLiveInSameApartment">
+          <label htmlFor="doesWidowWantsToLiveInSameApartment" className="primary">
             Does the widow want to remain living in the apartment?
           </label>
         </div>
@@ -1021,7 +1023,7 @@ const Step1 = () => {
             className="form__checkbox"
             id="isOtherAnnouncement"
             />
-          <label htmlFor="isOtherAnnouncement">
+          <label htmlFor="isOtherAnnouncement" className="primary">
             Do you want to make other announcements?
           </label>
         </div>
@@ -1039,7 +1041,7 @@ const Step1 = () => {
             className="form__checkbox"
             id="isThereLifeInsurance"
             />
-          <label htmlFor="isThereLifeInsurance">Was there life insurance? </label>
+          <label htmlFor="isThereLifeInsurance" className="primary">Was there life insurance? </label>
         </div>
       </div>
     </div>

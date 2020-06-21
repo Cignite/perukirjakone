@@ -39,7 +39,7 @@ const Step3 = () => {
               className="form__checkbox"
               id="wasDeceasedPersonMarried"
               />
-            <label htmlFor="wasDeceasedPersonMarried">
+            <label htmlFor="wasDeceasedPersonMarried" className="primary">
               Was the deceased person married?
             </label>
           </div>
@@ -49,7 +49,7 @@ const Step3 = () => {
         <Condition when="wasDeceasedPersonMarried" is={true}>
           <h3 className="title is-4">2.5 KIINTEISTÖT / HUONEISTOT</h3>
           <hr />
-          <p>What property/apartments did the deseaced person have?</p>
+          <p className="primary">What property/apartments did the deseaced person have?</p>
 
           <FieldArray name="widowProperty">
             {({ fields }) => {
@@ -124,7 +124,7 @@ const Step3 = () => {
 
           <h3 className="title is-4">2.6 RAHAVARAT KORKOINEEN</h3>
           <hr />
-          <p>Pankin / pankkitilin tiedot ja saldo</p>
+          <p className="primary">Pankin / pankkitilin tiedot ja saldo</p>
           <br />
 
           <FieldArray name="widowBankInfo">
@@ -288,7 +288,7 @@ const Step3 = () => {
                   className="form__checkbox"
                   id="isPersonalWorth"
                   />
-                <label htmlFor="isPersonalWorth">
+                <label htmlFor="isPersonalWorth" className="primary">
                   Onko irtaimen omaisuuden arvo yli 4000 euroa?
                 </label>
               </div>
@@ -379,7 +379,7 @@ const Step3 = () => {
                   className="form__checkbox"
                   id="isPersonalBelonings"
                   />
-                <label htmlFor="isPersonalBelonings">
+                <label htmlFor="isPersonalBelonings" className="primary">
                   Person belongings?
                 </label>
               </div>
