@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import  {
   Text,
   Font,
@@ -6,6 +6,7 @@ import  {
   StyleSheet,
   View,
 } from '@react-pdf/renderer';
+import axios from 'axios';
 
 import Customer from './Customer';
 import ContentHeader from './ContentHeader';
@@ -89,39 +90,62 @@ Font.register( {
   src: LatoBold,
 });
 
-const DocumentPage = (props) => (
-  <Page {...props} style={styles.page} wrap={false}>
-    <View style={styles.containere}>
-      <View style={[styles.row, styles.border]}>
-        <View>
-          <Text style={styles.invoiceTitle}>Perukirja</Text>
-        </View>
-      </View>
+const API_BASE_URL = "https://perukirjakone.herokuapp.com/";
 
-      <ContentHeader label="1. Customer" />
-      <Customer />
-      <ContentHeader label="2. Shareholder info" />
-      <ShareholderInfo />
-      <ContentHeader label="3. Testament" />
-      <Testament />
-      <ContentHeader label="3. Documents" />
-      <DocumentsAndInfo />
-      <LineBreak />
-      <ContentHeader label="4. Deceased properties" />
-      <DeceasedProperties />
-      <ContentHeader label="5. Bank/Stocks" />
-      <DeceasedBankStocks />
-      <ContentHeader label="6. THE MONEY OF THE WIDOW WITH INTEREST (ALSO STOCKS & FUNDS)" />
-      <WidowAndInterest />
-      <AgreeementAndAnnouncement />
-      <AgreementInvitees />
-      <ContentHeader label="7. Funeral expenses" />
-      <FuneralExpenses />
-      <ContentHeader label="8. Widow" />
-      <WidowInfo />
-    </View>
-  </Page>
-  );
+const DocumentPage = (props) => {
+  const [jsonSchema, setJsonSchema] = useState(null);
+
+  const getJSONSchema = async (payload) => {
+    const getUserInfoFromStorage = JSON.parse(window.localStorage.getItem('userInfo'));
+    try {
+      await axios.get(`${API_BASE_URL}${'documents/'}${getUserInfoFromStorage.id}`)
+        .then(res => {
+          setJsonSchema(res.data.jsonSchema);
+        })
+    } catch (error) {
+      console.log("error", error);
+      //setUpdateJsonSchemaError(error.response.payload.message[0].messages[0].message);
+    }
+  }
+
+  useEffect(() => {
+    getJSONSchema();
+  }, []);
+
+  return (
+    <Page {...props} style={styles.page} wrap={false}>
+      <View style={styles.containere}>
+        <View style={[styles.row, styles.border]}>
+          <View>
+            <Text style={styles.invoiceTitle}>Perukirja</Text>
+          </View>
+        </View>
+
+        <ContentHeader label="1. Customer" />
+        <Customer jsonSchema={jsonSchema && jsonSchema} />
+        <ContentHeader label="2. Shareholder info" />
+        <ShareholderInfo jsonSchema={jsonSchema} />
+        <ContentHeader label="3. Testament" />
+        <Testament jsonSchema={jsonSchema} />
+        <ContentHeader label="3. Documents" />
+        <DocumentsAndInfo jsonSchema={jsonSchema} />
+        <LineBreak />
+        <ContentHeader label="4. Deceased properties" />
+        <DeceasedProperties jsonSchema={jsonSchema} />
+        <ContentHeader label="5. Bank/Stocks" />
+        <DeceasedBankStocks jsonSchema={jsonSchema}  />
+        <ContentHeader label="6. THE MONEY OF THE WIDOW WITH INTEREST (ALSO STOCKS & FUNDS)" />
+        <WidowAndInterest jsonSchema={jsonSchema} />
+        <AgreeementAndAnnouncement jsonSchema={jsonSchema}/>
+        <AgreementInvitees jsonSchema={jsonSchema} />
+        <ContentHeader label="7. Funeral expenses" />
+        <FuneralExpenses jsonSchema={jsonSchema} />
+        <ContentHeader label="8. Widow" />
+        <WidowInfo jsonSchema={jsonSchema} />
+      </View>
+    </Page>
+  )
+}
 
 
 export default DocumentPage;
