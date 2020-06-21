@@ -10,7 +10,7 @@ function Footer(props) {
           <ul>
             <li className="footer__item">Maariankatu 2B, Turku, 200500</li>
             <li className="footer__item">Terms and services</li>
-            <li className="footer__item"><i class="fa fa-envelope" aria-hidden="true" /> &nbsp;perux.turku@perux.fi</li>
+            <li className="footer__item"><i className="fa fa-envelope" aria-hidden="true" /> &nbsp;perux.turku@perux.fi</li>
           </ul>
         </div>
         <div className="social right">
