@@ -87,7 +87,7 @@ const UserVerfication = (props) => {
                 </div>
                 <div className="field has-text-centered">
                   <label className="label is-size-4">Verify code</label>
-                  <p className="is-small primary">With
+                  <p className="is-small primaryLabel">With
                   the help of verification code we can make sure that right person
                   is accessing Perukirjakone service.</p>
                 </div>
@@ -144,7 +144,7 @@ const UserVerfication = (props) => {
                             id="isTermsAgreed"
                           />
 
-                        <label className="checkbox primary" htmlFor="isTermsAgreed">
+                        <label className="checkbox primaryLabel" htmlFor="isTermsAgreed">
                             &nbsp;I agree to the terms and services and privacy policy
                           </label>
                           <Error name="isTermsAgreed" />

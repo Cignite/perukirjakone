@@ -93,7 +93,7 @@ const UserRegistration = (props) => {
                 </div>
                 <div className="field has-text-centered">
                   <label className="label is-size-5">Email validation </label>
-                    <p className="is-small primary">We need email to verify right person is using
+                    <p className="is-small primaryLabel">We need email to verify right person is using
                       Perukirjakone service.</p>
                 </div>
                 <br/>
@@ -135,7 +135,7 @@ const UserRegistration = (props) => {
                             id="isTermsAgreed"
                           />
 
-                        <label className="checkbox checkbox-primary primary" htmlFor="isTermsAgreed">
+                        <label className="checkbox checkbox-primary primaryLabel" htmlFor="isTermsAgreed">
                             &nbsp;I agree to the terms and services and privacy policy
                           </label>
                           <Error name="isTermsAgreed" />
