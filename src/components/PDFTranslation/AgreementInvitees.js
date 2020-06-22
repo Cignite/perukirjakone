@@ -8,7 +8,7 @@ import moment from 'moment';
 
 import LineBreak from './LineBreak';
 
-const BORDER_COLOR = '#bfbfbf';
+const BORDER_COLOR = '#000';
 const BORDER_STYLE = 'solid';
 const COL1_WIDTH = 200
 const COLN_WIDTH = (100 - COL1_WIDTH) / 3;
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   colText: {
     fontSize: 15,
     fontFamily: 'Lato',
-    color: '#A8026F'
+    color: '#00000'
   },
   detailContainer: {
     display: "flex",

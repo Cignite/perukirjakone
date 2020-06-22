@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   colText: {
     fontSize: 15,
     fontFamily: 'Lato',
-    color: '#A8026F'
+    color: '#000000'
   },
 });
 
