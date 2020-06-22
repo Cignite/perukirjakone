@@ -190,7 +190,6 @@ const Step2 = () => {
             name="perukirjakoneFee"
             component={InputWrapper}
             type="text"
-            placeholder="€29"
             label="Perukirjakone fee"
             disabled={true}
             />

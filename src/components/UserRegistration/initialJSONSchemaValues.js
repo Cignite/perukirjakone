@@ -56,8 +56,8 @@ const initialJSONSchemaValues = {
   ],
   whoWasPresent: [
     {
-      name: "Hanko Harala",
-      city: "Gothemburg"
+      name: "",
+      city: ""
     }
   ],
   widowPersonalBelonings: [
