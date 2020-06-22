@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import HomePage from '../Homepage';
 import PerukirjaForm from '../PerukirjaForm';
@@ -28,7 +28,22 @@ export default function App() {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/user-validation" component={UserRegistration}  />
             <Route exact path="/user-verification" component={UserVerification} />
-            <Route exact path="/wizard-form" component={PerukirjaForm} />
+            <Route
+              exact
+              path="/wizard-form"
+              render={props => {
+                const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                if (userInfo) {
+                  if(userInfo.email && userInfo.code) {
+                    return (
+                      <PerukirjaForm {...props} />
+                    )
+                  }
+                }
+
+                return <Redirect to="/user-verification" />
+              }}
+            />
             <Route exact path="/pdf" component={PDFViewer} />
             <Route exact path="/translation" component={PDFTranslation} />
             <Route component={NotFoundPage} />
