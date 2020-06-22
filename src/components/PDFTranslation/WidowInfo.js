@@ -146,169 +146,179 @@ const styles = StyleSheet.create({
   },
 });
 
-const WidowInfo = ({ jsonSchema }) => (
-  <>
-    <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>Was the deceased person married?</Text>
-    </View>
-    <View style={styles.detailContainer}>
-      <Text style={styles.detailTextHeader}>8.1 KIINTEISTÖT / HUONEISTOT</Text>
-    </View>
-    {jsonSchema && jsonSchema.wasDeceasedPersonMarried ? (
-      <>
-        <View style={styles.table}>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Property name/place</Text>
-            </View>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Amount</Text>
-            </View>
-          </View>
+const WidowInfo = ({ jsonSchema }) => {
+  // const widowPropertyEmpty = Object.values(jsonSchema && jsonSchema.widowProperty[0])[0].length;
 
-          {jsonSchema && jsonSchema.widowProperty && jsonSchema.widowProperty.map((item, index) => {
-            return (
-              <View style={styles.tableRow} key={index}>
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.name}</Text>
-                </View>
-
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
-                </View>
-              </View>
-            )
-          })}
-        </View>
-        <LineBreak />
-
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailTextHeader}>8.1 RAHAVARAT KORKOINEEN</Text>
-        </View>
-
-        <View style={styles.table}>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Bank name/number</Text>
-            </View>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Amount</Text>
-            </View>
-          </View>
-
-          {jsonSchema.widowBankInfo && jsonSchema.widowBankInfo.map((item, index) => {
-            return (
-              <View style={styles.tableRow} key={index}>
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.name}</Text>
-                </View>
-
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
-                </View>
-              </View>
-            )
-          })}
-        </View>
-        <LineBreak />
-
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailTextHeader}>8.3 THE MONEY OF THE WIDOW WITH INTEREST (ALSO STOCKS & FUNDS)</Text>
-        </View>
-
-        <View style={styles.table}>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Stock/Fund</Text>
-            </View>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Amount</Text>
-            </View>
-          </View>
-
-          {jsonSchema && jsonSchema.widowStockInfo && jsonSchema.widowStockInfo.map((item, index) => {
-            return (
-              <View style={styles.tableRow} key={index}>
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.name}</Text>
-                </View>
-
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
-                </View>
-              </View>
-            )
-          })}
-        </View>
-        <LineBreak />
-
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailTextHeader}>8.4 Onko irtaimen omaisuuden arvo yli 4000 euroa?</Text>
-        </View>
-
-        <View style={styles.table}>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Omaisuuden</Text>
-            </View>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Amount</Text>
-            </View>
-          </View>
-
-          {jsonSchema && jsonSchema.personalWorthInfo && jsonSchema.personalWorthInfo.map((item, index) => {
-            return (
-              <View style={styles.tableRow} key={index}>
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.name}</Text>
-                </View>
-
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
-                </View>
-              </View>
-            )
-          })}
-        </View>
-        <LineBreak />
-
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailTextHeader}>8.5 Personal belongings</Text>
-        </View>
-
-        <View style={styles.table}>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Item</Text>
-            </View>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Amount</Text>
-            </View>
-          </View>
-
-          {jsonSchema && jsonSchema.widowPersonalBelonings && jsonSchema.widowPersonalBelonings.map((item, index) => {
-            return (
-              <View style={styles.tableRow} key={index}>
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.name}</Text>
-                </View>
-
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
-                </View>
-              </View>
-            )
-          })}
-        </View>
-        <LineBreak />
-
-      </>
-    ): (
-      <View>
-        <Text style={styles.paragraphSecond}>- Ei</Text>
+  return (
+    <>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailText}>Was the deceased person married?</Text>
       </View>
-    )}
-  </>
-);
+
+      {jsonSchema && jsonSchema.wasDeceasedPersonMarried ? (
+        <>
+          {jsonSchema && jsonSchema.widowProperty.length > 0 && (
+            <>
+              <View style={styles.detailContainer}>
+                <Text style={styles.detailTextHeader}>8.1 KIINTEISTÖT / HUONEISTOT</Text>
+              </View>
+
+                <View style={styles.table}>
+                  <View style={styles.tableRow}>
+                    <View style={styles.tableCol1Header}>
+                      <Text style={styles.tableCellHeader}>Property name/place</Text>
+                    </View>
+                    <View style={styles.tableCol1Header}>
+                      <Text style={styles.tableCellHeader}>Amount</Text>
+                    </View>
+                  </View>
+
+                  {jsonSchema && jsonSchema.widowProperty && jsonSchema.widowProperty.map((item, index) => {
+                    return (
+                      <View style={styles.tableRow} key={index}>
+                        <View style={styles.tableCol1}>
+                          <Text style={styles.tableCell}>{item.name}</Text>
+                        </View>
+
+                        <View style={styles.tableCol1}>
+                          <Text style={styles.tableCell}>{item.value}</Text>
+                        </View>
+                      </View>
+                    )
+                  })}
+                </View>
+              </>
+          )}
+          <LineBreak />
+
+          <View style={styles.detailContainer}>
+            <Text style={styles.detailTextHeader}>8.2 RAHAVARAT KORKOINEEN</Text>
+          </View>
+
+          <View style={styles.table}>
+            <View style={styles.tableRow}>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Bank name/number</Text>
+              </View>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Amount</Text>
+              </View>
+            </View>
+
+            {jsonSchema.widowBankInfo && jsonSchema.widowBankInfo.map((item, index) => {
+              return (
+                <View style={styles.tableRow} key={index}>
+                  <View style={styles.tableCol1}>
+                    <Text style={styles.tableCell}>{item.name}</Text>
+                  </View>
+
+                  <View style={styles.tableCol1}>
+                    <Text style={styles.tableCell}>{item.value}</Text>
+                  </View>
+                </View>
+              )
+            })}
+          </View>
+          <LineBreak />
+
+          <View style={styles.detailContainer}>
+            <Text style={styles.detailTextHeader}>8.3 THE MONEY OF THE WIDOW WITH INTEREST (ALSO STOCKS & FUNDS)</Text>
+          </View>
+
+          <View style={styles.table}>
+            <View style={styles.tableRow}>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Stock/Fund</Text>
+              </View>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Amount</Text>
+              </View>
+            </View>
+
+            {jsonSchema && jsonSchema.widowStockInfo && jsonSchema.widowStockInfo.map((item, index) => {
+              return (
+                <View style={styles.tableRow} key={index}>
+                  <View style={styles.tableCol1}>
+                    <Text style={styles.tableCell}>{item.name}</Text>
+                  </View>
+
+                  <View style={styles.tableCol1}>
+                    <Text style={styles.tableCell}>{item.value}</Text>
+                  </View>
+                </View>
+              )
+            })}
+          </View>
+          <LineBreak />
+
+          <View style={styles.detailContainer}>
+            <Text style={styles.detailTextHeader}>8.4 Onko irtaimen omaisuuden arvo yli 4000 euroa?</Text>
+          </View>
+
+          <View style={styles.table}>
+            <View style={styles.tableRow}>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Omaisuuden</Text>
+              </View>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Amount</Text>
+              </View>
+            </View>
+
+            {jsonSchema && jsonSchema.personalWorthInfo && jsonSchema.personalWorthInfo.map((item, index) => {
+              return (
+                <View style={styles.tableRow} key={index}>
+                  <View style={styles.tableCol1}>
+                    <Text style={styles.tableCell}>{item.name}</Text>
+                  </View>
+
+                  <View style={styles.tableCol1}>
+                    <Text style={styles.tableCell}>{item.value}</Text>
+                  </View>
+                </View>
+              )
+            })}
+          </View>
+          <LineBreak />
+
+          <View style={styles.detailContainer}>
+            <Text style={styles.detailTextHeader}>8.5 Personal belongings</Text>
+          </View>
+
+          <View style={styles.table}>
+            <View style={styles.tableRow}>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Item</Text>
+              </View>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Amount</Text>
+              </View>
+            </View>
+
+            {jsonSchema && jsonSchema.widowPersonalBelonings && jsonSchema.widowPersonalBelonings.map((item, index) => {
+              return (
+                <View style={styles.tableRow} key={index}>
+                  <View style={styles.tableCol1}>
+                    <Text style={styles.tableCell}>{item.name}</Text>
+                  </View>
+
+                  <View style={styles.tableCol1}>
+                    <Text style={styles.tableCell}>{item.value}</Text>
+                  </View>
+                </View>
+              )
+            })}
+          </View>
+          <LineBreak />
+
+        </>
+      ): (
+        <View>
+          <Text style={styles.paragraphSecond}>- Ei</Text>
+        </View>
+      )}
+    </>
+  )
+}
 
 export default WidowInfo;
