@@ -102,9 +102,6 @@ const UserVerfication = (props) => {
                       } if (!EmailValidator.validate(values.email)) {
                         errors.email = "Invalid email address.";
                       }
-                      if (!values.isTermsAgreed) {
-                        errors.isTermsAgreed = "Accept terms of service!";
-                      }
                       if (!values.code) {
                         errors.code = "Code is required!";
                       }
@@ -139,24 +136,6 @@ const UserVerfication = (props) => {
 
                           </div>
                           <br />
-                        </div>
-                        <div className="field">
-                          <span>
-                            <Field
-                              name="isTermsAgreed"
-                              component="input"
-                              type="checkbox"
-                              id="isTermsAgreed"
-                              className="agreeCheckbox"
-                            />
-                          </span>
-                          <span>
-
-                            <label className="checkbox primaryLabel" htmlFor="isTermsAgreed">
-                            &nbsp;I agree to the terms and services and privacy policy
-                            </label>
-                          </span>
-                          <Error name="isTermsAgreed" />
                         </div>
 
                         <div className="field level-right">
