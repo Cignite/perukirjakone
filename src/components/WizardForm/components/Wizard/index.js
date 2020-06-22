@@ -102,17 +102,17 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
               )}
               {!isLastPage && state.page !== 2 && state.page !== 3 && (
                 <button className="button is-primary next__btn" type="submit" disabled={showLoader}>
-                  {showLoader ? <span>Loading</span> : <span>Save and continue »</span>}
+                  {showLoader ? <span>Saving data...</span> : <span>Save and continue »</span>}
                 </button>
               )}
               {state.page > 0 && state.page === 2  && state.page !== 3 && (
                 <button className="button is-primary next__btn" type="submit" disabled={showLoader}>
-                  {showLoader ? <span>Loading</span> : <span>Save & Preview document »</span>}
+                  {showLoader ? <span>Saving data...</span> : <span>Save & Preview document »</span>}
                 </button>
               )}
               {state.page > 0 && state.page !== 2 && state.page === 3 && (
                 <button className="button is-primary next__btn" type="submit" disabled={showLoader}>
-                  {showLoader ? <span>Loading</span> : <span>Download document »</span>}
+                  {showLoader ? <span>Saving data...</span> : <span>Download document »</span>}
                 </button>
               )}
               {/*isLastPage && (
