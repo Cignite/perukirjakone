@@ -95,23 +95,23 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
           <form onSubmit={handleSubmit}>
             <div className="form__footer_buttons">
               {activePage}
-              {state.page > 0 && (
+              {state.page > 0 && !isLastPage && (
                 <button className="button is-outlined" type="button" onClick={onBackStep} disabled={showLoader}>
                   « Previous
                 </button>
               )}
               {!isLastPage && state.page !== 2 && state.page !== 3 && (
-                <button className="button is-dark next__btn" type="submit" disabled={showLoader}>
+                <button className="button is-primary next__btn" type="submit" disabled={showLoader}>
                   {showLoader ? <span>Loading</span> : <span>Save and continue »</span>}
                 </button>
               )}
               {state.page > 0 && state.page === 2  && state.page !== 3 && (
-                <button className="button is-dark next__btn" type="submit" disabled={showLoader}>
+                <button className="button is-primary next__btn" type="submit" disabled={showLoader}>
                   {showLoader ? <span>Loading</span> : <span>Save & Preview document »</span>}
                 </button>
               )}
               {state.page > 0 && state.page !== 2 && state.page === 3 && (
-                <button className="button is-dark next__btn" type="submit" disabled={showLoader}>
+                <button className="button is-primary next__btn" type="submit" disabled={showLoader}>
                   {showLoader ? <span>Loading</span> : <span>Download document »</span>}
                 </button>
               )}
