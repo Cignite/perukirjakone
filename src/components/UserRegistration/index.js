@@ -45,7 +45,7 @@ const UserRegistration = (props) => {
           setEmailVerificationNotify(true);
           setTimeout(()=>{
             props.history.push('/user-verification');
-          }, 5000);
+          }, 3000);
 
         })
     } catch (error) {
@@ -154,7 +154,7 @@ const UserRegistration = (props) => {
                         {emailVerificationNotify && (
                           <div class="notification is-info">
                             <p>We have send verification code in your email address!</p>
-                            <p>Redirecting....</p>
+                            <p>Wait...Page is redirecting....</p>
                           </div>
                         )}
                         {doesEmailExist && (

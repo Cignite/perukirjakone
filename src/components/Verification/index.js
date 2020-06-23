@@ -53,7 +53,7 @@ const UserVerfication = (props) => {
               setEmailVerificationNotify(true);
               setTimeout(()=>{
                 props.history.push('/wizard-form');
-              }, 5000);
+              }, 3000);
 
               const getUserInfo = {
                 email: res.data[0].email,
@@ -150,7 +150,7 @@ const UserVerfication = (props) => {
                         {emailVerificationNotify && (
                           <div class="notification is-info">
                             <p>Email and code has been verified!</p>
-                            <p>Redirecting....</p>
+                            <p>Wait..page is redirecting....</p>
                           </div>
                         )}
                         {doesEmailExist && (
@@ -159,7 +159,7 @@ const UserVerfication = (props) => {
                               className="delete"
                               onClick={() => setDoesEmailExist(false)}
                             />
-                            Email or verification code didn't matched!
+                          Email or verification code didn't matched! Find verification code in your email!
                           </div>
                         )}
 
