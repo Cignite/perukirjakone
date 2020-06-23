@@ -29,7 +29,6 @@ const DatePickerWrapper = props => {
             setStartDate(value);
             input.onChange(value);
           }}
-          minDate={new Date()}
           todayButton="Today"
           onBlur={props.input.onBlur}
           onFocus={props.input.onFocus}
