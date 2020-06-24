@@ -43,12 +43,13 @@ const Step2 = () => {
                         aria-label="Close"
                         className="del__btn"
                         onClick={() => {
-                          if (fields.length === 1) {
-                            setShowDeceasedNotification(true);
-                            console.log("min one")
-                          } else {
-                            fields.remove(index)}
-                          }
+                          // if (fields.length === 1) {
+                          //   setShowDeceasedNotification(true);
+                          //   console.log("min one")
+                          // } else {
+                          //   fields.remove(index)}
+                          // }
+                          fields.remove(index)}
                         }
                         style={{ cursor: "pointer" }}
                         >
@@ -135,12 +136,13 @@ const Step2 = () => {
                         aria-label="Close"
                         className="del__btn"
                         onClick={() => {
-                          if (fields.length === 1) {
-                            setShowDeceasedNotification(true);
-                            console.log("min one")
-                          } else {
-                            fields.remove(index)}
-                          }
+                          // if (fields.length === 1) {
+                          //   setShowDeceasedNotification(true);
+                          //   console.log("min one")
+                          // } else {
+                          //   fields.remove(index)}
+                          // }
+                          fields.remove(index)}
                         }
                         style={{ cursor: "pointer" }}
                         >
