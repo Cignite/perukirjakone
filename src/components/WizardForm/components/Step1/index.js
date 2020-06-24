@@ -18,14 +18,14 @@ const Condition = ({ when, is, children }) => {
 }
 
 const Step1 = () => {
-  const [showDeceasedNotification, setShowDeceasedNotification] = React.useState(false);
-  const [showPropertyNotification, setShowPropertyNotification] = React.useState(false);
+  // const [showDeceasedNotification, setShowDeceasedNotification] = React.useState(false);
+  // const [showPropertyNotification, setShowPropertyNotification] = React.useState(false);
   //const [showBankAccountNotification, setShowBankAccountNotification] = React.useState(false);
   //const [showShareInfoNotification, setShowShareInfoNotification] = React.useState(false);
-  const [showPaintingInfo, setShowPaintingInfo] = React.useState(false);
-  const [showDebtNotifcation, setShowDebtNotifcation] = React.useState(false);
+  // const [showPaintingInfo, setShowPaintingInfo] = React.useState(false);
+  // const [showDebtNotifcation, setShowDebtNotifcation] = React.useState(false);
   // const [showFuneralExpensesInfo, setShowFuneralExpensesInfo] = React.useState(false);
-  const [showWidowBankInfo, setShowWidowBankInfo] = React.useState(false);
+  // const [showWidowBankInfo, setShowWidowBankInfo] = React.useState(false);
   //const [codeValue, setCodeValue] = React.useState("");
 
   return (
@@ -144,19 +144,20 @@ const Step1 = () => {
                         aria-label="Close"
                         className="del__btn"
                         onClick={() => {
-                          if (fields.length === 1) {
-                            setShowDeceasedNotification(true);
-                            console.log("min one")
-                          } else {
-                            fields.remove(index)}
-                          }
-                        }
+                          // if (fields.length === 1) {
+                          //   setShowDeceasedNotification(true);
+                          //   console.log("min one")
+                          // } else {
+                          //   fields.remove(index)}
+                          // }
+                          fields.remove(index)
+                        }}
                         style={{ cursor: "pointer" }}
                         >
                         <i className="fa fa-trash" />
                       </span>
                       <Error name={`${name}.relationType`} />
-                      {showDeceasedNotification && (
+                      {/*showDeceasedNotification && (
                         <div className="notification is-danger form__notification">
                           <button
                             className="delete"
@@ -164,7 +165,7 @@ const Step1 = () => {
                             />
                           Atleast one relationship to deceased person should exist!
                         </div>
-                      )}
+                      )*/}
                     </div>
                   ))}
                   <span className="add__btn">
@@ -354,12 +355,13 @@ const Step1 = () => {
                       className="del__btn"
                       aria-label="Close"
                       onClick={() => {
-                        if (fields.length === 1) {
-                          setShowPropertyNotification(true);
-                          console.log("min one")
-                        } else {
-                          fields.remove(index)}
-                        }
+                        // if (fields.length === 1) {
+                        //   setShowPropertyNotification(true);
+                        //   console.log("min one")
+                        // } else {
+                        //   fields.remove(index)}
+                        // }
+                        fields.remove(index)}
                       }
                       style={{ cursor: "pointer" }}
                     >
@@ -369,7 +371,7 @@ const Step1 = () => {
 
 
                   <Error name={`${name}.name`} />
-                  {showPropertyNotification && (
+                  {/*showPropertyNotification && (
                     <div className="notification is-danger form__notification">
                       <button
                         className="delete"
@@ -377,7 +379,7 @@ const Step1 = () => {
                         />
                       Atleast one property definition should exist!
                     </div>
-                  )}
+                  )*/}
                 </div>
             ))}
             <div className="add__btn margin">
@@ -431,12 +433,13 @@ const Step1 = () => {
                     className="del__btn"
                     aria-label="Close"
                     onClick={() => {
-                      if (fields.length === 1) {
-                        setShowWidowBankInfo(true);
-                        console.log("min one")
-                      } else {
-                        fields.remove(index)}
-                      }
+                      // if (fields.length === 1) {
+                      //   setShowWidowBankInfo(true);
+                      //   console.log("min one")
+                      // } else {
+                      //   fields.remove(index)}
+                      // }
+                      fields.remove(index)}
                     }
                     style={{ cursor: "pointer" }}
                     >
@@ -446,7 +449,7 @@ const Step1 = () => {
 
 
                 <Error name={`${name}.name`} />
-                {showWidowBankInfo && (
+                {/*showWidowBankInfo && (
                   <div className="notification is-danger form__notification">
                     <button
                       className="delete"
@@ -454,7 +457,7 @@ const Step1 = () => {
                       />
                     Atleast one Bank account definition should exist!
                   </div>
-                )}
+                )*/}
               </div>
             ))}
             <div className="add__btn margin">
@@ -507,12 +510,13 @@ const Step1 = () => {
                     aria-label="Close"
                     className="del__btn"
                     onClick={() => {
-                      if (fields.length === 1) {
-                        setShowPaintingInfo(true);
-                        console.log("min one")
-                      } else {
-                        fields.remove(index)}
-                      }
+                      // if (fields.length === 1) {
+                      //   setShowPaintingInfo(true);
+                      //   console.log("min one")
+                      // } else {
+                      //   fields.remove(index)}
+                      // }
+                      fields.remove(index)}
                     }
                     style={{ cursor: "pointer" }}
                     >
@@ -522,7 +526,7 @@ const Step1 = () => {
 
 
                 <Error name={`${name}.name`} />
-                {showPaintingInfo && (
+                {/*showPaintingInfo && (
                   <div className="notification is-danger form__notification">
                     <button
                       className="delete"
@@ -530,7 +534,7 @@ const Step1 = () => {
                       />
                     Atleast one share info definition should exist!
                   </div>
-                )}
+                )*/}
               </div>
             ))}
             <div className="add__btn margin">
@@ -660,12 +664,13 @@ const Step1 = () => {
                       aria-label="Close"
                       className="del__btn"
                       onClick={() => {
-                        if (fields.length === 1) {
-                          setShowPaintingInfo(true);
-                          console.log("min one")
-                        } else {
-                          fields.remove(index)}
-                        }
+                        // if (fields.length === 1) {
+                        //   setShowPaintingInfo(true);
+                        //   console.log("min one")
+                        // } else {
+                        //   fields.remove(index)}
+                        // }
+                        fields.remove(index)}
                       }
                       style={{ cursor: "pointer" }}
                       >
@@ -675,7 +680,7 @@ const Step1 = () => {
 
 
                   <Error name={`${name}.bankaccount`} />
-                  {showPaintingInfo && (
+                  {/*showPaintingInfo && (
                     <div className="notification is-danger form__notification">
                       <button
                         className="delete"
@@ -683,7 +688,7 @@ const Step1 = () => {
                         />
                       Atleast one share info definition should exist!
                     </div>
-                  )}
+                  )*/}
                 </div>
               ))}
               <span className="add__btn margin">
@@ -749,12 +754,13 @@ const Step1 = () => {
                       aria-label="Close"
                       className="del__btn"
                       onClick={() => {
-                        if (fields.length === 1) {
-                          setShowDebtNotifcation(true);
-                          console.log("min one")
-                        } else {
-                          fields.remove(index)}
-                        }
+                        // if (fields.length === 1) {
+                        //   setShowDebtNotifcation(true);
+                        //   console.log("min one")
+                        // } else {
+                        //   fields.remove(index)}
+                        // }
+                        fields.remove(index)}
                       }
                       style={{ cursor: "pointer" }}
                       >
@@ -764,7 +770,7 @@ const Step1 = () => {
 
 
                   <Error name={`${name}.bankaccount`} />
-                  {showDebtNotifcation && (
+                  {/*showDebtNotifcation && (
                     <div className="notification is-danger form__notification">
                       <button
                         className="delete"
@@ -772,7 +778,7 @@ const Step1 = () => {
                         />
                       Atleast one share info definition should exist!
                     </div>
-                  )}
+                  )*/}
                 </div>
               ))}
               <span className="add__btn margin">
@@ -839,12 +845,13 @@ const Step1 = () => {
                       aria-label="Close"
                       className="del__btn"
                       onClick={() => {
-                        if (fields.length === 1) {
-                          setShowPaintingInfo(true);
-                          console.log("min one")
-                        } else {
-                          fields.remove(index)}
-                        }
+                        // if (fields.length === 1) {
+                        //   setShowPaintingInfo(true);
+                        //   console.log("min one")
+                        // } else {
+                        //   fields.remove(index)}
+                        // }
+                        fields.remove(index)}
                       }
                       style={{ cursor: "pointer" }}
                       >
@@ -854,7 +861,7 @@ const Step1 = () => {
 
 
                   <Error name={`${name}.name`} />
-                  {showPaintingInfo && (
+                  {/*showPaintingInfo && (
                     <div className="notification is-danger form__notification">
                       <button
                         className="delete"
@@ -862,7 +869,7 @@ const Step1 = () => {
                         />
                       Atleast one share info definition should exist!
                     </div>
-                  )}
+                  )*/}
                 </div>
               ))}
               <div className="add__btn margin">
@@ -917,12 +924,13 @@ const Step1 = () => {
                       aria-label="Close"
                       className="del__btn"
                       onClick={() => {
-                        if (fields.length === 1) {
-                          setShowPaintingInfo(true);
-                          console.log("min one")
-                        } else {
-                          fields.remove(index)}
-                        }
+                        // if (fields.length === 1) {
+                        //   setShowPaintingInfo(true);
+                        //   console.log("min one")
+                        // } else {
+                        //   fields.remove(index)}
+                        // }
+                        fields.remove(index)}
                       }
                       style={{ cursor: "pointer" }}
                       >
@@ -932,7 +940,7 @@ const Step1 = () => {
 
 
                   <Error name={`${name}.name`} />
-                  {showPaintingInfo && (
+                  {/*showPaintingInfo && (
                     <div className="notification is-danger form__notification">
                       <button
                         className="delete"
@@ -940,7 +948,7 @@ const Step1 = () => {
                         />
                       Atleast one share info definition should exist!
                     </div>
-                  )}
+                  )*/}
                 </div>
               ))}
               <div className="add__btn margin">
@@ -1196,12 +1204,13 @@ const Step1 = () => {
                     aria-label="Close"
                     className="del__btn"
                     onClick={() => {
-                      if (fields.length === 1) {
-                        setShowDebtNotifcation(true);
-                        console.log("min one")
-                      } else {
-                        fields.remove(index)}
-                      }
+                      // if (fields.length === 1) {
+                      //   setShowDebtNotifcation(true);
+                      //   console.log("min one")
+                      // } else {
+                      //   fields.remove(index)}
+                      // }
+                      fields.remove(index)}
                     }
                     style={{ cursor: "pointer" }}
                     >
@@ -1211,7 +1220,7 @@ const Step1 = () => {
 
 
                 <Error name={`${name}.name`} />
-                {showDebtNotifcation && (
+                {/*showDebtNotifcation && (
                   <div className="notification is-danger form__notification">
                     <button
                       className="delete"
@@ -1219,7 +1228,7 @@ const Step1 = () => {
                       />
                     Atleast one share info definition should exist!
                   </div>
-                )}
+                )*/}
               </div>
             ))}
             <span className="add__btn">

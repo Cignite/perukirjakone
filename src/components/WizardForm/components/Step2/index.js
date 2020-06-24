@@ -8,7 +8,7 @@ import Error from '../../../Shared/Error';
 import './styles.scss';
 
 const Step2 = () => {
-  const [showDeceasedNotification, setShowDeceasedNotification] = React.useState(false);
+  //const [showDeceasedNotification, setShowDeceasedNotification] = React.useState(false);
   //const [showPropertyNotification, setShowPropertyNotification] = React.useState(false);
   // const [showBankAccountNotification, setShowBankAccountNotification] = React.useState(false);
   // const [showShareInfoNotification, setShowShareInfoNotification] = React.useState(false);
@@ -55,7 +55,7 @@ const Step2 = () => {
                         <i className="fa fa-trash" />
                       </span>
                       <Error name={`${name}.familyReport`} />
-                      {showDeceasedNotification && (
+                      {/*showDeceasedNotification && (
                         <div className="notification is-danger form__notification">
                           <button
                             className="delete"
@@ -63,7 +63,7 @@ const Step2 = () => {
                             />
                           Atleast one relationship to deceased person should exist!
                         </div>
-                      )}
+                      )*/}
                     </div>
                   </div>
                 ))}
@@ -147,7 +147,7 @@ const Step2 = () => {
                         <i className="fa fa-trash" />
                       </span>
                       <Error name={`${name}.relationType`} />
-                      {showDeceasedNotification && (
+                      {/*showDeceasedNotification && (
                         <div className="notification is-danger form__notification">
                           <button
                             className="delete"
@@ -155,7 +155,7 @@ const Step2 = () => {
                             />
                           Atleast one relationship to deceased person should exist!
                         </div>
-                      )}
+                      )*/}
                     </div>
                   </div>
                 ))}
