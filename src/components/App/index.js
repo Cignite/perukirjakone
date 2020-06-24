@@ -17,7 +17,7 @@ import NotFoundPage from '../NotFound';
 import MainWrapper from '../Wrapper';
 import PDFViewer from '../PDFViewer';
 import PDFTranslation from '../PDFTranslation';
-
+import ResetVerificationCode from '../ResetVerficationCode';
 
 export default function App() {
   return (
@@ -44,6 +44,7 @@ export default function App() {
                 return <Redirect to="/user-verification" />
               }}
             />
+            <Route exact path="/reset-code" component={ResetVerificationCode} />
             <Route exact path="/pdf" component={PDFViewer} />
             <Route exact path="/translation" component={PDFTranslation} />
             <Route component={NotFoundPage} />
