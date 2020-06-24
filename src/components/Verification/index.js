@@ -88,7 +88,7 @@ const UserVerfication = (props) => {
                 <div className="field has-text-centered">
                   <label className="label is-size-4">Verify code</label>
                   <p className="is-small primaryLabel">With
-                  the help of verification code we can make sure that right person
+                  the help of email and verification code we can make sure that right person
                   is accessing Perukirjakone service.</p>
                 </div>
                 <br/>
@@ -120,11 +120,15 @@ const UserVerfication = (props) => {
                               label="Email"
                             />
                             <Error name="email" />
-                            <Error name="code" />
                           </div>
                           <br />
                         </div>
                         <div className="row">
+                          <div className="lost__code">
+                            <Link to="/reset-code" className="has-text-weight-light">
+                              Lost code?
+                            </Link>
+                          </div>
                           <div className=" control">
                             <Field
                               name="code"
@@ -133,7 +137,7 @@ const UserVerfication = (props) => {
                               placeholder="30X30F"
                               label="Code"
                             />
-
+                            <Error name="code" />
                           </div>
                           <br />
                         </div>
