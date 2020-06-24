@@ -22,16 +22,12 @@ const DatePickerWrapper = props => {
           className={meta.touched && meta.error ? "form__form-group-datepicker__error" : "form__form-group-datepicker"}
           dateFormat="dd.MM.yyyy"
           showPopperArrow={false}
-          showMonthDropdown
-          dropdownMode="select"
           selected={startDate}
           onChange={value => {
             setStartDate(value);
             input.onChange(value);
           }}
           todayButton="Today"
-          onBlur={props.input.onBlur}
-          onFocus={props.input.onFocus}
           value={props.input.value ? moment(props.input.value).format('DD.MM.YYYY') : null }
           placeholderText="01.02.2020"
         />
