@@ -110,6 +110,13 @@ const initialJSONSchemaValues = {
       otherDocInfo: ""
     }
   ],
+  lifeInsuranceInfo: [
+    {
+      name: "",
+      amount: "",
+      date: ""
+    }
+  ],
   perukirjakoneFee: "€29,99"
 };
 
