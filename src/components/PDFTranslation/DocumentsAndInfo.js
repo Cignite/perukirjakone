@@ -89,10 +89,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 20,
   },
-  tableRow: {
-    flexDirection: "row",
-    marginTop: -10
-  },
   table: {
     marginLeft: 30,
     marginBottom: 10,
