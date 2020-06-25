@@ -5,7 +5,7 @@ import PDFDocument from '../../../PDFTranslation';
 
 import './styles.scss';
 
-const Step4 = () => {
+const Step6 = () => {
   return (
     <div className="downloadStep">
       <div className="is-centered">
@@ -30,4 +30,4 @@ const Step4 = () => {
   )
 }
 
-export default Step4;
+export default Step6;
