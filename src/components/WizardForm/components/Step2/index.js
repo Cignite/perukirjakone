@@ -34,7 +34,7 @@ const Step2 = () => {
                         name={`${name}.familyReport`}
                         component={InputWrapper}
                         type="text"
-                        placeholder="esim. leski / tytär / poika / isä / äiti / muu"
+                        placeholder="esim: 499"
                         label="Sukuselvitykset"
                         />
 
@@ -99,7 +99,7 @@ const Step2 = () => {
             name="flowers"
             component={InputWrapper}
             type="text"
-            placeholder="Kukat"
+            placeholder="Kukkat"
             label="Kukat"
             />
         </div>
