@@ -28,6 +28,7 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
       setShowLoader(true);
       await axios.put(`${API_BASE_URL}${'documents/'}${getUserInfoFromStorage.id}`, { ...jsonSchemaPayload })
         .then(res => {
+          console.log("post response", res);
           setShowLoader(false);
         })
 
@@ -100,7 +101,8 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
                   « Previous
                 </button>
               )}
-              {!isLastPage && state.page !== 3 && state.page !== 4 && state.page !== 5 && (
+
+              {!isLastPage  && state.page !== 3 && state.page !== 4 && state.page !== 5 && (
                 <button className="button is-primary next__btn" type="submit" disabled={showLoader}>
                   {showLoader ? <span>Saving data...</span> : <span>Save and continue »</span>}
                 </button>
