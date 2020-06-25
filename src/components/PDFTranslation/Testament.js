@@ -61,7 +61,7 @@ const Testament = ({ jsonSchema }) => (
       <Text style={styles.detailText}>Has the property of the deceased or it’s part been assigned to someone?</Text>
     </View>
     {jsonSchema && jsonSchema.isTestamentDeceasedPropertyAssignedChecked ? (
-      <View style={[styles.row, styles.border]}>
+      <View style={styles.row}>
         <View style={[styles.col]}>
           <View>
             <Text style={styles.colHeader}>Person name: </Text>
