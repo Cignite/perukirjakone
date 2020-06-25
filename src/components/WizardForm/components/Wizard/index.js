@@ -100,17 +100,17 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
                   « Previous
                 </button>
               )}
-              {!isLastPage && state.page !== 2 && state.page !== 3 && (
+              {!isLastPage && state.page !== 3 && state.page !== 4 && state.page !== 5 && (
                 <button className="button is-primary next__btn" type="submit" disabled={showLoader}>
                   {showLoader ? <span>Saving data...</span> : <span>Save and continue »</span>}
                 </button>
               )}
-              {state.page > 0 && state.page === 2  && state.page !== 3 && (
+              {state.page > 0 && state.page !== 2 && state.page !== 4 && state.page !== 5  && state.page === 3 && (
                 <button className="button is-primary next__btn" type="submit" disabled={showLoader}>
                   {showLoader ? <span>Saving data...</span> : <span>Save & Preview document »</span>}
                 </button>
               )}
-              {state.page > 0 && state.page !== 2 && state.page === 3 && (
+              {state.page > 0 && state.page !== 2 && state.page !== 3 && state.page === 4 && (
                 <button className="button is-primary next__btn" type="submit" disabled={showLoader}>
                   {showLoader ? <span>Saving data...</span> : <span>Download document »</span>}
                 </button>
@@ -142,9 +142,10 @@ WizardForm.Stepper = ({ activeStep, totalSteps }) => (
       <Step key={idx}>st
         {idx === 0 && (<StepLabel>Customer Info</StepLabel>)}
         {idx === 1 && (<StepLabel>Funeral expenses</StepLabel>)}
-        {idx === 2 && (<StepLabel>Widow marriage</StepLabel>)}
-        {idx === 3 && (<StepLabel>Preview</StepLabel>)}
-        {idx === 4 && (<StepLabel>Download</StepLabel>)}
+        {idx === 2 && (<StepLabel>Widow</StepLabel>)}
+        {idx === 3 && (<StepLabel>Announcement</StepLabel>)}
+        {idx === 4 && (<StepLabel>Preview</StepLabel>)}
+        {idx === 5 && (<StepLabel>Download</StepLabel>)}
       </Step>
     ))}
   </Stepper>
