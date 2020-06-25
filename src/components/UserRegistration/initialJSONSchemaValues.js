@@ -51,7 +51,8 @@ const initialJSONSchemaValues = {
   ],
   otherFuneralExpenses: [
     {
-      info: ""
+      info: "",
+      value: ""
     }
   ],
   whoWasPresent: [
@@ -84,12 +85,32 @@ const initialJSONSchemaValues = {
       value: ""
     }
   ],
+  widowDebtInfo: [
+    {
+      name: "",
+      value: "",
+    }
+  ],
   personalWorthInfo: [
     {
       "name": "",
       "value": ""
     }
   ],
+  relationshipInfo: [
+    {
+      relationType: "",
+      name: "",
+      ssn: "",
+      address: ""
+    }
+  ],
+  otherDocumentInfo: [
+    {
+      otherDocInfo: ""
+    }
+  ],
+  perukirjakoneFee: "€29,99"
 };
 
 export default initialJSONSchemaValues;
