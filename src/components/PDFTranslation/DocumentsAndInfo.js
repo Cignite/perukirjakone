@@ -10,6 +10,11 @@ import moment from 'moment';
 import CheckBox from './checkbox.png';
 import Unchecked from './unchecked.png';
 
+const BORDER_COLOR = '#000';
+const BORDER_STYLE = 'solid';
+const COL1_WIDTH = 200
+const COLN_WIDTH = (100 - COL1_WIDTH) / 3;
+
 const styles = StyleSheet.create({
   row: {
     margin: 10,
@@ -53,6 +58,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Lato',
     color: '#000'
   },
+  colTextSmall: {
+    fontSize: 14,
+    fontFamily: 'Lato',
+    color: '#000'
+  },
   detailContainer: {
     display: "flex",
     flexDirection: 'row',
@@ -60,7 +70,7 @@ const styles = StyleSheet.create({
   detailText: {
     fontSize: 15,
     marginLeft: 35,
-    marginTop: 40,
+    marginTop: 10,
     marginBottom: -30,
     fontFamily: 'Lato Bold',
   },
@@ -82,11 +92,79 @@ const styles = StyleSheet.create({
   tableRow: {
     flexDirection: "row",
     marginTop: -10
-  }
+  },
+  table: {
+    marginLeft: 30,
+    marginBottom: 10,
+    marginTop: 10,
+    display: "table",
+    width: "auto",
+    borderStyle: BORDER_STYLE,
+    borderColor: BORDER_COLOR,
+    borderWidth: 1,
+    borderRightWidth: 0,
+    borderBottomWidth: 0
+  },
+  tableRow: {
+    margin: "auto",
+    flexDirection: "row"
+  },
+  tableCol1Header: {
+    width: COL1_WIDTH + '%',
+    borderStyle: BORDER_STYLE,
+    borderColor: BORDER_COLOR,
+    borderBottomColor: '#000',
+    borderWidth: 1,
+    borderLeftWidth: 0,
+    borderTopWidth: 0
+  },
+  tableColHeader: {
+    width: COLN_WIDTH + "%",
+    borderStyle: BORDER_STYLE,
+    borderColor: BORDER_COLOR,
+    borderBottomColor: '#000',
+    borderWidth: 1,
+    borderLeftWidth: 0,
+    borderTopWidth: 0
+  },
+  tableCol1: {
+    width: COL1_WIDTH + '%',
+    borderStyle: BORDER_STYLE,
+    borderColor: BORDER_COLOR,
+    borderWidth: 1,
+    borderLeftWidth: 0,
+    borderTopWidth: 0
+  },
+  tableCol: {
+    width: COLN_WIDTH + "%",
+    borderStyle: BORDER_STYLE,
+    borderColor: BORDER_COLOR,
+    borderWidth: 1,
+    borderLeftWidth: 0,
+    borderTopWidth: 0
+  },
+  tableCellHeader: {
+    margin: 5,
+    fontSize: 12,
+    fontWeight: 500
+  },
+  tableCell: {
+    margin: 5,
+    fontSize: 10
+  },
+  paragraphSecond: {
+    fontSize: 15,
+    marginLeft: 35,
+    fontFamily: 'Lato',
+    marginBottom: 15
+  },
 });
 
 const DocumentsAndInfo = ({ jsonSchema }) => (
   <>
+    <View style={styles.detailContainer}>
+      <Text style={styles.detailText}>Toimituksen perusteena oleva asiakirjat ja tiedot </Text>
+    </View>
     <View style={styles.row}>
       {jsonSchema && jsonSchema.isSukuselvitykset && (
         <View style={styles.col}>
@@ -95,7 +173,7 @@ const DocumentsAndInfo = ({ jsonSchema }) => (
               style={styles.checkbox}
               source={CheckBox}
             />
-            <Text> Sukuselvitykset </Text>
+          <Text style={styles.colText}> Sukuselvitykset </Text>
           </View>
         </View>
       )}
@@ -108,18 +186,13 @@ const DocumentsAndInfo = ({ jsonSchema }) => (
               style={styles.checkbox}
               source={CheckBox}
             />
-            <Text>Testamentti</Text>
+          <Text style={styles.colText}>Testamentti</Text>
 
           </View>
           <View style={[styles.tableRow]}>
             <View style={styles.col}>
               <View>
-                <Text style={styles.colHeader}>Time of Death: </Text>
-              </View>
-            </View>
-            <View style={styles.col}>
-              <View>
-                <Text style={styles.colText}>{moment(jsonSchema && jsonSchema.testamenttiTimeOfDeath).format('DD.MM.YYYY')}</Text>
+                <Text style={styles.colTextSmall}>Merkittiin tiedoksi testamentti &nbsp; {moment(jsonSchema && jsonSchema.testamenttiTimeOfDeath).format('DD.MM.YYYY')} </Text>
               </View>
             </View>
           </View>
@@ -132,7 +205,7 @@ const DocumentsAndInfo = ({ jsonSchema }) => (
               style={styles.checkbox}
               source={Unchecked}
             />
-            <Text> Testamentti </Text>
+          <Text style={styles.colText}> Testamentti </Text>
           </View>
         </View>
       )}
@@ -146,18 +219,13 @@ const DocumentsAndInfo = ({ jsonSchema }) => (
               style={styles.checkbox}
               source={CheckBox}
             />
-            <Text>Avioehtosopimukset</Text>
+          <Text style={styles.colText}>Avioehtosopimukset</Text>
 
           </View>
           <View style={[styles.tableRow]}>
             <View style={styles.col}>
               <View>
-                <Text style={styles.colHeader}>Date of prenub: </Text>
-              </View>
-            </View>
-            <View style={styles.col}>
-              <View>
-                <Text style={styles.colText}>{moment(jsonSchema && jsonSchema.marriageSettlementDate).format('DD.MM.YYYY')}</Text>
+                <Text style={styles.colTextSmall}>Avioehtosopimus &nbsp;{moment(jsonSchema && jsonSchema.marriageSettlementDate).format('DD.MM.YYYY')} ilmoitettu </Text>
               </View>
             </View>
           </View>
@@ -170,7 +238,7 @@ const DocumentsAndInfo = ({ jsonSchema }) => (
               style={styles.checkbox}
               source={Unchecked}
             />
-            <Text> Avioehtosopimukset </Text>
+            <Text style={styles.colText}> Avioehtosopimukset </Text>
           </View>
         </View>
       )}
@@ -184,20 +252,19 @@ const DocumentsAndInfo = ({ jsonSchema }) => (
               style={styles.checkbox}
               source={CheckBox}
             />
-            <Text>Other documents</Text>
+          <Text style={styles.colText}>Dokumentti</Text>
 
           </View>
-          <View style={[styles.tableRow]}>
-            <View style={styles.col}>
-              <View>
-                <Text style={styles.colHeader}>Other document info: </Text>
-              </View>
-            </View>
-            <View style={styles.col}>
-              <View>
-                <Text style={styles.colText}>{jsonSchema && jsonSchema.otherDocumentInfo}</Text>
-              </View>
-            </View>
+          <View style={styles.table}>
+            {jsonSchema && jsonSchema.otherDocumentInfo && jsonSchema.otherDocumentInfo.map((item, index) => {
+              return (
+                <View style={styles.tableRow} key={index}>
+                  <View style={styles.tableCol1}>
+                    <Text style={styles.tableCell}>{item.otherDocInfo}</Text>
+                  </View>
+                </View>
+              )
+            })}
           </View>
 
         </View>
@@ -208,7 +275,7 @@ const DocumentsAndInfo = ({ jsonSchema }) => (
               style={styles.checkbox}
               source={Unchecked}
             />
-            <Text> Other documents </Text>
+          <Text style={styles.colText}> Dokumentti - Ei tiedosta</Text>
           </View>
         </View>
       )}
