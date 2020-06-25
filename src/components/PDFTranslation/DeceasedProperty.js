@@ -69,9 +69,9 @@ const styles = StyleSheet.create({
   },
   detailText: {
     fontSize: 15,
-    marginLeft: 35,
+    marginLeft: 30,
     marginTop: 35,
-    fontFamily: 'Lato',
+    fontFamily: 'Lato Bold',
     marginBottom: 15
   },
   table: {
@@ -136,15 +136,15 @@ const styles = StyleSheet.create({
 const DeceasedProperties = ({ jsonSchema }) => (
   <>
     <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>What property/apartments did the deseaced person have?</Text>
+      <Text style={styles.detailText}>Ominaisuudet</Text>
     </View>
     <View style={styles.table}>
       <View style={styles.tableRow}>
         <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Property</Text>
+          <Text style={styles.tableCellHeader}>Kiinteistöt/Huoneistot Määrä</Text>
         </View>
         <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Price</Text>
+          <Text style={styles.tableCellHeader}>Määrä</Text>
         </View>
       </View>
       {jsonSchema && jsonSchema.propertyInfo && jsonSchema.propertyInfo.map((item, index) => {
