@@ -115,69 +115,79 @@ const Step2 = () => {
 
       </div>
 
-      <div className="columns step2__content">
-        <FieldArray name="otherFuneralExpenses">
-          {({ fields }) => {
-            return (
-              <div className="sukuselvitykset">
-                {fields.map((name, index) => (
-                  <div key={index}>
-                    <div>
-                      <Field
-                        name={`${name}.info`}
-                        component={InputWrapper}
-                        type="text"
-                        placeholder="other expenses"
-                        label="Other expenses"
-                        />
-
-                      <span
-                        role="img"
-                        aria-label="Close"
-                        className="del__btn"
-                        onClick={() => {
-                          // if (fields.length === 1) {
-                          //   setShowDeceasedNotification(true);
-                          //   console.log("min one")
-                          // } else {
-                          //   fields.remove(index)}
-                          // }
-                          fields.remove(index)}
-                        }
-                        style={{ cursor: "pointer" }}
-                        >
-                        <i className="fa fa-trash" />
-                      </span>
-                      <Error name={`${name}.relationType`} />
-                      {/*showDeceasedNotification && (
-                        <div className="notification is-danger form__notification">
-                          <button
-                            className="delete"
-                            onClick={() => setShowDeceasedNotification(false)}
-                            />
-                          Atleast one relationship to deceased person should exist!
-                        </div>
-                      )*/}
-                    </div>
+      <FieldArray name="otherFuneralExpenses">
+        {({ fields }) => {
+          return (
+            <div>
+              {fields.map((name, index) => (
+                <div key={name} className="columns">
+                  <div className="column is-5">
+                    <Field
+                      name={`${name}.info`}
+                      component={InputWrapper}
+                      type="text"
+                      placeholder="Other expenses"
+                      label="Other expenses"
+                      />
                   </div>
-                ))}
-                <span className="add__btn">
-                  <button
-                    className="button is-small is-primary"
-                    onClick={() =>
-                      fields.push({ info: ""})
-                    }
-                    type="button"
-                    >
-                    Add more
-                  </button>
-                </span>
+                  <div className="column is-2">
+                    <Field
+                      name={`${name}.value`}
+                      component={InputWrapper}
+                      type="text"
+                      placeholder="esim: €40k"
+                      label="Amount (€)"
+                      />
 
+                    <span
+                      role="img"
+                      className="del__btn"
+                      aria-label="Close"
+                      onClick={() => {
+                        // if (fields.length === 1) {
+                        //   setShowWidowBankInfo(true);
+                        //   console.log("min one")
+                        // } else {
+                        //   fields.remove(index)}
+                        // }
+                        fields.remove(index)}
+                      }
+                      style={{ cursor: "pointer" }}
+                      >
+                      <i className="fa fa-trash" />
+                    </span>
+                  </div>
+
+
+                  <Error name={`${name}.name`} />
+                  {/*showWidowBankInfo && (
+                    <div className="notification is-danger form__notification">
+                      <button
+                        className="delete"
+                        onClick={() => setShowWidowBankInfo(false)}
+                        />
+                      Atleast one Bank account definition should exist!
+                    </div>
+                  )*/}
+                </div>
+              ))}
+              <div className="add__btn margin">
+                <button
+                  className="button is-small is-primary"
+                  onClick={() =>
+                    fields.push({ number: "", value: ""})
+                  }
+                  type="button"
+                  >
+                  Add more
+                </button>
               </div>
-            );
-          }}
-        </FieldArray>
+            </div>
+          );
+        }}
+      </FieldArray>
 
+      <div className="columns">
         <div className="column is-3">
           <Field
             name="perukirjakoneReward"
