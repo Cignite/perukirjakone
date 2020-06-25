@@ -8,6 +8,7 @@ import Step2 from './components/Step2';
 import Step3 from './components/Step3';
 import Step4 from './components/Step4';
 import Step5 from './components/Step5';
+import Step6 from './components/Step6';
 
 
 import './styles.scss';
@@ -133,6 +134,9 @@ const StepWizard = () => {
           </Wizard.Step>
           <Wizard.Step>
             <Step5 />
+          </Wizard.Step>
+          <Wizard.Step>
+            <Step6 />
           </Wizard.Step>
         </Wizard>
       : (
