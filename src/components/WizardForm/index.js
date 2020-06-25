@@ -10,7 +10,6 @@ import Step4 from './components/Step4';
 import Step5 from './components/Step5';
 import Step6 from './components/Step6';
 
-
 import './styles.scss';
 
 const API_BASE_URL = "https://perukirjakone.herokuapp.com/";
@@ -99,24 +98,6 @@ const StepWizard = () => {
               }
               if (!values.agreeementPlace) {
                 errors.agreeementPlace = "This is required field";
-              }
-              if (!values.shareholderName) {
-                errors.shareholderName ="This is required field";
-              }
-              if (!values.shareholderSSN) {
-                errors.shareholderSSN ="This is required field";
-              }
-              if (values.isTestamenttiChecked && !values.testamenttiTimeOfDeath) {
-                errors.testamenttiTimeOfDeath = "This is required field";
-              }
-              if (values.isMarriedSettlementContractChecked && !values.marriageSettlementDate) {
-                errors.marriageSettlementDate = "This is required field";
-              }
-              if (values.isOtherDocumentChecked && !values.otherDocumentInfo) {
-                errors.otherDocumentInfo = "This is required field";
-              }
-              if (values.isTestamentDeceasedPropertyAssignedChecked && !values.testamentPropertyAssignInfo) {
-                errors.testamentPropertyAssignInfo = "This is required field";
               }
               return errors;
             }}
