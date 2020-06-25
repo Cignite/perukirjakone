@@ -8,16 +8,10 @@ import  {
 } from '@react-pdf/renderer';
 import axios from 'axios';
 
-import Customer from './Customer';
 import ContentHeader from './ContentHeader';
-import ShareholderInfo from './Shareholder';
 import Testament from './Testament';
 import DocumentsAndInfo from './DocumentsAndInfo';
-import DeceasedProperties from './DeceasedProperty';
 import DeceasedStockInfo from './DeceasedStockInfo';
-import WidowAndInterest from './WidowAndInterest';
-import AgreeementAndAnnouncement from './AgreementAndAnnouncement';
-import AgreementInvitees from './AgreementInvitees';
 import LineBreak from './LineBreak';
 import FuneralExpenses from './FuneralExpenses';
 import WidowInfo from './WidowInfo';

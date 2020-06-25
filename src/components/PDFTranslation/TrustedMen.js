@@ -6,7 +6,6 @@ import {
 } from '@react-pdf/renderer';
 
 import List, { Item } from './List';
-import LineBreak from './LineBreak';
 
 const styles = StyleSheet.create({
   row: {

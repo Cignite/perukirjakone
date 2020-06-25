@@ -4,7 +4,6 @@ import {
   StyleSheet,
   View
 } from '@react-pdf/renderer';
-import moment from 'moment';
 
 const styles = StyleSheet.create({
   row: {

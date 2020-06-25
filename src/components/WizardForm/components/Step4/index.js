@@ -1,9 +1,7 @@
 import React from 'react';
 
 import { Field } from "react-final-form";
-import { FieldArray } from 'react-final-form-arrays';
 
-import InputWrapper from '../../../Shared/Input';
 import TextareaWrapper from '../../../Shared/Textarea';
 
 const Condition = ({ when, is, children }) => {

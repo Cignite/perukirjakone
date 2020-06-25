@@ -4,7 +4,6 @@ import {
   StyleSheet,
   View
 } from '@react-pdf/renderer';
-import moment from 'moment';
 
 const BORDER_COLOR = '#000';
 const BORDER_STYLE = 'solid';

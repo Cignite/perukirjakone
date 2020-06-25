@@ -27,7 +27,6 @@ const ResetVerificationCode = (props) => {
   const [showLoader, setShowLoader] = useState(false);
   const [doesEmailExist, setDoesEmailExist] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(false);
-  const [isTermsServiceAgreed, setIsTermsServiceAgreed] = useState(false);
   const [emailVerificationNotify, setEmailVerificationNotify] = useState(false);
 
   const updateVerificationCode = async (payload, docId) => {
@@ -151,7 +150,7 @@ const ResetVerificationCode = (props) => {
                             </Link>
                           </div>
                         )}
-                        {isEmailValid && isTermsServiceAgreed && ( null )}
+                        {isEmailValid && ( null )}
 
                       </form>
                     )}
