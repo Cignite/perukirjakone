@@ -142,16 +142,16 @@ const styles = StyleSheet.create({
 const FuneralExpenses = ({ jsonSchema }) => (
   <>
     <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>Ilmoita hautajasiin liityvät kullut/ Expenses related to funeral</Text>
+      <Text style={styles.detailText}>Ilmoita hautajasiin liityvät kullut</Text>
     </View>
     <View style={styles.table}>
       <View style={styles.tableRow}>
         <View style={styles.tableCol1Header}>
 
-          <Text style={styles.tableCellHeader}>Expenses</Text>
+          <Text style={styles.tableCellHeader}>Kulu</Text>
         </View>
         <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Amount (€)</Text>
+          <Text style={styles.tableCellHeader}>Määrä (€)</Text>
         </View>
       </View>
       {jsonSchema && jsonSchema.funeralExpensesInfo && jsonSchema.funeralExpensesInfo.map((item, index) => {
@@ -226,6 +226,8 @@ const FuneralExpenses = ({ jsonSchema }) => (
 
     </View>
     <LineBreak />
+    <br />
+    <br />
 
   </>
 );
