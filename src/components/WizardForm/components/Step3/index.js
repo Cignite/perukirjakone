@@ -478,14 +478,14 @@ const Step3 = () => {
                 className="form__checkbox"
                 id="didDeceasedHaveDebt"
                 />
-              <label htmlFor="didWidowHaveDebt" className="primary">
+              <label htmlFor="didDeceasedHaveDebt" className="primary">
                 Did the deceaced have any remaining debts?
               </label>
             </div>
           </div>
         </div>
 
-        <Condition when="didWidowHaveDebt" is={true}>
+        <Condition when="didDeceasedHaveDebt" is={true}>
           <FieldArray name="widowDebtInfo">
             {({ fields }) => {
               return (
