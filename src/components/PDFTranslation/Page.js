@@ -14,13 +14,31 @@ import ShareholderInfo from './Shareholder';
 import Testament from './Testament';
 import DocumentsAndInfo from './DocumentsAndInfo';
 import DeceasedProperties from './DeceasedProperty';
-import DeceasedBankStocks from './DeceasedBankStock';
+import DeceasedStockInfo from './DeceasedStockInfo';
 import WidowAndInterest from './WidowAndInterest';
 import AgreeementAndAnnouncement from './AgreementAndAnnouncement';
 import AgreementInvitees from './AgreementInvitees';
 import LineBreak from './LineBreak';
 import FuneralExpenses from './FuneralExpenses';
 import WidowInfo from './WidowInfo';
+import IntroInfo from './IntroInfo';
+import TruestedMen from './TrustedMen';
+import DeceasedInfo from './Deceased';
+import Partners from './Partners';
+import PresentAtMeeting from './PresentAtMeeting';
+import Announcer from './Announcer';
+import DeceasedProperty from './DeceasedProperty';
+import DeceasedBankInfo from './DeceasedBankInfo';
+import DeceasedPersonalItemsInfo from './DeceasedPersonalItemsInfo';
+import DeceasedDebtInfo from './DeceasedDebtInfo';
+import DeceasedTotalSum from './DeceasedTotalSum';
+import WidowTotalSum from './WidowTotalSum';
+import Announcement from './Announcement';
+import Insurance from './Insurance';
+import WindowAnnouncement from './WindowAnnouncement';
+import Inquires from './Inquires';
+import Assurances from './Assurances';
+import Footer from './Footer';
 
 import OpenSans from './fonts/Open_Sans/OpenSans-Regular.ttf';
 import LatoRegular from './fonts/Lato/Lato-Regular.ttf';
@@ -121,27 +139,42 @@ const DocumentPage = (props) => {
           </View>
         </View>
 
-        <ContentHeader label="1. Customer" />
-        <Customer jsonSchema={jsonSchema && jsonSchema} />
-        <ContentHeader label="2. Shareholder info" />
-        <ShareholderInfo jsonSchema={jsonSchema} />
-        <ContentHeader label="3. Testament" />
+        <IntroInfo jsonSchema={jsonSchema && jsonSchema} />
+        <TruestedMen jsonSchema={jsonSchema && jsonSchema} />
+        <DeceasedInfo jsonSchema={jsonSchema && jsonSchema} />
+        <Partners jsonSchema={jsonSchema && jsonSchema} />
+        <PresentAtMeeting jsonSchema={jsonSchema && jsonSchema} />
+        {/*<ContentHeader label="2. Shareholder info" />*/}
+        {/*<ShareholderInfo jsonSchema={jsonSchema} />*/}
+        {/*<ContentHeader label="3. Testament" />*/}
         <Testament jsonSchema={jsonSchema} />
-        <ContentHeader label="3. Documents" />
+        {/*<ContentHeader label="3. Documents" />*/}
         <DocumentsAndInfo jsonSchema={jsonSchema} />
+        <Announcer jsonSchema={jsonSchema} />
         <LineBreak />
-        <ContentHeader label="4. Deceased properties" />
-        <DeceasedProperties jsonSchema={jsonSchema} />
-        <ContentHeader label="5. Bank/Stocks" />
-        <DeceasedBankStocks jsonSchema={jsonSchema}  />
-        <ContentHeader label="6. THE MONEY OF THE WIDOW WITH INTEREST (ALSO STOCKS & FUNDS)" />
-        <WidowAndInterest jsonSchema={jsonSchema} />
-        <AgreeementAndAnnouncement jsonSchema={jsonSchema}/>
-        <AgreementInvitees jsonSchema={jsonSchema} />
-        <ContentHeader label="7. Funeral expenses" />
+        <ContentHeader label="Vainajan vara" />
+        <DeceasedBankInfo jsonSchema={jsonSchema} />
+        <DeceasedStockInfo jsonSchema={jsonSchema}  />
+        <DeceasedProperty jsonSchema={jsonSchema} />
+        <DeceasedPersonalItemsInfo jsonSchema={jsonSchema} />
+        <DeceasedDebtInfo jsonSchema={jsonSchema} />
+        <DeceasedTotalSum jsonSchema={jsonSchema} />
+
+        {/*<WidowAndInterest jsonSchema={jsonSchema} />*/}
+        {/*<AgreeementAndAnnouncement jsonSchema={jsonSchema}/>*/}
+        {/*<AgreementInvitees jsonSchema={jsonSchema} />*/}
+        <br />
+        <ContentHeader label="Vainajan ja pesän velat ja poistot" />
         <FuneralExpenses jsonSchema={jsonSchema} />
-        <ContentHeader label="8. Widow" />
+        <ContentHeader label="Lesken varat" />
         <WidowInfo jsonSchema={jsonSchema} />
+        <WidowTotalSum jsonSchema={jsonSchema} />
+        <Announcement jsonSchema={jsonSchema} />
+        <Insurance jsonSchema={jsonSchema} />
+        <WindowAnnouncement jsonSchema={jsonSchema} />
+        <Inquires jsonSchema={jsonSchema} />
+        <Assurances jsonSchema={jsonSchema} />
+        <Footer jsonSchema={jsonSchema} />
       </View>
     </Page>
   )
