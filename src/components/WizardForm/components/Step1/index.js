@@ -956,7 +956,7 @@ const Step1 = () => {
                     </Condition>
 
                     <br />
-                    <h3 className="title is-4">1.9 Insurnce </h3>
+                    <h3 className="title is-4">1.9 Insurance </h3>
                     <hr />
                     <div className="columns">
                       <div className="column is-6">
@@ -972,38 +972,89 @@ const Step1 = () => {
                         </div>
                       </div>
                     </div>
+                    <Condition when="isThereLifeInsurance" is={true}>
+                      <FieldArray name="lifeInsuranceInfo">
+                        {({ fields }) => {
+                          return (
+                            <div>
+                              {fields.map((name, index) => (
+                                <div key={name} className="columns">
+                                  <div className="column is-5">
+                                    <Field
+                                      name={`${name}.name`}
+                                      component={InputWrapper}
+                                      type="text"
+                                      placeholder="If insurance"
+                                      label="Insurance name/number"
+                                      />
+                                  </div>
+                                  <div className="column is-2">
+                                    <Field
+                                      name={`${name}.amount`}
+                                      component={InputWrapper}
+                                      type="text"
+                                      placeholder="20000"
+                                      label="Määrä (€)"
+                                      />
+                                  </div>
+                                  <div className="column is-2">
+                                    <Field
+                                      name={`${name}.date`}
+                                      component={renderDatePickerField}
+                                      label="Date"
+                                      placeholder="01.08.2020"
+                                      />
 
-                    <div className="columns">
-                      <Condition when="isThereLifeInsurance" is={true}>
-                        <div className="column is-3">
-                          <Field
-                            name="insuranceName"
-                            component={InputWrapper}
-                            type="text"
-                            placeholder="If Insurance"
-                            label="Insurance name/number/company"
-                            />
-                        </div>
-                        <div className="column is-3">
-                          <Field
-                            name="insuranceAmount"
-                            component={InputWrapper}
-                            type="text"
-                            placeholder=""
-                            label="Amount"
-                            />
-                        </div>
-                        <div className="column is-3">
-                          <Field
-                            name="insuranceDate"
-                            component={renderDatePickerField}
-                            label="Date"
-                            placeholder="01.08.2020"
-                            />
-                          <Error name="insuranceDate" />
-                        </div>
-                      </Condition>
-                    </div>
+                                    <span
+                                      role="img"
+                                      aria-label="Close"
+                                      className="del__btn"
+                                      onClick={() => {
+                                        // if (fields.length === 1) {
+                                        //   setShowPaintingInfo(true);
+                                        //   console.log("min one")
+                                        // } else {
+                                        //   fields.remove(index)}
+                                        // }
+                                        fields.remove(index)}
+                                      }
+                                      style={{ cursor: "pointer" }}
+                                      >
+                                      <i className="fa fa-trash" />
+                                    </span>
+                                  </div>
+
+
+                                  <Error name={`${name}.name`} />
+                                  {/*showPaintingInfo && (
+                                    <div className="notification is-danger form__notification">
+                                    <button
+                                    className="delete"
+                                    onClick={() => setShowPaintingInfo(false)}
+                                    />
+                                    Atleast one share info definition should exist!
+                                    </div>
+                                    )*/}
+                                  </div>
+                                ))}
+                                <div className="add__btn margin">
+                                  <button
+                                    className="button is-small is-primary "
+                                    onClick={() =>
+                                      fields.push({ name: "", value: ""})
+                                    }
+                                    type="button"
+                                    >
+                                    Add more
+                                  </button>
+                                </div>
+                              </div>
+                            );
+                          }}
+                        </FieldArray>
+
+                    </Condition>
+
 
                     <br />
                     <h3 className="title is-4">1.10 Others</h3>
