@@ -1,7 +1,4 @@
 const initialJSONSchemaValues = {
-  deceasedPerson: [
-    { relationType: "" },
-  ],
   propertyInfo: [
     {
       name: "",
@@ -93,8 +90,8 @@ const initialJSONSchemaValues = {
   ],
   personalWorthInfo: [
     {
-      "name": "",
-      "value": ""
+      name: "",
+      value: ""
     }
   ],
   relationshipInfo: [
