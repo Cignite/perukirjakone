@@ -27,7 +27,6 @@ const Step3 = () => {
 
   return (
     <div>
-      <h3 className="title is-4">Marriage</h3>
       <hr />
       <div className="columns">
         <div className="column is-6">

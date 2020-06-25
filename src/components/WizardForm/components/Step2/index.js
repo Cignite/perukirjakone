@@ -19,7 +19,7 @@ const Step2 = () => {
   // const [codeValue, setCodeValue] = React.useState("");
   return (
     <div className="form__content">
-      <h3 className="title is-4">Ilmoita hautajasiin liityvät kullut/ Expenses related to funeral</h3>
+      <h3 className="title is-4">Ilmoitta hautajasiin liityvät kullut</h3>
       <hr />
       <br />
       <div className="columns step2__content">
