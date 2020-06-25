@@ -4,7 +4,7 @@ import { PDFViewer } from '@react-pdf/renderer';
 
 import PDFDocument from '../../../PDFTranslation';
 
-const Step4 = () => {
+const Step5 = () => {
   return (
     <>
       <PDFViewer height="700px" width="100%" >
@@ -16,4 +16,4 @@ const Step4 = () => {
   )
 }
 
-export default Step4;
+export default Step5;
