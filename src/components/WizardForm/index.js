@@ -21,16 +21,6 @@ const onSubmit = async values => {
   window.alert(JSON.stringify(values, 0, 2));
 };
 
-// const required = value => (value ? undefined : "Required");
-//
-// const Condition = ({ when, is, children }) => {
-//   return (
-//     <Field name={when} subscription={{ value: true }}>
-//       {({ input: { value } }) => (value === is ? children : null)}
-//     </Field>
-//   )
-// }
-
 const StepWizard = () => {
   // const [showDeceasedNotification, setShowDeceasedNotification] = useState(false);
   // const [showPropertyNotification, setShowPropertyNotification] = useState(false);
@@ -43,16 +33,6 @@ const StepWizard = () => {
   // const [codeValue, setCodeValue] = useState("");
   //const [shouldRoute, setShouldRoute] = useState(false);
   const [jsonSchemaData, setJsonSchemaData] = useState(null);
-
-  // useEffect(() => {
-  //   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-  //   if (userInfo) {
-  //     if(userInfo.email && userInfo.code) {
-  //       props.history.push('/wizard-form')
-  //     }
-  //   }
-  // }, [])
-  //
 
   const getJSONSchema = async (payload) => {
     const getUserInfoFromStorage = JSON.parse(window.localStorage.getItem('userInfo'));
@@ -121,7 +101,7 @@ const StepWizard = () => {
           </Wizard.Step>
         </Wizard>
       : (
-        <p>Loading document schema...</p>
+        <p>Preparing document data...</p>
       )}
     </div>
   )
