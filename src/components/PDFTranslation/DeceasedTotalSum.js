@@ -7,6 +7,8 @@ import {
 
 import LineBreak from './LineBreak';
 
+import { calculateTotal } from '../utils';
+
 const BORDER_COLOR = '#000';
 const BORDER_STYLE = 'solid';
 const COL1_WIDTH = 200
@@ -139,35 +141,83 @@ const styles = StyleSheet.create({
   },
 });
 
-const DeceasedTotalSum = ({ jsonSchema }) => (
-  <>
-    <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>Yhteensä</Text>
-    </View>
-    <View style={styles.table}>
-      <View style={styles.tableRow}>
-        <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Item</Text>
-        </View>
-        <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Amount</Text>
-        </View>
-      </View>
+const DeceasedTotalSum = ({ jsonSchema }) => {
+  const deceasedBankTotal = calculateTotal(jsonSchema && jsonSchema.bankAccountInfo);
+  const deceasedStockTotal = calculateTotal(jsonSchema && jsonSchema.shareInfo);
+  const deceasedPropertyTotal = calculateTotal(jsonSchema && jsonSchema.propertyInfo);
+  const deceasedPropertiesTotal = calculateTotal(jsonSchema && jsonSchema.propertyLikeSofaWatchInfo);
+  const deceasedPersonalBelongingsTotal = calculateTotal(jsonSchema && jsonSchema.personalBelongingsInfo);
+  const deceasedAutomobilesTotal = jsonSchema && parseInt(jsonSchema.deceasedCarBrandTypeValue, 10) + parseInt(jsonSchema.deceasedMotorBikeBrandTypeValue, 10)
 
-      <View style={styles.tableRow}>
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>Stock</Text>
+  return (
+    <>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailText}>Yhteensä</Text>
+      </View>
+      <View style={styles.table}>
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Item</Text>
           </View>
-
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>239990</Text>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Amount</Text>
+          </View>
         </View>
+
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Pankki</Text>
+          </View>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{deceasedBankTotal}</Text>
+          </View>
+        </View>
+        <View style={styles.tableRow}>
+
+
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Osakkeen</Text>
+          </View>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{deceasedStockTotal}</Text>
+          </View>
+        </View>
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Kiinteiostöt/Huoneistot</Text>
+            </View>
+
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{deceasedPropertiesTotal}</Text>
+          </View>
+        </View>
+
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Omaisuuden</Text>
+            </View>
+
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{deceasedPersonalBelongingsTotal}</Text>
+          </View>
+        </View>
+
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>irtaimen omaisuuden arvo yli 4000 euroa</Text>
+            </View>
+
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{deceasedAutomobilesTotal}</Text>
+          </View>
+        </View>
+
       </View>
-    </View>
-    <LineBreak />
-    <br />
-    <br />
-  </>
-);
+      <LineBreak />
+      <br />
+      <br />
+    </>
+  )
+}
 
 export default DeceasedTotalSum;
