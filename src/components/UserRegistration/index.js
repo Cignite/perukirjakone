@@ -152,7 +152,7 @@ const UserRegistration = (props) => {
                           </button>
                         </div>
                         {emailVerificationNotify && (
-                          <div class="notification is-info">
+                          <div className="notification is-info">
                             <p>We have send verification code in your email address!</p>
                             <p>Wait...Page is redirecting....</p>
                           </div>
