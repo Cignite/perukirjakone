@@ -3,6 +3,7 @@ import { Field } from "react-final-form";
 import { FieldArray } from 'react-final-form-arrays';
 
 import InputWrapper from '../../../Shared/Input';
+import TextareaWrapper from '../../../Shared/Textarea';
 
 import renderDatePickerField from '../../../Shared/Datepicker';
 import Error from '../../../Shared/Error';
@@ -328,10 +329,10 @@ const Step1 = () => {
                       <div className="column is-6">
                         <Field
                           name={`${name}.otherDocInfo`}
-                          component={InputWrapper}
-                          type="text"
-                          placeholder="Other documents"
-                          />
+                          component={TextareaWrapper}
+                          placeholder="Kuvaus"
+                          rows="4"
+                        />
                         <Error name={`${name}.value`} />
                         <span
                           role="img"
