@@ -7,6 +7,8 @@ import {
 
 import LineBreak from './LineBreak';
 
+import { calculateTotal } from '../utils';
+
 const BORDER_COLOR = '#000';
 const BORDER_STYLE = 'solid';
 const COL1_WIDTH = 200
@@ -139,97 +141,109 @@ const styles = StyleSheet.create({
   },
 });
 
-const FuneralExpenses = ({ jsonSchema }) => (
-  <>
-    <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>Ilmoita hautajasiin liityvät kullut</Text>
-    </View>
-    <View style={styles.table}>
-      <View style={styles.tableRow}>
-        <View style={styles.tableCol1Header}>
+const FuneralExpenses = ({ jsonSchema }) => {
+  const familyStudyTotal = calculateTotal(jsonSchema && jsonSchema.funeralExpensesInfo);
+  const otherFuneralExpensesTotal = calculateTotal(jsonSchema && jsonSchema.otherFuneralExpenses);
+  const funeralDeathCertificateTotal= jsonSchema && jsonSchema.funeralExpensesInfoDeathCertificate;
+  const flowerExpensesTotal = jsonSchema && jsonSchema.flowers;
+  const tombstoneExpenses = jsonSchema && jsonSchema.funeralExpensesInfoTombstone;
+  const peruRewardExpenses = jsonSchema && jsonSchema.perukirjakoneReward;
+  const peruFeeExpenses = jsonSchema && jsonSchema.perukirjakoneFee;
+  const totalFuneralExpenses = Number(familyStudyTotal) + Number(otherFuneralExpensesTotal) + funeralDeathCertificateTotal + flowerExpensesTotal;
 
-          <Text style={styles.tableCellHeader}>Kulu</Text>
-        </View>
-        <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Määrä (€)</Text>
-        </View>
+  console.log("totalFuneralExpenses", totalFuneralExpenses)
+  return (
+    <>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailText}>Ilmoita hautajasiin liityvät kullut</Text>
       </View>
-      {jsonSchema && jsonSchema.funeralExpensesInfo && jsonSchema.funeralExpensesInfo.map((item, index) => {
-        return (
-          <View style={styles.tableRow} key={index}>
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>Sukuselvitykset ({index+1})</Text>
-            </View>
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{item.familyReport}</Text>
-            </View>
+      <View style={styles.table}>
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1Header}>
+
+            <Text style={styles.tableCellHeader}>Kulu</Text>
           </View>
-        )
-      })}
-      <View style={styles.tableRow}>
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>Saldotodistukset</Text>
-        </View>
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>{jsonSchema && jsonSchema.funeralExpensesInfoDeathCertificate}</Text>
-        </View>
-      </View>
-
-      <View style={styles.tableRow}>
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>Kukkat</Text>
-        </View>
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>{jsonSchema && jsonSchema.flowers}</Text>
-        </View>
-      </View>
-
-      <View style={styles.tableRow}>
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>Hautakivet</Text>
-        </View>
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>{jsonSchema && jsonSchema.funeralExpensesInfoTombstone}</Text>
-        </View>
-      </View>
-
-      {jsonSchema && jsonSchema.otherFuneralExpenses && jsonSchema.otherFuneralExpenses.map((item, index) => {
-        return (
-          <View style={styles.tableRow} key={index}>
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>Other expenses ({index+1})</Text>
-            </View>
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{item.info}</Text>
-            </View>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Määrä (€)</Text>
           </View>
-        )
-      })}
+        </View>
+        {jsonSchema && jsonSchema.funeralExpensesInfo && jsonSchema.funeralExpensesInfo.map((item, index) => {
+          return (
+            <View style={styles.tableRow} key={index}>
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>Sukuselvitykset ({index+1})</Text>
+              </View>
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>{item.value}</Text>
+              </View>
+            </View>
+          )
+        })}
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Saldotodistukset</Text>
+          </View>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{jsonSchema && jsonSchema.funeralExpensesInfoDeathCertificate}</Text>
+          </View>
+        </View>
 
-      <View style={styles.tableRow}>
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>Perukirjakone reward</Text>
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Kukkat</Text>
+          </View>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{jsonSchema && jsonSchema.flowers}</Text>
+          </View>
         </View>
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>{jsonSchema && jsonSchema.perukirjakoneReward}</Text>
+
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Hautakivet</Text>
+          </View>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{jsonSchema && jsonSchema.funeralExpensesInfoTombstone}</Text>
+          </View>
         </View>
+
+        {jsonSchema && jsonSchema.otherFuneralExpenses && jsonSchema.otherFuneralExpenses.map((item, index) => {
+          return (
+            <View style={styles.tableRow} key={index}>
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>Other expenses ({index+1})</Text>
+              </View>
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>{item.value}</Text>
+              </View>
+            </View>
+          )
+        })}
+
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Perukirjakone reward</Text>
+          </View>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{jsonSchema && jsonSchema.perukirjakoneReward}</Text>
+          </View>
+        </View>
+
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Perukirjakone fee</Text>
+          </View>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{jsonSchema && jsonSchema.perukirjakoneFee}</Text>
+          </View>
+        </View>
+
       </View>
+      <LineBreak />
+      <br />
+      <br />
 
-      <View style={styles.tableRow}>
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>Perukirjakone fee</Text>
-        </View>
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>{jsonSchema && jsonSchema.perukirjakoneFee}</Text>
-        </View>
-      </View>
-
-    </View>
-    <LineBreak />
-    <br />
-    <br />
-
-  </>
-);
+    </>
+  )
+}
 
 export default FuneralExpenses;
