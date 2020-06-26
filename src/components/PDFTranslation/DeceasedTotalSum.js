@@ -157,10 +157,10 @@ const DeceasedTotalSum = ({ jsonSchema }) => {
       <View style={styles.table}>
         <View style={styles.tableRow}>
           <View style={styles.tableCol1Header}>
-            <Text style={styles.tableCellHeader}>Item</Text>
+            <Text style={styles.tableCellHeader}>Nimike</Text>
           </View>
           <View style={styles.tableCol1Header}>
-            <Text style={styles.tableCellHeader}>Amount</Text>
+            <Text style={styles.tableCellHeader}>Määrä</Text>
           </View>
         </View>
 
@@ -208,7 +208,26 @@ const DeceasedTotalSum = ({ jsonSchema }) => {
             </View>
 
           <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{deceasedBelongingsOver4KTotal}</Text>
+          </View>
+        </View>
+
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Car/motor</Text>
+            </View>
+
+          <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>{deceasedAutomobilesTotal}</Text>
+          </View>
+        </View>
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Yhteensä</Text>
+            </View>
+
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{deceasedAutomobilesTotal+deceasedBelongingsOver4KTotal+deceasedPersonalBelongingsTotal+deceasedPropertyTotal+deceasedStockTotal+deceasedBankTotal}</Text>
           </View>
         </View>
 
