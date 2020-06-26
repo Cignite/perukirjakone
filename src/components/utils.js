@@ -10,3 +10,12 @@ export const uniqueDocumentCodeId = () => {
   }
   return (result);
 }
+
+// get sum of value prop across all objects in array
+export const calculateTotal = (arrayObj) => {
+  const getTotal = arrayObj && arrayObj.reduce((accumulator, currentVal) => {
+    return accumulator + parseInt(currentVal.value, 10);
+  }, 0);
+
+  return getTotal;
+}
