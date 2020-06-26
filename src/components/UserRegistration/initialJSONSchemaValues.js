@@ -43,7 +43,7 @@ const initialJSONSchemaValues = {
   ],
   funeralExpensesInfo: [
     {
-      familyReport: "",
+      value: "",
     }
   ],
   otherFuneralExpenses: [
@@ -110,11 +110,11 @@ const initialJSONSchemaValues = {
   lifeInsuranceInfo: [
     {
       name: "",
-      amount: "",
+      value: "",
       date: ""
     }
   ],
-  perukirjakoneFee: "€29,99"
+  perukirjakoneFee: "29"
 };
 
 export default initialJSONSchemaValues;
