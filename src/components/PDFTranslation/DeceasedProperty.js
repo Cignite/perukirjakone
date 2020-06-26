@@ -7,6 +7,8 @@ import {
 
 import LineBreak from './LineBreak';
 
+import { calculateTotal } from '../utils';
+
 const BORDER_COLOR = '#000';
 const BORDER_STYLE = 'solid';
 const COL1_WIDTH = 200
@@ -133,36 +135,48 @@ const styles = StyleSheet.create({
   }
 });
 
-const DeceasedProperties = ({ jsonSchema }) => (
-  <>
-    <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>Ominaisuudet</Text>
-    </View>
-    <View style={styles.table}>
-      <View style={styles.tableRow}>
-        <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Kiinteistöt/Huoneistot Määrä</Text>
+const DeceasedProperties = ({ jsonSchema }) => {
+  const deceasedPropertyTotal = calculateTotal(jsonSchema && jsonSchema.propertyInfo);
+
+  return (
+    <>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailText}>Ominaisuudet</Text>
+      </View>
+      <View style={styles.table}>
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Kiinteistöt/Huoneistot Määrä</Text>
+          </View>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Määrä</Text>
+          </View>
         </View>
-        <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Määrä</Text>
+        {jsonSchema && jsonSchema.propertyInfo && jsonSchema.propertyInfo.map((item, index) => {
+          return (
+            <View style={styles.tableRow} key={index}>
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>{item.name}</Text>
+              </View>
+
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>{item.value}</Text>
+              </View>
+            </View>
+          )
+        })}
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Yhteensä</Text>
+          </View>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>{deceasedPropertyTotal}</Text>
+          </View>
         </View>
       </View>
-      {jsonSchema && jsonSchema.propertyInfo && jsonSchema.propertyInfo.map((item, index) => {
-        return (
-          <View style={styles.tableRow} key={index}>
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{item.name}</Text>
-            </View>
-
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{item.value}</Text>
-            </View>
-          </View>
-        )
-      })}
-    </View>
-    <LineBreak />
-  </>
-);
+      <LineBreak />
+    </>
+  )
+}
 
 export default DeceasedProperties;

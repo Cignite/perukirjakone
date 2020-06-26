@@ -7,6 +7,8 @@ import {
 
 import LineBreak from './LineBreak';
 
+import { calculateTotal } from '../utils';
+
 const BORDER_COLOR = '#000';
 const BORDER_STYLE = 'solid';
 const COL1_WIDTH = 200
@@ -139,135 +141,155 @@ const styles = StyleSheet.create({
   },
 });
 
-const DeceasedPersonalItemsInfo = ({ jsonSchema }) => (
-  <>
-    <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>Did the deceased have a car / motorbike / boat / trailer etc?</Text>
-    </View>
-    {jsonSchema && jsonSchema && jsonSchema.didDeceasedHadCarBoat ? (
-      <>
-        <View style={styles.table}>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Car brand/type/year/registration number</Text>
-            </View>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Määrä</Text>
-            </View>
-          </View>
+const DeceasedPersonalItemsInfo = ({ jsonSchema }) => {
+  const deceasedPersonalBelongingsTotal = calculateTotal(jsonSchema && jsonSchema.personalBelongingsInfo);
+  const deceasedBelongingsOver4KTotal = calculateTotal(jsonSchema && jsonSchema.propertyLikeSofaWatchInfo);
+  const deceasedAutomobilesTotal = jsonSchema && parseInt(jsonSchema.deceasedCarBrandTypeValue, 10) + parseInt(jsonSchema.deceasedMotorBikeBrandTypeValue, 10)
 
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{jsonSchema && jsonSchema.deceasedCarBrandTypeInfo}</Text>
-            </View>
-
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{jsonSchema && jsonSchema.deceasedCarBrandTypeValue}</Text>
-            </View>
-          </View>
-        </View>
-        <LineBreak />
-        <View style={styles.table}>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Motorbike brand/year/registration number</Text>
-            </View>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Määrä</Text>
-            </View>
-          </View>
-
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{jsonSchema && jsonSchema.deceasedMotorBikeBrandTypeInfo}</Text>
-            </View>
-
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{jsonSchema && jsonSchema.deceasedMotorBikeBrandTypeValue}</Text>
-            </View>
-          </View>
-        </View>
-      </>
-    ): (
-      <View>
-        <Text style={styles.paragraphSecond}>Ei</Text>
+  return (
+    <>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailText}>Did the deceased have a car / motorbike / boat / trailer etc?</Text>
       </View>
-    )}
-
-    <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>Onko irtaimen omaisuuden arvo yli 4000 euroa?</Text>
-    </View>
-    {jsonSchema && jsonSchema.isPropertyLikeSofa ? (
-      <>
-        <View style={styles.table}>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Omaisuuden</Text>
-            </View>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Määrä</Text>
-            </View>
-          </View>
-
-
-          {jsonSchema && jsonSchema.propertyLikeSofaWatchInfo && jsonSchema.propertyLikeSofaWatchInfo.map((item, index) => {
-            return (
-              <View style={styles.tableRow} key={index}>
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.name}</Text>
-                </View>
-
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
-                </View>
+      {jsonSchema && jsonSchema && jsonSchema.didDeceasedHadCarBoat ? (
+        <>
+          <View style={styles.table}>
+            <View style={styles.tableRow}>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Car brand/type/year/registration number</Text>
               </View>
-            )
-          })}
-        </View>
-      </>
-    ): (
-      <View>
-        <Text style={styles.paragraphSecond}>Ei</Text>
-      </View>
-    )}
-
-    <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>HK Irtaminen omaisuus (including previous one)</Text>
-    </View>
-    {jsonSchema && jsonSchema.isHKIrtaminen ? (
-      <>
-        <View style={styles.table}>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Omaisuus</Text>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Määrä</Text>
+              </View>
             </View>
-            <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Määrä</Text>
+
+            <View style={styles.tableRow}>
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>{jsonSchema && jsonSchema.deceasedCarBrandTypeInfo}</Text>
+              </View>
+
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>{jsonSchema && jsonSchema.deceasedCarBrandTypeValue}</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>{jsonSchema && jsonSchema.deceasedMotorBikeBrandTypeInfo}</Text>
+              </View>
+
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>{jsonSchema && jsonSchema.deceasedMotorBikeBrandTypeValue}</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>Yhteensä</Text>
+              </View>
+
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>{deceasedAutomobilesTotal}</Text>
+              </View>
             </View>
           </View>
-
-
-          {jsonSchema && jsonSchema.personalBelongingsInfo && jsonSchema.personalBelongingsInfo.map((item, index) => {
-            return (
-              <View style={styles.tableRow} key={index}>
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.name}</Text>
-                </View>
-
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
-                </View>
-              </View>
-            )
-          })}
+          <LineBreak />
+        </>
+      ): (
+        <View>
+          <Text style={styles.paragraphSecond}>Ei tiedosta</Text>
         </View>
-      </>
-    ): (
-      <View>
-        <Text style={styles.paragraphSecond}>Ei</Text>
+      )}
+
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailText}>Onko irtaimen omaisuuden arvo yli 4000 euroa?</Text>
       </View>
-    )}
-  </>
-);
+      {jsonSchema && jsonSchema.isPropertyLikeSofa ? (
+        <>
+          <View style={styles.table}>
+            <View style={styles.tableRow}>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Omaisuuden</Text>
+              </View>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Määrä</Text>
+              </View>
+            </View>
+
+
+            {jsonSchema && jsonSchema.propertyLikeSofaWatchInfo && jsonSchema.propertyLikeSofaWatchInfo.map((item, index) => {
+              return (
+                <View style={styles.tableRow} key={index}>
+                  <View style={styles.tableCol1}>
+                    <Text style={styles.tableCell}>{item.name}</Text>
+                  </View>
+
+                  <View style={styles.tableCol1}>
+                    <Text style={styles.tableCell}>{item.value}</Text>
+                  </View>
+                </View>
+              )
+            })}
+            <View style={styles.tableRow}>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Yhteensä</Text>
+              </View>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>{deceasedBelongingsOver4KTotal}</Text>
+              </View>
+            </View>
+          </View>
+        </>
+      ): (
+        <View>
+          <Text style={styles.paragraphSecond}>Ei</Text>
+        </View>
+      )}
+
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailText}>HK Irtaminen omaisuus (including previous one)</Text>
+      </View>
+      {jsonSchema && jsonSchema.isHKIrtaminen ? (
+        <>
+          <View style={styles.table}>
+            <View style={styles.tableRow}>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Omaisuus</Text>
+              </View>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Määrä</Text>
+              </View>
+            </View>
+
+
+            {jsonSchema && jsonSchema.personalBelongingsInfo && jsonSchema.personalBelongingsInfo.map((item, index) => {
+              return (
+                <View style={styles.tableRow} key={index}>
+                  <View style={styles.tableCol1}>
+                    <Text style={styles.tableCell}>{item.name}</Text>
+                  </View>
+
+                  <View style={styles.tableCol1}>
+                    <Text style={styles.tableCell}>{item.value}</Text>
+                  </View>
+                </View>
+              )
+            })}
+            <View style={styles.tableRow}>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>Yhteensä</Text>
+              </View>
+              <View style={styles.tableCol1Header}>
+                <Text style={styles.tableCellHeader}>{deceasedPersonalBelongingsTotal}</Text>
+              </View>
+            </View>
+          </View>
+        </>
+      ): (
+        <View>
+          <Text style={styles.paragraphSecond}>Ei</Text>
+        </View>
+      )}
+    </>
+  )
+}
 
 export default DeceasedPersonalItemsInfo;

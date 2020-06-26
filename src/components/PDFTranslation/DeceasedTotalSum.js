@@ -145,7 +145,7 @@ const DeceasedTotalSum = ({ jsonSchema }) => {
   const deceasedBankTotal = calculateTotal(jsonSchema && jsonSchema.bankAccountInfo);
   const deceasedStockTotal = calculateTotal(jsonSchema && jsonSchema.shareInfo);
   const deceasedPropertyTotal = calculateTotal(jsonSchema && jsonSchema.propertyInfo);
-  const deceasedPropertiesTotal = calculateTotal(jsonSchema && jsonSchema.propertyLikeSofaWatchInfo);
+  const deceasedBelongingsOver4KTotal = calculateTotal(jsonSchema && jsonSchema.propertyLikeSofaWatchInfo);
   const deceasedPersonalBelongingsTotal = calculateTotal(jsonSchema && jsonSchema.personalBelongingsInfo);
   const deceasedAutomobilesTotal = jsonSchema && parseInt(jsonSchema.deceasedCarBrandTypeValue, 10) + parseInt(jsonSchema.deceasedMotorBikeBrandTypeValue, 10)
 
@@ -188,7 +188,7 @@ const DeceasedTotalSum = ({ jsonSchema }) => {
             </View>
 
           <View style={styles.tableCol1}>
-            <Text style={styles.tableCell}>{deceasedPropertiesTotal}</Text>
+            <Text style={styles.tableCell}>{deceasedPropertyTotal}</Text>
           </View>
         </View>
 

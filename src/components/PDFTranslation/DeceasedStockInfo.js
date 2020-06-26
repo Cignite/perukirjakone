@@ -5,6 +5,8 @@ import {
   View
 } from '@react-pdf/renderer';
 
+import { calculateTotal } from '../utils';
+
 const BORDER_COLOR = '#000';
 const BORDER_STYLE = 'solid';
 const COL1_WIDTH = 200
@@ -137,36 +139,47 @@ const styles = StyleSheet.create({
   },
 });
 
-const DeceasedBankStocks = ({ jsonSchema }) => (
-  <>
+const DeceasedBankStocks = ({ jsonSchema }) => {
+  const deceasedStockTotal = calculateTotal(jsonSchema && jsonSchema.shareInfo);
+  return (
+    <>
 
-    <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>Osakkeen tiedot/määrä Hinta</Text>
-    </View>
-    <View style={styles.table}>
-      <View style={styles.tableRow}>
-        <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Osakkeen nimi/numero</Text>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailText}>Osakkeen tiedot/määrä Hinta</Text>
+      </View>
+      <View style={styles.table}>
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Osakkeen nimi/numero</Text>
+          </View>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Määra</Text>
+          </View>
         </View>
-        <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Määra</Text>
+        {jsonSchema && jsonSchema && jsonSchema.shareInfo && jsonSchema.shareInfo.map((item, index) => {
+          return (
+            <View style={styles.tableRow} key={index}>
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>{item.number}</Text>
+              </View>
+
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>{item.value}</Text>
+              </View>
+            </View>
+          )
+        })}
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Yhteensä</Text>
+          </View>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>{deceasedStockTotal}</Text>
+          </View>
         </View>
       </View>
-      {jsonSchema && jsonSchema && jsonSchema.shareInfo && jsonSchema.shareInfo.map((item, index) => {
-        return (
-          <View style={styles.tableRow} key={index}>
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{item.number}</Text>
-            </View>
-
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{item.value}</Text>
-            </View>
-          </View>
-        )
-      })}
-    </View>
-  </>
-);
+    </>
+  )
+}
 
 export default DeceasedBankStocks;

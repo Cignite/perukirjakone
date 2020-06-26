@@ -5,6 +5,8 @@ import {
   View
 } from '@react-pdf/renderer';
 
+import { calculateTotal } from '../utils';
+
 const BORDER_COLOR = '#000';
 const BORDER_STYLE = 'solid';
 const COL1_WIDTH = 200
@@ -137,35 +139,46 @@ const styles = StyleSheet.create({
   },
 });
 
-const DeceasedBankInfo = ({ jsonSchema }) => (
-  <>
-    <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>Rahavarat korkoineen</Text>
-    </View>
-    <View style={styles.table}>
-      <View style={styles.tableRow}>
-        <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Pankki tiedot</Text>
+const DeceasedBankInfo = ({ jsonSchema }) => {
+  const deceasedBankTotal = calculateTotal(jsonSchema && jsonSchema.bankAccountInfo);
+  return (
+    <>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailText}>Rahavarat korkoineen</Text>
+      </View>
+      <View style={styles.table}>
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Pankki tiedot</Text>
+          </View>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Määrä</Text>
+          </View>
         </View>
-        <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Määrä</Text>
+        {jsonSchema && jsonSchema && jsonSchema.bankAccountInfo && jsonSchema.bankAccountInfo.map((item, index) => {
+          return (
+            <View style={styles.tableRow} key={index}>
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>{item.number}</Text>
+              </View>
+
+              <View style={styles.tableCol1}>
+                <Text style={styles.tableCell}>{item.value}</Text>
+              </View>
+            </View>
+          )
+        })}
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Yhteensä</Text>
+          </View>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>{deceasedBankTotal}</Text>
+          </View>
         </View>
       </View>
-      {jsonSchema && jsonSchema && jsonSchema.bankAccountInfo && jsonSchema.bankAccountInfo.map((item, index) => {
-        return (
-          <View style={styles.tableRow} key={index}>
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{item.number}</Text>
-            </View>
-
-            <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{item.value}</Text>
-            </View>
-          </View>
-        )
-      })}
-    </View>
-  </>
-);
+    </>
+  )
+}
 
 export default DeceasedBankInfo;
