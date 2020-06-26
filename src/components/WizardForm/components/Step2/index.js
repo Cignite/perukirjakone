@@ -31,7 +31,7 @@ const Step2 = () => {
                   <div key={index}>
                     <div>
                       <Field
-                        name={`${name}.familyReport`}
+                        name={`${name}.value`}
                         component={InputWrapper}
                         type="text"
                         placeholder="esim: 499"
@@ -55,7 +55,7 @@ const Step2 = () => {
                         >
                         <i className="fa fa-trash" />
                       </span>
-                      <Error name={`${name}.familyReport`} />
+                      <Error name={`${name}.value`} />
                       {/*showDeceasedNotification && (
                         <div className="notification is-danger form__notification">
                           <button
@@ -72,7 +72,7 @@ const Step2 = () => {
                   <button
                     className="button is-small is-primary"
                     onClick={() =>
-                      fields.push({ familyReport: ""})
+                      fields.push({ value: ""})
                     }
                     type="button"
                     >

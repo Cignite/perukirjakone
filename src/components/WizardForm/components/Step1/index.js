@@ -990,7 +990,7 @@ const Step1 = () => {
                                   </div>
                                   <div className="column is-2">
                                     <Field
-                                      name={`${name}.amount`}
+                                      name={`${name}.value`}
                                       component={InputWrapper}
                                       type="text"
                                       placeholder="20000"
