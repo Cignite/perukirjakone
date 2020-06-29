@@ -7,6 +7,8 @@ import {
 
 import LineBreak from './LineBreak';
 
+import { calculateTotal } from '../utils';
+
 const BORDER_COLOR = '#000';
 const BORDER_STYLE = 'solid';
 const COL1_WIDTH = 200
@@ -139,35 +141,93 @@ const styles = StyleSheet.create({
   },
 });
 
-const WidowTotalSum = ({ jsonSchema }) => (
-  <>
-    <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>Yhteensä</Text>
-    </View>
-    <View style={styles.table}>
-      <View style={styles.tableRow}>
-        <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Item</Text>
-        </View>
-        <View style={styles.tableCol1Header}>
-          <Text style={styles.tableCellHeader}>Amount</Text>
-        </View>
-      </View>
+const WidowTotalSum = ({ jsonSchema }) => {
+  const deceasedBankTotal = calculateTotal(jsonSchema && jsonSchema.widowBankInfo);
+  const deceasedStockTotal = calculateTotal(jsonSchema && jsonSchema.widowStockInfo);
+  const deceasedPropertyTotal = calculateTotal(jsonSchema && jsonSchema.widowProperty);
+  const deceasedBelongingsOver4KTotal = calculateTotal(jsonSchema && jsonSchema.widowProperty);
+  const deceasedPersonalBelongingsTotal = calculateTotal(jsonSchema && jsonSchema.personalWorthInfo);
+  // const deceasedAutomobilesTotal = jsonSchema && parseInt(jsonSchema.widowPersonalBelonings, 10);
 
-      <View style={styles.tableRow}>
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>Stock</Text>
+  return (
+    <>
+      <View style={styles.detailContainer}>
+        <Text style={styles.detailText}>Yhteenveto</Text>
+      </View>
+      <View style={styles.table}>
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Nimike</Text>
           </View>
-
-        <View style={styles.tableCol1}>
-          <Text style={styles.tableCell}>239990</Text>
+          <View style={styles.tableCol1Header}>
+            <Text style={styles.tableCellHeader}>Määrä</Text>
+          </View>
         </View>
+
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Pankki</Text>
+          </View>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{deceasedBankTotal}</Text>
+          </View>
+        </View>
+        <View style={styles.tableRow}>
+
+
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Osakkeen</Text>
+          </View>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{deceasedStockTotal}</Text>
+          </View>
+        </View>
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Kiinteiostöt/Huoneistot</Text>
+            </View>
+
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{deceasedPropertyTotal}</Text>
+          </View>
+        </View>
+
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Omaisuuden</Text>
+            </View>
+
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{deceasedPersonalBelongingsTotal}</Text>
+          </View>
+        </View>
+
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>irtaimen omaisuuden arvo yli 4000 euroa</Text>
+            </View>
+
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{deceasedBelongingsOver4KTotal}</Text>
+          </View>
+        </View>
+
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Yhteensä</Text>
+            </View>
+
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{deceasedBelongingsOver4KTotal+deceasedPersonalBelongingsTotal+deceasedPropertyTotal+deceasedStockTotal+deceasedBankTotal}</Text>
+          </View>
+        </View>
+
       </View>
-    </View>
-    <LineBreak />
-    <br />
-    <br />
-  </>
-);
+      <LineBreak />
+      <br />
+      <br />
+    </>
+  )
+}
 
 export default WidowTotalSum;
