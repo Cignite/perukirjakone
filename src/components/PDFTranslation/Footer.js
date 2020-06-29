@@ -36,6 +36,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Lato',
     padding: 10,
   },
+  colHeaderBold: {
+    fontSize: 12,
+    fontFamily: 'Lato Bold',
+    padding: 10,
+  },
   colText: {
     fontSize: 12,
     fontFamily: 'Lato',
@@ -57,6 +62,10 @@ const styles = StyleSheet.create({
   signature: {
     marginTop: -15,
     marginLeft: 20,
+  },
+  announcer: {
+    marginTop: -15,
+    marginLeft: 0,
   }
 });
 
@@ -66,8 +75,8 @@ const Footer = ({ jsonSchema }) => (
       <View style={[styles.col]}>
         <View>
           <Text style={styles.colHeader}>Paikka ja aika edellä mainitut </Text>
-          <Text style={styles.colHeader}>{jsonSchema && jsonSchema.inviteeName}</Text>
-          <Text style={styles.colHeader}>Ilmoittaja</Text>
+          <Text style={styles.colHeaderBold}>{jsonSchema && jsonSchema.inviteeName}</Text>
+          <Text style={[styles.colText, styles.announcer]}>Ilmoittaja</Text>
         </View>
       </View>
       <View style={[styles.col]}>
@@ -89,7 +98,7 @@ Paikka ja aika edellä mainitut
       <View style={[styles.col]}>
         <View>
           <Text style={styles.colHeader}>Paikka ja aika edellä mainitut </Text>
-          <Text style={styles.colHeader}>{jsonSchema && jsonSchema.trustedMenNameFirst}</Text>
+          <Text style={styles.colHeaderBold}>{jsonSchema && jsonSchema.trustedMenNameFirst}</Text>
           <Text style={styles.colHeader}>_______________________________________</Text>
           <Text style={[styles.colText, styles.signature]}>Allekirjoitus yläpuolelle</Text>
         </View>
@@ -97,7 +106,7 @@ Paikka ja aika edellä mainitut
       <View style={[styles.col]}>
         <View>
           <Text style={styles.colText}>_______________________________________</Text>
-          <Text style={styles.colText}>{jsonSchema && jsonSchema.trustedMenNameSecond}</Text>
+          <Text style={styles.colHeaderBold}>{jsonSchema && jsonSchema.trustedMenNameSecond}</Text>
           <Text style={styles.colHeader}>_______________________________________</Text>
           <Text style={[styles.colText, styles.signature]}>Allekirjoitus yläpuolelle</Text>
         </View>
