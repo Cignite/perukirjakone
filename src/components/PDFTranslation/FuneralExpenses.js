@@ -144,18 +144,16 @@ const styles = StyleSheet.create({
 const FuneralExpenses = ({ jsonSchema }) => {
   const familyStudyTotal = calculateTotal(jsonSchema && jsonSchema.funeralExpensesInfo);
   const otherFuneralExpensesTotal = calculateTotal(jsonSchema && jsonSchema.otherFuneralExpenses);
-  const funeralDeathCertificateTotal= jsonSchema && jsonSchema.funeralExpensesInfoDeathCertificate;
-  const flowerExpensesTotal = jsonSchema && jsonSchema.flowers;
-  const tombstoneExpenses = jsonSchema && jsonSchema.funeralExpensesInfoTombstone;
-  const peruRewardExpenses = jsonSchema && jsonSchema.perukirjakoneReward;
-  const peruFeeExpenses = jsonSchema && jsonSchema.perukirjakoneFee;
-  const totalFuneralExpenses = Number(familyStudyTotal) + Number(otherFuneralExpensesTotal) + funeralDeathCertificateTotal + flowerExpensesTotal;
+  const funeralDeathCertificateTotal= jsonSchema && parseInt(jsonSchema.funeralExpensesInfoDeathCertificate, 10);
+  const flowerExpensesTotal = jsonSchema && parseInt(jsonSchema.flowers, 10);
+  const tombstoneExpenses = jsonSchema && parseInt(jsonSchema.funeralExpensesInfoTombstone, 10);
+  const peruRewardExpenses = jsonSchema && parseInt(jsonSchema.perukirjakoneReward, 10);
+  const peruFeeExpenses = jsonSchema && parseInt(jsonSchema.perukirjakoneFee, 10);
 
-  console.log("totalFuneralExpenses", totalFuneralExpenses)
   return (
     <>
       <View style={styles.detailContainer}>
-        <Text style={styles.detailText}>Ilmoita hautajasiin liityvät kullut</Text>
+        <Text style={styles.detailText}></Text>
       </View>
       <View style={styles.table}>
         <View style={styles.tableRow}>
@@ -234,6 +232,15 @@ const FuneralExpenses = ({ jsonSchema }) => {
           </View>
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>{jsonSchema && jsonSchema.perukirjakoneFee}</Text>
+          </View>
+        </View>
+
+        <View style={styles.tableRow}>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>Yhteensä</Text>
+          </View>
+          <View style={styles.tableCol1}>
+            <Text style={styles.tableCell}>{familyStudyTotal+otherFuneralExpensesTotal+funeralDeathCertificateTotal+flowerExpensesTotal+tombstoneExpenses+peruRewardExpenses+peruFeeExpenses}</Text>
           </View>
         </View>
 
