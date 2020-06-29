@@ -138,11 +138,7 @@ const DocumentPage = (props) => {
         <DeceasedInfo jsonSchema={jsonSchema && jsonSchema} />
         <Partners jsonSchema={jsonSchema && jsonSchema} />
         <PresentAtMeeting jsonSchema={jsonSchema && jsonSchema} />
-        {/*<ContentHeader label="2. Shareholder info" />*/}
-        {/*<ShareholderInfo jsonSchema={jsonSchema} />*/}
-        {/*<ContentHeader label="3. Testament" />*/}
         <Testament jsonSchema={jsonSchema} />
-        {/*<ContentHeader label="3. Documents" />*/}
         <DocumentsAndInfo jsonSchema={jsonSchema} />
         <Announcer jsonSchema={jsonSchema} />
         <LineBreak />
@@ -153,10 +149,6 @@ const DocumentPage = (props) => {
         <DeceasedPersonalItemsInfo jsonSchema={jsonSchema} />
         <DeceasedDebtInfo jsonSchema={jsonSchema} />
         <DeceasedTotalSum jsonSchema={jsonSchema} />
-
-        {/*<WidowAndInterest jsonSchema={jsonSchema} />*/}
-        {/*<AgreeementAndAnnouncement jsonSchema={jsonSchema}/>*/}
-        {/*<AgreementInvitees jsonSchema={jsonSchema} />*/}
         <br />
         <ContentHeader label="Vainajan ja pesän velat ja poistot" />
         <FuneralExpenses jsonSchema={jsonSchema} />
