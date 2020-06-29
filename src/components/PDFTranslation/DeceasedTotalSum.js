@@ -152,7 +152,7 @@ const DeceasedTotalSum = ({ jsonSchema }) => {
   return (
     <>
       <View style={styles.detailContainer}>
-        <Text style={styles.detailText}>Yhteensä</Text>
+        <Text style={styles.detailText}>Yhteenveto</Text>
       </View>
       <View style={styles.table}>
         <View style={styles.tableRow}>
