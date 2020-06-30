@@ -31,22 +31,40 @@ const UserRegistration = (props) => {
   const [isTermsServiceAgreed, setIsTermsServiceAgreed] = useState(false);
   const [emailVerificationNotify, setEmailVerificationNotify] = useState(false);
 
-  const postEmail = async (payload) => {
-    const postPayload = {
-      ...payload,
+  const createDocument = async (docId) => {
+    const documentPayload = {
+      customer: docId,
       jsonSchema: initialJSONSchemaValues
     }
-    console.log("postEmail payload", payload)
     try {
       setShowLoader(true);
-       await axios.post(`${API_BASE_URL}${'documents/'}`, postPayload)
+       await axios.post(`${API_BASE_URL}${'documents/'}`, documentPayload)
         .then(res => {
+          console.log("documentPayload res", res)
           setShowLoader(false);
           setEmailVerificationNotify(true);
-          setTimeout(()=>{
+          setTimeout(()=> {
             props.history.push('/user-verification');
           }, 3000);
 
+        })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const createCustomer = async (payload) => {
+    const postPayload = {
+      ...payload,
+    }
+    try {
+      setShowLoader(true);
+       await axios.post(`${API_BASE_URL}${'customers/'}`, postPayload)
+        .then(res => {
+          if (res.data) {
+            console.log("customer res", res)
+            createDocument(res.data.id);
+          }
         })
     } catch (error) {
       console.log(error);
@@ -63,14 +81,14 @@ const UserRegistration = (props) => {
     } else {
       try {
         setShowLoader(true);
-         await axios.get(`${API_BASE_URL}${'documents?email='}${payload.email}`)
+         await axios.get(`${API_BASE_URL}${'customers?email='}${payload.email}`)
           .then(res => {
             console.log("checkIfEmailExist respose", res)
             if (res.data.length > 0) {
               setShowLoader(false);
               setDoesEmailExist(true);
             } else {
-              postEmail(payload);
+              createCustomer(payload);
             }
           })
       } catch (error) {
