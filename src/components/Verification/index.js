@@ -42,7 +42,7 @@ const UserVerfication = (props) => {
     } else {
       try {
         setShowLoader(true);
-          await axios.get(`${API_BASE_URL}${'documents?email='}${formData.email}${'&code='}${formData.code}`)
+          await axios.get(`${API_BASE_URL}${'customers?email='}${formData.email}${'&code='}${formData.code}`)
           .then(res => {
             console.log("verifyEmailCode respose", res)
             setShowLoader(false);
@@ -58,7 +58,7 @@ const UserVerfication = (props) => {
               const getUserInfo = {
                 email: res.data[0].email,
                 code: res.data[0].code,
-                id: res.data[0].id,
+                id: res.data[0].document.id,
               }
               // check if local storage is available in browser
               // store email and code in local storage
