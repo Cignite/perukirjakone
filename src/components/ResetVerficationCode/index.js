@@ -36,7 +36,7 @@ const ResetVerificationCode = (props) => {
     console.log("postEmail payload", payload)
     try {
       setShowLoader(true);
-       await axios.put(`${API_BASE_URL}${'documents/'}${docId}`, updatePayload)
+       await axios.put(`${API_BASE_URL}${'customers/'}${docId}`, updatePayload)
         .then(res => {
           setShowLoader(false);
           setEmailVerificationNotify(true);
@@ -58,7 +58,7 @@ const ResetVerificationCode = (props) => {
     else {
       try {
         setShowLoader(true);
-         await axios.get(`${API_BASE_URL}${'documents?email='}${payload.email}`)
+         await axios.get(`${API_BASE_URL}${'customers?email='}${payload.email}`)
           .then(res => {
             console.log("checkIfEmailExist respose", res)
             if (!res.data.length > 0) {
