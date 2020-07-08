@@ -13,7 +13,7 @@ import initialJSONSchemaValues from './initialJSONSchemaValues';
 
 import './styles.scss';
 
-const API_BASE_URL = "https://perukirjakone.herokuapp.com/";
+const API_BASE_URL = "https://perukirjakoneserver.herokuapp.com/";
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 

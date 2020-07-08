@@ -12,7 +12,7 @@ import Step6 from './components/Step6';
 
 import './styles.scss';
 
-const API_BASE_URL = "https://perukirjakone.herokuapp.com/";
+const API_BASE_URL = "https://perukirjakoneserver.herokuapp.com/";
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 

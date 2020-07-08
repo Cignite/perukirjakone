@@ -9,7 +9,7 @@ import axios from 'axios';
 
 import './styles.scss';
 
-const API_BASE_URL = "https://perukirjakone.herokuapp.com/";
+const API_BASE_URL = "https://perukirjakoneserver.herokuapp.com/";
 
 const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler }) => {
   const [state, setState] = useState({
