@@ -27,6 +27,13 @@ function Pricing(props) {
               ) : (
                   <p className="Pricing__description primaryPricing">{item.description}</p>
               )}
+              {item.faq && item.faq.map(faqItem => (
+                <ul className="faqItem">
+                  <li>{faqItem.item}</li>
+                </ul>
+              ))
+
+              }
               {/* <button
                 className={
                   "Pricing__button button is-medium" +

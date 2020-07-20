@@ -7,34 +7,68 @@ function PricingSection(props) {
     <section className="section is-medium" id="pricing">
       <div className="PricingSection__container container">
         <header className="section-header">
-          <h1 className="title">FAQ</h1>
+          <h1 className="title">UKK</h1>
         </header>
         <Pricing
           items={[
             {
-              timespan: "How can i create kirjakone?",
-              description:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+              timespan: "Kuinka voin laatia Perukirjakoneella perukirjan?",
+              description: "Täytä kysyttävät tai puuttuvat kohdat ja noudata annettuja ohjeita. Ohjeet Perukirjakoneen käyttöä varten!",
+              faq: [
+                {
+                  item: "Tilaa tarvittavat sukuselvitykset joko seurakunnnilta tai dvv.fi:stä."
+                },
+                {
+                  item: "Vastaanota kaikki tarvittavat sukuselvitykset."
+                },
+                {
+                  item: "Hankittava vainajan ja puolison pankkitilien saldotiedot (kuolinpäivältä)."
+                },
+                {
+                  item: "Hankittava osakkeiden ja rahastojen yms saldotiedot kuolinpäivältä."
+                },
+                {
+                  item: "Hankitaan kiinteistöjen omistustiedot, ne saadaan parhaiten kiinteistö-veroilmoituksesta."
+                },
+                {
+                  item: "Jos vainajalla on autoja, niiden arvot on selvittävä ennen perunkirjoitusta."
+                },
+                {
+                  item: "Uskotut miehet arvioivat irtaimen omaisuuden arvon, yli 4.000 euron omaisuus pitää ilmoittaa."
+                },
+                {
+                  item: "Myös kaikki muu raha-arvoinen omaisuus tulee ilmoittaa (myös muut mahdolliset kuolinpesäosuudet)."
+                },
+                {
+                  item: "Mahdollinen testamentti pitää olla tiedossa."
+                },
+                {
+                  item: "Mahdollinen avioehtosopimus pitää olla tiedossa."
+                },
+                {
+                  item: "Henkivakuutuskorvaukset pitää selvittää ."
+                },
+              ]
+
             },
             {
-              timespan: "Can i delete?",
+              timespan: "Voiko perukirjakoneen käytön keskeyttää?",
               price: "29",
               ListeJob: "",
               description:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "Käytön voi keskeyttää. Aluksi palvelun käyttäjä ilmoittaa sähköpostiosoitteensa ja hyväksyy käyttöehdot, tämän jälkeen ilmoittajalle lähetetään lyhyt käyttämiseen oikeuttava koodi. Jos koodi ei ilmesty saapuneisiin viesteihin, kannattaa myös tarkastaa sähköpostisi roskaposti. Palveluun pääsee sisään annetulla koodilla, joka kirjoitetaan sähköpostiosoitteen alapuolelle sisäänkirjoitus-sivulla. Jos jatkat palvelun käyttämistä myöhemmin, niin sinun pitää ennen lopettamista tallentaa jo annetut tiedot sivun oikeassa alareunassa olevaa “tallenna ja etene” painiketta klikkaamalla. Muista aina, että perukirja pitää tehdä 3 kuukauden kuluessa vainajan kuolemasta ja toimittaa sen jälkeen se perunkirjoituspäivästä 1 kuukauden kuluessa verottajalle.",
               emphasized: true
             },
             {
-              timespan: "What's the legal apsect",
+              timespan: "Lakitiedot",
               ListeJob: "",
-              description:
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam."
+              description: "Perukirjakoneen käyttämisellä ei voi missään tapauksessa siirtää perunkirjoituksen oikeiden tietojen antamisvelvollisuutta perukirjakone -ohjelman laatijalle tai sen julkaisijalle. Verottajalle annettuun perukirjaan voi perunkirjoituksen jälkeen lisätä puuttuvia tai muuttuneita tietoja."
             },
             {
-              timespan: "Tell me more",
+              timespan: "Lisää tietoa yrityksestä",
               ListeJob: "",
               description:
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam.",
+                "Perukirjakoneen omistaa Suomen Perunkirjoituspiste Oy, joka on Suomen Testamenttikeskus Oy:n 100% omistama tytäryhtiö. Yhtiöiden kotipaikka Turku.",
               emphasized: true
             }
           ]}
