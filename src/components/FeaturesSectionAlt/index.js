@@ -9,26 +9,26 @@ function FeaturesSectionAlt(props) {
         <FeaturesAlt
           items={[
             {
-              title: "Inventory",
-              description: "Here is inventory details",
+              title: "Sukuselvitykset",
+              description: "Ne saa tilattua kuolinpaikan seurakunnasta tai Digi- ja väestövirastosta (entinen maistraatti).",
               link: " Lien n°1",
               src: "#"
             },
             {
-              title: "Trusted men",
-              description: " Description of trusted men",
+              title: "Uskotut miehet",
+              description: "Uskotuista miehistä toinen käytännössä laatii perukirjan ja toinen on siinä mukana. Ystävät tai naapurit voivat olla uskottuina miehinä. Vanhainkodin vastuussa olevat henkilöt voivat myös toimittaa perunkirjoituksen, he ovat silloin uskottuja miehiä.",
               link: " Lien n°2",
               src: "#"
             },
             {
-              title: "Inheritance ",
-              description: "Who inherits whats and blah blah",
+              title: "Perilliset",
+              description: "Vainajan perilliset ovat joko lapset tai vanhemmat, joissakin tapauksissa muut sukulaiset mutta ei kuitenkaan serkut. Lapsettomissa avioliitoissa perillisinä on usein jälkeenjäänyt puoliso.",
               link: " Lien n°3",
               src: "#"
             },
             {
-              title: "Property",
-              description: "House, apartment, car, boat description",
+              title: "Omaisuus",
+              description: "Vainajalta jäänyt omaisuus, jota arvioidaan kuolinhetken mukaan",
               link: " Lien n°4",
               src: "#"
             }

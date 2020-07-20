@@ -23,16 +23,16 @@ function MainSection(props) {
       <div className="hero-body">
         <div className="container">
           <h1 className="title">
-            We digitalise your last will
+            Tee perukirja netissä
           </h1>
           <h3 className="subtitle">
-            More description here
+            Tietokoneesi avulla!
           </h3>
           <Link to="/user-validation">
             <button
               className="button is-medium is-primary"
             >
-              Buy €29,99
+              Aloita tästä
             </button>
           </Link>
         </div>
