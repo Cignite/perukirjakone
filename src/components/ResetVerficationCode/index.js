@@ -145,7 +145,7 @@ const ResetVerificationCode = (props) => {
                               onClick={() => setDoesEmailExist(false)}
                             />
                             <span>Email is not registered! </span>
-                            <Link to="/user-validation" className="has-text-weight-light">
+                            <Link to="/aloita" className="has-text-weight-light">
                               Register email
                             </Link>
                           </div>
@@ -165,7 +165,7 @@ const ResetVerificationCode = (props) => {
                 </p>
 
                 <h4 className="has-text-centered">
-                  <Link to="/user-verification" className="has-text-weight-light">
+                  <Link to="/kirjaudu" className="has-text-weight-light">
                     Code verification
                 </Link>
               </h4>

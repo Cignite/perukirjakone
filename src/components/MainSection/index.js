@@ -28,7 +28,7 @@ function MainSection(props) {
           <h3 className="subtitle">
             Tietokoneesi avulla!
           </h3>
-          <Link to="/user-validation">
+          <Link to="/aloita">
             <button
               className="button is-medium is-primary"
             >

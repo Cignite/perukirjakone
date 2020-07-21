@@ -52,7 +52,7 @@ const UserVerfication = (props) => {
               setDoesEmailExist(false);
               setEmailVerificationNotify(true);
               setTimeout(()=>{
-                props.history.push('/wizard-form');
+                props.history.push('/lomake');
               }, 3000);
 
               const getUserInfo = {
@@ -86,10 +86,9 @@ const UserVerfication = (props) => {
                   </Link>
                 </div>
                 <div className="field has-text-centered">
-                  <label className="label is-size-4">Verify code</label>
-                  <p className="is-small primaryLabel">With
-                  the help of email and verification code we can make sure that right person
-                  is accessing Perukirjakone service.</p>
+                  <label className="label is-size-4">Varmistuskoodi</label>
+                  <p className="is-small primaryLabel">
+                  Sähköpostin ja vahvistuskoodin avulla voimme varmistaa, että oikea henkilö käyttää Perukirjakone -palvelua.</p>
                 </div>
                 <br/>
 
@@ -117,7 +116,7 @@ const UserVerfication = (props) => {
                               component={InputWrapper}
                               type="email"
                               placeholder="hello@abc.fi"
-                              label="Email"
+                              label="Sähköpostin todennus"
                             />
                             <Error name="email" />
                           </div>
@@ -125,8 +124,8 @@ const UserVerfication = (props) => {
                         </div>
                         <div className="row">
                           <div className="lost__code">
-                            <Link to="/reset-code" className="has-text-weight-light">
-                              Lost code?
+                            <Link to="/tilaa-uusi-koodi" className="has-text-weight-light">
+                              Unohtunut tai Kadonnut koodi?
                             </Link>
                           </div>
                           <div className=" control">
@@ -135,7 +134,7 @@ const UserVerfication = (props) => {
                               component={InputWrapper}
                               type="password"
                               placeholder="30X30F"
-                              label="Code"
+                              label="Koodi"
                             />
                             <Error name="code" />
                           </div>
@@ -148,13 +147,14 @@ const UserVerfication = (props) => {
                             onClick={() => verifyEmailCode(values)}
                             disabled={showLoader || submitting || pristine}
                           >
-                            Verify code
+                          Varmista koodi
+
                           </button>
                         </div>
                         {emailVerificationNotify && (
                           <div class="notification is-info">
-                            <p>Email and code has been verified!</p>
-                            <p>Wait..page is redirecting....</p>
+                            <p>Sähköpostiosoite ja koodi on vahvistettu!</p>
+                            <p>Odota.. sivu ohjataan uudelleen....</p>
                           </div>
                         )}
                         {doesEmailExist && (
@@ -163,7 +163,8 @@ const UserVerfication = (props) => {
                               className="delete"
                               onClick={() => setDoesEmailExist(false)}
                             />
-                          Email or verification code didn't matched! Find verification code in your email!
+                            Sähköpostia tai varmistuskoodia ei löytynyt! Etsithän varmistusmiskoodin sähköpostistasi! Tarkasta myös roskaposti.
+
                           </div>
                         )}
 
@@ -176,12 +177,12 @@ const UserVerfication = (props) => {
                 <br/>
                 <p className="has-text-centered">
                   <span className="label has-text-weight-bold">
-                    Email not validated?
+                    Sähköpostiosoitetta ei ole varmistettu?
                   </span>
                 </p>
                 <h4 className="has-text-centered">
-                  <Link to="/user-validation" className="has-text-weight-light">
-                    Validate email
+                  <Link to="/aloita" className="has-text-weight-light">
+                    Varmista sähköposti
                   </Link>
                 </h4>
           </div>

@@ -110,9 +110,10 @@ const UserRegistration = (props) => {
                   </Link>
                 </div>
                 <div className="field has-text-centered">
-                  <label className="label is-size-5">Email validation </label>
-                    <p className="is-small primaryLabel">We need email to verify right person is using
-                      Perukirjakone service.</p>
+                  <label className="label is-size-5">Sähköpostiosoitteen vahvistaminen</label>
+                    <p className="is-small primaryLabel">Kirjoitathan sähköpostiosoitteesi alla olevaan laatikkoon, jotta voimme todentaa tietosi. Lähetämme sinne lyhyen koodin, jonka avulla palveluun pääsee sisään (tarkista myös roskaposti kansio).
+                      <br />Jos sinulla on jo lähetetty koodi tallessa, kirjauduthan sisään palveluun painamalla sivun alareunassa olevaa nappia “vahvista koodi”.
+                    </p>
                 </div>
                 <br/>
 
@@ -140,7 +141,7 @@ const UserRegistration = (props) => {
                               component={InputWrapper}
                               type="email"
                               placeholder="hello@abc.fi"
-                              label="Email"
+                              label="Sähköpostin todennus"
                             />
                             <Error name="email" />
                           </div>
@@ -155,7 +156,7 @@ const UserRegistration = (props) => {
                           />
 
                         <label className="checkbox checkbox-primary primaryLabel" htmlFor="isTermsAgreed">
-                            &nbsp;I agree to the terms and services and privacy policy
+                            &nbsp;Hyväksyn palvelun ehdot ja yksityisyydensuoja säännökset
                           </label>
                           <Error name="isTermsAgreed" />
                         </div>
@@ -166,13 +167,13 @@ const UserRegistration = (props) => {
                             onClick={() => submitEmail(values)}
                             disabled={showLoader || submitting || pristine}
                           >
-                            Validate email
+                            Varmista sähköposti
                           </button>
                         </div>
                         {emailVerificationNotify && (
                           <div className="notification is-info">
-                            <p>We have send verification code in your email address!</p>
-                            <p>Wait...Page is redirecting....</p>
+                            <p>Olemme lähettäneet varmistuskoodin sähköpostiosoitteeseesi!</p>
+                            <p>Odota ... Sivua ohjataan ....</p>
                           </div>
                         )}
                         {doesEmailExist && (
@@ -182,8 +183,8 @@ const UserRegistration = (props) => {
                               onClick={() => setDoesEmailExist(false)}
                             />
                             <span>Email address already exist! </span>
-                            <Link to="/user-verification" className="has-text-weight-light">
-                              Verify code
+                            <Link to="/kirjaudu" className="has-text-weight-light">
+                              Kirjaudu
                             </Link>
                           </div>
                         )}
@@ -197,13 +198,13 @@ const UserRegistration = (props) => {
                 <br/>
                 <p className="has-text-centered">
                   <span className="label has-text-weight-bold">
-                  Already validated email?
+                    Sähköpostiosoitetta ei ole varmistettu?
                   </span>
                 </p>
 
                 <h4 className="has-text-centered">
-                  <Link to="/user-verification" className="has-text-weight-light">
-                    Code verification
+                  <Link to="/kirjaudu" className="has-text-weight-light">
+                    Kirjaudu
                 </Link>
               </h4>
           </div>
