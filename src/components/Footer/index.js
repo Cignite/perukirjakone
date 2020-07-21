@@ -8,7 +8,7 @@ function Footer(props) {
       <div className="container">
         <div className="is-centered">
           <ul>
-            <li className="footer__item"> Maariankatu 1, 20100, Turku, Finland | Y-tunnus: 2453638-7</li>
+            <li className="footer__item"> Maariankatu 1, 20100, Turku, Finland</li>
             <li className="footer__item">Terms and services</li>
             <li className="footer__item"><i className="fa fa-envelope" aria-hidden="true" /> &nbsp;perux.turku@perux.fi</li>
           </ul>
@@ -40,6 +40,8 @@ function Footer(props) {
           </span>
         </div>
         <div className="copyright left">Perukirja.fi</div>
+        <div className="copyright left">Y-tunnus: 2453638-7</div>
+
       </div>
     </footer>
   );
