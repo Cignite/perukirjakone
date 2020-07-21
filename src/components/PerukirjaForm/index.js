@@ -21,8 +21,8 @@ function DocumentPage(props) {
         </nav>
 
         <div className="schemaForm">
-          <h3 className="title is-3">Fill all the necessary info</h3>
-          <p>Make sure information provided are correct </p>
+          <h3 className="title is-3">Täytä kaikki tarvittavat tiedot</h3>
+          <p>Varmista, että annetut tiedot ovat oikein </p>
           <hr />
           <MasterForm />
         </div>
