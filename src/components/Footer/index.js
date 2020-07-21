@@ -39,7 +39,7 @@ function Footer(props) {
             </svg>
           </span>
         </div>
-        <div className="copyright left">Perukirja.fi</div>
+        <div className="copyright left">perukirjakone.fi</div>
         <div className="copyright left">Y-tunnus: 2453638-7</div>
 
       </div>
