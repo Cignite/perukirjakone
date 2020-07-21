@@ -26,11 +26,11 @@ export default function App() {
         <main>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/user-validation" component={UserRegistration}  />
-            <Route exact path="/user-verification" component={UserVerification} />
+            <Route exact path="/aloita" component={UserRegistration}  />
+            <Route exact path="/kirjaudu" component={UserVerification} />
             <Route
               exact
-              path="/wizard-form"
+              path="/lomake"
               render={props => {
                 const userInfo = JSON.parse(localStorage.getItem('userInfo'));
                 if (userInfo) {
@@ -41,10 +41,10 @@ export default function App() {
                   }
                 }
 
-                return <Redirect to="/user-verification" />
+                return <Redirect to="/kirjaudu" />
               }}
             />
-            <Route exact path="/reset-code" component={ResetVerificationCode} />
+            <Route exact path="/tilaa-uusi-koodi" component={ResetVerificationCode} />
             <Route exact path="/pdf" component={PDFViewer} />
             <Route exact path="/translation" component={PDFTranslation} />
             <Route component={NotFoundPage} />
