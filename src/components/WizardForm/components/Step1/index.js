@@ -31,7 +31,7 @@ const Step1 = () => {
 
   return (
     <div className="form__content">
-      <h3 className="title is-4">1.1 Asiakaan tiedot</h3>
+      <h3 className="title is-4">1.1 Vainajan tiedot</h3>
       <hr />
       <div className="columns">
         <div className="column">
@@ -40,7 +40,7 @@ const Step1 = () => {
             component={InputWrapper}
             type="text"
             placeholder="Heikki"
-            label="Firstname"
+            label="Etunimet"
             />
           <Error name="customerFirstName" />
         </div>
@@ -50,7 +50,7 @@ const Step1 = () => {
             component={InputWrapper}
             type="text"
             placeholder="Halonen"
-            label="Lastname"
+            label="Sukunimi"
             />
           <Error name="customerlastName" />
         </div>
@@ -60,7 +60,7 @@ const Step1 = () => {
             component={InputWrapper}
             type="text"
             placeholder="24444-39F"
-            label="SSN"
+            label="Henkilötunnus"
             />
           <Error name="customerSSN" />
         </div>
@@ -70,7 +70,7 @@ const Step1 = () => {
             component={InputWrapper}
             type="text"
             placeholder="Hammenkatu 1, 20500 Turku"
-            label="Address"
+            label="Osoite"
             />
           <Error name="address" />
         </div>
@@ -81,7 +81,7 @@ const Step1 = () => {
           <Field
             name="customerTimeOfDeath"
             component={renderDatePickerField}
-            label="Time of death"
+            label="Kuolinaika"
             placeholder="01.08.2020"
             />
           <Error name="customerTimeOfDeath" />
@@ -92,16 +92,16 @@ const Step1 = () => {
             component={InputWrapper}
             type="text"
             placeholder="Hammenkatu 1, 02500 Turku"
-            label="Place of death"
+            label="Kuolinpaikka"
             />
           <Error name="agreeementPlace" />
         </div>
       </div>
 
       <br />
-      <h3 className="title is-4">1.2 Shareholders</h3>
+      <h3 className="title is-4">1.2 Kuolinpesän oikeudenomistajat</h3>
       <hr />
-      <p className="primary">Relationship to deceased person</p>
+      <p className="primary">Suhde vainajaan</p>
 
       <FieldArray name="relationshipInfo">
         {({ fields }) => {
@@ -115,7 +115,7 @@ const Step1 = () => {
                       component={InputWrapper}
                       type="text"
                       placeholder="esim. leski / tytär / poika / isä / äiti / muu"
-                      label="Relation"
+                      label="Suhde"
                       />
                   </div>
                   <div className="column is-3">
@@ -123,8 +123,8 @@ const Step1 = () => {
                       name={`${name}.name`}
                       component={InputWrapper}
                       type="text"
-                      placeholder="Aalto Nurmi"
-                      label="Fullname"
+                      placeholder="Aalto, Janne Ilmari"
+                      label="Täydellinen nimi (sukunimi, etunimet)"
                       />
                   </div>
                   <div className="column is-3">
@@ -132,8 +132,8 @@ const Step1 = () => {
                       name={`${name}.ssn`}
                       component={InputWrapper}
                       type="text"
-                      placeholder="010789-897F"
-                      label="SSN"
+                      placeholder="010789-197F"
+                      label="Henkilötunnus"
                       />
                   </div>
                   <div className="column is-3">
@@ -141,8 +141,8 @@ const Step1 = () => {
                       name={`${name}.address`}
                       component={InputWrapper}
                       type="text"
-                      placeholder="Kouvula"
-                      label="Place"
+                      placeholder="Lanatie 5 A, 20540 Turku"
+                      label="Osoite"
                       />
 
 
@@ -186,7 +186,7 @@ const Step1 = () => {
                     }
                     type="button"
                     >
-                    Add more
+                    Lisää
                   </button>
                 </div>
               </div>
@@ -195,7 +195,7 @@ const Step1 = () => {
         </FieldArray>
 
         <br />
-        <h3 className="title is-4">1.3 Testament</h3>
+        <h3 className="title is-4">1.3 Testamentti</h3>
         <hr />
         <div className="columns">
           <div className="column is-6">
@@ -208,7 +208,7 @@ const Step1 = () => {
                 id="isTestamentDeceasedPropertyAssignedChecked"
                 />
               <label htmlFor="isTestamentDeceasedPropertyAssignedChecked" className="primary">
-                Has the property of the deceased or it’s part been assigned to someone
+                Onko vainajan omaisuus tai määräosa siitä testamentattu jollekin
               </label>
             </div>
           </div>
@@ -221,7 +221,7 @@ const Step1 = () => {
                 component={InputWrapper}
                 type="text"
                 placeholder="Hannu Harala"
-                label="Person name"
+                label="Henkilön nimi ja henkilötunnus sekä osoite"
                 />
               <Error name="testamentPropertyAssignInfo" />
             </div>
@@ -267,7 +267,7 @@ const Step1 = () => {
               <Field
                 name="testamenttiTimeOfDeath"
                 component={renderDatePickerField}
-                label="Date of testament"
+                label="Avioehtosopimus"
                 placeholder="01.08.2020"
                 />
               <Error name="testamenttiTimeOfDeath" />
@@ -295,7 +295,7 @@ const Step1 = () => {
               <Field
                 name="marriageSettlementDate"
                 component={renderDatePickerField}
-                label="Date of prenub"
+                label="Avioehtosopimus"
                 placeholder="01.08.2020"
                 />
               <Error name="marriageSettlementDate" />
@@ -314,7 +314,9 @@ const Step1 = () => {
                 className="form__checkbox"
                 id="isOtherDocumentChecked"
                 />
-              <label htmlFor="isOtherDocumentChecked" className="primary">Other documents and info</label>
+              <label htmlFor="isOtherDocumentChecked" className="primary">
+                Muut kuolinpesää selvittävät asiakirjat ja tiedot (1 omaisuuserä 1 laatikkoa kohden)
+              </label>
             </div>
           </div>
         </div>
@@ -374,7 +376,7 @@ const Step1 = () => {
                       }
                       type="button"
                     >
-                      Add more
+                      Lisää
                     </button>
                   </span>
                 </div>
@@ -384,9 +386,9 @@ const Step1 = () => {
         </Condition>
 
         <br />
-        <h3 className="title is-4">1.5 RAHAVARAT KORKOINEEN</h3>
+        <h3 className="title is-4">1.5 VAINAJAN RAHAVARAT KORKOINEEN (per kuolinpäivä)</h3>
         <hr />
-        <p className="primary">Pankin / pankkitilin tiedot ja saldo</p>
+        <p className="primary">Pankin nimi ja pankkitilin numero (IBAN)  ja saldo</p>
         <br />
         <FieldArray name="bankAccountInfo">
           {({ fields }) => {
@@ -399,8 +401,8 @@ const Step1 = () => {
                         name={`${name}.number`}
                         component={InputWrapper}
                         type="text"
-                        placeholder="Bank account number"
-                        label="Enter Bank account number"
+                        placeholder="Nordea FI55 1234 5678 9123 45"
+                        label="Kirjoita pankin nimi/pankkitilin numero"
                         />
                     </div>
                     <div className="column is-2">
@@ -408,8 +410,8 @@ const Step1 = () => {
                         name={`${name}.value`}
                         component={InputWrapper}
                         type="text"
-                        placeholder="esim: €40k"
-                        label="Amount (€)"
+                        placeholder="1205,23"
+                        label="Saldo (€)"
                         />
 
                       <span
@@ -452,7 +454,7 @@ const Step1 = () => {
                       }
                       type="button"
                       >
-                      Add more
+                      Lisää
                     </button>
                   </div>
                 </div>
@@ -461,9 +463,9 @@ const Step1 = () => {
           </FieldArray>
 
           <br />
-          <h3 className="title is-4">1.6 THE MONEY OF THE WIDOW WITH INTEREST (ALSO STOCKS & FUNDS)</h3>
+          <h3 className="title is-4">1.6 OSUUSTODISTUKSET, OSAKKEET, RAHASTOT, YMS</h3>
           <hr />
-          <p className="primary">Osakkeen tiedot/määrä  Hinta</p>
+          <p className="primary">Omistuserän tiedot (nimi ja määrä) </p>
 
           <br />
           <FieldArray name="shareInfo">
@@ -477,8 +479,8 @@ const Step1 = () => {
                           name={`${name}.number`}
                           component={InputWrapper}
                           type="text"
-                          placeholder="Stock name"
-                          label="Nordnet"
+                          placeholder="Omistuserän tiedot (nimi ja määrä)"
+                          label="Nokia Oyj - 2550 kpl"
                           />
                       </div>
                       <div className="column is-2">
@@ -486,8 +488,8 @@ const Step1 = () => {
                           name={`${name}.value`}
                           component={InputWrapper}
                           type="text"
-                          placeholder="40 shares"
-                          label="Value"
+                          placeholder="9435"
+                          label="Arvo"
                           />
 
                         <span
@@ -530,7 +532,7 @@ const Step1 = () => {
                         }
                         type="button"
                         >
-                        Add more
+                        Lisää
                       </button>
                     </div>
                   </div>
@@ -539,9 +541,8 @@ const Step1 = () => {
           </FieldArray>
 
           <br />
-          <h3 className="title is-4">1.7 KIINTEISTÖT / HUONEISTOT</h3>
+          <h3 className="title is-4">1.7 VAINAJAN KIINTEISTÖT / HUONEISTOT</h3>
           <hr />
-          <p className="primary">What property/apartments did the deseaced person have?</p>
           <br />
 
           <FieldArray name="propertyInfo">
@@ -555,8 +556,8 @@ const Step1 = () => {
                           name={`${name}.name`}
                           component={InputWrapper}
                           type="text"
-                          placeholder="esim. Huoneisto / Talo (kiinteistönumero)"
-                          label="Property"
+                          placeholder="esim: AS OY TURUN HÄMEENKATU 1"
+                          label="Omaisuus"
                           />
                       </div>
                       <div className="column is-2">
@@ -565,7 +566,7 @@ const Step1 = () => {
                           component={InputWrapper}
                           type="text"
                           placeholder="esim: 40000"
-                          label="Amount (€)"
+                          label="Arvo (€)"
                           />
 
                         <span
@@ -608,7 +609,7 @@ const Step1 = () => {
                         }
                         type="button"
                         >
-                        Add more
+                        Lisää
                       </button>
                     </div>
                   </div>
@@ -627,7 +628,7 @@ const Step1 = () => {
                     id="didDeceasedHadCarBoat"
                   />
                   <label htmlFor="didDeceasedHadCarBoat" className="primary">
-                    Did the deceased have a car / motorbike / boat / trailer etc?
+                    Oliko vainajalla auto / moottoripyörä / vene / perävaunu jne?
                   </label>
                 </div>
               </div>
@@ -640,8 +641,8 @@ const Step1 = () => {
                     name="deceasedCarBrandTypeInfo"
                     component={InputWrapper}
                     type="text"
-                    placeholder="Audi"
-                    label="Car brand/type/year/registration number"
+                    placeholder="Toyota RAV, 2015, ABC-123"
+                    label="Auton merkki/vm/rekisterinumero"
                     />
                   <Error name="deceasedCarBrandTypeInfo" />
                 </div>
@@ -650,8 +651,8 @@ const Step1 = () => {
                     name="deceasedCarBrandTypeValue"
                     component={InputWrapper}
                     type="text"
-                    placeholder="5K"
-                    label="Value (€)"
+                    placeholder="4500"
+                    label="Arvo (€)"
                     />
                   <Error name="deceasedCarBrandTypeValue" />
                 </div>
@@ -662,8 +663,8 @@ const Step1 = () => {
                     name="deceasedMotorBikeBrandTypeInfo"
                     component={InputWrapper}
                     type="text"
-                    placeholder="BMW AZ"
-                    label="Motorbike brand/year/registration number"
+                    placeholder="Suzuki PV, 1990, AB-12"
+                    label="Muun ajoneuvon/omaisuuden merkki/vm/rekisterinumero"
                     />
                   <Error name="deceasedMotorBikeBrandTypeInfo" />
                 </div>
@@ -672,8 +673,8 @@ const Step1 = () => {
                     name="deceasedMotorBikeBrandTypeValue"
                     component={InputWrapper}
                     type="text"
-                    placeholder="5K"
-                    label="Value (€)"
+                    placeholder="100"
+                    label="Arvo (€)"
                     />
                   <Error name="deceasedMotorBikeBrandTypeValue" />
                 </div>
@@ -691,7 +692,7 @@ const Step1 = () => {
                     id="isPropertyLikeSofa"
                     />
                   <label htmlFor="isPropertyLikeSofa" className="primary">
-                    Onko irtaimen omaisuuden arvo yli 4000 euroa?
+                    Onko irtaimen omaisuuden arvo (kalusteet ym.) yli 4000 € ? Klikkaa painiketta, jos irtaimen arvo ylittää 4000 €
                   </label>
                 </div>
               </div>
@@ -709,8 +710,8 @@ const Step1 = () => {
                               name={`${name}.name`}
                               component={InputWrapper}
                               type="text"
-                              placeholder="Omaisuuden arvo"
-                              label="Omaisuuden arvo"
+                              placeholder="Huonekalu/taulu/patsas"
+                              label="Omaisuus"
                               />
                           </div>
                           <div className="column is-2">
@@ -718,8 +719,8 @@ const Step1 = () => {
                               name={`${name}.value`}
                               component={InputWrapper}
                               type="text"
-                              placeholder="€4000"
-                              label="Amount (€)"
+                              placeholder="40000"
+                              label="Arvo (€)"
                               />
 
                             <span
@@ -762,7 +763,7 @@ const Step1 = () => {
                             }
                             type="button"
                             >
-                            Add more
+                            Lisää
                           </button>
                         </span>
                       </div>
@@ -781,7 +782,9 @@ const Step1 = () => {
                         className="form__checkbox"
                         id="isHKIrtaminen"
                         />
-                      <label htmlFor="isHKIrtaminen" className="primary">HK Irtaminen omaisuus (including previous one)</label>
+                      <label htmlFor="isHKIrtaminen" className="primary">
+                        Ylittääkö henkilökohtaisen omaisuuden  (kellot, korut ym.) arvo 4000 € ? Sisältäen edellisen kohdan (Irtain omaisuus)
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -798,8 +801,8 @@ const Step1 = () => {
                                   name={`${name}.name`}
                                   component={InputWrapper}
                                   type="text"
-                                  placeholder="Omaisuus"
-                                  label="Omaisuus"
+                                  placeholder="Sormus/Kello/Vaate yms"
+                                  label="Henkilökohtainen omaisuus"
                                   />
                                 <Error name={`${name}.name`} />
                               </div>
@@ -808,8 +811,8 @@ const Step1 = () => {
                                   name={`${name}.value`}
                                   component={InputWrapper}
                                   type="text"
-                                  placeholder="€4000"
-                                  label="Amount (€)"
+                                  placeholder=""
+                                  label="Arvo (€)"
                                   />
                                 <Error name={`${name}.value`} />
                                 <span
@@ -852,7 +855,7 @@ const Step1 = () => {
                                 }
                                 type="button"
                                 >
-                                Add more
+                                Lisää
                               </button>
                             </span>
                           </div>
@@ -862,7 +865,7 @@ const Step1 = () => {
                   </Condition>
 
                   <br />
-                  <h3 className="title is-4">1.8 Debt</h3>
+                  <h3 className="title is-4">1.8 Vainajan velat</h3>
                   <hr />
                   <div className="columns">
                     <div className="column is-6">
@@ -875,7 +878,7 @@ const Step1 = () => {
                           id="didDeceasedHaveDebt"
                           />
                         <label htmlFor="didDeceasedHaveDebt" className="primary">
-                          Did the deceaced have any remaining debts?
+                          Onko vainajalla velkoja?
                         </label>
                       </div>
                     </div>
@@ -893,8 +896,8 @@ const Step1 = () => {
                                     name={`${name}.name`}
                                     component={InputWrapper}
                                     type="text"
-                                    placeholder="Debt Info"
-                                    label="Debt Info"
+                                    placeholder="Nordea Pankki/muu velan yksilöinti"
+                                    label="Velan tiedot"
                                     />
                                 </div>
                                 <div className="column is-2">
@@ -902,8 +905,8 @@ const Step1 = () => {
                                     name={`${name}.value`}
                                     component={InputWrapper}
                                     type="text"
-                                    placeholder="€4000"
-                                    label="Amount (€)"
+                                    placeholder="4000"
+                                    label="Arvo (€)"
                                     />
 
                                   <span
@@ -946,7 +949,7 @@ const Step1 = () => {
                                   }
                                   type="button"
                                   >
-                                  Add more
+                                  Lisää
                                 </button>
                               </div>
                             </div>
@@ -957,7 +960,7 @@ const Step1 = () => {
                     </Condition>
 
                     <br />
-                    <h3 className="title is-4">1.9 Insurance </h3>
+                    <h3 className="title is-4">1.9 Henkivakuutus </h3>
                     <hr />
                     <div className="columns">
                       <div className="column is-6">
@@ -969,7 +972,7 @@ const Step1 = () => {
                             className="form__checkbox"
                             id="isThereLifeInsurance"
                             />
-                          <label htmlFor="isThereLifeInsurance" className="primary">Was there life insurance? </label>
+                          <label htmlFor="isThereLifeInsurance" className="primary">Oliko vainajalla henkivakuutusta tai vastaavaa? </label>
                         </div>
                       </div>
                     </div>
@@ -985,8 +988,8 @@ const Step1 = () => {
                                       name={`${name}.name`}
                                       component={InputWrapper}
                                       type="text"
-                                      placeholder="If insurance"
-                                      label="Insurance name/number"
+                                      placeholder="Yhtiön nimi/Vakuutusnumero/Edunsaajamääräys/"
+                                      label="Henkivakuutus"
                                       />
                                   </div>
                                   <div className="column is-2">
@@ -1002,7 +1005,7 @@ const Step1 = () => {
                                     <Field
                                       name={`${name}.date`}
                                       component={renderDatePickerField}
-                                      label="Date"
+                                      label="Päivämäärä"
                                       placeholder="01.08.2020"
                                       />
 
@@ -1046,7 +1049,7 @@ const Step1 = () => {
                                     }
                                     type="button"
                                     >
-                                    Add more
+                                    Lisää
                                   </button>
                                 </div>
                               </div>
@@ -1058,9 +1061,9 @@ const Step1 = () => {
 
 
                     <br />
-                    <h3 className="title is-4">1.10 Others</h3>
+                    <h3 className="title is-4">1.10 Muuta</h3>
                     <hr />
-                    <h3 className="title is-4">Kuka on kutsunut kuolinpesän osakkaat tähän perunkirjoitus tilaisuuteen</h3>
+                    <h3 className="title is-4">Kuka on kutsunut kuolinpesän osakkaat tähän perunkirjoitus tilaisuuteen?</h3>
                     <hr />
                     <div className="columns">
                       <div className="column">
@@ -1068,7 +1071,7 @@ const Step1 = () => {
                           name="inviteeName"
                           component={InputWrapper}
                           type="text"
-                          placeholder="Heikki"
+                          placeholder="Heikki Halonen"
                           label="Nimi"
                           />
                         <Error name="inviteeNimi" />
@@ -1079,7 +1082,7 @@ const Step1 = () => {
                           component={InputWrapper}
                           type="text"
                           placeholder="Turku"
-                          label="Place"
+                          label="Paikkakunta"
                           />
                         <Error name="inviteePlace" />
                       </div>
@@ -1087,7 +1090,7 @@ const Step1 = () => {
                         <Field
                           name="inviteeDate"
                           component={renderDatePickerField}
-                          label="Date"
+                          label="Päivämäärä"
                           placeholder="01.08.2020"
                           />
                         <Error name="inviteeDate" />
@@ -1095,7 +1098,7 @@ const Step1 = () => {
                     </div>
 
 
-                    <h3 className="title is-4">Ketkä ovat uskotut miehet? (who are the trusted men)?</h3>
+                    <h3 className="title is-4">Ketkä ovat uskotut miehet?</h3>
                     <hr />
                     <h3 className="title is-4">Henkilo 1</h3>
                     <div className="columns">
@@ -1115,7 +1118,7 @@ const Step1 = () => {
                           component={InputWrapper}
                           type="text"
                           placeholder="Turku"
-                          label="Place"
+                          label="Paikkakunta"
                           />
                         <Error name="trustedMenPlaceFirst" />
                       </div>
@@ -1128,7 +1131,7 @@ const Step1 = () => {
                           name="trustedMenNameSecond"
                           component={InputWrapper}
                           type="text"
-                          placeholder="Pettri Rokanen"
+                          placeholder="Outi Virtanen"
                           label="Nimi"
                           />
                         <Error name="trustedMenNameSecond" />
@@ -1139,13 +1142,13 @@ const Step1 = () => {
                           component={InputWrapper}
                           type="text"
                           placeholder="Turku"
-                          label="Place"
+                          label="Paikkakunta"
                           />
                         <Error name="trustedMenPlaceSecond" />
                       </div>
                     </div>
 
-                    <h3 className="title is-4">Kuka on läsnä perunkirjoitustilaisuudessa?  Who is present?</h3>
+                    <h3 className="title is-4">Kuka oli läsnä perunkirjoitustilaisuudessa?</h3>
                     <hr />
                     <FieldArray name="whoWasPresent">
                       {({ fields }) => {
@@ -1158,8 +1161,8 @@ const Step1 = () => {
                                     name={`${name}.name`}
                                     component={InputWrapper}
                                     type="text"
-                                    placeholder="Halo Toimi"
-                                    label="Name"
+                                    placeholder="Pekka Lahtinen"
+                                    label="Nimi"
                                     />
                                 </div>
                                 <div className="column is-3">
@@ -1168,7 +1171,7 @@ const Step1 = () => {
                                     component={InputWrapper}
                                     type="text"
                                     placeholder="Turku"
-                                    label="City"
+                                    label="Paikkakunta"
                                     />
 
                                   <span
@@ -1211,7 +1214,7 @@ const Step1 = () => {
                                   }
                                   type="button"
                                   >
-                                  Add more
+                                  Lisää
                                 </button>
                               </span>
                             </div>
