@@ -104,17 +104,17 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
 
               {!isLastPage  && state.page !== 3 && state.page !== 4 && state.page !== 5 && (
                 <button className="button is-primary next__btn" type="submit" disabled={showLoader}>
-                  {showLoader ? <span>Saving data...</span> : <span>Save and continue »</span>}
+                  {showLoader ? <span>Tietojen tallentaminen...</span> : <span>Tallenna and jatkaa »</span>}
                 </button>
               )}
               {state.page > 0 && state.page !== 2 && state.page !== 4 && state.page !== 5  && state.page === 3 && (
                 <button className="button is-primary next__btn" type="submit" disabled={showLoader}>
-                  {showLoader ? <span>Saving data...</span> : <span>Save & Preview document »</span>}
+                  {showLoader ? <span>Tietojen tallentaminen...</span> : <span>Tallenna ja esikatsele asiakirjaa »</span>}
                 </button>
               )}
               {state.page > 0 && state.page !== 2 && state.page !== 3 && state.page === 4 && (
                 <button className="button is-primary next__btn" type="submit" disabled={showLoader}>
-                  {showLoader ? <span>Saving data...</span> : <span>Download document »</span>}
+                  {showLoader ? <span>Tietojen tallentaminen...</span> : <span>Lataa asiakirja »</span>}
                 </button>
               )}
               {/*isLastPage && (
