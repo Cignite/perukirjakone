@@ -9,9 +9,9 @@ const Step6 = () => {
   return (
     <div className="downloadStep">
       <div className="is-centered">
-        <p className="thankYou">Thank you for using Perukirjakone service</p>
+        <p className="thankYou">Kiitos Perukirjakone-palvelun käytöstä.</p>
         <br />
-        <p className="thankYou">Click to download file</p>
+        <p className="thankYou">Lataa tiedosto napsauttamalla</p>
         <br />
         <br />
       </div>
@@ -22,7 +22,7 @@ const Step6 = () => {
           className="button is-dark downloadBtn"
         >
           {({ blob, url, loading, error }) =>
-            loading ? "Loading document..." : "Download file"
+            loading ? "Loading document..." : "Lataa asiakirja"
           }
         </PDFDownloadLink>
       </div>
