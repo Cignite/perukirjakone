@@ -62,22 +62,22 @@ const StepWizard = () => {
             validate={values => {
               const errors = {};
               if (!values.customerFirstName) {
-                errors.customerFirstName = "This is required field";
+                errors.customerFirstName = "Tämä on pakollinen kenttä";
               }
               if (!values.customerlastName) {
-                errors.customerlastName = "This is required field";
+                errors.customerlastName = "Tämä on pakollinen kenttä";
               }
               if (!values.address) {
-                errors.address = "This is required field";
+                errors.address = "Tämä on pakollinen kenttä";
               }
               if (!values.customerSSN) {
-                errors.customerSSN = "This is required field";
+                errors.customerSSN = "Tämä on pakollinen kenttä";
               }
               if (!values.customerTimeOfDeath) {
-                errors.customerTimeOfDeath = "This is required field";
+                errors.customerTimeOfDeath = "Tämä on pakollinen kenttä";
               }
               if (!values.agreeementPlace) {
-                errors.agreeementPlace = "This is required field";
+                errors.agreeementPlace = "Tämä on pakollinen kenttä";
               }
               return errors;
             }}
