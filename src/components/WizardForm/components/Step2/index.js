@@ -19,7 +19,7 @@ const Step2 = () => {
   // const [codeValue, setCodeValue] = React.useState("");
   return (
     <div className="form__content">
-      <h3 className="title is-4">Ilmoitta hautajasiin liityvät kullut</h3>
+      <h3 className="title is-4">Ilmoita hautajaisten järjestämiseen liittyvät kulut ja kustannukset</h3>
       <hr />
       <br />
       <div className="columns step2__content">
@@ -34,7 +34,7 @@ const Step2 = () => {
                         name={`${name}.value`}
                         component={InputWrapper}
                         type="text"
-                        placeholder="esim: 499"
+                        placeholder="499"
                         label="Sukuselvitykset"
                         />
 
@@ -76,7 +76,7 @@ const Step2 = () => {
                     }
                     type="button"
                     >
-                    Add more
+                    Lisää
                   </button>
                 </span>
 
@@ -90,7 +90,7 @@ const Step2 = () => {
             name="funeralExpensesInfoDeathCertificate"
             component={InputWrapper}
             type="text"
-            placeholder="Saldotodistukset"
+            placeholder="200"
             label="Saldotodistukset"
             />
         </div>
@@ -99,7 +99,7 @@ const Step2 = () => {
             name="flowers"
             component={InputWrapper}
             type="text"
-            placeholder="Kukkat"
+            placeholder="200"
             label="Kukat"
             />
         </div>
@@ -108,8 +108,8 @@ const Step2 = () => {
             name="funeralExpensesInfoTombstone"
             component={InputWrapper}
             type="text"
-            placeholder="Hautakivet"
-            label="Hautakivet"
+            placeholder="1200"
+            label="Hautakivi/kunnostus"
             />
         </div>
 
@@ -126,8 +126,8 @@ const Step2 = () => {
                       name={`${name}.info`}
                       component={InputWrapper}
                       type="text"
-                      placeholder="Other expenses"
-                      label="Other expenses"
+                      placeholder="200"
+                      label="Muut kulut (valokuvat, musiikki, ruoka)"
                       />
                   </div>
                   <div className="column is-2">
@@ -135,8 +135,8 @@ const Step2 = () => {
                       name={`${name}.value`}
                       component={InputWrapper}
                       type="text"
-                      placeholder="esim: €40k"
-                      label="Amount (€)"
+                      placeholder="500"
+                      label="Arvo (€)"
                       />
 
                     <span
@@ -179,7 +179,7 @@ const Step2 = () => {
                   }
                   type="button"
                   >
-                  Add more
+                  Lisää
                 </button>
               </div>
             </div>
@@ -193,8 +193,8 @@ const Step2 = () => {
             name="perukirjakoneReward"
             component={InputWrapper}
             type="text"
-            placeholder="Perukirja reward"
-            label="Perukirjakone reward"
+            placeholder="400"
+            label="Perunkirjoituksen toimittaminen"
             />
         </div>
         <div className="column is-3">
@@ -202,7 +202,7 @@ const Step2 = () => {
             name="perukirjakoneFee"
             component={InputWrapper}
             type="text"
-            label="Perukirjakone fee"
+            label="Perukirjakoneen käyttömaksu "
             disabled={true}
             />
         </div>
