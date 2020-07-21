@@ -98,7 +98,7 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
               {activePage}
               {state.page > 0 && !isLastPage && (
                 <button className="button is-outlined" type="button" onClick={onBackStep} disabled={showLoader}>
-                  « Previous
+                  « Edellinen
                 </button>
               )}
 
@@ -142,12 +142,12 @@ WizardForm.Stepper = ({ activeStep, totalSteps }) => (
   <Stepper alternativeLabel activeStep={activeStep} className="perukirjakone__stepper">
     {new Array(totalSteps).fill(totalSteps).map((_, idx) => (
       <Step key={idx}>st
-        {idx === 0 && (<StepLabel>Customer Info</StepLabel>)}
-        {idx === 1 && (<StepLabel>Funeral expenses</StepLabel>)}
-        {idx === 2 && (<StepLabel>Widow</StepLabel>)}
-        {idx === 3 && (<StepLabel>Announcement</StepLabel>)}
-        {idx === 4 && (<StepLabel>Preview</StepLabel>)}
-        {idx === 5 && (<StepLabel>Download</StepLabel>)}
+        {idx === 0 && (<StepLabel>Asiakastiedot</StepLabel>)}
+        {idx === 1 && (<StepLabel>Hautajaiskulut</StepLabel>)}
+        {idx === 2 && (<StepLabel>Leski</StepLabel>)}
+        {idx === 3 && (<StepLabel>Ilmoitus</StepLabel>)}
+        {idx === 4 && (<StepLabel>Esikatselu</StepLabel>)}
+        {idx === 5 && (<StepLabel>Lataa dokumentti</StepLabel>)}
       </Step>
     ))}
   </Stepper>
