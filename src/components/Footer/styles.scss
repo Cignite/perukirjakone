@@ -11,7 +11,7 @@
       flex: none;
       justify-content: center;
       width: 100%;
-      margin-bottom: 8px;
+      margin: 8px 8px;
     }
   }
 
@@ -80,4 +80,9 @@ li.footer__item {
   @media screen and (max-width: 700px) {
     display: inherit;
   }
+}
+
+.linkedin {
+  margin-top: -35px;
+  position: absolute;
 }
