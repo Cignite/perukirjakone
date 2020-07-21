@@ -26,7 +26,7 @@ const Step4 = () => {
             id="verifyInfoProvidedIsCorrect"
             />
           <label htmlFor="verifyInfoProvidedIsCorrect" className="primary">
-            I certify that I have entered all the necessary documents into the perukirjakone and that I have received all the other supporting documents to finalize this process.?
+            Vakuutan, että perunkirjoitusta varten antamani tiedot ovat oikeat ja etten tahallisesti ole jättänyt mitään ilmoittamatta.
           </label>
         </div>
       </div>
@@ -43,13 +43,12 @@ const Step4 = () => {
             id="haveAllPartiesInvited"
             />
           <label htmlFor="haveAllPartiesInvited" className="primary">
-            Have all the parties been invited to this estate inventory?
+            Ovatko kaikki pesän osakkaat kutsuttu tähän perunkirjoitustilaisuuteen?
           </label>
         </div>
       </div>
     </div>
 
-    <h3 className="title is-6">The announcement of the widow (1). </h3>
     <div className="columns">
       <div className="column is-6">
         <div>
@@ -61,13 +60,12 @@ const Step4 = () => {
             id="doesWidowWantsToLiveInSameApartment"
             />
           <label htmlFor="doesWidowWantsToLiveInSameApartment" className="primary">
-            Does the widow want to remain living in the apartment?
+             Ilmoitus siitä, tuleeko leski pitämään hallinnassaan kuolleen puolison jäämistön jakamattomana osittain (esimerkiksi yhteinen koti) tai kokonaan?
           </label>
         </div>
       </div>
     </div>
 
-    <h3 className="title is-6">Other announcements  (2)  </h3>
     <div className="columns">
       <div className="column is-6">
         <div>
@@ -79,7 +77,7 @@ const Step4 = () => {
             id="isOtherAnnouncement"
             />
           <label htmlFor="isOtherAnnouncement" className="primary">
-            Do you want to make other announcements?
+            Muuta ilmoitettavaa
           </label>
         </div>
       </div>
