@@ -44,7 +44,7 @@ const UserRegistration = (props) => {
           setShowLoader(false);
           setEmailVerificationNotify(true);
           setTimeout(()=> {
-            props.history.push('/user-verification');
+            props.history.push('/kirjaudu');
           }, 3000);
 
         })
