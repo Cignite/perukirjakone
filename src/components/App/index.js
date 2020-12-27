@@ -18,6 +18,7 @@ import MainWrapper from '../Wrapper';
 import PDFViewer from '../PDFViewer';
 import PDFTranslation from '../PDFTranslation';
 import ResetVerificationCode from '../ResetVerficationCode';
+import TermsConditions from '../TermsConditions';
 
 export default function App() {
   return (
@@ -47,6 +48,7 @@ export default function App() {
             <Route exact path="/tilaa-uusi-koodi" component={ResetVerificationCode} />
             <Route exact path="/pdf" component={PDFViewer} />
             <Route exact path="/translation" component={PDFTranslation} />
+            <Route exact path="/termscondtions" component={TermsConditions} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

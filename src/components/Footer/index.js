@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 import "./styles.scss";
 
@@ -9,7 +10,9 @@ function Footer(props) {
         <div className="is-centered">
           <ul>
             <li className="footer__item"> Maariankatu 1, 20100, Turku, Finland</li>
-            <li className="footer__item">Terms and services</li>
+            <Link to="/termscondtions">
+              <li className="footer__item">Terms and services</li>
+            </Link>
             <li className="footer__item"><i className="fa fa-envelope" aria-hidden="true" /> &nbsp;perux.turku@perux.fi</li>
           </ul>
         </div>
