@@ -13,7 +13,7 @@ function Footer(props) {
             <Link to="/termscondtions">
               <li className="footer__item">Terms and services</li>
             </Link>
-            <li className="footer__item"><i className="fa fa-envelope" aria-hidden="true" /> &nbsp;perux.turku@perux.fi</li>
+            <li className="footer__item"><i className="fa fa-envelope" aria-hidden="true" /> &nbsp;info@perukirjakone.fi</li>
           </ul>
         </div>
         <div className="social right">
