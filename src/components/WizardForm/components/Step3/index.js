@@ -356,7 +356,7 @@ const Step3 = () => {
                 id="isPersonalWorth"
                 />
               <label htmlFor="isPersonalWorth" className="primary">
-                Onko irtaimen omaisuuden arvo (kalusteet ym.) yli 4000 € ? Klikkaa painiketta, jos irtaimen arvo ylittää 4000 €
+                Onko irtaimen omaisuuden arvo (kalusteet ym.) yli 4000 € ? Klikkaa painiketta, jos irtaimen omaisuuden arvo ylittää 4000 €
               </label>
             </div>
           </div>
