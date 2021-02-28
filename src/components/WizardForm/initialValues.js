@@ -14,6 +14,12 @@ const initialValues = {
       value: ""
     },
   ],
+  deceasedMotorBikeBrandTypeInfo: [
+    {
+      number: "" ,
+      value: ""
+    },
+  ],
   shareInfo: [
     {
       number: "",
