@@ -13,7 +13,7 @@ function Footer(props) {
             <Link to="/termscondtions">
               <li className="footer__item">Terms and services</li>
             </Link>
-            <li className="footer__item"><i className="fa fa-envelope" aria-hidden="true" /> &nbsp;info@perukirjakone.fi</li>
+            <li className="footer__item"><i className="fa fa-envelope" aria-hidden="true" /> <a href="mailto:info@perukirjakone.fi">&nbsp;info@perukirjakone.fi</a></li>
           </ul>
         </div>
         <div className="social right">
@@ -42,7 +42,6 @@ function Footer(props) {
             </svg>
           </span>
         </div>
-        <div className="copyright left">perukirjakone.fi</div>
         <div className="copyright left">Y-tunnus: 2453638-7</div>
 
       </div>
