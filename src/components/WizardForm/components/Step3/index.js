@@ -39,7 +39,7 @@ const Step3 = () => {
               id="wasDeceasedPersonMarried"
               />
             <label htmlFor="wasDeceasedPersonMarried" className="primary">
-              Oliko vainaja naimisissa??
+              Oliko vainaja avioliitossa tai rekisteröidyssä parisuhteessa?
             </label>
           </div>
         </div>
@@ -320,28 +320,60 @@ const Step3 = () => {
                   <Error name="widowCarBrandTypeValue" />
                 </div>
               </div>
-              <div className="columns">
-                <div className="column is-5">
-                  <Field
-                    name="widowMotorBikeBrandTypeInfo"
-                    component={InputWrapper}
-                    type="text"
-                    placeholder="Suzuki PV, 1990, AB-12"
-                    label="Muun ajoneuvon/omaisuuden merkki/vm/rekisterinumero"
-                    />
-                  <Error name="widowMotorBikeBrandTypeInfo" />
-                </div>
-                <div className="column is-2">
-                  <Field
-                    name="widowMotorBikeBrandTypeValue"
-                    component={InputWrapper}
-                    type="text"
-                    placeholder="100"
-                    label="Arvo (€)"
-                    />
-                  <Error name="widowMotorBikeBrandTypeValue" />
-                </div>
-              </div>
+
+              <FieldArray name="widowMotorBikeBrandTypeInfo">
+                {({ fields }) => {
+                  return (
+                    <div>
+                      {fields.map((name, index) => (
+                        <div key={name} className="columns">
+                          <div className="column is-5">
+                            <Field
+                              name={`${name}.name`}
+                              component={InputWrapper}
+                              type="text"
+                              placeholder="Suzuki PV, 1990, AB-12"
+                              label="Muun ajoneuvon/omaisuuden merkki/vm/rekisterinumero"
+                            />
+                          </div>
+                          <div className="column is-2">
+                            <Field
+                              name={`${name}.value`}
+                              component={InputWrapper}
+                              type="text"
+                              placeholder="100"
+                              label="Arvo (€)"
+                            />
+
+                            <span
+                              role="img"
+                              aria-label="Close"
+                              className="del__btn"
+                              onClick={() => {
+
+                                fields.remove(index);
+                              }}
+                              style={{ cursor: "pointer" }}
+                            >
+                              <i className="fa fa-trash" />
+                            </span>
+                          </div>
+
+                        </div>
+                      ))}
+                      <span className="add__btn margin">
+                        <button
+                          className="button is-small is-primary add"
+                          onClick={() => fields.push({ name: "", value: "" })}
+                          type="button"
+                        >
+                          Lisää
+                        </button>
+                      </span>
+                    </div>
+                  );
+                }}
+              </FieldArray>
             </Condition>
 
 
@@ -567,7 +599,7 @@ const Step3 = () => {
                           name={`${name}.value`}
                           component={InputWrapper}
                           type="text"
-                          label="Arvo (€)"
+                          label="Määrä (€)"
                           />
 
                         <span

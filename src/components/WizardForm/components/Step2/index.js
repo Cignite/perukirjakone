@@ -127,7 +127,7 @@ const Step2 = () => {
                       component={InputWrapper}
                       type="text"
                       placeholder="200"
-                      label="Muut kulut (valokuvat, musiikki, ruoka)"
+                      label="Muut kulut (Esimerkiksi valokuvat, musiikki, ruoka yms.)"
                       />
                   </div>
                   <div className="column is-2">

@@ -38,6 +38,12 @@ const initialValues = {
       value: ""
     }
   ],
+  widowMotorBikeBrandTypeInfo: [
+    {
+      name: "",
+      value: ""
+    }
+  ],
   personalBelongingsInfo: [
     {
       name: "",
