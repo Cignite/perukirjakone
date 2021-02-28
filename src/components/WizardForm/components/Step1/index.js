@@ -31,7 +31,7 @@ const Step1 = () => {
 
   return (
     <div className="form__content">
-      <h3 className="title is-4">1.1 Vainajan tiedot</h3>
+      <h3 className="title is-4">1.1 VAINAJAN TIEDOT</h3>
       <hr />
       <div className="columns">
         <div className="column">
@@ -99,7 +99,7 @@ const Step1 = () => {
       </div>
 
       <br />
-      <h3 className="title is-4">1.2 Kuolinpesän oikeudenomistajat</h3>
+      <h3 className="title is-4">1.2 KUOLINPESÄN OIKEUDENOMISTAJAT</h3>
       <hr />
       <p className="primary">Suhde vainajaan</p>
 
@@ -197,8 +197,95 @@ const Step1 = () => {
         }}
       </FieldArray>
 
+      <h3 className="title is-4">1.3 MUUTA</h3>
+      <hr />
+      <h3 className="title is-4">
+        Kuka on kutsunut kuolinpesän osakkaat tähän perunkirjoitus tilaisuuteen?
+      </h3>
+      <hr />
+      <div className="columns">
+        <div className="column">
+          <Field
+            name="inviteeName"
+            component={InputWrapper}
+            type="text"
+            placeholder="Heikki Halonen"
+            label="Nimi"
+          />
+          <Error name="inviteeNimi" />
+        </div>
+        <div className="column">
+          <Field
+            name="inviteePlace"
+            component={InputWrapper}
+            type="text"
+            placeholder="Turku"
+            label="Paikkakunta"
+          />
+          <Error name="inviteePlace" />
+        </div>
+        <div className="column">
+          <Field
+            name="inviteeDate"
+            component={renderDatePickerField}
+            label="Päivämäärä"
+            placeholder="01.08.2020"
+          />
+          <Error name="inviteeDate" />
+        </div>
+      </div>
+
+      <h3 className="title is-4">Ketkä ovat uskotut miehet?</h3>
+      <hr />
+      <h3 className="title is-4">Henkilö 1</h3>
+      <div className="columns">
+        <div className="column is-3">
+          <Field
+            name="trustedMenNameFirst"
+            component={InputWrapper}
+            type="text"
+            placeholder="Heikki Halonen"
+            label="Nimi"
+          />
+          <Error name="trustedMenNameFirst" />
+        </div>
+        <div className="column is-3">
+          <Field
+            name="trustedMenPlaceFirst"
+            component={InputWrapper}
+            type="text"
+            placeholder="Turku"
+            label="Paikkakunta"
+          />
+          <Error name="trustedMenPlaceFirst" />
+        </div>
+      </div>
+      <h3 className="title is-4">Henkilö 2</h3>
+      <div className="columns">
+        <div className="column is-3">
+          <Field
+            name="trustedMenNameSecond"
+            component={InputWrapper}
+            type="text"
+            placeholder="Outi Virtanen"
+            label="Nimi"
+          />
+          <Error name="trustedMenNameSecond" />
+        </div>
+        <div className="column is-3">
+          <Field
+            name="trustedMenPlaceSecond"
+            component={InputWrapper}
+            type="text"
+            placeholder="Turku"
+            label="Paikkakunta"
+          />
+          <Error name="trustedMenPlaceSecond" />
+        </div>
+      </div>
+
       <br />
-      <h3 className="title is-4">1.3 Testamentti</h3>
+      <h3 className="title is-4">1.4 TESTAMENTTI </h3>
       <hr />
       <div className="columns">
         <div className="column is-6">
@@ -236,7 +323,7 @@ const Step1 = () => {
 
       <br />
       <h3 className="title is-4">
-        1.4 TOIMITUKSEN PERUSTEENA OLEVAT ASIAKIRJAT JA TIEDOT
+        1.5 TOIMITUKSEN PERUSTEENA OLEVAT ASIAKIRJAT JA TIEDOT
       </h3>
       <hr />
       <div className="columns">
@@ -400,7 +487,7 @@ const Step1 = () => {
 
       <br />
       <h3 className="title is-4">
-        1.5 VAINAJAN RAHAVARAT KORKOINEEN (per kuolinpäivä)
+        1.6 VAINAJAN RAHAVARAT KORKOINEEN (per kuolinpäivä)
       </h3>
       <hr />
       <p className="primary">
@@ -478,7 +565,7 @@ const Step1 = () => {
 
       <br />
       <h3 className="title is-4">
-        1.6 OSUUSTODISTUKSET, OSAKKEET, RAHASTOT, YMS
+        1.7 OSUUSTODISTUKSET, OSAKKEET, RAHASTOT, YMS
       </h3>
       <hr />
       <p className="primary">Omistuserän tiedot (nimi ja määrä) </p>
@@ -554,7 +641,7 @@ const Step1 = () => {
       </FieldArray>
 
       <br />
-      <h3 className="title is-4">1.7 VAINAJAN KIINTEISTÖT / HUONEISTOT</h3>
+      <h3 className="title is-4">1.8 VAINAJAN KIINTEISTÖT / HUONEISTOT</h3>
       <hr />
       <br />
 
@@ -667,28 +754,63 @@ const Step1 = () => {
             <Error name="deceasedCarBrandTypeValue" />
           </div>
         </div>
-        <div className="columns">
-          <div className="column is-5">
-            <Field
-              name="deceasedMotorBikeBrandTypeInfo"
-              component={InputWrapper}
-              type="text"
-              placeholder="Suzuki PV, 1990, AB-12"
-              label="Muun ajoneuvon/omaisuuden merkki/vm/rekisterinumero"
-            />
-            <Error name="deceasedMotorBikeBrandTypeInfo" />
-          </div>
-          <div className="column is-2">
-            <Field
-              name="deceasedMotorBikeBrandTypeValue"
-              component={InputWrapper}
-              type="text"
-              placeholder="100"
-              label="Arvo (€)"
-            />
-            <Error name="deceasedMotorBikeBrandTypeValue" />
-          </div>
-        </div>
+
+
+        <FieldArray name="deceasedMotorBikeBrandTypeInfo">
+          {({ fields }) => {
+            return (
+              <div>
+                {fields.map((name, index) => (
+                  <div key={name} className="columns">
+                    <div className="column is-5">
+                      <Field
+                        name={`${name}.name`}
+                        component={InputWrapper}
+                        type="text"
+                        placeholder="Suzuki PV, 1990, AB-12"
+                        label="Muun ajoneuvon/omaisuuden merkki/vm/rekisterinumero"
+                      />
+                    </div>
+                    <div className="column is-2">
+                      <Field
+                        name={`${name}.value`}
+                        component={InputWrapper}
+                        type="text"
+                        placeholder="100"
+                        label="Arvo (€)"
+                      />
+
+                      <span
+                        role="img"
+                        aria-label="Close"
+                        className="del__btn"
+                        onClick={() => {
+
+                          fields.remove(index);
+                        }}
+                        style={{ cursor: "pointer" }}
+                      >
+                        <i className="fa fa-trash" />
+                      </span>
+                    </div>
+
+                  </div>
+                ))}
+                <span className="add__btn margin">
+                  <button
+                    className="button is-small is-primary add"
+                    onClick={() => fields.push({ name: "", value: "" })}
+                    type="button"
+                  >
+                    Lisää
+                  </button>
+                </span>
+              </div>
+            );
+          }}
+        </FieldArray>
+
+
       </Condition>
 
       <div className="columns">
@@ -871,7 +993,7 @@ const Step1 = () => {
       </Condition>
 
       <br />
-      <h3 className="title is-4">1.8 Vainajan velat</h3>
+      <h3 className="title is-4">1.9 VAINAJAN VELAT</h3>
       <hr />
       <div className="columns">
         <div className="column is-6">
@@ -962,7 +1084,7 @@ const Step1 = () => {
       </Condition>
 
       <br />
-      <h3 className="title is-4">1.9 Henkivakuutus </h3>
+      <h3 className="title is-4">1.10 Henkivakuutus </h3>
       <hr />
       <div className="columns">
         <div className="column is-6">
@@ -1060,94 +1182,8 @@ const Step1 = () => {
       </Condition>
 
       <br />
-      <h3 className="title is-4">1.10 Muuta</h3>
-      <hr />
-      <h3 className="title is-4">
-        Kuka on kutsunut kuolinpesän osakkaat tähän perunkirjoitus tilaisuuteen?
-      </h3>
-      <hr />
-      <div className="columns">
-        <div className="column">
-          <Field
-            name="inviteeName"
-            component={InputWrapper}
-            type="text"
-            placeholder="Heikki Halonen"
-            label="Nimi"
-          />
-          <Error name="inviteeNimi" />
-        </div>
-        <div className="column">
-          <Field
-            name="inviteePlace"
-            component={InputWrapper}
-            type="text"
-            placeholder="Turku"
-            label="Paikkakunta"
-          />
-          <Error name="inviteePlace" />
-        </div>
-        <div className="column">
-          <Field
-            name="inviteeDate"
-            component={renderDatePickerField}
-            label="Päivämäärä"
-            placeholder="01.08.2020"
-          />
-          <Error name="inviteeDate" />
-        </div>
-      </div>
 
-      <h3 className="title is-4">Ketkä ovat uskotut miehet?</h3>
-      <hr />
-      <h3 className="title is-4">Henkilö 1</h3>
-      <div className="columns">
-        <div className="column is-3">
-          <Field
-            name="trustedMenNameFirst"
-            component={InputWrapper}
-            type="text"
-            placeholder="Heikki Halonen"
-            label="Nimi"
-          />
-          <Error name="trustedMenNameFirst" />
-        </div>
-        <div className="column is-3">
-          <Field
-            name="trustedMenPlaceFirst"
-            component={InputWrapper}
-            type="text"
-            placeholder="Turku"
-            label="Paikkakunta"
-          />
-          <Error name="trustedMenPlaceFirst" />
-        </div>
-      </div>
-      <h3 className="title is-4">Henkilö 2</h3>
-      <div className="columns">
-        <div className="column is-3">
-          <Field
-            name="trustedMenNameSecond"
-            component={InputWrapper}
-            type="text"
-            placeholder="Outi Virtanen"
-            label="Nimi"
-          />
-          <Error name="trustedMenNameSecond" />
-        </div>
-        <div className="column is-3">
-          <Field
-            name="trustedMenPlaceSecond"
-            component={InputWrapper}
-            type="text"
-            placeholder="Turku"
-            label="Paikkakunta"
-          />
-          <Error name="trustedMenPlaceSecond" />
-        </div>
-      </div>
-
-      <h3 className="title is-4">Läsnä perunkirjoitustilaisuudessa?</h3>
+      <h3 className="title is-4">1.11 LÄSNÄ</h3>
       <hr />
       <FieldArray name="whoWasPresent">
         {({ fields }) => {
