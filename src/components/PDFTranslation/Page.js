@@ -2,31 +2,26 @@ import React, { useEffect, useState } from "react";
 import { Text, Font, Page, StyleSheet, View } from "@react-pdf/renderer";
 import axios from "axios";
 
-import ContentHeader from "./ContentHeader";
-import Testament from "./Testament";
 import DocumentsAndInfo from "./DocumentsAndInfo";
-import DeceasedStockInfo from "./DeceasedStockInfo";
-import LineBreak from "./LineBreak";
-import FuneralExpenses from "./FuneralExpenses";
-import WidowInfo from "./WidowInfo";
 import IntroInfo from "./IntroInfo";
 import TruestedMen from "./TrustedMen";
 import DeceasedInfo from "./Deceased";
 import Partners from "./Partners";
 import PresentAtMeeting from "./PresentAtMeeting";
 import Announcer from "./Announcer";
-import DeceasedProperty from "./DeceasedProperty";
-import DeceasedBankInfo from "./DeceasedBankInfo";
-import DeceasedPersonalItemsInfo from "./DeceasedPersonalItemsInfo";
-import DeceasedDebtInfo from "./DeceasedDebtInfo";
-import DeceasedTotalSum from "./DeceasedTotalSum";
-import WidowTotalSum from "./WidowTotalSum";
+import DeceasedAssetsPropertiesSum from "./DeceasedAssetsPropertieslSum";
 import Announcement from "./Announcement";
 import Insurance from "./Insurance";
 import WindowAnnouncement from "./WindowAnnouncement";
 import Inquires from "./Inquires";
 import Assurances from "./Assurances";
 import Footer from "./Footer";
+import DeceasedAssetsProperties from "./DeceasedAssetsProperties";
+import DeceaseddDebtExpenses from "./DeceasedDebtExpenses";
+import DeceasedDebtExpensesTotal from "./DeceasedDebtExpensesSum";
+import DeceasedBalanceSummary from "./DeceasedBalanceSummary";
+import WidowAssetsProperties from "./WidowAssetsProperties";
+import WidowBalanceSummary from "./WidowBalanceSummary";
 
 import OpenSans from "./fonts/Open_Sans/OpenSans-Regular.ttf";
 import LatoRegular from "./fonts/Lato/Lato-Regular.ttf";
@@ -137,25 +132,16 @@ const DocumentPage = (props) => {
         <DeceasedInfo jsonSchema={jsonSchema && jsonSchema} />
         <Partners jsonSchema={jsonSchema && jsonSchema} />
         <PresentAtMeeting jsonSchema={jsonSchema && jsonSchema} />
-        <Testament jsonSchema={jsonSchema} />
         <DocumentsAndInfo jsonSchema={jsonSchema} />
         <Announcer jsonSchema={jsonSchema} />
-        <LineBreak />
-        <ContentHeader label="Vainajan vara" />
-        <DeceasedBankInfo jsonSchema={jsonSchema} />
-        <DeceasedStockInfo jsonSchema={jsonSchema} />
-        <DeceasedProperty jsonSchema={jsonSchema} />
-        <DeceasedPersonalItemsInfo jsonSchema={jsonSchema} />
-        <DeceasedDebtInfo jsonSchema={jsonSchema} />
-        <DeceasedTotalSum jsonSchema={jsonSchema} />
-        <br />
-        <ContentHeader label="Vainajan ja pesän velat ja poistot" />
-        <FuneralExpenses jsonSchema={jsonSchema} />
-        <ContentHeader label="Lesken varat" />
-        <WidowInfo jsonSchema={jsonSchema} />
-        <WidowTotalSum jsonSchema={jsonSchema} />
+        <DeceasedAssetsProperties jsonSchema={jsonSchema} />
+        <DeceasedAssetsPropertiesSum jsonSchema={jsonSchema} />
+        <DeceaseddDebtExpenses jsonSchema={jsonSchema} />
+        <DeceasedDebtExpensesTotal jsonSchema={jsonSchema} />
+        <DeceasedBalanceSummary jsonSchema={jsonSchema} />
+        <WidowAssetsProperties jsonSchema={jsonSchema} />
+        <WidowBalanceSummary jsonSchema={jsonSchema} />
         <Announcement jsonSchema={jsonSchema} />
-        <Insurance jsonSchema={jsonSchema} />
         <WindowAnnouncement jsonSchema={jsonSchema} />
         <Inquires jsonSchema={jsonSchema} />
         <Assurances jsonSchema={jsonSchema} />
