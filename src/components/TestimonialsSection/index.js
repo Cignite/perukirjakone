@@ -7,7 +7,7 @@ function TestimonialsSection(props) {
     <section className="TestimonialsSection section is-medium">
       <div className="container">
         <header className="section-header">
-          <h1 className="title has-text-centered">Testimonials</h1>
+          <h1 className="title is-2 has-text-centered">TESTIMONIALS</h1>
         </header>
         <Testimonials
           items={[
@@ -18,7 +18,7 @@ function TestimonialsSection(props) {
               bio:
                 "Serveur heberger sur {Site}, utilisant Fivem et disposant de XXX slots joueur. tout les mode sont issue du processus de developpement officiel Fivem pour garantir une experienc ede jeu maximale.",
               company: "company.com",
-              companyUrl: "https://company.com"
+              companyUrl: "https://company.com",
             },
             {
               headerImage: "https://source.unsplash.com/uwPBAlQyIag/1080x360",
@@ -28,7 +28,7 @@ function TestimonialsSection(props) {
               bio:
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo, corporis totam!",
               company: "company.com",
-              companyUrl: "https://company.com"
+              companyUrl: "https://company.com",
             },
             {
               headerImage: "https://source.unsplash.com/pJ_DCj9KswI/1080x360",
@@ -38,8 +38,8 @@ function TestimonialsSection(props) {
               bio:
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae.",
               company: "company.com",
-              companyUrl: "https://company.com"
-            }
+              companyUrl: "https://company.com",
+            },
           ]}
         />
       </div>
