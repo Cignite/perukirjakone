@@ -1,115 +1,131 @@
-import React from 'react';
-import {
-  Text,
-  StyleSheet,
-  View
-} from '@react-pdf/renderer';
+import React from "react";
+import { Text, StyleSheet, View } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   row: {
+    padding: 10,
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   col: {
-    margin: 10,
-    padding: 10,
-  },
-  border: {
-    borderStyle: "solid",
-    borderBottomColor: "#2d2d2d",
-    borderBottomWidth: 1
-  },
-  borderBox: {
-    borderStyle: "dashed",
-    borderColor: "#2d2d2d",
-    borderWidth: 1
-  },
-  header: {
-    paddingLeft: 30,
-    marginBottom: -30,
-    fontSize: '20px',
-    fontFamily: 'Lato',
-    color: 'black'
-  },
-  colHeader: {
-    fontSize: 12,
-    fontFamily: 'Lato',
-    padding: 10,
-  },
-  colHeaderBold: {
-    fontSize: 12,
-    fontFamily: 'Lato Bold',
-    padding: 10,
+    padding: 5,
   },
   colText: {
     fontSize: 12,
-    fontFamily: 'Lato',
-    color: '#000000',
+    fontFamily: "Lato",
     padding: 10,
+    color: "#000000",
+    marginRight: 20,
+    width: "80%",
   },
-  description: {
-    margin: 10,
+  colHeader: {
+    fontSize: 15,
+    fontFamily: "Lato Bold",
+  },
+  marginLeft: {
+    marginLeft: 140,
+  },
+  col1: {
+    padding: 0,
+  },
+  marginBelow: {
+    marginBottom: 60,
+  },
+  row1: {
     padding: 10,
-    fontSize: 12,
-    fontFamily: 'Lato',
-    color: '#000000',
-    marginTop: -20,
-    marginBottom: -20,
+    display: "flex",
+    flexDirection: "row",
+    paddingTop: 12,
   },
-  footer: {
-    marginTop: -30
+  col: {
+    padding: 5,
   },
-  signature: {
-    marginTop: -15,
-    marginLeft: 20,
+  colText1: {
+    marginTop: -30,
   },
-  announcer: {
-    marginTop: -15,
-    marginLeft: 0,
-  }
 });
 
 const Footer = ({ jsonSchema }) => (
   <>
-    <View style={[styles.row, styles.footer]}>
-      <View style={[styles.col]}>
-        <View>
-          <Text style={styles.colHeader}>Paikka ja aika edellä mainitut </Text>
-          <Text style={styles.colHeaderBold}>{jsonSchema && jsonSchema.inviteeName}</Text>
-          <Text style={[styles.colText, styles.announcer]}>Ilmoittaja</Text>
-        </View>
-      </View>
-      <View style={[styles.col]}>
-        <View>
-          <Text style={styles.colText}>_______________________________________</Text>
-          <Text style={styles.colText}>_______________________________________</Text>
-          <Text style={[styles.colText, styles.signature]}>Allekirjoitus yläpuolelle</Text>
-        </View>
-      </View>
-    </View>
-
     <View style={styles.row}>
-      <Text style={styles.description}>Todistamme, että olemme merkinneet perukirjaan oikein kaiken meille ilmoitetun ja arvioineet varat parhaan ymmärryksemme mukaan.
-Paikka ja aika edellä mainitut
-      </Text>
+      <View style={[styles.col]}>
+        <View>
+          <Text style={styles.colHeader}></Text>
+        </View>
+      </View>
+      <View style={styles.marginLeft}>
+        <Text style={styles.colText}>Paikka ja aika edellä mainitut</Text>
+      </View>
+      <View style={styles.marginBelow} />
     </View>
 
     <View style={styles.row}>
       <View style={[styles.col]}>
         <View>
-          <Text style={styles.colHeader}>Paikka ja aika edellä mainitut </Text>
-          <Text style={styles.colHeaderBold}>{jsonSchema && jsonSchema.trustedMenNameFirst}</Text>
-          <Text style={styles.colHeader}>_______________________________________</Text>
-          <Text style={[styles.colText, styles.signature]}>Allekirjoitus yläpuolelle</Text>
+          <Text style={styles.colHeader}></Text>
         </View>
       </View>
+      <View style={styles.marginLeft}>
+        <Text style={styles.colText}>
+          {jsonSchema && jsonSchema.inviteeName}
+        </Text>
+      </View>
+    </View>
+
+    <View style={styles.row}>
+      <View style={styles.marginLeft}>
+        <Text style={styles.colText}>
+          Todistamme, että olemme merkinneet perukirjaan oikein kaiken meille
+          ilmoitetun ja arvioineet varat parhaan ymmärryksemme mukaan. Paikka ja
+          aika edellä mainitut
+        </Text>
+      </View>
+    </View>
+
+    <View style={styles.row}>
       <View style={[styles.col]}>
         <View>
-          <Text style={styles.colText}>_______________________________________</Text>
-          <Text style={styles.colHeaderBold}>{jsonSchema && jsonSchema.trustedMenNameSecond}</Text>
-          <Text style={styles.colHeader}>_______________________________________</Text>
-          <Text style={[styles.colText, styles.signature]}>Allekirjoitus yläpuolelle</Text>
+          <Text style={styles.colHeader}></Text>
         </View>
+      </View>
+      <View style={styles.marginLeft}>
+        <Text style={styles.colText}>Paikka ja aika edellä mainitut</Text>
+      </View>
+      <View style={styles.marginBelow} />
+    </View>
+
+    <View style={styles.row}>
+      <View style={[styles.col]}>
+        <View>
+          <Text style={styles.colHeader}></Text>
+        </View>
+      </View>
+      <View style={styles.marginLeft}>
+        <Text style={styles.colText}>
+          {jsonSchema && jsonSchema.trustedMenNameFirst}
+        </Text>
+      </View>
+      <View style={styles.marginLeft}>
+        <Text style={styles.colText}>
+          {jsonSchema && jsonSchema.trustedMenNameSecond}
+        </Text>
+      </View>
+    </View>
+    <View style={styles.row1}>
+      <View style={styles.col}>
+        <View>
+          <Text style={styles.colHeader}></Text>
+        </View>
+      </View>
+      <View style={styles.marginLeft}>
+        <Text style={[styles.colText, styles.colText1]}>
+          {jsonSchema && jsonSchema.trustedMenPlaceFirst}
+        </Text>
+      </View>
+      <View style={styles.marginLeft}>
+        <Text style={[styles.colText, styles.colText1]}>
+          {jsonSchema && jsonSchema.trustedMenPlaceSecond}
+        </Text>
       </View>
     </View>
   </>
