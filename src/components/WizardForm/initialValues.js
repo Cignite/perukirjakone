@@ -1,102 +1,100 @@
 const initialValues = {
-  deceasedPerson: [
-    { relationType: "" },
-  ],
+  deceasedPerson: [{ relationType: "" }],
   propertyInfo: [
     {
       name: "",
-      value: ""
+      value: "",
     },
   ],
   bankAccountInfo: [
     {
-      number: "" ,
-      value: ""
+      number: "",
+      value: "",
     },
   ],
   deceasedMotorBikeBrandTypeInfo: [
     {
-      number: "" ,
-      value: ""
+      number: "",
+      value: "",
     },
   ],
   shareInfo: [
     {
       number: "",
-      value: ""
+      value: "",
     },
   ],
   debtInfo: [
     {
       name: "",
-      value: ""
+      value: "",
     },
   ],
   propertyLikeSofaWatchInfo: [
     {
       name: "",
-      value: ""
-    }
+      value: "",
+    },
   ],
   widowMotorBikeBrandTypeInfo: [
     {
       name: "",
-      value: ""
-    }
+      value: "",
+    },
   ],
   personalBelongingsInfo: [
     {
       name: "",
-      value: ""
-    }
+      value: "",
+    },
   ],
   widowStockInfo: [
     {
       name: "",
       value: "",
-    }
+    },
   ],
   funeralExpensesInfo: [
     {
       familyReport: "",
-    }
+    },
   ],
   otherFuneralExpenses: [
     {
-      info: ""
-    }
+      name: "",
+      value: "",
+    },
   ],
   whoWasPresent: [
     {
       name: "",
-      city: ""
-    }
+      city: "",
+    },
   ],
   widowPersonalBelonings: [
     {
-        name: "",
-        value: "",
-    }
+      name: "",
+      value: "",
+    },
   ],
   widowProperty: [
     {
       name: "",
-      value:""
-    }
+      value: "",
+    },
   ],
   widowBankInfo: [
     {
       name: "",
       value: "",
-    }
+    },
   ],
   widowBankAccountInfo: [
     {
       number: "",
-      value: ""
-    }
-  ]
-}
-
+      value: "",
+    },
+  ],
+};
 
 export default initialValues;
