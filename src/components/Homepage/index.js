@@ -1,13 +1,13 @@
 import React from "react";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 import FeaturesSection from "../FeaturesSection";
 import FeaturesSectionAlt from "../FeaturesSectionAlt";
 import TestimonialsSection from "../TestimonialsSection";
-import ClientsSection from "../ClientsSection";
 import PricingSection from "../PricingSection";
 import Divider from "../Divider";
 import MainSection from "../MainSection";
+import VideoIframe from "../Iframe";
 
 import "./styles.scss";
 
@@ -22,7 +22,7 @@ function Homepage(props) {
         </script>
       </Helmet>
       <MainSection />
-      <ClientsSection />
+      <VideoIframe />
       <Divider />
       <FeaturesSection />
       <TestimonialsSection />
