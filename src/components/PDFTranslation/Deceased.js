@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     fontFamily: "Lato Bold",
   },
   colText: {
-    fontSize: 15,
+    fontSize: 12,
     fontFamily: "Lato",
     color: "#000000",
   },

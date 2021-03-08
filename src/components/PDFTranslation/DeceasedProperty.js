@@ -1,182 +1,100 @@
-import React from 'react';
-import {
-  Text,
-  StyleSheet,
-  View
-} from '@react-pdf/renderer';
+import React from "react";
+import { Text, StyleSheet, View } from "@react-pdf/renderer";
 
-import LineBreak from './LineBreak';
+import LineBreak from "./LineBreak";
 
-import { calculateTotal } from '../utils';
+import { calculateTotal } from "../utils";
 
-const BORDER_COLOR = '#000';
-const BORDER_STYLE = 'solid';
-const COL1_WIDTH = 200
+const BORDER_COLOR = "#000";
+const BORDER_STYLE = "solid";
+const COL1_WIDTH = 200;
 const COLN_WIDTH = (100 - COL1_WIDTH) / 3;
 
 const styles = StyleSheet.create({
   row: {
-    margin: 10,
-    padding: 10,
+    padding: 5,
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   col: {
-    margin: 10,
-    padding: 10,
+    padding: 5,
   },
-  border: {
-    borderStyle: "solid",
-    borderBottomColor: "#2d2d2d",
-    borderBottomWidth: 1
-  },
-  borderBox: {
-    borderStyle: "dashed",
-    borderColor: "#2d2d2d",
-    borderWidth: 1
-  },
-  header: {
-    paddingLeft: 30,
-    marginBottom: -30,
-    fontSize: '20px',
-    fontFamily: 'Lato Bold',
-    color: 'black'
+  colText: {
+    fontSize: 12,
+    fontFamily: "Lato",
+    color: "#000000",
   },
   colHeader: {
     fontSize: 15,
-    fontFamily: 'Lato Bold',
+    fontFamily: "Lato Bold",
   },
-  colText: {
-    fontSize: 15,
-    fontFamily: 'Lato',
-    color: '#A8026F',
+  marginLeft: {
+    marginLeft: 65,
   },
-  detailContainer: {
-    display: "flex",
-    flexDirection: 'row',
-  },
-  item: {
-    flexDirection: 'row',
-    marginBottom: 1,
-  },
-  bulletPoint: {
-    width: 10,
-    fontSize: 10,
-  },
-  itemContent: {
-    flex: 10,
-    fontSize: 10,
-    fontFamily: 'Lato',
-    flexGrow: 1
-  },
-  detailText: {
-    fontSize: 15,
-    marginLeft: 30,
-    marginTop: 35,
-    fontFamily: 'Lato Bold',
-    marginBottom: 15
+  col1: {
+    padding: 0,
   },
   table: {
     marginLeft: 30,
     display: "table",
     width: "auto",
-    borderStyle: BORDER_STYLE,
-    borderColor: BORDER_COLOR,
-    borderWidth: 1,
-    borderRightWidth: 0,
-    borderBottomWidth: 0
   },
   tableRow: {
     margin: "auto",
-    flexDirection: "row"
+    flexDirection: "row",
+    marginLeft: 40,
+    fontSize: 15,
+    fontFamily: "Lato",
+    color: "#000000",
   },
-  tableCol1Header: {
-    width: COL1_WIDTH + '%',
-    borderStyle: BORDER_STYLE,
-    borderColor: BORDER_COLOR,
-    borderBottomColor: '#000',
-    borderWidth: 1,
-    borderLeftWidth: 0,
-    borderTopWidth: 0
-  },
-  tableColHeader: {
-    width: COLN_WIDTH + "%",
-    borderStyle: BORDER_STYLE,
-    borderColor: BORDER_COLOR,
-    borderBottomColor: '#000',
-    borderWidth: 1,
-    borderLeftWidth: 0,
-    borderTopWidth: 0
-  },
+
   tableCol1: {
-    width: COL1_WIDTH + '%',
-    borderStyle: BORDER_STYLE,
-    borderColor: BORDER_COLOR,
-    borderWidth: 1,
-    borderLeftWidth: 0,
-    borderTopWidth: 0
+    width: COL1_WIDTH + "%",
   },
   tableCol: {
     width: COLN_WIDTH + "%",
-    borderStyle: BORDER_STYLE,
-    borderColor: BORDER_COLOR,
-    borderWidth: 1,
-    borderLeftWidth: 0,
-    borderTopWidth: 0
-  },
-  tableCellHeader: {
-    margin: 5,
-    fontSize: 12,
-    fontWeight: 500
   },
   tableCell: {
-    margin: 5,
-    fontSize: 10
-  }
+    fontSize: 12,
+    fontFamily: "Lato",
+    color: "#000000",
+  },
 });
 
 const DeceasedProperties = ({ jsonSchema }) => {
-  const deceasedPropertyTotal = calculateTotal(jsonSchema && jsonSchema.propertyInfo);
+  const deceasedPropertyTotal = calculateTotal(
+    jsonSchema && jsonSchema.propertyInfo
+  );
 
   return (
     <>
-      <View style={styles.detailContainer}>
-        <Text style={styles.detailText}>Ominaisuudet</Text>
-      </View>
-      <View style={styles.table}>
-        <View style={styles.tableRow}>
-          <View style={styles.tableCol1Header}>
-            <Text style={styles.tableCellHeader}>Kiinteistöt/Huoneistot Määrä</Text>
-          </View>
-          <View style={styles.tableCol1Header}>
-            <Text style={styles.tableCellHeader}>Määrä</Text>
+      {/* <View style={styles.row}>
+        <View style={[styles.col]}>
+          <View>
+            <Text style={styles.colHeader}>III. Ominaisuudet </Text>
           </View>
         </View>
-        {jsonSchema && jsonSchema.propertyInfo && jsonSchema.propertyInfo.map((item, index) => {
-          return (
-            <View style={styles.tableRow} key={index}>
-              <View style={styles.tableCol1}>
-                <Text style={styles.tableCell}>{item.name}</Text>
-              </View>
+      </View> */}
 
-              <View style={styles.tableCol1}>
-                <Text style={styles.tableCell}>{item.value}</Text>
+      <View style={styles.table}>
+        {jsonSchema &&
+          jsonSchema.propertyInfo &&
+          jsonSchema.propertyInfo.map((item, index) => {
+            return (
+              <View style={styles.tableRow} key={index}>
+                <View style={styles.tableCol1}>
+                  <Text style={styles.tableCell}>{item.name}</Text>
+                </View>
+
+                <View style={styles.tableCol1}>
+                  <Text style={styles.tableCell}>{item.value}</Text>
+                </View>
               </View>
-            </View>
-          )
-        })}
-        <View style={styles.tableRow}>
-          <View style={styles.tableCol1Header}>
-            <Text style={styles.tableCellHeader}>Yhteensä</Text>
-          </View>
-          <View style={styles.tableCol1Header}>
-            <Text style={styles.tableCellHeader}>{deceasedPropertyTotal}</Text>
-          </View>
-        </View>
+            );
+          })}
       </View>
-      <LineBreak />
     </>
-  )
-}
+  );
+};
 
 export default DeceasedProperties;

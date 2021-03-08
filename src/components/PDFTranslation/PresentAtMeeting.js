@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   colText: {
-    fontSize: 15,
+    fontSize: 12,
     fontFamily: 'Lato',
     color: '#000000',
     margin: 2

@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     fontFamily: "Lato Bold",
   },
   colText: {
-    fontSize: 15,
+    fontSize: 12,
     fontFamily: "Lato",
     color: "#000",
   },
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   detailText: {
-    fontSize: 18,
+    fontSize: 12,
     marginLeft: 35,
     marginTop: 10,
     fontFamily: "Lato Bold",
