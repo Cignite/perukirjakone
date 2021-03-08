@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import { Field } from "react-final-form";
-import { FieldArray } from 'react-final-form-arrays';
+import { FieldArray } from "react-final-form-arrays";
 
-import InputWrapper from '../../../Shared/Input';
-import Error from '../../../Shared/Error';
+import InputWrapper from "../../../Shared/Input";
+import Error from "../../../Shared/Error";
 
-import './styles.scss';
+import "./styles.scss";
 
 const Step2 = () => {
   //const [showDeceasedNotification, setShowDeceasedNotification] = React.useState(false);
@@ -19,7 +19,9 @@ const Step2 = () => {
   // const [codeValue, setCodeValue] = React.useState("");
   return (
     <div className="form__content">
-      <h3 className="title is-4">Ilmoita hautajaisten järjestämiseen liittyvät kulut ja kustannukset</h3>
+      <h3 className="title is-4">
+        Ilmoita hautajaisten järjestämiseen liittyvät kulut ja kustannukset
+      </h3>
       <hr />
       <br />
       <div className="columns step2__content">
@@ -36,7 +38,7 @@ const Step2 = () => {
                         type="text"
                         placeholder="499"
                         label="Sukuselvitykset"
-                        />
+                      />
 
                       <span
                         role="img"
@@ -49,10 +51,10 @@ const Step2 = () => {
                           // } else {
                           //   fields.remove(index)}
                           // }
-                          fields.remove(index)}
-                        }
+                          fields.remove(index);
+                        }}
                         style={{ cursor: "pointer" }}
-                        >
+                      >
                         <i className="fa fa-trash" />
                       </span>
                       <Error name={`${name}.value`} />
@@ -71,15 +73,12 @@ const Step2 = () => {
                 <span className="add__btn">
                   <button
                     className="button is-small is-primary"
-                    onClick={() =>
-                      fields.push({ value: ""})
-                    }
+                    onClick={() => fields.push({ value: "" })}
                     type="button"
-                    >
+                  >
                     Lisää
                   </button>
                 </span>
-
               </div>
             );
           }}
@@ -92,7 +91,7 @@ const Step2 = () => {
             type="text"
             placeholder="200"
             label="Saldotodistukset"
-            />
+          />
         </div>
         <div className="column is-3">
           <Field
@@ -101,7 +100,7 @@ const Step2 = () => {
             type="text"
             placeholder="200"
             label="Kukat"
-            />
+          />
         </div>
         <div className="column is-2">
           <Field
@@ -110,9 +109,8 @@ const Step2 = () => {
             type="text"
             placeholder="1200"
             label="Hautakivi/kunnostus"
-            />
+          />
         </div>
-
       </div>
 
       <FieldArray name="otherFuneralExpenses">
@@ -123,12 +121,12 @@ const Step2 = () => {
                 <div key={name} className="columns">
                   <div className="column is-5">
                     <Field
-                      name={`${name}.info`}
+                      name={`${name}.name`}
                       component={InputWrapper}
                       type="text"
                       placeholder="200"
                       label="Muut kulut (Esimerkiksi valokuvat, musiikki, ruoka yms.)"
-                      />
+                    />
                   </div>
                   <div className="column is-2">
                     <Field
@@ -137,7 +135,7 @@ const Step2 = () => {
                       type="text"
                       placeholder="500"
                       label="Arvo (€)"
-                      />
+                    />
 
                     <span
                       role="img"
@@ -150,14 +148,13 @@ const Step2 = () => {
                         // } else {
                         //   fields.remove(index)}
                         // }
-                        fields.remove(index)}
-                      }
+                        fields.remove(index);
+                      }}
                       style={{ cursor: "pointer" }}
-                      >
+                    >
                       <i className="fa fa-trash" />
                     </span>
                   </div>
-
 
                   <Error name={`${name}.name`} />
                   {/*showWidowBankInfo && (
@@ -174,11 +171,9 @@ const Step2 = () => {
               <div className="add__btn margin">
                 <button
                   className="button is-small is-primary"
-                  onClick={() =>
-                    fields.push({ number: "", value: ""})
-                  }
+                  onClick={() => fields.push({ name: "", value: "" })}
                   type="button"
-                  >
+                >
                   Lisää
                 </button>
               </div>
@@ -195,7 +190,7 @@ const Step2 = () => {
             type="text"
             placeholder="400"
             label="Perunkirjoituksen toimittaminen"
-            />
+          />
         </div>
         <div className="column is-3">
           <Field
@@ -204,12 +199,12 @@ const Step2 = () => {
             type="text"
             label="Perukirjakoneen käyttömaksu "
             disabled={true}
-            />
+          />
         </div>
       </div>
       <br />
     </div>
-  )
-}
+  );
+};
 
 export default Step2;
