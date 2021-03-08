@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
   itemContent: {
     flex: 1,
-    fontSize: 15,
+    fontSize: 12,
     fontFamily: "Lato",
     marginBottom: 5,
   },
