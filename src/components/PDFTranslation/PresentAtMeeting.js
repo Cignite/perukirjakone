@@ -1,8 +1,6 @@
 import React from "react";
 import { Text, StyleSheet, View } from "@react-pdf/renderer";
 
-const COL1_WIDTH = 200;
-
 const styles = StyleSheet.create({
   row: {
     padding: 5,
