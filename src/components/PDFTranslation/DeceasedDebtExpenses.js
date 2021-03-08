@@ -1,11 +1,8 @@
 import React from "react";
 import { Text, StyleSheet, View } from "@react-pdf/renderer";
-import moment from "moment";
 
-import { calculateTotal, formatNumber } from "../utils";
+import { calculateTotal } from "../utils";
 
-const BORDER_COLOR = "#000";
-const BORDER_STYLE = "solid";
 const COL1_WIDTH = 200;
 const COLN_WIDTH = (100 - COL1_WIDTH) / 3;
 
@@ -61,25 +58,6 @@ const styles = StyleSheet.create({
 });
 
 const DeceaseddDebtExpenses = ({ jsonSchema }) => {
-  const deceasedBankTotal = calculateTotal(
-    jsonSchema && jsonSchema.bankAccountInfo
-  );
-
-  const deceasedPersonalBelongingsTotal = calculateTotal(
-    jsonSchema && jsonSchema.personalBelongingsInfo
-  );
-  const deceasedBelongingsOver4KTotal = calculateTotal(
-    jsonSchema && jsonSchema.propertyLikeSofaWatchInfo
-  );
-  const deceasedAutomobilesTotal =
-    jsonSchema &&
-    parseInt(jsonSchema.deceasedCarBrandTypeValue, 10) +
-      parseInt(jsonSchema.deceasedMotorBikeBrandTypeValue, 10);
-
-  const deceasedPropertyTotal = calculateTotal(
-    jsonSchema && jsonSchema.propertyInfo
-  );
-
   return (
     <>
       <View style={styles.row}>

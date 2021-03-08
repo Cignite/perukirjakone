@@ -11,7 +11,7 @@ import PresentAtMeeting from "./PresentAtMeeting";
 import Announcer from "./Announcer";
 import DeceasedAssetsPropertiesSum from "./DeceasedAssetsPropertieslSum";
 import Announcement from "./Announcement";
-import Insurance from "./Insurance";
+// import Insurance from "./Insurance";
 import WindowAnnouncement from "./WindowAnnouncement";
 import Inquires from "./Inquires";
 import Assurances from "./Assurances";

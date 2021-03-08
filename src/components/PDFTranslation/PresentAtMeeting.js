@@ -1,14 +1,7 @@
-import React from 'react';
-import {
-  Text,
-  StyleSheet,
-  View
-} from '@react-pdf/renderer';
+import React from "react";
+import { Text, StyleSheet, View } from "@react-pdf/renderer";
 
-const BORDER_COLOR = '#000';
-const BORDER_STYLE = 'solid';
-const COL1_WIDTH = 200
-const COLN_WIDTH = (100 - COL1_WIDTH) / 3;
+const COL1_WIDTH = 200;
 
 const styles = StyleSheet.create({
   row: {
@@ -21,19 +14,19 @@ const styles = StyleSheet.create({
   },
   colText: {
     fontSize: 12,
-    fontFamily: 'Lato',
-    color: '#000000',
-    margin: 2
+    fontFamily: "Lato",
+    color: "#000000",
+    margin: 2,
   },
   colHeader: {
     fontSize: 15,
-    fontFamily: 'Lato Bold',
+    fontFamily: "Lato Bold",
   },
   marginLeft: {
     marginLeft: 55,
   },
   col1: {
-    padding: 0
+    padding: 0,
   },
 });
 
@@ -46,15 +39,15 @@ const PresentAtMeeting = ({ jsonSchema }) => (
         </View>
       </View>
       <View style={styles.marginLeft}>
-        {jsonSchema && jsonSchema.whoWasPresent && jsonSchema.whoWasPresent.map((item, index) => {
-          return (
-            <View key={index} style={styles.marginLeft}>
-              <Text style={styles.colText}>
-                {item.name}
-              </Text>
-            </View>
-          )
-        })}
+        {jsonSchema &&
+          jsonSchema.whoWasPresent &&
+          jsonSchema.whoWasPresent.map((item, index) => {
+            return (
+              <View key={index} style={styles.marginLeft}>
+                <Text style={styles.colText}>{item.name}</Text>
+              </View>
+            );
+          })}
       </View>
     </View>
   </>

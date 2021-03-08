@@ -2,10 +2,6 @@ import React from "react";
 import { Text, StyleSheet, View } from "@react-pdf/renderer";
 import moment from "moment";
 
-import { formatNumber } from "../utils";
-
-const BORDER_COLOR = "#000";
-const BORDER_STYLE = "solid";
 const COL1_WIDTH = 200;
 const COLN_WIDTH = (100 - COL1_WIDTH) / 3;
 

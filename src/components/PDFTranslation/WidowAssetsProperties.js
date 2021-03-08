@@ -2,7 +2,7 @@ import React from "react";
 import { Text, StyleSheet, View } from "@react-pdf/renderer";
 import moment from "moment";
 
-import { calculateTotal, formatNumber } from "../utils";
+import { calculateTotal } from "../utils";
 
 const COL1_WIDTH = 200;
 const COLN_WIDTH = (100 - COL1_WIDTH) / 3;

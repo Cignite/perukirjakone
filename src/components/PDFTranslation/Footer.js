@@ -37,9 +37,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingTop: 12,
   },
-  col: {
-    padding: 5,
-  },
   colText1: {
     marginTop: -30,
   },
