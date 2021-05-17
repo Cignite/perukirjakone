@@ -35,7 +35,7 @@ const Assurances = ({ jsonSchema }) => (
     <View style={styles.row}>
       <View style={[styles.col]}>
         <View>
-          <Text style={styles.colHeader}>Vakuutuksets</Text>
+          <Text style={styles.colHeader}>Vakuutukset</Text>
         </View>
       </View>
       <View style={styles.marginLeft}>
