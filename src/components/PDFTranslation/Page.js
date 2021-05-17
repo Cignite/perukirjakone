@@ -27,6 +27,8 @@ import OpenSans from "./fonts/Open_Sans/OpenSans-Regular.ttf";
 import LatoRegular from "./fonts/Lato/Lato-Regular.ttf";
 import LatoBold from "./fonts/Lato/Lato-Bold.ttf";
 
+import scssstyles from "./styles.scss";
+
 const styles = StyleSheet.create({
   page: {
     padding: 50,
@@ -95,8 +97,8 @@ Font.register({
 const API_BASE_URL = "https://perukirjakone.herokuapp.com/";
 
 const DocumentPage = (props) => {
-  console.log("DocumentPage");
   const [jsonSchema, setJsonSchema] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getJSONSchema = async (payload) => {
     const getUserInfoFromStorage = JSON.parse(
@@ -110,13 +112,24 @@ const DocumentPage = (props) => {
         });
     } catch (error) {
       console.log("error", error);
-      //setUpdateJsonSchemaError(error.response.payload.message[0].messages[0].message);
+      alert("error", error);
     }
   };
 
   useEffect(() => {
+    setIsLoading(true);
     getJSONSchema();
+    setIsLoading(false);
   }, []);
+
+  if (isLoading)
+    return (
+      <div className={scssstyles.loader__container}>
+        <div className={[scssstyles.circle, scssstyles.one]} />
+        <div className={[scssstyles.circle, scssstyles.two]} />
+        <div className={[scssstyles.circle, scssstyles.three]} />
+      </div>
+    );
 
   return (
     <Page {...props} style={styles.page} wrap={false}>
