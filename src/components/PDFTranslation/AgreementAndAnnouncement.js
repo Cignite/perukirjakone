@@ -1,19 +1,14 @@
-import React from 'react';
-import {
-  Text,
-  StyleSheet,
-  View,
-  Image
-} from '@react-pdf/renderer';
-import moment from 'moment';
+import React from "react";
+import { Text, StyleSheet, View, Image } from "@react-pdf/renderer";
+import moment from "moment";
 
-import LineBreak from './LineBreak';
-import CheckBox from './checkbox.png';
-import Unchecked from './unchecked.png';
+import LineBreak from "./LineBreak";
+import CheckBox from "./checkbox.png";
+import Unchecked from "./unchecked.png";
 
-const BORDER_COLOR = '#000';
-const BORDER_STYLE = 'solid';
-const COL1_WIDTH = 200
+const BORDER_COLOR = "#000";
+const BORDER_STYLE = "solid";
+const COL1_WIDTH = 200;
 const COLN_WIDTH = (100 - COL1_WIDTH) / 3;
 
 const styles = StyleSheet.create({
@@ -21,12 +16,12 @@ const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   childRow: {
     display: "flex",
     flexDirection: "row",
-    flexGrow: 1
+    flexGrow: 1,
   },
   col: {
     marginLeft: 20,
@@ -38,53 +33,53 @@ const styles = StyleSheet.create({
   border: {
     borderStyle: "solid",
     borderBottomColor: "#2d2d2d",
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
   },
   borderBox: {
     borderStyle: "dashed",
     borderColor: "#2d2d2d",
-    borderWidth: 1
+    borderWidth: 1,
   },
   header: {
     paddingLeft: 30,
     marginBottom: -30,
-    fontSize: '20px',
-    fontFamily: 'Lato Bold',
-    color: 'black'
+    fontSize: "20px",
+    fontFamily: "Lato Bold",
+    color: "black",
   },
   colHeader: {
     fontSize: 12,
-    fontFamily: 'Lato Bold',
+    fontFamily: "Lato Bold",
   },
   colText: {
     fontSize: 12,
-    fontFamily: 'Lato',
-    color: '#000'
+    fontFamily: "Lato",
+    color: "#000",
   },
   colTextHeader: {
     fontSize: 12,
-    fontFamily: 'Lato Bold',
-    color: '#000',
+    fontFamily: "Lato Bold",
+    color: "#000",
     paddingTop: 5,
-    paddingBottom: 5
+    paddingBottom: 5,
   },
   detailContainer: {
     display: "flex",
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   detailText: {
     fontSize: 15,
     marginLeft: 35,
     marginTop: 5,
     marginBottom: 5,
-    fontFamily: 'Lato Bold',
+    fontFamily: "Lato Bold",
   },
   detailTextLevelSecond: {
     fontSize: 15,
     marginLeft: 35,
     marginTop: 20,
     marginBottom: 5,
-    fontFamily: 'Lato Bold',
+    fontFamily: "Lato Bold",
   },
   checkbox: {
     height: 15,
@@ -95,7 +90,7 @@ const styles = StyleSheet.create({
   },
   checkboxDetail: {
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   childRowContent: {
     marginTop: 10,
@@ -109,37 +104,37 @@ const styles = StyleSheet.create({
     borderColor: BORDER_COLOR,
     borderWidth: 1,
     borderRightWidth: 0,
-    borderBottomWidth: 0
+    borderBottomWidth: 0,
   },
   tableRow: {
     margin: "auto",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   tableCol1Header: {
-    width: COL1_WIDTH + '%',
+    width: COL1_WIDTH + "%",
     borderStyle: BORDER_STYLE,
     borderColor: BORDER_COLOR,
-    borderBottomColor: '#000',
+    borderBottomColor: "#000",
     borderWidth: 1,
     borderLeftWidth: 0,
-    borderTopWidth: 0
+    borderTopWidth: 0,
   },
   tableColHeader: {
     width: COLN_WIDTH + "%",
     borderStyle: BORDER_STYLE,
     borderColor: BORDER_COLOR,
-    borderBottomColor: '#000',
+    borderBottomColor: "#000",
     borderWidth: 1,
     borderLeftWidth: 0,
-    borderTopWidth: 0
+    borderTopWidth: 0,
   },
   tableCol1: {
-    width: COL1_WIDTH + '%',
+    width: COL1_WIDTH + "%",
     borderStyle: BORDER_STYLE,
     borderColor: BORDER_COLOR,
     borderWidth: 1,
     borderLeftWidth: 0,
-    borderTopWidth: 0
+    borderTopWidth: 0,
   },
   tableCol: {
     width: COLN_WIDTH + "%",
@@ -147,75 +142,74 @@ const styles = StyleSheet.create({
     borderColor: BORDER_COLOR,
     borderWidth: 1,
     borderLeftWidth: 0,
-    borderTopWidth: 0
+    borderTopWidth: 0,
   },
   tableCellHeader: {
     margin: 5,
     fontSize: 12,
-    fontWeight: 500
+    fontWeight: 500,
   },
   tableCell: {
     margin: 5,
-    fontSize: 10
+    fontSize: 10,
   },
   paragraphSecond: {
     fontSize: 15,
     marginLeft: 35,
-    fontFamily: 'Lato',
-    marginBottom: 15
+    fontFamily: "Lato",
+    marginBottom: 15,
   },
 });
 
 const AgreeementAndAnnouncement = ({ jsonSchema }) => (
   <>
     <View style={styles.row}>
-      <View >
+      <View>
         {jsonSchema && jsonSchema.verifyInfoProvidedIsCorrect ? (
           <View style={styles.col}>
             <View style={styles.checkboxDetail}>
-              <Image
-                style={styles.checkbox}
-                source={CheckBox}
-              />
-              <Text style={styles.colText}>I certify that I have entered all the necessary documents into the perukirjakone and that I have received all the other supporting documents to finalize this process.</Text>
-
+              <Image style={styles.checkbox} source={CheckBox} />
+              <Text style={styles.colText}>
+                I certify that I have entered all the necessary documents into
+                the perukirjakone and that I have received all the other
+                supporting documents to finalize this process.
+              </Text>
             </View>
           </View>
-        ): (
+        ) : (
           <View style={styles.col}>
             <View style={styles.checkboxDetail}>
-              <Image
-                style={styles.checkbox}
-                source={Unchecked}
-              />
-              <Text style={styles.colText}> I certify that I have entered all the necessary documents into the perukirjakone and that I have received all the other supporting documents to finalize this process. </Text>
+              <Image style={styles.checkbox} source={Unchecked} />
+              <Text style={styles.colText}>
+                {" "}
+                I certify that I have entered all the necessary documents into
+                the perukirjakone and that I have received all the other
+                supporting documents to finalize this process.{" "}
+              </Text>
             </View>
           </View>
         )}
       </View>
     </View>
     <View style={styles.row}>
-
       <View>
         {jsonSchema && jsonSchema.haveAllPartiesInvited ? (
           <View style={styles.col}>
             <View style={styles.checkboxDetail}>
-              <Image
-                style={styles.checkbox}
-                source={CheckBox}
-              />
-              <Text style={styles.colText}>Have all the parties been invited to this estate inventory?</Text>
-
+              <Image style={styles.checkbox} source={CheckBox} />
+              <Text style={styles.colText}>
+                Have all the parties been invited to this estate inventory?
+              </Text>
             </View>
           </View>
-        ): (
+        ) : (
           <View style={styles.col}>
             <View style={styles.checkboxDetail}>
-              <Image
-                style={styles.checkbox}
-                source={Unchecked}
-              />
-              <Text style={styles.colText}> Have all the parties been invited to this estate inventory? </Text>
+              <Image style={styles.checkbox} source={Unchecked} />
+              <Text style={styles.colText}>
+                {" "}
+                Have all the parties been invited to this estate inventory?{" "}
+              </Text>
             </View>
           </View>
         )}
@@ -224,31 +218,21 @@ const AgreeementAndAnnouncement = ({ jsonSchema }) => (
 
     <View style={styles.row}>
       <View style={styles.col}>
-        <Text style={styles.colTextHeader}>The announcement of the widow (1)</Text>
+        <Text style={styles.colTextHeader}>
+          The announcement of the widow (1)
+        </Text>
       </View>
     </View>
 
     <View style={styles.row}>
       <View>
-        {jsonSchema && jsonSchema.doesWidowWantsToLiveInSameApartment ? (
+        {jsonSchema && jsonSchema.doesWidowWantsToLiveInSameApartment && (
           <View style={styles.col}>
             <View style={styles.checkboxDetail}>
-              <Image
-                style={styles.checkbox}
-                source={CheckBox}
-              />
-              <Text style={styles.colText}>Does the widow want to remain living in the apartment?</Text>
-
-            </View>
-          </View>
-        ): (
-          <View style={styles.col}>
-            <View style={styles.checkboxDetail}>
-              <Image
-                style={styles.checkbox}
-                source={Unchecked}
-              />
-              <Text style={styles.colText}> Does the widow want to remain living in the apartment? </Text>
+              <Image style={styles.checkbox} source={CheckBox} />
+              <Text style={styles.colText}>
+                Does the widow want to remain living in the apartment?
+              </Text>
             </View>
           </View>
         )}
@@ -263,43 +247,33 @@ const AgreeementAndAnnouncement = ({ jsonSchema }) => (
 
     <View style={styles.row}>
       <View>
-        {jsonSchema && jsonSchema.doesWidowWantsToLiveInSameApartment ? (
+        {jsonSchema && jsonSchema.isOtherAnnouncement && (
           <View style={styles.col}>
             <View style={styles.checkboxDetail}>
-              <Image
-                style={styles.checkbox}
-                source={CheckBox}
-              />
-              <Text style={styles.colText}>Do you want to make other announcements?</Text>
-
-            </View>
-          </View>
-        ): (
-          <View style={styles.col}>
-            <View style={styles.checkboxDetail}>
-              <Image
-                style={styles.checkbox}
-                source={Unchecked}
-              />
-              <Text style={styles.colText}>Do you want to make other announcements?</Text>
+              <Image style={styles.checkbox} source={CheckBox} />
+              <Text style={styles.colText}>
+                Do you want to make other announcements?
+              </Text>
             </View>
           </View>
         )}
       </View>
       <View style={styles.detailContainer} />
-
     </View>
 
-
     <View style={styles.detailContainer}>
-      <Text style={styles.detailTextLevelSecond}>Was there life insurance?</Text>
+      <Text style={styles.detailTextLevelSecond}>
+        Was there life insurance?
+      </Text>
     </View>
     {jsonSchema && jsonSchema.isThereLifeInsurance ? (
       <>
         <View style={[styles.table, styles.border]}>
           <View style={styles.tableRow}>
             <View style={styles.tableCol1Header}>
-              <Text style={styles.tableCellHeader}>Insurance name/number/company</Text>
+              <Text style={styles.tableCellHeader}>
+                Insurance name/number/company
+              </Text>
             </View>
             <View style={styles.tableCol1Header}>
               <Text style={styles.tableCellHeader}>Amount</Text>
@@ -311,25 +285,32 @@ const AgreeementAndAnnouncement = ({ jsonSchema }) => (
 
           <View style={styles.tableRow}>
             <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{jsonSchema && jsonSchema.insuranceName}</Text>
+              <Text style={styles.tableCell}>
+                {jsonSchema && jsonSchema.insuranceName}
+              </Text>
             </View>
 
             <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{jsonSchema && jsonSchema.insuranceAmount}</Text>
+              <Text style={styles.tableCell}>
+                {jsonSchema && jsonSchema.insuranceAmount}
+              </Text>
             </View>
             <View style={styles.tableCol1}>
-              <Text style={styles.tableCell}>{moment(jsonSchema && jsonSchema.insuranceDate).format('DD.MM.YYYY')}</Text>
+              <Text style={styles.tableCell}>
+                {moment(jsonSchema && jsonSchema.insuranceDate).format(
+                  "DD.MM.YYYY"
+                )}
+              </Text>
             </View>
           </View>
         </View>
       </>
-    ): (
+    ) : (
       <View>
         <Text style={styles.paragraphSecond}>Ei</Text>
       </View>
     )}
     <LineBreak />
-
   </>
 );
 
