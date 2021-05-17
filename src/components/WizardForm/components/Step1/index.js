@@ -365,7 +365,7 @@ const Step1 = () => {
             <Field
               name="testamenttiTimeOfDeath"
               component={renderDatePickerField}
-              label="Avioehtosopimus"
+              label="Testamentin päivämäärä"
               placeholder="01.08.2020"
             />
             <Error name="testamenttiTimeOfDeath" />
@@ -755,7 +755,6 @@ const Step1 = () => {
           </div>
         </div>
 
-
         <FieldArray name="deceasedMotorBikeBrandTypeInfo">
           {({ fields }) => {
             return (
@@ -785,7 +784,6 @@ const Step1 = () => {
                         aria-label="Close"
                         className="del__btn"
                         onClick={() => {
-
                           fields.remove(index);
                         }}
                         style={{ cursor: "pointer" }}
@@ -793,7 +791,6 @@ const Step1 = () => {
                         <i className="fa fa-trash" />
                       </span>
                     </div>
-
                   </div>
                 ))}
                 <span className="add__btn margin">
@@ -809,8 +806,6 @@ const Step1 = () => {
             );
           }}
         </FieldArray>
-
-
       </Condition>
 
       <div className="columns">
