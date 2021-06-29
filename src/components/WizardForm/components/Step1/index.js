@@ -99,7 +99,7 @@ const Step1 = () => {
       </div>
 
       <br />
-      <h3 className="title is-4">1.2 KUOLINPESÄN OIKEUDENOMISTAJAT</h3>
+      <h3 className="title is-4">1.2 VAINAJAN OIKEUDENOMISTAJAT</h3>
       <hr />
       <p className="primary">Suhde vainajaan</p>
 
@@ -200,7 +200,7 @@ const Step1 = () => {
       <h3 className="title is-4">1.3 MUUTA</h3>
       <hr />
       <h3 className="title is-4">
-        Kuka on kutsunut kuolinpesän osakkaat tähän perunkirjoitus tilaisuuteen?
+        Kuka on kutsunut kuolinpesän osakkaat tähän perunkirjoitustilaisuuteen?
       </h3>
       <hr />
       <div className="columns">
@@ -387,7 +387,7 @@ const Step1 = () => {
               htmlFor="isMarriedSettlementContractChecked"
               className="primary"
             >
-              Avioehtosopimukset
+              Avioehtosopimus
             </label>
           </div>
         </div>
@@ -398,7 +398,7 @@ const Step1 = () => {
             <Field
               name="marriageSettlementDate"
               component={renderDatePickerField}
-              label="Avioehtosopimus"
+              label="Avioehtosopimuksen päivämäärä"
               placeholder="01.08.2020"
             />
             <Error name="marriageSettlementDate" />
@@ -417,8 +417,9 @@ const Step1 = () => {
               id="isOtherDocumentChecked"
             />
             <label htmlFor="isOtherDocumentChecked" className="primary">
-              Muut kuolinpesää selvittävät asiakirjat ja tiedot (1 omaisuuserä 1
-              laatikkoa kohden)
+              Muut kuolinpesää selvittävät asiakirjat ja tiedot (1
+              asiakirja/tieto 1 laatikkoa kohden). Tarvittaessa lisää uusi
+              laatikko painamalla "lisää" nappia.
             </label>
           </div>
         </div>
@@ -491,7 +492,7 @@ const Step1 = () => {
       </h3>
       <hr />
       <p className="primary">
-        Pankin nimi ja pankkitilin numero (IBAN) ja saldo
+        Pankin nimi ja pankkitilin numero (IBAN) ja saldo (FI + 16 numeroa)
       </p>
       <br />
       <FieldArray name="bankAccountInfo">
@@ -515,7 +516,7 @@ const Step1 = () => {
                       component={InputWrapper}
                       type="text"
                       placeholder="1205,23"
-                      label="Saldo (€)"
+                      label="Saldo (€) Käytä pilkkua ( , ) eurojen ja senttien erotukseen"
                     />
 
                     <span
@@ -1001,7 +1002,7 @@ const Step1 = () => {
               id="didDeceasedHaveDebt"
             />
             <label htmlFor="didDeceasedHaveDebt" className="primary">
-              Onko vainajalla velkoja?
+              Oliko vainajalla velkoja?
             </label>
           </div>
         </div>
@@ -1178,7 +1179,7 @@ const Step1 = () => {
 
       <br />
 
-      <h3 className="title is-4">1.11 LÄSNÄ</h3>
+      <h3 className="title is-4">1.11 LÄSNÄ TILAISUUDESSA </h3>
       <hr />
       <FieldArray name="whoWasPresent">
         {({ fields }) => {

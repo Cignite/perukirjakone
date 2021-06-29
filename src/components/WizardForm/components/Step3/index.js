@@ -1,18 +1,18 @@
-import React from 'react';
+import React from "react";
 import { Field } from "react-final-form";
-import { FieldArray } from 'react-final-form-arrays';
+import { FieldArray } from "react-final-form-arrays";
 
-import InputWrapper from '../../../Shared/Input';
+import InputWrapper from "../../../Shared/Input";
 
-import Error from '../../../Shared/Error';
+import Error from "../../../Shared/Error";
 
 const Condition = ({ when, is, children }) => {
   return (
     <Field name={when} subscription={{ value: true }}>
       {({ input: { value } }) => (value === is ? children : null)}
     </Field>
-  )
-}
+  );
+};
 
 const Step3 = () => {
   //const [showDeceasedNotification, setShowDeceasedNotification] = React.useState(false);
@@ -37,7 +37,7 @@ const Step3 = () => {
               type="checkbox"
               className="form__checkbox"
               id="wasDeceasedPersonMarried"
-              />
+            />
             <label htmlFor="wasDeceasedPersonMarried" className="primary">
               Oliko vainaja avioliitossa tai rekisteröidyssä parisuhteessa?
             </label>
@@ -46,10 +46,13 @@ const Step3 = () => {
       </div>
       <div>
         <Condition when="wasDeceasedPersonMarried" is={true}>
-
-          <h3 className="title is-4">3.1 LESKEN RAHAVARAT KORKOINEEN (per puolison kuolinpäivä)</h3>
+          <h3 className="title is-4">
+            3.1 LESKEN RAHAVARAT KORKOINEEN per vainajan kuolinpäivä
+          </h3>
           <hr />
-          <p className="primary">Pankin nimi ja pankkitilin numero (IBAN)  ja saldo</p>
+          <p className="primary">
+            Pankin nimi ja pankkitilin numero (IBAN) ja saldo
+          </p>
           <br />
 
           <FieldArray name="widowBankInfo">
@@ -64,8 +67,8 @@ const Step3 = () => {
                           component={InputWrapper}
                           type="text"
                           placeholder="Nordea FI55 1234 5678 9127 46"
-                          label="Kirjoita pankin nimi/pankkitilin numero"
-                          />
+                          label="Kirjoita pankin nimi/pankkitilin numero (FI + 16 numeroa)"
+                        />
                       </div>
                       <div className="column is-2">
                         <Field
@@ -74,7 +77,7 @@ const Step3 = () => {
                           type="text"
                           placeholder="800,80"
                           label="Saldo (€)"
-                          />
+                        />
 
                         <span
                           role="img"
@@ -87,14 +90,13 @@ const Step3 = () => {
                             // } else {
                             //   fields.remove(index)}
                             // }
-                            fields.remove(index)}
-                          }
+                            fields.remove(index);
+                          }}
                           style={{ cursor: "pointer" }}
-                          >
+                        >
                           <i className="fa fa-trash" />
                         </span>
                       </div>
-
 
                       <Error name={`${name}.name`} />
                       {/*showPaintingInfo && (
@@ -111,11 +113,9 @@ const Step3 = () => {
                   <div className="add__btn margin">
                     <button
                       className="button is-small is-primary"
-                      onClick={() =>
-                        fields.push({ name: "", value: ""})
-                      }
+                      onClick={() => fields.push({ name: "", value: "" })}
                       type="button"
-                      >
+                    >
                       Lisää
                     </button>
                   </div>
@@ -124,7 +124,9 @@ const Step3 = () => {
             }}
           </FieldArray>
 
-          <h3 className="title is-4">3.2 OSUUSTODISTUKSET, OSAKKEET, RAHASTOT, YMS</h3>
+          <h3 className="title is-4">
+            3.2 OSUUSTODISTUKSET, OSAKKEET, RAHASTOT, YMS
+          </h3>
           <hr />
 
           {/*<h6 className="title is-6">Omistuserän tiedot (nimi ja määrä) </h6>*/}
@@ -142,7 +144,7 @@ const Step3 = () => {
                             type="text"
                             placeholder="Orion Oyj A - 200 kpl "
                             label="Omistuserän tiedot (nimi ja määrä)"
-                            />
+                          />
                         </div>
                         <div className="column is-2">
                           <Field
@@ -151,7 +153,7 @@ const Step3 = () => {
                             type="text"
                             placeholder="8640"
                             label="Arvo (€)"
-                            />
+                          />
 
                           <span
                             role="img"
@@ -164,14 +166,13 @@ const Step3 = () => {
                               // } else {
                               //   fields.remove(index)}
                               // }
-                              fields.remove(index)}
-                            }
+                              fields.remove(index);
+                            }}
                             style={{ cursor: "pointer" }}
-                            >
+                          >
                             <i className="fa fa-trash" />
                           </span>
                         </div>
-
 
                         <Error name={`${name}.name`} />
                         {/*showPaintingInfo && (
@@ -188,11 +189,9 @@ const Step3 = () => {
                     <div className="add__btn margin">
                       <button
                         className="button is-small is-primary"
-                        onClick={() =>
-                          fields.push({ name: "", value: ""})
-                        }
+                        onClick={() => fields.push({ name: "", value: "" })}
                         type="button"
-                        >
+                      >
                         Lisää
                       </button>
                     </div>
@@ -201,7 +200,6 @@ const Step3 = () => {
               }}
             </FieldArray>
           </div>
-
 
           <h3 className="title is-4">3.3 LESKEN KIINTEISTÖT / HUONEISTOT</h3>
           <hr />
@@ -220,7 +218,7 @@ const Step3 = () => {
                           type="text"
                           placeholder="esim: AS OY Turun Hämeenkatu 1, huoneisto A 15 38.5 m2"
                           label="Omaisuus"
-                          />
+                        />
                       </div>
                       <div className="column is-2">
                         <Field
@@ -229,7 +227,7 @@ const Step3 = () => {
                           type="text"
                           placeholder="92500"
                           label="Arvo (€)"
-                          />
+                        />
 
                         <span
                           role="img"
@@ -242,14 +240,13 @@ const Step3 = () => {
                             // } else {
                             //   fields.remove(index)}
                             // }
-                            fields.remove(index)}
-                          }
+                            fields.remove(index);
+                          }}
                           style={{ cursor: "pointer" }}
-                          >
+                        >
                           <i className="fa fa-trash" />
                         </span>
                       </div>
-
 
                       <Error name={`${name}.name`} />
                       {/*showPaintingInfo && (
@@ -266,11 +263,9 @@ const Step3 = () => {
                   <div className="add__btn margin">
                     <button
                       className="button is-small is-primary"
-                      onClick={() =>
-                        fields.push({ name: "", value: ""})
-                      }
+                      onClick={() => fields.push({ name: "", value: "" })}
                       type="button"
-                      >
+                    >
                       Lisää
                     </button>
                   </div>
@@ -280,167 +275,165 @@ const Step3 = () => {
           </FieldArray>
 
           <br />
+          <div className="columns">
+            <div className="column is-6">
+              <div>
+                <Field
+                  name="didWidowHadCarBoat"
+                  component="input"
+                  type="checkbox"
+                  className="form__checkbox"
+                  id="didWidowHadCarBoat"
+                />
+                <label htmlFor="didWidowHadCarBoat" className="primary">
+                  Onko leskellä auto / moottoripyörä / vene / perävaunu jne?
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <Condition when="didWidowHadCarBoat" is={true}>
             <div className="columns">
-              <div className="column is-6">
-                <div>
-                  <Field
-                    name="didWidowHadCarBoat"
-                    component="input"
-                    type="checkbox"
-                    className="form__checkbox"
-                    id="didWidowHadCarBoat"
-                  />
-                  <label htmlFor="didWidowHadCarBoat" className="primary">
-                    Oliko vainajalla auto / moottoripyörä / vene / perävaunu jne?
-                  </label>
-                </div>
+              <div className="column is-5">
+                <Field
+                  name="widowCarBrandTypeInfo"
+                  component={InputWrapper}
+                  type="text"
+                  placeholder="Toyota RAV, 2015, ABC-123"
+                  label="Auton merkki/vm/rekisterinumero"
+                />
+                <Error name="widowCarBrandTypeInfo" />
+              </div>
+              <div className="column is-2">
+                <Field
+                  name="widowCarBrandTypeValue"
+                  component={InputWrapper}
+                  type="text"
+                  placeholder="4500"
+                  label="Arvo (€)"
+                />
+                <Error name="widowCarBrandTypeValue" />
               </div>
             </div>
 
-            <Condition when="didWidowHadCarBoat" is={true}>
-              <div className="columns">
-                <div className="column is-5">
-                  <Field
-                    name="widowCarBrandTypeInfo"
-                    component={InputWrapper}
-                    type="text"
-                    placeholder="Toyota RAV, 2015, ABC-123"
-                    label="Auton merkki/vm/rekisterinumero"
-                    />
-                  <Error name="widowCarBrandTypeInfo" />
-                </div>
-                <div className="column is-2">
-                  <Field
-                    name="widowCarBrandTypeValue"
-                    component={InputWrapper}
-                    type="text"
-                    placeholder="4500"
-                    label="Arvo (€)"
-                    />
-                  <Error name="widowCarBrandTypeValue" />
-                </div>
+            <FieldArray name="widowMotorBikeBrandTypeInfo">
+              {({ fields }) => {
+                return (
+                  <div>
+                    {fields.map((name, index) => (
+                      <div key={name} className="columns">
+                        <div className="column is-5">
+                          <Field
+                            name={`${name}.name`}
+                            component={InputWrapper}
+                            type="text"
+                            placeholder="Suzuki PV, 1990, AB-12"
+                            label="Muun ajoneuvon/omaisuuden merkki/vm/rekisterinumero"
+                          />
+                        </div>
+                        <div className="column is-2">
+                          <Field
+                            name={`${name}.value`}
+                            component={InputWrapper}
+                            type="text"
+                            placeholder="100"
+                            label="Arvo (€)"
+                          />
+
+                          <span
+                            role="img"
+                            aria-label="Close"
+                            className="del__btn"
+                            onClick={() => {
+                              fields.remove(index);
+                            }}
+                            style={{ cursor: "pointer" }}
+                          >
+                            <i className="fa fa-trash" />
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                    <span className="add__btn margin">
+                      <button
+                        className="button is-small is-primary add"
+                        onClick={() => fields.push({ name: "", value: "" })}
+                        type="button"
+                      >
+                        Lisää
+                      </button>
+                    </span>
+                  </div>
+                );
+              }}
+            </FieldArray>
+          </Condition>
+
+          <div className="columns">
+            <div className="column is-6">
+              <div>
+                <Field
+                  name="isPersonalWorth"
+                  component="input"
+                  type="checkbox"
+                  className="form__checkbox"
+                  id="isPersonalWorth"
+                />
+                <label htmlFor="isPersonalWorth" className="primary">
+                  Onko irtaimen omaisuuden arvo (kalusteet ym.) yli 4000 € ?
+                  Klikkaa painiketta, jos irtaimen omaisuuden arvo ylittää 4000
+                  €
+                </label>
               </div>
-
-              <FieldArray name="widowMotorBikeBrandTypeInfo">
-                {({ fields }) => {
-                  return (
-                    <div>
-                      {fields.map((name, index) => (
-                        <div key={name} className="columns">
-                          <div className="column is-5">
-                            <Field
-                              name={`${name}.name`}
-                              component={InputWrapper}
-                              type="text"
-                              placeholder="Suzuki PV, 1990, AB-12"
-                              label="Muun ajoneuvon/omaisuuden merkki/vm/rekisterinumero"
-                            />
-                          </div>
-                          <div className="column is-2">
-                            <Field
-                              name={`${name}.value`}
-                              component={InputWrapper}
-                              type="text"
-                              placeholder="100"
-                              label="Arvo (€)"
-                            />
-
-                            <span
-                              role="img"
-                              aria-label="Close"
-                              className="del__btn"
-                              onClick={() => {
-
-                                fields.remove(index);
-                              }}
-                              style={{ cursor: "pointer" }}
-                            >
-                              <i className="fa fa-trash" />
-                            </span>
-                          </div>
-
-                        </div>
-                      ))}
-                      <span className="add__btn margin">
-                        <button
-                          className="button is-small is-primary add"
-                          onClick={() => fields.push({ name: "", value: "" })}
-                          type="button"
-                        >
-                          Lisää
-                        </button>
-                      </span>
-                    </div>
-                  );
-                }}
-              </FieldArray>
-            </Condition>
-
-
-        <div className="columns">
-          <div className="column is-6">
-            <div>
-              <Field
-                name="isPersonalWorth"
-                component="input"
-                type="checkbox"
-                className="form__checkbox"
-                id="isPersonalWorth"
-                />
-              <label htmlFor="isPersonalWorth" className="primary">
-                Onko irtaimen omaisuuden arvo (kalusteet ym.) yli 4000 € ? Klikkaa painiketta, jos irtaimen omaisuuden arvo ylittää 4000 €
-              </label>
             </div>
           </div>
-        </div>
 
-        <Condition when="isPersonalWorth" is={true}>
-          <FieldArray name="personalWorthInfo">
-            {({ fields }) => {
-              return (
-                <div>
-                  {fields.map((name, index) => (
-                    <div key={name} className="columns">
-                      <div className="column is-5">
-                        <Field
-                          name={`${name}.name`}
-                          component={InputWrapper}
-                          type="text"
-                          placeholder="Huonekalu/taulu/patsas"
-                          label="Omaisuus"
+          <Condition when="isPersonalWorth" is={true}>
+            <FieldArray name="personalWorthInfo">
+              {({ fields }) => {
+                return (
+                  <div>
+                    {fields.map((name, index) => (
+                      <div key={name} className="columns">
+                        <div className="column is-5">
+                          <Field
+                            name={`${name}.name`}
+                            component={InputWrapper}
+                            type="text"
+                            placeholder="Huonekalu/taulu/patsas"
+                            label="Omaisuus"
                           />
-                      </div>
-                      <div className="column is-2">
-                        <Field
-                          name={`${name}.value`}
-                          component={InputWrapper}
-                          type="text"
-                          placeholder="4500"
-                          label="Arvo"
+                        </div>
+                        <div className="column is-2">
+                          <Field
+                            name={`${name}.value`}
+                            component={InputWrapper}
+                            type="text"
+                            placeholder="4500"
+                            label="Arvo"
                           />
 
-                        <span
-                          role="img"
-                          aria-label="Close"
-                          className="del__btn"
-                          onClick={() => {
-                            // if (fields.length === 1) {
-                            //   setShowPaintingInfo(true);
-                            //   console.log("min one")
-                            // } else {
-                            //   fields.remove(index)}
-                            // }
-                            fields.remove(index)}
-                          }
-                          style={{ cursor: "pointer" }}
+                          <span
+                            role="img"
+                            aria-label="Close"
+                            className="del__btn"
+                            onClick={() => {
+                              // if (fields.length === 1) {
+                              //   setShowPaintingInfo(true);
+                              //   console.log("min one")
+                              // } else {
+                              //   fields.remove(index)}
+                              // }
+                              fields.remove(index);
+                            }}
+                            style={{ cursor: "pointer" }}
                           >
-                          <i className="fa fa-trash" />
-                        </span>
-                      </div>
+                            <i className="fa fa-trash" />
+                          </span>
+                        </div>
 
-
-                      <Error name={`${name}.bankaccount`} />
-                      {/*showPaintingInfo && (
+                        <Error name={`${name}.bankaccount`} />
+                        {/*showPaintingInfo && (
                         <div className="notification is-danger form__notification">
                           <button
                             className="delete"
@@ -449,181 +442,86 @@ const Step3 = () => {
                           Atleast one share info definition should exist!
                         </div>
                       )*/}
-                    </div>
-                  ))}
-                  <span className="add__btn">
-                    <button
-                      className="button is-small is-primary add"
-                      onClick={() =>
-                        fields.push({ name: "", value: ""})
-                      }
-                      type="button"
-                      >
-                      Lisää
-                    </button>
-                  </span>
-                </div>
-              );
-            }}
-          </FieldArray>
-        </Condition>
-
-
-        <div className="columns">
-          <div className="column is-6">
-            <div>
-              <Field
-                name="isPersonalBelonings"
-                component="input"
-                type="checkbox"
-                className="form__checkbox"
-                id="isPersonalBelonings"
-                />
-              <label htmlFor="isPersonalBelonings" className="primary">
-                Ylittääkö henkilökohtaisen omaisuuden (kellot, korut ym.) arvo 4000 € ? Sisältäen edellisen kohdan (Irtain omaisuus)
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <Condition when="isPersonalBelonings" is={true}>
-          <FieldArray name="widowPersonalBelonings">
-            {({ fields }) => {
-              return (
-                <div>
-                  {fields.map((name, index) => (
-                    <div key={name} className="columns">
-                      <div className="column is-5">
-                        <Field
-                          name={`${name}.name`}
-                          component={InputWrapper}
-                          type="text"
-                          placeholder="Sormus/Kello/Vaate yms"
-                          label="Henkilökohtainen omaisuus"
-                          />
                       </div>
-                      <div className="column is-2">
-                        <Field
-                          name={`${name}.value`}
-                          component={InputWrapper}
-                          type="text"
-                          label="Arvo (€)"
-                          />
-
-                        <span
-                          role="img"
-                          aria-label="Close"
-                          className="del__btn"
-                          onClick={() => {
-                            // if (fields.length === 1) {
-                            //   setShowPaintingInfo(true);
-                            //   console.log("min one")
-                            // } else {
-                            //   fields.remove(index)}
-                            // }
-                            fields.remove(index)}
-                          }
-                          style={{ cursor: "pointer" }}
-                          >
-                          <i className="fa fa-trash" />
-                        </span>
-                      </div>
-
-
-                      <Error name={`${name}.bankaccount`} />
-                      {/*showPaintingInfo && (
-                        <div className="notification is-danger form__notification">
-                          <button
-                            className="delete"
-                            onClick={() => setShowPaintingInfo(false)}
-                            />
-                          Atleast one share info definition should exist!
-                        </div>
-                      )*/}
-                    </div>
-                  ))}
-                  <div className="add__btn margin">
-                    <button
-                      className="button is-small is-primary"
-                      onClick={() =>
-                        fields.push({ name: "", value: ""})
-                      }
-                      type="button"
+                    ))}
+                    <span className="add__btn">
+                      <button
+                        className="button is-small is-primary add"
+                        onClick={() => fields.push({ name: "", value: "" })}
+                        type="button"
                       >
-                      Lisää
-                    </button>
+                        Lisää
+                      </button>
+                    </span>
                   </div>
-                </div>
-              );
-            }}
-          </FieldArray>
-        </Condition>
+                );
+              }}
+            </FieldArray>
+          </Condition>
 
-        <h3 className="title is-4">3.4 Vainajan velat</h3>
-        <hr />
-        <div className="columns">
-          <div className="column is-6">
-            <div>
-              <Field
-                name="didDeceasedHaveDebt"
-                component="input"
-                type="checkbox"
-                className="form__checkbox"
-                id="didDeceasedHaveDebt"
+          <div className="columns">
+            <div className="column is-6">
+              <div>
+                <Field
+                  name="isPersonalBelonings"
+                  component="input"
+                  type="checkbox"
+                  className="form__checkbox"
+                  id="isPersonalBelonings"
                 />
-              <label htmlFor="didDeceasedHaveDebt" className="primary">
-                Onko vainajalla velkoja?
-              </label>
+                <label htmlFor="isPersonalBelonings" className="primary">
+                  Ylittääkö henkilökohtaisen omaisuuden (kellot, korut ym.) arvo
+                  4000 € ? Sisältäen edellisen kohdan (Irtain omaisuus)
+                </label>
+              </div>
             </div>
           </div>
-        </div>
 
-        <Condition when="didDeceasedHaveDebt" is={true}>
-          <FieldArray name="widowDebtInfo">
-            {({ fields }) => {
-              return (
-                <div>
-                  {fields.map((name, index) => (
-                    <div key={name} className="columns">
-                      <div className="column is-5">
-                        <Field
-                          name={`${name}.name`}
-                          component={InputWrapper}
-                          type="text"
-                          placeholder="Nordea Pankki/muu velan yksilöinti"
-                          label="Velan tiedot"
+          <Condition when="isPersonalBelonings" is={true}>
+            <FieldArray name="widowPersonalBelonings">
+              {({ fields }) => {
+                return (
+                  <div>
+                    {fields.map((name, index) => (
+                      <div key={name} className="columns">
+                        <div className="column is-5">
+                          <Field
+                            name={`${name}.name`}
+                            component={InputWrapper}
+                            type="text"
+                            placeholder="Sormus/Kello/Vaate yms"
+                            label="Henkilökohtainen omaisuus"
                           />
-                      </div>
-                      <div className="column is-2">
-                        <Field
-                          name={`${name}.value`}
-                          component={InputWrapper}
-                          type="text"
-                          label="Määrä (€)"
+                        </div>
+                        <div className="column is-2">
+                          <Field
+                            name={`${name}.value`}
+                            component={InputWrapper}
+                            type="text"
+                            label="Arvo (€)"
                           />
 
-                        <span
-                          role="img"
-                          aria-label="Close"
-                          className="del__btn"
-                          onClick={() => {
-                            // if (fields.length === 1) {
-                            //   setShowPaintingInfo(true);
-                            //   console.log("min one")
-                            // } else {
-                            //   fields.remove(index)}
-                            // }
-                            fields.remove(index)}
-                          }
-                          style={{ cursor: "pointer" }}
+                          <span
+                            role="img"
+                            aria-label="Close"
+                            className="del__btn"
+                            onClick={() => {
+                              // if (fields.length === 1) {
+                              //   setShowPaintingInfo(true);
+                              //   console.log("min one")
+                              // } else {
+                              //   fields.remove(index)}
+                              // }
+                              fields.remove(index);
+                            }}
+                            style={{ cursor: "pointer" }}
                           >
-                          <i className="fa fa-trash" />
-                        </span>
-                      </div>
+                            <i className="fa fa-trash" />
+                          </span>
+                        </div>
 
-
-                      <Error name={`${name}.name`} />
-                      {/*showPaintingInfo && (
+                        <Error name={`${name}.bankaccount`} />
+                        {/*showPaintingInfo && (
                         <div className="notification is-danger form__notification">
                           <button
                             className="delete"
@@ -632,32 +530,116 @@ const Step3 = () => {
                           Atleast one share info definition should exist!
                         </div>
                       )*/}
-                    </div>
-                  ))}
-                  <div className="add__btn margin">
-                    <button
-                      className="button is-small is-primary "
-                      onClick={() =>
-                        fields.push({ name: "", value: ""})
-                      }
-                      type="button"
+                      </div>
+                    ))}
+                    <div className="add__btn margin">
+                      <button
+                        className="button is-small is-primary"
+                        onClick={() => fields.push({ name: "", value: "" })}
+                        type="button"
                       >
-                      Lisää
-                    </button>
+                        Lisää
+                      </button>
+                    </div>
                   </div>
-                </div>
-              );
-            }}
-          </FieldArray>
+                );
+              }}
+            </FieldArray>
+          </Condition>
 
+          <h3 className="title is-4">3.4 Lesken velat</h3>
+          <hr />
+          <div className="columns">
+            <div className="column is-6">
+              <div>
+                <Field
+                  name="didDeceasedHaveDebt"
+                  component="input"
+                  type="checkbox"
+                  className="form__checkbox"
+                  id="didDeceasedHaveDebt"
+                />
+                <label htmlFor="didDeceasedHaveDebt" className="primary">
+                  Onko leskellä velkoja?
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <Condition when="didDeceasedHaveDebt" is={true}>
+            <FieldArray name="widowDebtInfo">
+              {({ fields }) => {
+                return (
+                  <div>
+                    {fields.map((name, index) => (
+                      <div key={name} className="columns">
+                        <div className="column is-5">
+                          <Field
+                            name={`${name}.name`}
+                            component={InputWrapper}
+                            type="text"
+                            placeholder="Nordea Pankki/muu velan yksilöinti"
+                            label="Velan tiedot"
+                          />
+                        </div>
+                        <div className="column is-2">
+                          <Field
+                            name={`${name}.value`}
+                            component={InputWrapper}
+                            type="text"
+                            label="Määrä (€)"
+                          />
+
+                          <span
+                            role="img"
+                            aria-label="Close"
+                            className="del__btn"
+                            onClick={() => {
+                              // if (fields.length === 1) {
+                              //   setShowPaintingInfo(true);
+                              //   console.log("min one")
+                              // } else {
+                              //   fields.remove(index)}
+                              // }
+                              fields.remove(index);
+                            }}
+                            style={{ cursor: "pointer" }}
+                          >
+                            <i className="fa fa-trash" />
+                          </span>
+                        </div>
+
+                        <Error name={`${name}.name`} />
+                        {/*showPaintingInfo && (
+                        <div className="notification is-danger form__notification">
+                          <button
+                            className="delete"
+                            onClick={() => setShowPaintingInfo(false)}
+                            />
+                          Atleast one share info definition should exist!
+                        </div>
+                      )*/}
+                      </div>
+                    ))}
+                    <div className="add__btn margin">
+                      <button
+                        className="button is-small is-primary "
+                        onClick={() => fields.push({ name: "", value: "" })}
+                        type="button"
+                      >
+                        Lisää
+                      </button>
+                    </div>
+                  </div>
+                );
+              }}
+            </FieldArray>
+          </Condition>
+          <br />
         </Condition>
-      <br />
-
-    </Condition>
-
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Step3;
