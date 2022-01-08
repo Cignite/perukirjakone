@@ -3,6 +3,7 @@ import { Field } from "react-final-form";
 import { FieldArray } from "react-final-form-arrays";
 
 import InputWrapper from "../../../Shared/Input";
+import NumberFieldHooks from '../NumberFormat';
 
 import Error from "../../../Shared/Error";
 
@@ -73,7 +74,7 @@ const Step3 = () => {
                       <div className="column is-2">
                         <Field
                           name={`${name}.value`}
-                          component={InputWrapper}
+                          component={NumberFieldHooks}
                           type="text"
                           placeholder="800,80"
                           label="Saldo (€)"
@@ -149,9 +150,9 @@ const Step3 = () => {
                         <div className="column is-2">
                           <Field
                             name={`${name}.value`}
-                            component={InputWrapper}
+                            component={NumberFieldHooks}
                             type="text"
-                            placeholder="8640"
+                            placeholder="8640,33"
                             label="Arvo (€)"
                           />
 
@@ -223,9 +224,9 @@ const Step3 = () => {
                       <div className="column is-2">
                         <Field
                           name={`${name}.value`}
-                          component={InputWrapper}
+                          component={NumberFieldHooks}
                           type="text"
-                          placeholder="92500"
+                          placeholder="92500,33"
                           label="Arvo (€)"
                         />
 
@@ -307,9 +308,9 @@ const Step3 = () => {
               <div className="column is-2">
                 <Field
                   name="widowCarBrandTypeValue"
-                  component={InputWrapper}
+                  component={NumberFieldHooks}
                   type="text"
-                  placeholder="4500"
+                  placeholder="4500,23"
                   label="Arvo (€)"
                 />
                 <Error name="widowCarBrandTypeValue" />
@@ -334,9 +335,9 @@ const Step3 = () => {
                         <div className="column is-2">
                           <Field
                             name={`${name}.value`}
-                            component={InputWrapper}
+                            component={NumberFieldHooks}
                             type="text"
-                            placeholder="100"
+                            placeholder="133,43"
                             label="Arvo (€)"
                           />
 
@@ -407,9 +408,9 @@ const Step3 = () => {
                         <div className="column is-2">
                           <Field
                             name={`${name}.value`}
-                            component={InputWrapper}
+                            component={NumberFieldHooks}
                             type="text"
-                            placeholder="4500"
+                            placeholder="4500,21"
                             label="Arvo"
                           />
 
@@ -496,7 +497,7 @@ const Step3 = () => {
                         <div className="column is-2">
                           <Field
                             name={`${name}.value`}
-                            component={InputWrapper}
+                            component={NumberFieldHooks}
                             type="text"
                             label="Arvo (€)"
                           />
@@ -585,7 +586,7 @@ const Step3 = () => {
                         <div className="column is-2">
                           <Field
                             name={`${name}.value`}
-                            component={InputWrapper}
+                            component={NumberFieldHooks}
                             type="text"
                             label="Määrä (€)"
                           />

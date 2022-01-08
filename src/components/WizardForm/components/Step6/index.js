@@ -6,6 +6,9 @@ import PDFDocument from '../../../PDFTranslation';
 import './styles.scss';
 
 const Step6 = () => {
+  // NAME OF THE PERSON+MONTH+PERUKIRJA
+  // customerlastName_lokakku_perukirja
+  
   return (
     <div className="downloadStep">
       <div className="is-centered">

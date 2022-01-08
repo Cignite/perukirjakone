@@ -65,9 +65,9 @@ const Step4 = () => {
               htmlFor="doesWidowWantsToLiveInSameApartment"
               className="primary"
             >
-              Ilmoitus siitä, tuleeko leski pitämään hallinnassaan kuolleen
-              puolison jäämistön jakamattomana osittain (esimerkiksi yhteinen
-              koti) tai kokonaan?
+              Ilmoitus siitä, tuleeko leski pitämään hallinnassaan kuolleen puolison
+              jäämistön jakamattomana osittain (esimerkiksi yhteinen koti) tai kokonaan?
+
             </label>
           </div>
         </div>

@@ -1,12 +1,17 @@
 import React from "react";
 import { Field } from "react-final-form";
 import { FieldArray } from "react-final-form-arrays";
+import NumberFormat from "react-number-format";
+import { toast } from 'react-toastify';
 
 import InputWrapper from "../../../Shared/Input";
 import TextareaWrapper from "../../../Shared/Textarea";
-
+import RenderMaskInput from '../../../Shared/MaskInput/Index';
 import renderDatePickerField from "../../../Shared/Datepicker";
 import Error from "../../../Shared/Error";
+import NumberFieldHooks from '../NumberFormat';
+
+import DebtIllustration from '../../../images/debtExample.jpg';
 
 import "../../styles.scss";
 
@@ -18,9 +23,59 @@ const Condition = ({ when, is, children }) => {
   );
 };
 
+function arrayHasInvalid(array) {
+  let hasInvalid = false;
+
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i]) {
+      hasInvalid = true;
+      break;
+    }
+  }
+
+  return hasInvalid;
+}
+
+const validateRelationshipInfo = values => {
+  if (!values.length) return;
+
+  const errorsArray = [];
+
+  values.forEach((value, index) => {
+    if (value) {
+      const errors = {};
+
+      if (!value.relationType) {
+        errors.relationType = "Tämä on pakollinen kenttä";
+      }
+      if (!value.name) {
+        errors.name = "Tämä on pakollinen kenttä";
+      } 
+      if (!value.ssn) {
+        errors.ssn = "Tämä on pakollinen kenttä";
+      }
+      if (!value.address) {
+        errors.address = "Tämä on pakollinen kenttä";
+      }
+      if (Object.keys(errors).length) {
+        errorsArray[index] = errors;
+      }
+
+    }
+  });
+  console.log(errorsArray);
+  return arrayHasInvalid(errorsArray) ? errorsArray : undefined;
+};
+
 const Step1 = () => {
+  const [showRelationship, setShowRelationship] = React.useState(false);
+
   // const [showDeceasedNotification, setShowDeceasedNotification] = React.useState(false);
-  // const [showPropertyNotification, setShowPropertyNotification] = React.useState(false);
+  const [showPropertyNotification, setShowPropertyNotification] = React.useState(false);
+  const [showOtherDocumentNotifcation, setOtherDocumentNotifcation] = React.useState(false);
+  const [bankInfo, setBankAccountInfo] = React.useState(false)
+  const [showShareInfo, setShowShareInfo] = React.useState(false);
+  const [showPropertyInfo, setShowPropertyInfo] = React.useState(false);
   //const [showBankAccountNotification, setShowBankAccountNotification] = React.useState(false);
   //const [showShareInfoNotification, setShowShareInfoNotification] = React.useState(false);
   // const [showPaintingInfo, setShowPaintingInfo] = React.useState(false);
@@ -39,7 +94,7 @@ const Step1 = () => {
             name="customerFirstName"
             component={InputWrapper}
             type="text"
-            placeholder="Heikki"
+            placeholder="Heikki Olavi"
             label="Etunimet"
           />
           <Error name="customerFirstName" />
@@ -57,7 +112,7 @@ const Step1 = () => {
         <div className="column">
           <Field
             name="customerSSN"
-            component={InputWrapper}
+            component={RenderMaskInput}
             type="text"
             placeholder="24444-39F"
             label="Henkilötunnus"
@@ -69,7 +124,7 @@ const Step1 = () => {
             name="address"
             component={InputWrapper}
             type="text"
-            placeholder="Hammenkatu 1, 20500 Turku"
+            placeholder="Hämeenkatu 1A 259, 20500, Turku"
             label="Osoite"
           />
           <Error name="address" />
@@ -102,12 +157,13 @@ const Step1 = () => {
       <h3 className="title is-4">1.2 VAINAJAN OIKEUDENOMISTAJAT</h3>
       <hr />
       <p className="primary">Suhde vainajaan</p>
-
-      <FieldArray name="relationshipInfo">
+      <br />
+      <FieldArray name="relationshipInfo" validate={validateRelationshipInfo}>
         {({ fields }) => {
           return (
             <div>
               {fields.map((name, index) => (
+                <>
                 <div key={name} className="columns">
                   <div className="column is-3">
                     <Field
@@ -117,6 +173,7 @@ const Step1 = () => {
                       placeholder="esim. leski / tytär / poika / isä / äiti / muu"
                       label="Suhde"
                     />
+                    <Error name={`${name}.relationType`} />
                   </div>
                   <div className="column is-3">
                     <Field
@@ -124,18 +181,21 @@ const Step1 = () => {
                       component={InputWrapper}
                       type="text"
                       placeholder="Aalto, Janne Ilmari"
-                      label="Täydellinen nimi (sukunimi, etunimet)"
+                      label="Sukunimi etunimet"
                     />
+                    <Error name={`${name}.name`} />
                   </div>
                   <div className="column is-3">
                     <Field
                       name={`${name}.ssn`}
-                      component={InputWrapper}
+                      component={RenderMaskInput}
                       type="text"
                       placeholder="010789-197F"
                       label="Henkilötunnus"
                     />
+                    <Error name={`${name}.ssn`} />
                   </div>
+                  
                   <div className="column is-3">
                     <Field
                       name={`${name}.address`}
@@ -144,19 +204,17 @@ const Step1 = () => {
                       placeholder="Lanatie 5 A, 20540 Turku"
                       label="Osoite"
                     />
-
+                    <Error name={`${name}.address`} />
                     <span
                       role="img"
                       className="del__btn"
                       aria-label="Close"
                       onClick={() => {
-                        // if (fields.length === 1) {
-                        //   setShowPropertyNotification(true);
-                        //   console.log("min one")
-                        // } else {
-                        //   fields.remove(index)}
-                        // }
-                        fields.remove(index);
+                        if (fields.length === 1) {
+                          setShowRelationship(true);
+                        } else {
+                          fields.remove(index)
+                        }
                       }}
                       style={{ cursor: "pointer" }}
                     >
@@ -164,17 +222,22 @@ const Step1 = () => {
                     </span>
                   </div>
 
-                  <Error name={`${name}.name`} />
-                  {/*showPropertyNotification && (
+                  
+                </div>
+                <div>
+                  
+                  
+                  {fields.touched && fields.length === 1 && setShowRelationship && (
                     <div className="notification is-danger form__notification">
                     <button
                     className="delete"
-                    onClick={() => setShowPropertyNotification(false)}
+                    onClick={() => setShowRelationship(false)}
                     />
                     Atleast one property definition should exist!
                     </div>
-                    )*/}
+                    )}
                 </div>
+                </>
               ))}
               <div className="add__btn margin">
                 <button
@@ -212,7 +275,7 @@ const Step1 = () => {
             placeholder="Heikki Halonen"
             label="Nimi"
           />
-          <Error name="inviteeNimi" />
+          <Error name="inviteeName" />
         </div>
         <div className="column">
           <Field
@@ -313,8 +376,8 @@ const Step1 = () => {
               name="testamentPropertyAssignInfo"
               component={InputWrapper}
               type="text"
-              placeholder="Hannu Harala"
-              label="Henkilön nimi ja henkilötunnus sekä osoite"
+              placeholder="TOMMI TOOPERI, 300381-301A, Haapatie 14, Pieksämäki"
+              label="Testamentin saajan nimi, henkilötunnus ja osoite"
             />
             <Error name="testamentPropertyAssignInfo" />
           </div>
@@ -445,13 +508,12 @@ const Step1 = () => {
                         aria-label="Close"
                         className="del__btn"
                         onClick={() => {
-                          // if (fields.length === 1) {
-                          //   setShowDebtNotifcation(true);
-                          //   console.log("min one")
-                          // } else {
-                          //   fields.remove(index)}
-                          // }
-                          fields.remove(index);
+                          if (fields.length === 1) {
+                            setOtherDocumentNotifcation(true);
+                          console.log("min one")
+                          } else {
+                            fields.remove(index)}
+                          
                         }}
                         style={{ cursor: "pointer" }}
                       >
@@ -460,15 +522,15 @@ const Step1 = () => {
                     </div>
 
                     <Error name={`${name}.bankaccount`} />
-                    {/*showDebtNotifcation && (
+                    {showOtherDocumentNotifcation && (
                         <div className="notification is-danger form__notification">
                         <button
                         className="delete"
-                        onClick={() => setShowDebtNotifcation(false)}
+                        onClick={() => setOtherDocumentNotifcation(false)}
                         />
-                        Atleast one share info definition should exist!
+                        Atleast one document information should exist!
                         </div>
-                        )*/}
+                        )}
                   </div>
                 ))}
                 <span className="add__btn margin">
@@ -501,7 +563,7 @@ const Step1 = () => {
             <div>
               {fields.map((name, index) => (
                 <div key={name} className="columns">
-                  <div className="column is-5">
+                  <div className="column is-5" key={index}>
                     <Field
                       name={`${name}.number`}
                       component={InputWrapper}
@@ -510,13 +572,12 @@ const Step1 = () => {
                       label="Kirjoita pankin nimi/pankkitilin numero"
                     />
                   </div>
-                  <div className="column is-2">
+                  <div className="column is-5">
                     <Field
                       name={`${name}.value`}
-                      component={InputWrapper}
-                      type="text"
+                      component={NumberFieldHooks}
                       placeholder="1205,23"
-                      label="Saldo (€) Käytä pilkkua ( , ) eurojen ja senttien erotukseen"
+                      label="Saldo (€)"
                     />
 
                     <span
@@ -524,30 +585,30 @@ const Step1 = () => {
                       className="del__btn"
                       aria-label="Close"
                       onClick={() => {
-                        // if (fields.length === 1) {
-                        //   setShowWidowBankInfo(true);
-                        //   console.log("min one")
-                        // } else {
-                        //   fields.remove(index)}
-                        // }
-                        fields.remove(index);
-                      }}
+                        if (fields.length === 1) {
+                          setBankAccountInfo(true);
+                        } else {
+                          fields.remove(index)}
+                        }
+                      }
                       style={{ cursor: "pointer" }}
                     >
                       <i className="fa fa-trash" />
                     </span>
                   </div>
-
-                  <Error name={`${name}.name`} />
-                  {/*showWidowBankInfo && (
+                  <div class="pb-2">
+                    {bankInfo && (
                       <div className="notification is-danger form__notification">
                       <button
                       className="delete"
-                      onClick={() => setShowWidowBankInfo(false)}
+                      onClick={() => setBankAccountInfo(false)}
                       />
                       Atleast one Bank account definition should exist!
                       </div>
-                      )*/}
+                      )}
+                  </div>
+                  <Error name={`${name}.name`} />
+                  
                 </div>
               ))}
               <div className="add__btn margin">
@@ -584,13 +645,13 @@ const Step1 = () => {
                       component={InputWrapper}
                       type="text"
                       placeholder="Omistuserän tiedot (nimi ja määrä)"
-                      label=""
+                      label="Nimi"
                     />
                   </div>
-                  <div className="column is-2">
+                  <div className="column is-3">
                     <Field
                       name={`${name}.value`}
-                      component={InputWrapper}
+                      component={NumberFieldHooks}
                       type="text"
                       placeholder="9435"
                       label="Arvo"
@@ -601,14 +662,12 @@ const Step1 = () => {
                       aria-label="Close"
                       className="del__btn"
                       onClick={() => {
-                        // if (fields.length === 1) {
-                        //   setShowPaintingInfo(true);
-                        //   console.log("min one")
-                        // } else {
-                        //   fields.remove(index)}
-                        // }
-                        fields.remove(index);
-                      }}
+                        if (fields.length === 1) {
+                        setShowShareInfo(true);
+                        } else {
+                        fields.remove(index)}
+                        }
+                      }
                       style={{ cursor: "pointer" }}
                     >
                       <i className="fa fa-trash" />
@@ -616,15 +675,15 @@ const Step1 = () => {
                   </div>
 
                   <Error name={`${name}.name`} />
-                  {/*showPaintingInfo && (
+                  {showShareInfo && (
                         <div className="notification is-danger form__notification">
                         <button
                         className="delete"
-                        onClick={() => setShowPaintingInfo(false)}
+                        onClick={() => setShowShareInfo(false)}
                         />
                         Atleast one share info definition should exist!
                         </div>
-                        )*/}
+                        )}
                 </div>
               ))}
               <div className="add__btn margin">
@@ -664,7 +723,7 @@ const Step1 = () => {
                   <div className="column is-2">
                     <Field
                       name={`${name}.value`}
-                      component={InputWrapper}
+                      component={NumberFieldHooks}
                       type="text"
                       placeholder="esim: 40000"
                       label="Arvo (€)"
@@ -675,14 +734,12 @@ const Step1 = () => {
                       className="del__btn"
                       aria-label="Close"
                       onClick={() => {
-                        // if (fields.length === 1) {
-                        //   setShowPropertyNotification(true);
-                        //   console.log("min one")
-                        // } else {
-                        //   fields.remove(index)}
-                        // }
-                        fields.remove(index);
-                      }}
+                        if (fields.length === 1) {
+                          setShowPropertyInfo(true);
+                        } else {
+                        fields.remove(index)}
+                        }
+                      }
                       style={{ cursor: "pointer" }}
                     >
                       <i className="fa fa-trash" />
@@ -690,16 +747,16 @@ const Step1 = () => {
                   </div>
 
                   <Error name={`${name}.name`} />
-                  {/*showPropertyNotification && (
-                        <div className="notification is-danger form__notification">
-                        <button
+                  {showPropertyInfo && (
+                    <div className="notification is-danger form__notification">
+                      <button
                         className="delete"
-                        onClick={() => setShowPropertyNotification(false)}
-                        />
+                        onClick={() => setShowPropertyInfo(false)}
+                      />
                         Atleast one property definition should exist!
-                        </div>
-                        )*/}
-                </div>
+                      </div>
+                    )}
+                  </div>
               ))}
               <div className="add__btn margin">
                 <button
@@ -747,7 +804,7 @@ const Step1 = () => {
           <div className="column is-2">
             <Field
               name="deceasedCarBrandTypeValue"
-              component={InputWrapper}
+              component={NumberFieldHooks}
               type="text"
               placeholder="4500"
               label="Arvo (€)"
@@ -774,7 +831,7 @@ const Step1 = () => {
                     <div className="column is-2">
                       <Field
                         name={`${name}.value`}
-                        component={InputWrapper}
+                        component={NumberFieldHooks}
                         type="text"
                         placeholder="100"
                         label="Arvo (€)"
@@ -846,7 +903,7 @@ const Step1 = () => {
                     <div className="column is-2">
                       <Field
                         name={`${name}.value`}
-                        component={InputWrapper}
+                        component={NumberFieldHooks}
                         type="text"
                         placeholder="40000"
                         label="Arvo (€)"
@@ -936,7 +993,7 @@ const Step1 = () => {
                     <div className="column is-2">
                       <Field
                         name={`${name}.value`}
-                        component={InputWrapper}
+                        component={NumberFieldHooks}
                         type="text"
                         placeholder=""
                         label="Arvo (€)"
@@ -1002,9 +1059,14 @@ const Step1 = () => {
               id="didDeceasedHaveDebt"
             />
             <label htmlFor="didDeceasedHaveDebt" className="primary">
-              Oliko vainajalla velkoja?
+              Oliko vainajalla velkoja
             </label>
+            <div>
+            </div>
           </div>
+        </div>
+        <div className="column is-5">
+          <image src={DebtIllustration} className="perulogo" />
         </div>
       </div>
 
@@ -1027,7 +1089,7 @@ const Step1 = () => {
                     <div className="column is-2">
                       <Field
                         name={`${name}.value`}
-                        component={InputWrapper}
+                        component={NumberFieldHooks}
                         type="text"
                         placeholder="4000"
                         label="Arvo (€)"
@@ -1051,6 +1113,7 @@ const Step1 = () => {
                         <i className="fa fa-trash" />
                       </span>
                     </div>
+                    
 
                     <Error name={`${name}.name`} />
                     {/*showPaintingInfo && (
@@ -1072,6 +1135,9 @@ const Step1 = () => {
                   >
                     Lisää
                   </button>
+                </div>
+                <div>
+                  <img src={DebtIllustration} className="img-responsive"/>
                 </div>
               </div>
             );
@@ -1117,7 +1183,7 @@ const Step1 = () => {
                     <div className="column is-2">
                       <Field
                         name={`${name}.value`}
-                        component={InputWrapper}
+                        component={NumberFieldHooks}
                         type="text"
                         placeholder="20000"
                         label="Määrä (€)"
@@ -1179,7 +1245,7 @@ const Step1 = () => {
 
       <br />
 
-      <h3 className="title is-4">1.11 LÄSNÄ TILAISUUDESSA </h3>
+      <h3 className="title is-4">1.11 LÄSNÄ PERUNKIRJOITUS TILAISUUDESSA</h3>
       <hr />
       <FieldArray name="whoWasPresent">
         {({ fields }) => {

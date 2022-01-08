@@ -4,6 +4,7 @@ import { FieldArray } from "react-final-form-arrays";
 
 import InputWrapper from "../../../Shared/Input";
 import Error from "../../../Shared/Error";
+import NumberFieldHooks from '../NumberFormat';
 
 import "./styles.scss";
 
@@ -34,9 +35,9 @@ const Step2 = () => {
                     <div>
                       <Field
                         name={`${name}.value`}
-                        component={InputWrapper}
+                        component={NumberFieldHooks}
                         type="text"
-                        placeholder="499"
+                        placeholder="499,99"
                         label="Sukuselvitykset"
                       />
 
@@ -87,27 +88,27 @@ const Step2 = () => {
         <div className="column is-3">
           <Field
             name="funeralExpensesInfoDeathCertificate"
-            component={InputWrapper}
+            component={NumberFieldHooks}
             type="text"
-            placeholder="200"
+            placeholder="200,33"
             label="Saldotodistukset"
           />
         </div>
         <div className="column is-3">
           <Field
             name="flowers"
-            component={InputWrapper}
+            component={NumberFieldHooks}
             type="text"
-            placeholder="200"
+            placeholder="200,33"
             label="Kukat"
           />
         </div>
         <div className="column is-2">
           <Field
             name="funeralExpensesInfoTombstone"
-            component={InputWrapper}
+            component={NumberFieldHooks}
             type="text"
-            placeholder="1200"
+            placeholder="1200,33"
             label="Hautakivi/kunnostus"
           />
         </div>
@@ -131,9 +132,9 @@ const Step2 = () => {
                   <div className="column is-2">
                     <Field
                       name={`${name}.value`}
-                      component={InputWrapper}
+                      component={NumberFieldHooks}
                       type="text"
-                      placeholder="500"
+                      placeholder="533,33"
                       label="Arvo (€)"
                     />
 
@@ -183,16 +184,16 @@ const Step2 = () => {
       </FieldArray>
 
       <div className="columns">
-        <div className="column is-3">
+        <div className="column is-4">
           <Field
             name="perukirjakoneReward"
-            component={InputWrapper}
+            component={NumberFieldHooks}
             type="text"
-            placeholder="400"
-            label="Perunkirjoituksen toimittamiskulut"
+            placeholder="432.43"
+            label="Perunkirjoituksen toimittamiskulut (€)"
           />
         </div>
-        <div className="column is-3">
+        <div className="column is-4">
           <Field
             name="perukirjakoneFee"
             component={InputWrapper}
