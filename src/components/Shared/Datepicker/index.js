@@ -28,7 +28,7 @@ const DatePickerWrapper = props => {
             setStartDate(value);
             input.onChange(value);
           }}
-          todayButton="Today"
+          todayButton="Tänään"
           value={props.input.value ? moment(props.input.value).format('DD.MM.YYYY') : null }
           placeholderText="01.02.2020"
           peekNextMonth="peekNextMonth"
