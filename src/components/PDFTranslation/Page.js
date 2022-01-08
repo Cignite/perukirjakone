@@ -31,8 +31,8 @@ import scssstyles from "./styles.scss";
 
 const styles = StyleSheet.create({
   page: {
-    padding: 50,
-    margin: 50,
+    padding: 20,
+    margin: 20,
   },
   container: {
     flex: 1,
@@ -104,6 +104,7 @@ const DocumentPage = (props) => {
     const getUserInfoFromStorage = JSON.parse(
       window.localStorage.getItem("userInfo")
     );
+    console.log("getUserInfoFromStorage", getUserInfoFromStorage)
     try {
       await axios
         .get(`${API_BASE_URL}${"documents/"}${getUserInfoFromStorage.id}`)
