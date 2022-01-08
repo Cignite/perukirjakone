@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
   },
 
   tableCol1: {
-    width: COL1_WIDTH + "%",
+    width:  "30%",
   },
   tableCol: {
-    width: COLN_WIDTH + "%",
+    width: "30%",
   },
   tableCell: {
     fontSize: 12,
@@ -76,6 +76,8 @@ const WidowBalanceSummary = ({ jsonSchema }) => {
     jsonSchema && jsonSchema.widowPersonalBelonings
   );
 
+  const widowTotalBankStock = widowBankInfoTotal + widowStockInfo + widowProperty + widowMotorBikeBrandTypeInfo + personalWorthInfo + widowPersonalBelonings
+  const widowSaving = widowBankInfoTotal + widowStockInfo + widowProperty + widowMotorBikeBrandTypeInfo + personalWorthInfo + widowPersonalBelonings
   return (
     <>
       <View style={styles.row}>
@@ -94,12 +96,7 @@ const WidowBalanceSummary = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {widowBankInfoTotal +
-                widowStockInfo +
-                widowProperty +
-                widowMotorBikeBrandTypeInfo +
-                personalWorthInfo +
-                widowPersonalBelonings}
+              {jsonSchema && jsonSchema.wasDeceasedPersonMarried ? widowTotalBankStock : "-"}
             </Text>
           </View>
         </View>
@@ -125,12 +122,8 @@ const WidowBalanceSummary = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {widowBankInfoTotal +
-                widowStockInfo +
-                widowProperty +
-                widowMotorBikeBrandTypeInfo +
-                personalWorthInfo +
-                widowPersonalBelonings}
+            {jsonSchema && jsonSchema.wasDeceasedPersonMarried ? widowSaving : "-"}
+
             </Text>
           </View>
         </View>

@@ -22,7 +22,7 @@ function DocumentPage(props) {
 
         <div className="schemaForm">
           <h3 className="title is-3">Täytä kaikki tarvittavat tiedot</h3>
-          <p>Varmista, että annetut tiedot ovat oikein </p>
+          <p>Varmista, että annetut tiedot ovat oikein.</p>
           <hr />
           <MasterForm />
         </div>
