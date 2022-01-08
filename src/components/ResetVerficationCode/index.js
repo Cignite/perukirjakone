@@ -88,8 +88,8 @@ const ResetVerificationCode = (props) => {
                   </Link>
                 </div>
                 <div className="field has-text-centered">
-                  <label className="label is-size-5">Reset verification code </label>
-                    <p className="is-small primaryLabel">Don't worry we will send you verificaiton code again. Please enter your email address below!</p>
+                  <label className="label is-size-5">Pyydä uusi varmistuskoodi </label>
+                    <p className="is-small primaryLabel">Ei huolta, lähetämme sinulle uuden varmistuskoodin. Laita sähköpostisi alapuolella olevaan ruutuun.</p>
                 </div>
                 <br/>
 
@@ -98,12 +98,12 @@ const ResetVerificationCode = (props) => {
                     validate={values => {
                       const errors = {};
                       if (!values.email) {
-                        errors.email = 'Email can not be empty';
+                        errors.email = 'Ei voi olla tyhjä';
                       } if (!EmailValidator.validate(values.email)) {
-                        errors.email = "Invalid email address.";
+                        errors.email = "Epäkelpo sähköpostiosoite";
                       }
                       if (!values.isTermsAgreed) {
-                        errors.isTermsAgreed = "Accept terms of service!";
+                        errors.isTermsAgreed = "Hyväksy käyttöehdot!";
                       }
                       return errors
                     }}
@@ -129,12 +129,12 @@ const ResetVerificationCode = (props) => {
                             onClick={() => submitEmail(values)}
                             disabled={showLoader || submitting || pristine}
                           >
-                            Reset verification code
+                            Pyydä uusi varmistuskoodi
                           </button>
                         </div>
                         {emailVerificationNotify && (
                           <div class="notification is-info">
-                            <p>We send new verificaiton code in your email address!</p>
+                            <p>Ei huolta, lähetämme sinulle uuden varmistuskoodin. Laita sähköpostisi alapuolella olevaan ruutuun. </p>
                             <p>Wait...Page is redirecting....</p>
                           </div>
                         )}
