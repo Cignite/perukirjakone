@@ -97,12 +97,12 @@ const UserVerfication = (props) => {
                     validate={values => {
                       const errors = {};
                       if (!values.email) {
-                        errors.email = 'Email is required!';
+                        errors.email = 'Sähköposti vaaditaan!';
                       } if (!EmailValidator.validate(values.email)) {
-                        errors.email = "Invalid email address.";
+                        errors.email = "Virheellinen!";
                       }
                       if (!values.code) {
-                        errors.code = "Code is required!";
+                        errors.code = "Koodi tarvitaan!";
                       }
                       return errors
                     }}

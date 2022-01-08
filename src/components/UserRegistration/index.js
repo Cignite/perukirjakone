@@ -124,7 +124,7 @@ const UserRegistration = (props) => {
                       if (!values.email) {
                         errors.email = 'Email can not be empty';
                       } if (!EmailValidator.validate(values.email)) {
-                        errors.email = "Invalid email address.";
+                        errors.email = "Epäkelpo sähköpostiosoite";
                       }
                       if (!values.isTermsAgreed) {
                         errors.isTermsAgreed = "Accept terms of service!";
@@ -182,7 +182,7 @@ const UserRegistration = (props) => {
                               className="delete"
                               onClick={() => setDoesEmailExist(false)}
                             />
-                            <span>Email address already exist! </span>
+                            <span>Sähköposti on jo järjestelmässä! </span>
                             <Link to="/kirjaudu" className="has-text-weight-light">
                               Kirjaudu
                             </Link>
