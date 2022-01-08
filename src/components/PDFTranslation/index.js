@@ -23,9 +23,11 @@ Font.register( {
   src: LatoBold,
 });
 
+// DOUBLE CHECK ORIENTATION AND SIZE
+
 const MyDocument = () => (
   <Document>
-    <Page orientation="landscape" size="A4" />
+    <Page orientation="potrait" size="A4" />
   </Document>
   );
 
