@@ -7,9 +7,7 @@ function FeaturesSection(props) {
     <section className="section is-medium">
       <div className="container">
         <header className="section-header">
-          <h1 className="title is-spaced is-2 has-text-weight-bold">
-            PERUKIRJAKONEEN KÄYTTÄMISEN HYLDYT
-          </h1>
+          <h1 className="title is-spaced is-2 has-text-weight-bold">PERUKIRJAKONEEN KÄYTTÄMISEN HYÖDYT</h1>
           <h2 className="FeaturesSection__subtitle subtitle">
             Digitaalinen palvelu perunkirjoituksen toimittamiseen
           </h2>
