@@ -114,7 +114,7 @@ const Step1 = () => {
             name="customerSSN"
             component={RenderMaskInput}
             type="text"
-            placeholder="24444-39F"
+            placeholder="244443-393F"
             label="Henkilötunnus"
           />
           <Error name="customerSSN" />
