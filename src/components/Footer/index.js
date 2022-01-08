@@ -11,7 +11,7 @@ function Footer(props) {
           <ul>
             <li className="footer__item"> Maariankatu 1, 20100, Turku, Finland</li>
             <Link to="/termscondtions">
-              <li className="footer__item">Terms and services</li>
+              <li className="footer__item">Käyttöehdot</li>
             </Link>
             <li className="footer__item"><i className="fa fa-envelope" aria-hidden="true" /> <a href="mailto:info@perukirjakone.fi">&nbsp;info@perukirjakone.fi</a></li>
           </ul>
