@@ -9,7 +9,7 @@ const Input = ({ input, meta, label, placeholder, disabled }) => {
           disabled={disabled}
           placeholder={placeholder}
           {...input}
-          className={meta.touched && meta.error ? "input is-danger" : "input"}
+          className={meta.touched && meta.error ? "input is-danger" : "input" }
         />
       </div>
     </div>
