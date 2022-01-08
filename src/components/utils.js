@@ -16,7 +16,7 @@ export const calculateTotal = (arrayObj) => {
   const getTotal =
     arrayObj &&
     arrayObj.reduce((accumulator, currentVal) => {
-      return accumulator + parseInt(currentVal.value, 10);
+      return accumulator + parseFloat(currentVal.value);
     }, 0);
 
   return getTotal;
@@ -25,3 +25,4 @@ export const calculateTotal = (arrayObj) => {
 export const formatNumber = (num) => {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 };
+
