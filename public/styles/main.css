@@ -4075,7 +4075,7 @@ a.tag:hover {
 .is-hovered.input,
 .is-hovered.textarea,
 .select select.is-hovered {
-  border-color: #b5b5b5;
+  border-color: #3273dc;
 }
 .input:focus,
 .textarea:focus,
@@ -4090,7 +4090,6 @@ a.tag:hover {
 .is-active.textarea,
 .select select.is-active {
   border-color: #3273dc;
-  box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25);
 }
 [disabled].input,
 [disabled].textarea,
@@ -13343,7 +13342,7 @@ fieldset[disabled] .button {
 .is-hovered.input,
 .is-hovered.textarea,
 .select select.is-hovered {
-  border-color: #b5b5b5;
+  border-color: ;
 }
 .input:focus,
 .textarea:focus,
