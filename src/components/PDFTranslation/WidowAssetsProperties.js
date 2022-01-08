@@ -46,10 +46,10 @@ const styles = StyleSheet.create({
   },
 
   tableCol1: {
-    width: COL1_WIDTH + "%",
+    width: "30%",
   },
   tableCol: {
-    width: COLN_WIDTH + "%",
+    width: "30%",
   },
   tableCell: {
     fontSize: 12,
@@ -78,7 +78,7 @@ const WidowAssetsProperties = ({ jsonSchema }) => {
 
   return (
     jsonSchema &&
-    jsonSchema.wasDeceasedPersonMarried && (
+    jsonSchema.wasDeceasedPersonMarried ? (
       <>
         <View style={styles.row}>
           <View style={[styles.col]}>
@@ -252,7 +252,7 @@ const WidowAssetsProperties = ({ jsonSchema }) => {
           </View>
         </View>
       </>
-    )
+    ) : ( null)
   );
 };
 

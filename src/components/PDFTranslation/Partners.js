@@ -45,7 +45,7 @@ const Partners = ({ jsonSchema }) => (
                 <Text style={styles.colText}>
                   {index + 1}.&nbsp;{item.relationType},&nbsp;
                   {item.name},&nbsp;
-                  {item.ssn},&nbsp;
+                  {item.ssn}&nbsp;
                 </Text>
                 <View style={styles.row}>
                   <View style={[styles.col1]}>
