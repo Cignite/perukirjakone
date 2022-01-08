@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import { Prompt } from 'react-router-dom';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 
 import Wizard from "./components/Wizard";
 import Step1 from './components/Step1';

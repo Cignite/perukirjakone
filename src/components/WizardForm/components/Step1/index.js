@@ -1,8 +1,6 @@
 import React from "react";
 import { Field } from "react-final-form";
 import { FieldArray } from "react-final-form-arrays";
-import NumberFormat from "react-number-format";
-import { toast } from 'react-toastify';
 
 import InputWrapper from "../../../Shared/Input";
 import TextareaWrapper from "../../../Shared/Textarea";
@@ -71,7 +69,7 @@ const Step1 = () => {
   const [showRelationship, setShowRelationship] = React.useState(false);
 
   // const [showDeceasedNotification, setShowDeceasedNotification] = React.useState(false);
-  const [showPropertyNotification, setShowPropertyNotification] = React.useState(false);
+  // const [showPropertyNotification, setShowPropertyNotification] = React.useState(false);
   const [showOtherDocumentNotifcation, setOtherDocumentNotifcation] = React.useState(false);
   const [bankInfo, setBankAccountInfo] = React.useState(false)
   const [showShareInfo, setShowShareInfo] = React.useState(false);
@@ -83,6 +81,8 @@ const Step1 = () => {
   // const [showFuneralExpensesInfo, setShowFuneralExpensesInfo] = React.useState(false);
   // const [showWidowBankInfo, setShowWidowBankInfo] = React.useState(false);
   //const [codeValue, setCodeValue] = React.useState("");
+
+  console.log("showRelationship", showRelationship);
 
   return (
     <div className="form__content">
@@ -526,7 +526,7 @@ const Step1 = () => {
                         <div className="notification is-danger form__notification">
                         <button
                         className="delete"
-                        onClick={() => setOtherDocumentNotifcation(false)}
+                        onClick={() => showOtherDocumentNotifcation(false)}
                         />
                         Atleast one document information should exist!
                         </div>
@@ -1137,7 +1137,7 @@ const Step1 = () => {
                   </button>
                 </div>
                 <div>
-                  <img src={DebtIllustration} className="img-responsive"/>
+                  <img src={DebtIllustration} className="img-responsive" alt="Debt example" />
                 </div>
               </div>
             );

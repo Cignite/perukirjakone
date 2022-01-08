@@ -15,7 +15,6 @@ const RenderMaskInput = ({
         placeholder={placeholder}
         type={type}
         mask={[/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /[A-Za-z]/]}
-        className={className}
         guide={guide}
         pipe={pipe}
         keepCharPositions={keepCharPositions}

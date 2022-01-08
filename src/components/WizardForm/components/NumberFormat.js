@@ -5,7 +5,7 @@ import { useField } from "react-final-form";
   const NumberField = (props) => {
     const {
         input,
-        meta: { error, touched, submitError }
+        meta: { error, touched }
       } = useField(props.name);
 
       const inputProps = {
@@ -29,7 +29,7 @@ import { useField } from "react-final-form";
                     props.input.onChange(values.value)
                 }
                 allowNegative={false}
-                inputProps
+                inputProps={inputProps}
                 isNumericString
             />
         </div>

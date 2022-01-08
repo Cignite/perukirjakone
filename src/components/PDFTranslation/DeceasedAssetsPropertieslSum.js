@@ -75,13 +75,6 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
   );
   const deceasedAutomobilesTotal = calculateTotal(jsonSchema && jsonSchema.deceasedMotorBikeBrandTypeInfo)
 
-
-      console.log("deceasedAutomobilesTotal", deceasedAutomobilesTotal);
-      console.log("deceasedBelongingsOver4KTotal", deceasedBelongingsOver4KTotal);
-      console.log("deceasedPersonalBelongingsTotal", deceasedPersonalBelongingsTotal);
-      console.log("deceasedPropertyTotal", deceasedPropertyTotal);
-      console.log("deceasedStockTotal", deceasedStockTotal);
-      console.log("deceasedBankTotal", deceasedBankTotal)
   return (
     <>
       <View style={styles.table}>
