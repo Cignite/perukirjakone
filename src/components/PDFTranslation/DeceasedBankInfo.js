@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 
   tableCol1: {
-    width: COL1_WIDTH + "%",
+    width: "40%",
   },
   tableCol: {
     width: COLN_WIDTH + "%",
@@ -102,14 +102,14 @@ const DeceasedBankInfo = ({ jsonSchema }) => {
               </View>
             );
           })}
-        {/* <View style={styles.tableRow}>
+        <View style={styles.tableRow}>
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>Yhteensä</Text>
           </View>
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>{deceasedBankTotal}</Text>
           </View>
-        </View> */}
+        </View> 
       </View>
     </>
   );

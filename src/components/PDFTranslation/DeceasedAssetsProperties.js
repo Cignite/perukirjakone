@@ -44,10 +44,7 @@ const styles = StyleSheet.create({
   },
 
   tableCol1: {
-    width: COL1_WIDTH + "%",
-  },
-  tableCol: {
-    width: COLN_WIDTH + "%",
+    width: '40%',
   },
   tableCell: {
     fontSize: 12,
@@ -116,23 +113,7 @@ const DeceasedAssetsProperties = ({ jsonSchema }) => {
           })}
       </View>
 
-      <View style={styles.table}>
-        {jsonSchema &&
-          jsonSchema.propertyInfo &&
-          jsonSchema.propertyInfo.map((item, index) => {
-            return (
-              <View style={styles.tableRow} key={index}>
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.name}</Text>
-                </View>
-
-                <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
-                </View>
-              </View>
-            );
-          })}
-      </View>
+     
 
       <View style={styles.table}>
         {jsonSchema &&

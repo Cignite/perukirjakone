@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   tableCol1Header: {
-    width: COL1_WIDTH + '%',
+    width: `${COL1_WIDTH}${'%'}`,
     borderStyle: BORDER_STYLE,
     borderColor: BORDER_COLOR,
     borderBottomColor: '#000',
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 0
   },
   tableColHeader: {
-    width: COLN_WIDTH + "%",
+    width: `${COL1_WIDTH}${'%'}`,
     borderStyle: BORDER_STYLE,
     borderColor: BORDER_COLOR,
     borderBottomColor: '#000',
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 0
   },
   tableCol1: {
-    width: COL1_WIDTH + '%',
+    width: `${COL1_WIDTH}${'%'}`,
     borderStyle: BORDER_STYLE,
     borderColor: BORDER_COLOR,
     borderWidth: 1,
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 0
   },
   tableCol: {
-    width: COLN_WIDTH + "%",
+    width: `${COL1_WIDTH}${'%'}`,
     borderStyle: BORDER_STYLE,
     borderColor: BORDER_COLOR,
     borderWidth: 1,

@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
   },
 
   tableCol1: {
-    width: COL1_WIDTH + "%",
+    width: "40%",
   },
   tableCol: {
-    width: COLN_WIDTH + "%",
+    width: "30%",
   },
   tableCell: {
     fontSize: 12,
@@ -69,14 +69,17 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
   const deceasedBelongingsOver4KTotal = calculateTotal(
     jsonSchema && jsonSchema.propertyLikeSofaWatchInfo
   );
+  console.log("deceasedBelongingsOver4KTotal", deceasedBelongingsOver4KTotal)
   const deceasedPersonalBelongingsTotal = calculateTotal(
     jsonSchema && jsonSchema.personalBelongingsInfo
   );
-  const deceasedAutomobilesTotal =
-    jsonSchema &&
-    parseInt(jsonSchema.deceasedCarBrandTypeValue, 10) +
-      parseInt(jsonSchema.deceasedMotorBikeBrandTypeValue, 10);
+  // const deceasedAutomobilesTotal = 
+  //   jsonSchema &&
+  //   parseInt(jsonSchema.deceasedCarBrandTypeValue, 10) +
+  //     parseInt(jsonSchema.deceasedMotorBikeBrandTypeValue, 10);
 
+  const deceasedAutomobilesTotal = calculateTotal(jsonSchema && jsonSchema.deceasedMotorBikeBrandTypeInfo);
+  console.log("deceasedAutomobilesTotal", deceasedAutomobilesTotal);
   const totalDebt = calculateTotal(jsonSchema && jsonSchema.debtInfo);
 
   const totalFuneralExpenses = calculateTotal(
@@ -160,7 +163,7 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {deceasedAutomobilesTotal +
+              {(deceasedAutomobilesTotal +
                 deceasedBelongingsOver4KTotal +
                 deceasedPersonalBelongingsTotal +
                 deceasedPropertyTotal +
@@ -173,7 +176,7 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
                   tombstoneTotal +
                   otherFuneralExpensesTotal +
                   perukirjakoneRewardTotal +
-                  perukirjakoneFeeTotal)}
+                  perukirjakoneFeeTotal)).toFixed(2)}
             </Text>
           </View>
         </View>

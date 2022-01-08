@@ -56,7 +56,10 @@ const Deceased = ({ jsonSchema }) => (
           <Text style={styles.colText}>
             {jsonSchema && jsonSchema.customerFirstName} &nbsp;{" "}
             {jsonSchema && jsonSchema.customerlastName}, &nbsp;
-            {jsonSchema && jsonSchema.customerSSN}, &nbsp;kuollut, &nbsp;
+            {jsonSchema && jsonSchema.customerSSN}, &nbsp;kuollut
+        
+          </Text>
+          <Text style={styles.colText}>
             {moment(jsonSchema && jsonSchema.customerTimeOfDeath).format(
               "DD.MM.YYYY"
             )}

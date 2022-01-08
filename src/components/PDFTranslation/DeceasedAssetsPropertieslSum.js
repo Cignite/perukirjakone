@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
   },
 
   tableCol1: {
-    width: COL1_WIDTH + "%",
+    width: "40%",
+    fontWeight: "bold"
   },
   tableCol: {
     width: COLN_WIDTH + "%",
@@ -72,11 +73,15 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
   const deceasedPersonalBelongingsTotal = calculateTotal(
     jsonSchema && jsonSchema.personalBelongingsInfo
   );
-  const deceasedAutomobilesTotal =
-    jsonSchema &&
-    parseInt(jsonSchema.deceasedCarBrandTypeValue, 10) +
-      parseInt(jsonSchema.deceasedMotorBikeBrandTypeValue, 10);
+  const deceasedAutomobilesTotal = calculateTotal(jsonSchema && jsonSchema.deceasedMotorBikeBrandTypeInfo)
 
+
+      console.log("deceasedAutomobilesTotal", deceasedAutomobilesTotal);
+      console.log("deceasedBelongingsOver4KTotal", deceasedBelongingsOver4KTotal);
+      console.log("deceasedPersonalBelongingsTotal", deceasedPersonalBelongingsTotal);
+      console.log("deceasedPropertyTotal", deceasedPropertyTotal);
+      console.log("deceasedStockTotal", deceasedStockTotal);
+      console.log("deceasedBankTotal", deceasedBankTotal)
   return (
     <>
       <View style={styles.table}>
@@ -87,12 +92,12 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {deceasedAutomobilesTotal +
+              {(deceasedAutomobilesTotal +
                 deceasedBelongingsOver4KTotal +
                 deceasedPersonalBelongingsTotal +
                 deceasedPropertyTotal +
                 deceasedStockTotal +
-                deceasedBankTotal}
+                deceasedBankTotal).toFixed(2)}
             </Text>
           </View>
         </View>

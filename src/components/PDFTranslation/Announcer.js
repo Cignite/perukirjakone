@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     fontFamily: "Lato Bold",
   },
   marginLeft: {
-    marginLeft: 78,
+    marginLeft: 75,
   },
   col1: {
     padding: 0,

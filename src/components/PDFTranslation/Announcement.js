@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     fontFamily: "Lato Bold",
   },
   marginLeft: {
-    marginLeft: 20,
+    marginLeft: 40,
   },
   col1: {
     padding: 0,
@@ -36,12 +36,12 @@ const Announcement = ({ jsonSchema }) => (
       <View style={styles.row}>
         <View style={[styles.col]}>
           <View>
-            <Text style={styles.colHeader}>Henkivakuutukset </Text>
+            <Text style={styles.colHeader}>Henkivakuutukset</Text>
           </View>
         </View>
         <View style={styles.marginLeft}>
           <Text style={styles.colText}>
-            {jsonSchema && jsonSchema.otherAnnouncementDescription}
+          {jsonSchema && jsonSchema.otherAnnouncementDescription}
           </Text>
         </View>
       </View>

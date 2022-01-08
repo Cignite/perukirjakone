@@ -49,10 +49,10 @@ const styles = StyleSheet.create({
   },
 
   tableCol1: {
-    width: COL1_WIDTH + "%",
+    width: `${COL1_WIDTH}${'%'}`,
   },
   tableCol: {
-    width: COLN_WIDTH + "%",
+    width: `${COL1_WIDTH}${'%'}`,
   },
   tableCell: {
     fontSize: 12,

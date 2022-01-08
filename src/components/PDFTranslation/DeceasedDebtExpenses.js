@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
 
   tableCol1: {
-    width: COL1_WIDTH + "%",
+    width: "40%",
   },
   tableCol: {
     width: COLN_WIDTH + "%",

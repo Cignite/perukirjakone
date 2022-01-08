@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
   },
 
   tableCol1: {
-    width: COL1_WIDTH + "%",
+    width: "40%",
   },
   tableCol: {
-    width: COLN_WIDTH + "%",
+    width: "30%",
   },
   tableCell: {
     fontSize: 12,
@@ -94,14 +94,14 @@ const DeceasedDebtExpensesTotal = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {totalDebt +
+              {(totalDebt +
                 totalFuneralExpenses +
                 deathCertificateTotal +
                 flowersTotal +
                 tombstoneTotal +
                 otherFuneralExpensesTotal +
                 perukirjakoneRewardTotal +
-                perukirjakoneFeeTotal}
+                perukirjakoneFeeTotal).toFixed(2)}
             </Text>
           </View>
         </View>
