@@ -68,7 +68,7 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
   );
 
   const validate = useCallback(
-    values =>
+    values => 
       activePage.props.validate ? activePage.props.validate(values) : {},
     [activePage]
   );
