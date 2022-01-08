@@ -8,6 +8,8 @@
 
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import HomePage from '../Homepage';
 import PerukirjaForm from '../PerukirjaForm';
@@ -25,6 +27,8 @@ export default function App() {
     <BrowserRouter>
       <MainWrapper>
         <main>
+          <ToastContainer />
+
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/aloita" component={UserRegistration}  />
