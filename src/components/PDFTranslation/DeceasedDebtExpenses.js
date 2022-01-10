@@ -80,7 +80,7 @@ const DeceaseddDebtExpenses = ({ jsonSchema }) => {
                   </View>
 
                   <View style={styles.tableCol1}>
-                    <Text style={styles.tableCell}>{item.value}</Text>
+                    <Text style={styles.tableCell}>{item.value.replace(/\./g, ',')}</Text>
                   </View>
                 </View>
               );
@@ -99,7 +99,7 @@ const DeceaseddDebtExpenses = ({ jsonSchema }) => {
                 </View>
 
                 <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
+                  <Text style={styles.tableCell}>{item.value.replace(/\./g, ',')}</Text>
                 </View>
               </View>
             );
@@ -114,7 +114,7 @@ const DeceaseddDebtExpenses = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {jsonSchema && jsonSchema.funeralExpensesInfoDeathCertificate}
+              {jsonSchema && jsonSchema.funeralExpensesInfoDeathCertificate.replace(/\./g, ',')}
             </Text>
           </View>
         </View>
@@ -128,7 +128,7 @@ const DeceaseddDebtExpenses = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {jsonSchema && jsonSchema.flowers}
+              {jsonSchema && jsonSchema.flowers.replace(/\./g, ',')}
             </Text>
           </View>
         </View>
@@ -142,7 +142,7 @@ const DeceaseddDebtExpenses = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {jsonSchema && jsonSchema.funeralExpensesInfoTombstone}
+              {jsonSchema && jsonSchema.funeralExpensesInfoTombstone.replace(/\./g, ',')}
             </Text>
           </View>
         </View>
@@ -159,7 +159,7 @@ const DeceaseddDebtExpenses = ({ jsonSchema }) => {
                 </View>
 
                 <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
+                  <Text style={styles.tableCell}>{item.value.replace(/\./g, ',')}</Text>
                 </View>
               </View>
             );
@@ -174,7 +174,7 @@ const DeceaseddDebtExpenses = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {jsonSchema && jsonSchema.perukirjakoneReward}
+              {jsonSchema && jsonSchema.perukirjakoneReward.replace(/\./g, ',')}
             </Text>
           </View>
         </View>

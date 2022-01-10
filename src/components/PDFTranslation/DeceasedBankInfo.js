@@ -97,7 +97,7 @@ const DeceasedBankInfo = ({ jsonSchema }) => {
                 </View>
 
                 <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
+                  <Text style={styles.tableCell}>{item.value.replace(/\./g, ',')}</Text>
                 </View>
               </View>
             );
@@ -107,7 +107,7 @@ const DeceasedBankInfo = ({ jsonSchema }) => {
             <Text style={styles.tableCell}>Yhteensä</Text>
           </View>
           <View style={styles.tableCol1}>
-            <Text style={styles.tableCell}>{deceasedBankTotal}</Text>
+            <Text style={styles.tableCell}>{deceasedBankTotal.replace(/\./g, ',')}</Text>
           </View>
         </View> 
       </View>

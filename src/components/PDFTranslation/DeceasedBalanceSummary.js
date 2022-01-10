@@ -59,6 +59,40 @@ const styles = StyleSheet.create({
 });
 
 const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
+  // const deceasedAutomobilesTotal = 
+  //   jsonSchema &&
+  //   parseInt(jsonSchema.deceasedCarBrandTypeValue, 10) +
+  //     parseInt(jsonSchema.deceasedMotorBikeBrandTypeValue, 10);
+
+  const totalDebt = calculateTotal(jsonSchema && jsonSchema.debtInfo);
+
+  const totalFuneralExpenses = calculateTotal(
+    jsonSchema && jsonSchema.funeralExpensesInfo
+  );
+
+  const deathCertificateTotal =
+    jsonSchema && parseFloat(jsonSchema.funeralExpensesInfoDeathCertificate);
+
+  const flowersTotal =
+    jsonSchema && parseFloat(jsonSchema && jsonSchema.flowers);
+
+  const tombstoneTotal =
+    jsonSchema &&
+    parseFloat(jsonSchema && jsonSchema.funeralExpensesInfoTombstone);
+
+  const otherFuneralExpensesTotal =
+    jsonSchema && calculateTotal(jsonSchema && jsonSchema.otherFuneralExpenses);
+
+  const perukirjakoneRewardTotal =
+    jsonSchema && parseFloat(jsonSchema && jsonSchema.perukirjakoneReward);
+
+  const perukirjakoneFeeTotal =
+    jsonSchema && parseFloat(jsonSchema && jsonSchema.perukirjakoneFee);
+  
+  // const deceasedTotalAssets = (deceasedAutomobilesTotal + deceasedBelongingsOver4KTotal + deceasedPersonalBelongingsTotal + deceasedPropertyTotal + deceasedStockTotal + deceasedBankTotal);
+  // console.log("deceasedTotalAssets", deceasedTotalAssets.replace(/\./g, ','))
+
+
   const deceasedBankTotal = calculateTotal(
     jsonSchema && jsonSchema.bankAccountInfo
   );
@@ -69,41 +103,11 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
   const deceasedBelongingsOver4KTotal = calculateTotal(
     jsonSchema && jsonSchema.propertyLikeSofaWatchInfo
   );
-  console.log("deceasedBelongingsOver4KTotal", deceasedBelongingsOver4KTotal)
   const deceasedPersonalBelongingsTotal = calculateTotal(
     jsonSchema && jsonSchema.personalBelongingsInfo
   );
-  // const deceasedAutomobilesTotal = 
-  //   jsonSchema &&
-  //   parseInt(jsonSchema.deceasedCarBrandTypeValue, 10) +
-  //     parseInt(jsonSchema.deceasedMotorBikeBrandTypeValue, 10);
+  const deceasedAutomobilesTotal = calculateTotal(jsonSchema && jsonSchema.deceasedMotorBikeBrandTypeInfo)
 
-  const deceasedAutomobilesTotal = calculateTotal(jsonSchema && jsonSchema.deceasedMotorBikeBrandTypeInfo);
-  console.log("deceasedAutomobilesTotal", deceasedAutomobilesTotal);
-  const totalDebt = calculateTotal(jsonSchema && jsonSchema.debtInfo);
-
-  const totalFuneralExpenses = calculateTotal(
-    jsonSchema && jsonSchema.funeralExpensesInfo
-  );
-
-  const deathCertificateTotal =
-    jsonSchema && parseInt(jsonSchema.funeralExpensesInfoDeathCertificate, 10);
-
-  const flowersTotal =
-    jsonSchema && parseInt(jsonSchema && jsonSchema.flowers, 10);
-
-  const tombstoneTotal =
-    jsonSchema &&
-    parseInt(jsonSchema && jsonSchema.funeralExpensesInfoTombstone, 10);
-
-  const otherFuneralExpensesTotal =
-    jsonSchema && calculateTotal(jsonSchema && jsonSchema.otherFuneralExpenses);
-
-  const perukirjakoneRewardTotal =
-    jsonSchema && parseInt(jsonSchema && jsonSchema.perukirjakoneReward, 10);
-
-  const perukirjakoneFeeTotal =
-    jsonSchema && parseInt(jsonSchema && jsonSchema.perukirjakoneFee, 10);
 
   return (
     <>
@@ -123,12 +127,12 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {deceasedAutomobilesTotal +
+              {(deceasedAutomobilesTotal +
                 deceasedBelongingsOver4KTotal +
                 deceasedPersonalBelongingsTotal +
                 deceasedPropertyTotal +
                 deceasedStockTotal +
-                deceasedBankTotal}
+                deceasedBankTotal).toFixed(2).replace(/\./g, ',')}
             </Text>
           </View>
         </View>
@@ -142,14 +146,14 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {totalDebt +
+              {(totalDebt +
                 totalFuneralExpenses +
                 deathCertificateTotal +
                 flowersTotal +
                 tombstoneTotal +
                 otherFuneralExpensesTotal +
                 perukirjakoneRewardTotal +
-                perukirjakoneFeeTotal}
+                perukirjakoneFeeTotal).toFixed(2).replace(/\./g, ',')}
             </Text>
           </View>
         </View>
@@ -176,7 +180,7 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
                   tombstoneTotal +
                   otherFuneralExpensesTotal +
                   perukirjakoneRewardTotal +
-                  perukirjakoneFeeTotal)).toFixed(2)}
+                  perukirjakoneFeeTotal)).toFixed(2).replace(/\./g, ',')}
             </Text>
           </View>
         </View>

@@ -87,7 +87,7 @@ const DeceasedAssetsProperties = ({ jsonSchema }) => {
                 </View>
 
                 <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
+                  <Text style={styles.tableCell}>{item.value.replace(/\./g, ',')}</Text>
                 </View>
               </View>
             );
@@ -106,7 +106,7 @@ const DeceasedAssetsProperties = ({ jsonSchema }) => {
                 </View>
 
                 <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
+                  <Text style={styles.tableCell}>{item.value.replace(/\./g, ',')}</Text>
                 </View>
               </View>
             );
@@ -126,7 +126,7 @@ const DeceasedAssetsProperties = ({ jsonSchema }) => {
                 </View>
 
                 <View style={styles.tableCol1}>
-                  <Text style={styles.tableCell}>{item.value}</Text>
+                  <Text style={styles.tableCell}>{item.value.replace(/\./g, ',')}</Text>
                 </View>
               </View>
             );
@@ -145,7 +145,7 @@ const DeceasedAssetsProperties = ({ jsonSchema }) => {
                   </View>
 
                   <View style={styles.tableCol1}>
-                    <Text style={styles.tableCell}>{item.value}</Text>
+                    <Text style={styles.tableCell}>{item.value.replace(/\./g, ',')}</Text>
                   </View>
                 </View>
               );
@@ -165,7 +165,7 @@ const DeceasedAssetsProperties = ({ jsonSchema }) => {
                   </View>
 
                   <View style={styles.tableCol1}>
-                    <Text style={styles.tableCell}>{item.value}</Text>
+                    <Text style={styles.tableCell}>{item.value.replace(/\./g, ',')}</Text>
                   </View>
                 </View>
               );
@@ -185,7 +185,7 @@ const DeceasedAssetsProperties = ({ jsonSchema }) => {
                   </View>
 
                   <View style={styles.tableCol1}>
-                    <Text style={styles.tableCell}>{item.value}</Text>
+                    <Text style={styles.tableCell}>{item.value.replace(/\./g, ',')}</Text>
                   </View>
                 </View>
               );

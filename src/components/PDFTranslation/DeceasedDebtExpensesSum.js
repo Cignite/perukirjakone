@@ -82,7 +82,7 @@ const DeceasedDebtExpensesTotal = ({ jsonSchema }) => {
     jsonSchema && parseInt(jsonSchema && jsonSchema.perukirjakoneReward, 10);
 
   const perukirjakoneFeeTotal =
-    jsonSchema && parseInt(jsonSchema && jsonSchema.perukirjakoneFee, 10);
+    jsonSchema && parseFloat(jsonSchema && jsonSchema.perukirjakoneFee);
 
   return (
     <>
@@ -101,7 +101,7 @@ const DeceasedDebtExpensesTotal = ({ jsonSchema }) => {
                 tombstoneTotal +
                 otherFuneralExpensesTotal +
                 perukirjakoneRewardTotal +
-                perukirjakoneFeeTotal).toFixed(2)}
+                perukirjakoneFeeTotal).toFixed(2).replace(/\./g, ',')}
             </Text>
           </View>
         </View>

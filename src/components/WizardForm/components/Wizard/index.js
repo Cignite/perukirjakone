@@ -28,7 +28,6 @@ const WizardForm = ({ page, initialValues, children, onSubmit, codeValueHandler 
       setShowLoader(true);
       await axios.put(`${API_BASE_URL}${'documents/'}${getUserInfoFromStorage.id}`, { ...jsonSchemaPayload })
         .then(res => {
-          console.log("post response", res);
           setShowLoader(false);
         })
 

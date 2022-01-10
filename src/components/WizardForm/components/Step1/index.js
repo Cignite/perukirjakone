@@ -67,13 +67,13 @@ const validateRelationshipInfo = values => {
 
 const Step1 = () => {
   const [showRelationship, setShowRelationship] = React.useState(false);
-
-  // const [showDeceasedNotification, setShowDeceasedNotification] = React.useState(false);
-  // const [showPropertyNotification, setShowPropertyNotification] = React.useState(false);
+  const [showPropertyInfo, setShowPropertyInfo] = React.useState(false);
   const [showOtherDocumentNotifcation, setOtherDocumentNotifcation] = React.useState(false);
   const [bankInfo, setBankAccountInfo] = React.useState(false)
-  const [showShareInfo, setShowShareInfo] = React.useState(false);
-  const [showPropertyInfo, setShowPropertyInfo] = React.useState(false);
+  
+  // const [showDeceasedNotification, setShowDeceasedNotification] = React.useState(false);
+  // const [showPropertyNotification, setShowPropertyNotification] = React.useState(false);
+  // const [showShareInfo, setShowShareInfo] = React.useState(false);
   //const [showBankAccountNotification, setShowBankAccountNotification] = React.useState(false);
   //const [showShareInfoNotification, setShowShareInfoNotification] = React.useState(false);
   // const [showPaintingInfo, setShowPaintingInfo] = React.useState(false);
@@ -164,7 +164,7 @@ const Step1 = () => {
             <div>
               {fields.map((name, index) => (
                 <>
-                <div key={name} className="columns">
+                <div key={index} className="columns">
                   <div className="column is-3">
                     <Field
                       name={`${name}.relationType`}
@@ -526,7 +526,7 @@ const Step1 = () => {
                         <div className="notification is-danger form__notification">
                         <button
                         className="delete"
-                        onClick={() => showOtherDocumentNotifcation(false)}
+                        onClick={() => setOtherDocumentNotifcation(false)}
                         />
                         Atleast one document information should exist!
                         </div>
@@ -596,14 +596,14 @@ const Step1 = () => {
                       <i className="fa fa-trash" />
                     </span>
                   </div>
-                  <div class="pb-2">
+                  <div className="pb-2">
                     {bankInfo && (
                       <div className="notification is-danger form__notification">
                       <button
                       className="delete"
                       onClick={() => setBankAccountInfo(false)}
                       />
-                      Atleast one Bank account definition should exist!
+                      Lisää vähintään yksi pankkitili!
                       </div>
                       )}
                   </div>
@@ -662,11 +662,7 @@ const Step1 = () => {
                       aria-label="Close"
                       className="del__btn"
                       onClick={() => {
-                        if (fields.length === 1) {
-                        setShowShareInfo(true);
-                        } else {
                         fields.remove(index)}
-                        }
                       }
                       style={{ cursor: "pointer" }}
                     >
@@ -674,16 +670,16 @@ const Step1 = () => {
                     </span>
                   </div>
 
-                  <Error name={`${name}.name`} />
-                  {showShareInfo && (
-                        <div className="notification is-danger form__notification">
+                  {/* <Error name={`${name}.name`} />
+                    {showShareInfo && (
+                      <div className="notification is-danger form__notification">
                         <button
-                        className="delete"
-                        onClick={() => setShowShareInfo(false)}
+                          className="delete"
+                          onClick={() => setShowShareInfo(false)}
                         />
-                        Atleast one share info definition should exist!
-                        </div>
-                        )}
+                          Atleast one share info definition should exist!
+                      </div>
+                    )} */}
                 </div>
               ))}
               <div className="add__btn margin">
@@ -1065,9 +1061,7 @@ const Step1 = () => {
             </div>
           </div>
         </div>
-        <div className="column is-5">
-          <image src={DebtIllustration} className="perulogo" />
-        </div>
+      
       </div>
 
       <Condition when="didDeceasedHaveDebt" is={true}>

@@ -200,7 +200,7 @@ const DeceasedPersonalItemsInfo = ({ jsonSchema }) => {
               </View>
 
               <View style={styles.tableCol1}>
-                <Text style={styles.tableCell}>{deceasedAutomobilesTotal}</Text>
+                <Text style={styles.tableCell}>{deceasedAutomobilesTotal.replace(/\./g, ',')}</Text>
               </View>
             </View>
           </View>
@@ -239,7 +239,7 @@ const DeceasedPersonalItemsInfo = ({ jsonSchema }) => {
                     </View>
 
                     <View style={styles.tableCol1}>
-                      <Text style={styles.tableCell}>{item.value}</Text>
+                      <Text style={styles.tableCell}>{item.value.replace(/\./g, ',')}</Text>
                     </View>
                   </View>
                 );
@@ -250,7 +250,7 @@ const DeceasedPersonalItemsInfo = ({ jsonSchema }) => {
               </View>
               <View style={styles.tableCol1Header}>
                 <Text style={styles.tableCellHeader}>
-                  {deceasedBelongingsOver4KTotal}
+                  {deceasedBelongingsOver4KTotal.replace(/\./g, ',')}
                 </Text>
               </View>
             </View>
@@ -289,7 +289,7 @@ const DeceasedPersonalItemsInfo = ({ jsonSchema }) => {
                     </View>
 
                     <View style={styles.tableCol1}>
-                      <Text style={styles.tableCell}>{item.value}</Text>
+                      <Text style={styles.tableCell.replace(/\./g, ',')}>{item.value}</Text>
                     </View>
                   </View>
                 );

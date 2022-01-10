@@ -90,7 +90,7 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
                 deceasedPersonalBelongingsTotal +
                 deceasedPropertyTotal +
                 deceasedStockTotal +
-                deceasedBankTotal).toFixed(2)}
+                deceasedBankTotal).toFixed(2).replace(/\./g, ',')}
             </Text>
           </View>
         </View>

@@ -105,6 +105,16 @@ const StepWizard = () => {
               if (!values.trustedMenPlaceSecond) {
                 errors.trustedMenPlaceSecond = "Tämä on pakollinen kenttä";
               }
+              if (values.isTestamentDeceasedPropertyAssignedChecked && !values.testamentPropertyAssignInfo) {
+                errors.testamentPropertyAssignInfo = "Tämä on pakollinen kenttä";
+              }
+              if (values.isTestamenttiChecked && !values.testamenttiTimeOfDeath) {
+                errors.testamenttiTimeOfDeath = "Tämä on pakollinen kenttä";
+              }
+              if (values.isMarriedSettlementContractChecked && !values.marriageSettlementDate) {
+                errors.marriageSettlementDate = "Tämä on pakollinen kenttä";
+              }
+   
               return errors;
             }}
           >

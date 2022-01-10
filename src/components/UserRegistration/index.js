@@ -127,7 +127,7 @@ const UserRegistration = (props) => {
                         errors.email = "Epäkelpo sähköpostiosoite";
                       }
                       if (!values.isTermsAgreed) {
-                        errors.isTermsAgreed = "Accept terms of service!";
+                        errors.isTermsAgreed = "Tietosuoja ja käyttöehdot!";
                       }
                       return errors
                     }}

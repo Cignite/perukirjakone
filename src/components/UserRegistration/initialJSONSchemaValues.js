@@ -114,7 +114,7 @@ const initialJSONSchemaValues = {
       date: ""
     }
   ],
-  perukirjakoneFee: "29"
+  perukirjakoneFee: "29,00"
 };
 
 export default initialJSONSchemaValues;

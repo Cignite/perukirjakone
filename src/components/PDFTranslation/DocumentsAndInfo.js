@@ -82,13 +82,12 @@ const DocumentsAndInfo = ({ jsonSchema }) => (
       <View style={styles.marginLeft}>
         {jsonSchema &&
           jsonSchema.isOtherDocumentChecked &&
-          jsonSchema &&
-          jsonSchema.otherDocumentInfo &&
+          jsonSchema.otherDocumentInfo.length > 0 &&
           jsonSchema.otherDocumentInfo.map((item, index) => {
             return (
               <View key={index} style={styles.marginLeft}>
                 <Text style={styles.colText}>
-                  {index + 3}. {item.otherDocInfo}
+                  {/* {index + 3}. {item.otherDocInfo} */}
                 </Text>
               </View>
             );

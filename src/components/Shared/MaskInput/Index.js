@@ -31,11 +31,11 @@ RenderMaskInput.propTypes = {
   input: PropTypes.shape().isRequired,
   placeholder: PropTypes.string,
   type: PropTypes.string,
-  mask: PropTypes.arrayOf(PropTypes.any).isRequired,
-  className: PropTypes.string.isRequired,
-  guide: PropTypes.bool.isRequired,
-  keepCharPositions: PropTypes.bool.isRequired,
-  pipe: PropTypes.func.isRequired,
+  mask: PropTypes.arrayOf(PropTypes.any),
+  className: PropTypes.string,
+  guide: PropTypes.bool,
+  keepCharPositions: PropTypes.bool,
+  pipe: PropTypes.func,
 };
 
 RenderMaskInput.defaultProps = {
