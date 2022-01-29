@@ -730,11 +730,9 @@ const Step1 = () => {
                       className="del__btn"
                       aria-label="Close"
                       onClick={() => {
-                        if (fields.length === 1) {
-                          setShowPropertyInfo(true);
-                        } else {
+                    
                         fields.remove(index)}
-                        }
+                        
                       }
                       style={{ cursor: "pointer" }}
                     >
