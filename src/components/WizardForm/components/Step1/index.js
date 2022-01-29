@@ -4,7 +4,7 @@ import { FieldArray } from "react-final-form-arrays";
 
 import InputWrapper from "../../../Shared/Input";
 import TextareaWrapper from "../../../Shared/Textarea";
-import RenderMaskInput from '../../../Shared/MaskInput/Index';
+// import RenderMaskInput from '../../../Shared/MaskInput/Index';
 import renderDatePickerField from "../../../Shared/Datepicker";
 import Error from "../../../Shared/Error";
 import NumberFieldHooks from '../NumberFormat';
@@ -112,7 +112,7 @@ const Step1 = () => {
         <div className="column">
           <Field
             name="customerSSN"
-            component={RenderMaskInput}
+            component={InputWrapper}
             type="text"
             placeholder="244443-393F"
             label="Henkilötunnus"
@@ -188,7 +188,7 @@ const Step1 = () => {
                   <div className="column is-3">
                     <Field
                       name={`${name}.ssn`}
-                      component={RenderMaskInput}
+                      component={InputWrapper}
                       type="text"
                       placeholder="010789-197F"
                       label="Henkilötunnus"
