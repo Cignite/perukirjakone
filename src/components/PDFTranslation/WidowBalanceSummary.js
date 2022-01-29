@@ -103,7 +103,7 @@ const WidowBalanceSummary = ({ jsonSchema }) => {
     let debtSum = 0;
     if ( jsonSchema && jsonSchema.widowDebtInfo.length ) {
       jsonSchema && jsonSchema.widowDebtInfo.map((debt) => {
-        debtSum = debtSum + debt.value;
+        return debtSum = debtSum + debt.value;
       })
     }
     return debtSum;

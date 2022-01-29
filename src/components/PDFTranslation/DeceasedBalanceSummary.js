@@ -160,9 +160,7 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
 
   }
 
-  const totalDeceasedDebt = () => {
-    return totalSum + deceasedSumtotal;
-  }
+
   return (
     <>
       <View style={styles.row}>
