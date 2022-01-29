@@ -41,8 +41,7 @@ const Inquires = ({ jsonSchema }) => (
       <View style={styles.marginLeft}>
         <Text style={styles.colText}>
           Perintöverotuspäätöksen sekä asiaa koskevia tiedusteluja ja
-          ilmoituksia ottaa vastaan (ilmoittaja-announcer){" "}
-          {jsonSchema && jsonSchema.inviteeName}.
+          ilmoituksia ottaa vastaan {jsonSchema && jsonSchema.inviteeName}.
         </Text>
       </View>
     </View>
