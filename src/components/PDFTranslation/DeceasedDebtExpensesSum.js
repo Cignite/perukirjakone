@@ -66,7 +66,7 @@ const DeceasedDebtExpensesTotal = ({ jsonSchema }) => {
   );
 
   const deathCertificateTotal =
-    jsonSchema && parseInt(jsonSchema.funeralExpensesInfoDeathCertificate, 10);
+    jsonSchema && parseInt(jsonSchema && jsonSchema.funeralExpensesInfoDeathCertificate, 10);
 
   const flowersTotal =
     jsonSchema && parseInt(jsonSchema && jsonSchema.flowers, 10);
@@ -84,6 +84,35 @@ const DeceasedDebtExpensesTotal = ({ jsonSchema }) => {
   const perukirjakoneFeeTotal =
     jsonSchema && parseFloat(jsonSchema && jsonSchema.perukirjakoneFee);
 
+  const totalSum = () => {
+    let expensesTotal = 0;
+    if (totalDebt) {
+      expensesTotal = expensesTotal + totalDebt;
+    }
+    if (totalFuneralExpenses) {
+      expensesTotal = expensesTotal + totalFuneralExpenses;
+    }
+    if (deathCertificateTotal) {
+      expensesTotal = expensesTotal + deathCertificateTotal;
+    }
+    if (flowersTotal) {
+      expensesTotal = expensesTotal + flowersTotal;
+    }
+    if (tombstoneTotal) {
+      expensesTotal = expensesTotal + tombstoneTotal;
+    }
+    if (otherFuneralExpensesTotal) {
+      expensesTotal = expensesTotal + otherFuneralExpensesTotal;
+    }
+    if (perukirjakoneRewardTotal) {
+      expensesTotal = expensesTotal + perukirjakoneRewardTotal;
+    }
+    if (perukirjakoneFeeTotal) {
+      expensesTotal = expensesTotal + perukirjakoneFeeTotal;
+    }
+    return expensesTotal;
+
+  }
   return (
     <>
       <View style={styles.table}>
@@ -94,14 +123,7 @@ const DeceasedDebtExpensesTotal = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {(totalDebt +
-                totalFuneralExpenses +
-                deathCertificateTotal +
-                flowersTotal +
-                tombstoneTotal +
-                otherFuneralExpensesTotal +
-                perukirjakoneRewardTotal +
-                perukirjakoneFeeTotal).toFixed(2).replace(/\./g, ',')}
+              {totalSum().toFixed(2).replace(/\./g, ',')}
             </Text>
           </View>
         </View>

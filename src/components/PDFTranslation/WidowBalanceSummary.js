@@ -76,8 +76,39 @@ const WidowBalanceSummary = ({ jsonSchema }) => {
     jsonSchema && jsonSchema.widowPersonalBelonings
   );
 
-  const widowTotalBankStock = widowBankInfoTotal + widowStockInfo + widowProperty + widowMotorBikeBrandTypeInfo + personalWorthInfo + widowPersonalBelonings
-  const widowSaving = widowBankInfoTotal + widowStockInfo + widowProperty + widowMotorBikeBrandTypeInfo + personalWorthInfo + widowPersonalBelonings
+  const widowTotal = () => {
+    let totalSum = 0;
+    if (widowBankInfoTotal) {
+      totalSum = totalSum + widowBankInfoTotal;
+    }
+    if (widowStockInfo) {
+      totalSum = totalSum + widowStockInfo;
+    }
+    if (widowProperty) {
+      totalSum = totalSum + widowProperty;
+    }
+    if (widowMotorBikeBrandTypeInfo) {
+      totalSum = totalSum + widowMotorBikeBrandTypeInfo;
+    }
+    if (personalWorthInfo) {
+      totalSum = totalSum + personalWorthInfo;
+    }
+    if (widowPersonalBelonings) {
+      totalSum = totalSum + widowPersonalBelonings;
+    }
+    return totalSum;
+  }
+
+  const widowDebtSum = () => {
+    let debtSum = 0;
+    if ( jsonSchema && jsonSchema.widowDebtInfo.length ) {
+      jsonSchema && jsonSchema.widowDebtInfo.map((debt) => {
+        debtSum = debtSum + debt.value;
+      })
+    }
+    return debtSum;
+  }  
+  
   return (
     <>
       <View style={styles.row}>
@@ -96,7 +127,7 @@ const WidowBalanceSummary = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {jsonSchema && jsonSchema.wasDeceasedPersonMarried ? widowTotalBankStock : "-"}
+              {jsonSchema && jsonSchema.wasDeceasedPersonMarried ? widowTotal() : "-"}
             </Text>
           </View>
         </View>
@@ -109,7 +140,8 @@ const WidowBalanceSummary = ({ jsonSchema }) => {
           </View>
 
           <View style={styles.tableCol1}>
-            <Text style={styles.tableCell}>-</Text>
+            <Text style={styles.tableCell}>{jsonSchema && jsonSchema.didDeceasedHaveDebt ? calculateTotal(
+    jsonSchema && jsonSchema.widowDebtInfo) : 0}</Text>
           </View>
         </View>
       </View>
@@ -122,7 +154,7 @@ const WidowBalanceSummary = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-            {jsonSchema && jsonSchema.wasDeceasedPersonMarried ? widowSaving : "-"}
+            {jsonSchema && jsonSchema.wasDeceasedPersonMarried ? widowTotal() - widowDebtSum() : "-"}
 
             </Text>
           </View>

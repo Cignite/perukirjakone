@@ -76,6 +76,37 @@ const WidowAssetsProperties = ({ jsonSchema }) => {
     jsonSchema && jsonSchema.widowPersonalBelonings
   );
 
+  const widowSumTotal = () => {
+    console.log("widowBankInfoTotal", widowBankInfoTotal);
+    console.log("widowStockInfo", widowStockInfo);
+    console.log("widowProperty", widowProperty);
+    console.log("widowMotorBikeBrandTypeInfo", widowMotorBikeBrandTypeInfo);
+    console.log("personalWorthInfo", personalWorthInfo);
+    console.log("widowPersonalBelonings", widowPersonalBelonings)
+    let widowTotal = 0;
+    
+    if (widowBankInfoTotal) {
+      widowTotal = widowTotal + widowBankInfoTotal;
+    }
+    if (widowProperty) {
+      widowTotal = widowTotal + widowProperty;
+    }
+    if (widowStockInfo) {
+      widowTotal = widowTotal + widowStockInfo;
+    }
+  
+    if (widowMotorBikeBrandTypeInfo) {
+      widowTotal = widowTotal + widowMotorBikeBrandTypeInfo;
+    }
+    if (personalWorthInfo) {
+      widowTotal = widowTotal + personalWorthInfo;
+    }
+    if (widowPersonalBelonings) {
+      widowTotal = widowTotal + widowPersonalBelonings;
+    }
+    return widowTotal;
+  }
+
   return (
     jsonSchema &&
     jsonSchema.wasDeceasedPersonMarried ? (
@@ -155,23 +186,6 @@ const WidowAssetsProperties = ({ jsonSchema }) => {
             })}
         </View>
 
-        <View style={styles.table}>
-          {jsonSchema &&
-            jsonSchema.propertyInfo &&
-            jsonSchema.propertyInfo.map((item, index) => {
-              return (
-                <View style={styles.tableRow} key={index}>
-                  <View style={styles.tableCol1}>
-                    <Text style={styles.tableCell}>{item.name}</Text>
-                  </View>
-
-                  <View style={styles.tableCol1}>
-                    <Text style={styles.tableCell}>{item.value}</Text>
-                  </View>
-                </View>
-              );
-            })}
-        </View>
 
         {jsonSchema && jsonSchema && jsonSchema.didWidowHadCarBoat && (
           <View style={styles.table}>
@@ -241,12 +255,7 @@ const WidowAssetsProperties = ({ jsonSchema }) => {
 
             <View style={styles.tableCol1}>
               <Text style={styles.tableCell}>
-                {widowBankInfoTotal +
-                  widowStockInfo +
-                  widowProperty +
-                  widowMotorBikeBrandTypeInfo +
-                  personalWorthInfo +
-                  widowPersonalBelonings}
+                {widowSumTotal()}
               </Text>
             </View>
           </View>

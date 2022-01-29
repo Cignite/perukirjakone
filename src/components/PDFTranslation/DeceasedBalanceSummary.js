@@ -89,9 +89,6 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
   const perukirjakoneFeeTotal =
     jsonSchema && parseFloat(jsonSchema && jsonSchema.perukirjakoneFee);
   
-  // const deceasedTotalAssets = (deceasedAutomobilesTotal + deceasedBelongingsOver4KTotal + deceasedPersonalBelongingsTotal + deceasedPropertyTotal + deceasedStockTotal + deceasedBankTotal);
-  // console.log("deceasedTotalAssets", deceasedTotalAssets.replace(/\./g, ','))
-
 
   const deceasedBankTotal = calculateTotal(
     jsonSchema && jsonSchema.bankAccountInfo
@@ -109,6 +106,63 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
   const deceasedAutomobilesTotal = calculateTotal(jsonSchema && jsonSchema.deceasedMotorBikeBrandTypeInfo)
 
 
+  
+  const deceasedSumtotal = () => {
+    let deceasedSum = 0;
+    if (deceasedBankTotal) {
+      deceasedSum = deceasedSum + deceasedBankTotal;
+    }
+    if (deceasedStockTotal) {
+      deceasedSum = deceasedSum + deceasedStockTotal;
+    }
+    if (deceasedBelongingsOver4KTotal) {
+      deceasedSum = deceasedSum + deceasedBelongingsOver4KTotal
+    }
+    if (deceasedPersonalBelongingsTotal) {
+      deceasedSum = deceasedSum + deceasedPersonalBelongingsTotal;
+    }
+    if (deceasedPropertyTotal) {
+      deceasedSum = deceasedSum + deceasedPropertyTotal; 
+    }
+    if (deceasedAutomobilesTotal) {
+      deceasedSum = deceasedSum + deceasedAutomobilesTotal;
+    }
+    return deceasedSum;
+  }
+
+  const totalSum = () => {
+    let expensesTotal = 0;
+    if (totalDebt) {
+      expensesTotal = expensesTotal + totalDebt;
+    }
+    if (totalFuneralExpenses) {
+      expensesTotal = expensesTotal + totalFuneralExpenses;
+    }
+    if (deathCertificateTotal) {
+      expensesTotal = expensesTotal + deathCertificateTotal;
+    }
+    if (flowersTotal) {
+      expensesTotal = expensesTotal + flowersTotal;
+    }
+    if (tombstoneTotal) {
+      expensesTotal = expensesTotal + tombstoneTotal;
+    }
+    if (otherFuneralExpensesTotal) {
+      expensesTotal = expensesTotal + otherFuneralExpensesTotal;
+    }
+    if (perukirjakoneRewardTotal) {
+      expensesTotal = expensesTotal + perukirjakoneRewardTotal;
+    }
+    if (perukirjakoneFeeTotal) {
+      expensesTotal = expensesTotal + perukirjakoneFeeTotal;
+    }
+    return expensesTotal;
+
+  }
+
+  const totalDeceasedDebt = () => {
+    return totalSum + deceasedSumtotal;
+  }
   return (
     <>
       <View style={styles.row}>
@@ -127,12 +181,7 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {(deceasedAutomobilesTotal +
-                deceasedBelongingsOver4KTotal +
-                deceasedPersonalBelongingsTotal +
-                deceasedPropertyTotal +
-                deceasedStockTotal +
-                deceasedBankTotal).toFixed(2).replace(/\./g, ',')}
+              {deceasedSumtotal().toFixed(2).replace(/\./g, ',')}
             </Text>
           </View>
         </View>
@@ -146,14 +195,7 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {(totalDebt +
-                totalFuneralExpenses +
-                deathCertificateTotal +
-                flowersTotal +
-                tombstoneTotal +
-                otherFuneralExpensesTotal +
-                perukirjakoneRewardTotal +
-                perukirjakoneFeeTotal).toFixed(2).replace(/\./g, ',')}
+              {totalSum().toFixed(2).replace(/\./g, ',')}
             </Text>
           </View>
         </View>
@@ -167,20 +209,7 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {(deceasedAutomobilesTotal +
-                deceasedBelongingsOver4KTotal +
-                deceasedPersonalBelongingsTotal +
-                deceasedPropertyTotal +
-                deceasedStockTotal +
-                deceasedBankTotal -
-                (totalDebt +
-                  totalFuneralExpenses +
-                  deathCertificateTotal +
-                  flowersTotal +
-                  tombstoneTotal +
-                  otherFuneralExpensesTotal +
-                  perukirjakoneRewardTotal +
-                  perukirjakoneFeeTotal)).toFixed(2).replace(/\./g, ',')}
+              {(deceasedSumtotal () - totalSum()).toFixed(2).replace(/\./g, ',')}
             </Text>
           </View>
         </View>

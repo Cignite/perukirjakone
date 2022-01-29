@@ -75,6 +75,28 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
   );
   const deceasedAutomobilesTotal = calculateTotal(jsonSchema && jsonSchema.deceasedMotorBikeBrandTypeInfo)
 
+  const deceasedSumtotal = () => {
+    let deceasedSum = 0;
+    if (deceasedBankTotal) {
+      deceasedSum = deceasedSum + deceasedBankTotal;
+    }
+    if (deceasedStockTotal) {
+      deceasedSum = deceasedSum + deceasedStockTotal;
+    }
+    if (deceasedBelongingsOver4KTotal) {
+      deceasedSum = deceasedSum + deceasedBelongingsOver4KTotal
+    }
+    if (deceasedPersonalBelongingsTotal) {
+      deceasedSum = deceasedSum + deceasedPersonalBelongingsTotal;
+    }
+    if (deceasedPropertyTotal) {
+      deceasedSum = deceasedSum + deceasedPropertyTotal; 
+    }
+    if (deceasedAutomobilesTotal) {
+      deceasedSum = deceasedSum + deceasedAutomobilesTotal;
+    }
+    return deceasedSum;
+  } 
   return (
     <>
       <View style={styles.table}>
@@ -85,12 +107,7 @@ const DeceasedAssetsPropertiesSum = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {(deceasedAutomobilesTotal +
-                deceasedBelongingsOver4KTotal +
-                deceasedPersonalBelongingsTotal +
-                deceasedPropertyTotal +
-                deceasedStockTotal +
-                deceasedBankTotal).toFixed(2).replace(/\./g, ',')}
+              {deceasedSumtotal().toFixed(2).replace(/\./g, ',')}
             </Text>
           </View>
         </View>

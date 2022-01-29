@@ -105,8 +105,8 @@ const DeceaseddDebtExpenses = ({ jsonSchema }) => {
             );
           })}
       </View>
-
-      <View style={styles.table}>
+      {jsonSchema && jsonSchema.funeralExpensesInfoDeathCertificate && (
+        <View style={styles.table}>
         <View style={styles.tableRow}>
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>Saldotodistukset</Text>
@@ -114,11 +114,13 @@ const DeceaseddDebtExpenses = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {jsonSchema && jsonSchema.funeralExpensesInfoDeathCertificate.replace(/\./g, ',')}
+              {jsonSchema && jsonSchema.funeralExpensesInfoDeathCertificate && jsonSchema.funeralExpensesInfoDeathCertificate.replace(/\./g, ',')}
             </Text>
           </View>
         </View>
-      </View>
+        </View>
+      )}
+     
 
       <View style={styles.table}>
         <View style={styles.tableRow}>
@@ -128,7 +130,7 @@ const DeceaseddDebtExpenses = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {jsonSchema && jsonSchema.flowers.replace(/\./g, ',')}
+              {jsonSchema && jsonSchema.flowers && jsonSchema.flowers.replace(/\./g, ',')}
             </Text>
           </View>
         </View>
@@ -142,7 +144,7 @@ const DeceaseddDebtExpenses = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {jsonSchema && jsonSchema.funeralExpensesInfoTombstone.replace(/\./g, ',')}
+              {jsonSchema && jsonSchema.funeralExpensesInfoTombstone && jsonSchema.funeralExpensesInfoTombstone.replace(/\./g, ',')}
             </Text>
           </View>
         </View>
@@ -174,7 +176,7 @@ const DeceaseddDebtExpenses = ({ jsonSchema }) => {
 
           <View style={styles.tableCol1}>
             <Text style={styles.tableCell}>
-              {jsonSchema && jsonSchema.perukirjakoneReward.replace(/\./g, ',')}
+              {jsonSchema && jsonSchema.perukirjakoneReward && jsonSchema.perukirjakoneReward.replace(/\./g, ',')}
             </Text>
           </View>
         </View>
