@@ -125,7 +125,7 @@ const Step2 = () => {
                       name={`${name}.name`}
                       component={InputWrapper}
                       type="text"
-                      placeholder="200"
+                      placeholder="Musiikki/Ruoka/Valokuvat"
                       label="Muut kulut esimerkiksi valokuvat, musiikki, ruoka yms."
                     />
                   </div>
