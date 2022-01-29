@@ -111,6 +111,8 @@ const WidowBalanceSummary = ({ jsonSchema }) => {
   
   return (
     <>
+    {jsonSchema && jsonSchema.wasDeceasedPersonMarried && (
+      <>
       <View style={styles.row}>
         <View style={[styles.col]}>
           <View>
@@ -160,6 +162,7 @@ const WidowBalanceSummary = ({ jsonSchema }) => {
           </View>
         </View>
       </View>
+      </>)}
     </>
   );
 };
